@@ -1,0 +1,173 @@
+{
+  "id": "vertex-claude",
+  "name": "Vertex AI (Claude)",
+  "version": 1,
+  "description": "Claude models hosted on Google Cloud Vertex AI Model Garden. Uses the publishers/anthropic endpoint with streamRawPredict and the Anthropic message format. Separate from the Gemini-on-Vertex template because the URL path, body shape, and required anthropic_version differ.",
+  "messageFormat": "anthropic",
+
+  "auth": { "type": "google-service-account", "fieldKey": "service-account" },
+
+  "schema": {
+    "type": "object",
+    "properties": {
+      "service-account": {
+        "type": "array",
+        "items": { "type": "string" },
+        "title": "Service Account JSON",
+        "description": "Paste the full Service Account JSON. Multiple credentials rotate automatically with per-credential token caching."
+      },
+      "project": {
+        "type": "string",
+        "title": "Project ID"
+      },
+      "region": {
+        "type": "string",
+        "title": "Region",
+        "default": "us-east5",
+        "description": "Pick a region where the Claude model is enabled in Model Garden (commonly us-east5, europe-west1, asia-southeast1).",
+        "examples": [
+          "us-east5",
+          "us-central1",
+          "europe-west1",
+          "asia-southeast1"
+        ]
+      },
+      "model": {
+        "type": "string",
+        "title": "Model",
+        "description": "Vertex Claude model ID. Uses '@date' suffix (e.g. claude-opus-4-7@20260101).",
+        "examples": [
+          "claude-opus-4-7@20260101",
+          "claude-sonnet-4-7@20260101",
+          "claude-haiku-4-5@20251001",
+          "claude-sonnet-4-6@20251005",
+          "claude-opus-4-6@20251005"
+        ]
+      },
+      "thinking": {
+        "type": "string",
+        "title": "Thinking Mode",
+        "enum": ["off", "adaptive", "budget"],
+        "default": "off",
+        "description": "Adaptive = Claude picks effort (4.6+, incl. 4.7). Budget = fixed token budget (4.5 and 4.6 — NOT 4.7)."
+      },
+      "thinking-effort": {
+        "type": "string",
+        "title": "Thinking Effort",
+        "enum": ["low", "medium", "high", "xhigh", "max"],
+        "default": "high"
+      },
+      "thinking-budget": {
+        "type": "integer",
+        "title": "Thinking Budget (tokens)",
+        "default": 10000,
+        "minimum": 1024,
+        "maximum": 128000
+      },
+      "thinking-display": {
+        "type": "string",
+        "title": "Thinking Display",
+        "enum": ["summarized", "omitted"],
+        "default": "summarized"
+      },
+      "cache": {
+        "type": "boolean",
+        "title": "Prompt Caching",
+        "default": false
+      },
+      "temperature": {
+        "type": "number",
+        "title": "Temperature",
+        "default": 1.0,
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "required": ["service-account", "project", "model"]
+  },
+
+  "uiSchema": {
+    "service-account": {
+      "ui:widget": "secret-list",
+      "ui:options": { "rows": 6, "placeholder": "Paste Service Account JSON here (one per line for rotation)." }
+    },
+    "project": { "ui:widget": "text" },
+    "region": { "ui:widget": "combobox" },
+    "model": { "ui:widget": "combobox" },
+    "thinking": { "ui:widget": "select" },
+    "thinking-effort": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "thinking": "adaptive" } }
+    },
+    "thinking-budget": {
+      "ui:widget": "number",
+      "ui:options": { "showIf": { "thinking": "budget" } }
+    },
+    "thinking-display": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "thinking": "!off" } }
+    },
+    "cache": { "ui:widget": "toggle" },
+    "temperature": { "ui:widget": "slider", "ui:options": { "step": 0.1 } }
+  },
+
+  "models": [
+    { "id": "claude-opus-4-7@20260101", "name": "Claude Opus 4.7 (Vertex)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-sonnet-4-7@20260101", "name": "Claude Sonnet 4.7 (Vertex)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-haiku-4-5@20251001", "name": "Claude Haiku 4.5 (Vertex)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-sonnet-4-6@20251005", "name": "Claude Sonnet 4.6 (Vertex)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] }
+  ],
+
+  "request": {
+    "url": "https://{{region}}-aiplatform.googleapis.com/v1/projects/{{project}}/locations/{{region}}/publishers/anthropic/models/{{model}}:streamRawPredict",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "anthropic_version": "vertex-2023-10-16",
+      "messages": "{{$messages}}",
+      "system": "{{$system}}",
+      "max_tokens": "{{$max_tokens}}",
+      "stream": "{{$streaming}}",
+      "temperature": "{{temperature}}"
+    }
+  },
+
+  "conditionals": [
+    {
+      "if": { "thinking": "budget" },
+      "merge": {
+        "body": {
+          "thinking": { "type": "enabled", "budget_tokens": "{{thinking-budget}}" }
+        }
+      },
+      "remove": { "body": ["temperature", "top_p", "top_k"] }
+    },
+    {
+      "if": { "thinking": "adaptive" },
+      "merge": {
+        "body": {
+          "thinking": { "type": "adaptive" },
+          "output_config": { "effort": "{{thinking-effort}}" }
+        }
+      },
+      "remove": { "body": ["temperature", "top_p", "top_k"] }
+    }
+  ],
+
+  "response": {
+    "streaming": {
+      "format": "sse",
+      "style": "anthropic",
+      "textPath": "delta.text",
+      "thinkingPath": "delta.thinking",
+      "doneSentinel": "message_stop",
+      "usagePath": "usage"
+    },
+    "nonStreaming": {
+      "textPath": "content[0].text",
+      "usagePath": "usage"
+    }
+  }
+}

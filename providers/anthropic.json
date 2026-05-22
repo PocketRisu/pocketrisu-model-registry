@@ -1,0 +1,170 @@
+{
+  "id": "anthropic",
+  "name": "Anthropic",
+  "version": 1,
+  "description": "Official Anthropic Messages API (Claude 4.x with thinking and prompt caching).",
+  "messageFormat": "anthropic",
+
+  "auth": { "type": "x-api-key", "fieldKey": "api-key", "header": "x-api-key" },
+
+  "schema": {
+    "type": "object",
+    "properties": {
+      "api-key": {
+        "type": "array",
+        "items": { "type": "string" },
+        "title": "API Key",
+        "description": "Anthropic API key. Multiple keys rotate automatically."
+      },
+      "model": {
+        "type": "string",
+        "title": "Model",
+        "examples": [
+          "claude-opus-4-7",
+          "claude-sonnet-4-7",
+          "claude-haiku-4-5",
+          "claude-sonnet-4-6",
+          "claude-opus-4-6"
+        ]
+      },
+      "thinking": {
+        "type": "string",
+        "title": "Thinking Mode",
+        "enum": ["off", "adaptive", "budget"],
+        "default": "off",
+        "description": "Adaptive = let Claude pick effort (Claude 4.6+, including 4.7). Budget = fixed token budget (Claude 4.5 and earlier, and 4.6 — but NOT 4.7, which is adaptive-only)."
+      },
+      "thinking-effort": {
+        "type": "string",
+        "title": "Thinking Effort",
+        "enum": ["low", "medium", "high", "xhigh", "max"],
+        "default": "high"
+      },
+      "thinking-budget": {
+        "type": "integer",
+        "title": "Thinking Budget (tokens)",
+        "default": 10000,
+        "minimum": 1024,
+        "maximum": 128000
+      },
+      "thinking-display": {
+        "type": "string",
+        "title": "Thinking Display",
+        "enum": ["summarized", "omitted"],
+        "default": "summarized"
+      },
+      "cache": {
+        "type": "boolean",
+        "title": "Prompt Caching",
+        "default": false
+      },
+      "cache-ttl": {
+        "type": "string",
+        "title": "Cache TTL",
+        "enum": ["default", "1h"],
+        "default": "default",
+        "description": "Default = 5 minutes. 1h requires the extended-cache-ttl beta."
+      },
+      "temperature": {
+        "type": "number",
+        "title": "Temperature",
+        "default": 1.0,
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "required": ["api-key", "model"]
+  },
+
+  "uiSchema": {
+    "api-key": { "ui:widget": "secret-list" },
+    "model": { "ui:widget": "combobox" },
+    "thinking": { "ui:widget": "select" },
+    "thinking-effort": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "thinking": "adaptive" } }
+    },
+    "thinking-budget": {
+      "ui:widget": "number",
+      "ui:options": { "showIf": { "thinking": "budget" } }
+    },
+    "thinking-display": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "thinking": "!off" } }
+    },
+    "cache": { "ui:widget": "toggle" },
+    "cache-ttl": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "cache": true } }
+    },
+    "temperature": { "ui:widget": "slider", "ui:options": { "step": 0.1 } }
+  },
+
+  "models": [
+    { "id": "claude-opus-4-7", "name": "Claude Opus 4.7", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-sonnet-4-7", "name": "Claude Sonnet 4.7", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-haiku-4-5", "name": "Claude Haiku 4.5", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-sonnet-4-6", "name": "Claude Sonnet 4.6", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "claude-opus-4-6", "name": "Claude Opus 4.6", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] }
+  ],
+
+  "request": {
+    "url": "https://api.anthropic.com/v1/messages",
+    "method": "POST",
+    "headers": {
+      "anthropic-version": "2023-06-01",
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "{{model}}",
+      "messages": "{{$messages}}",
+      "system": "{{$system}}",
+      "max_tokens": "{{$max_tokens}}",
+      "stream": "{{$streaming}}",
+      "temperature": "{{temperature}}"
+    }
+  },
+
+  "conditionals": [
+    {
+      "if": { "thinking": "budget" },
+      "merge": {
+        "body": {
+          "thinking": { "type": "enabled", "budget_tokens": "{{thinking-budget}}" }
+        }
+      },
+      "remove": { "body": ["temperature", "top_p", "top_k"] }
+    },
+    {
+      "if": { "thinking": "adaptive" },
+      "merge": {
+        "body": {
+          "thinking": { "type": "adaptive" },
+          "output_config": { "effort": "{{thinking-effort}}" }
+        }
+      },
+      "remove": { "body": ["temperature", "top_p", "top_k"] }
+    },
+    {
+      "if": { "cache": true, "cache-ttl": "1h" },
+      "merge": {
+        "headers": { "anthropic-beta": "extended-cache-ttl-2025-04-11" }
+      }
+    }
+  ],
+
+  "response": {
+    "streaming": {
+      "format": "sse",
+      "style": "anthropic",
+      "textPath": "delta.text",
+      "thinkingPath": "delta.thinking",
+      "doneSentinel": "message_stop",
+      "usagePath": "usage"
+    },
+    "nonStreaming": {
+      "textPath": "content[0].text",
+      "usagePath": "usage"
+    }
+  }
+}

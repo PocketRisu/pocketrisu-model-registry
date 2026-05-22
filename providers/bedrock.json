@@ -1,0 +1,167 @@
+{
+  "id": "bedrock",
+  "name": "AWS Bedrock",
+  "version": 1,
+  "description": "Claude and other models on AWS Bedrock. Uses AWS V4 signature authentication.",
+  "messageFormat": "anthropic",
+
+  "auth": {
+    "type": "aws-v4",
+    "fieldsKey": {
+      "accessKey": "aws-access-key",
+      "secretKey": "aws-secret-key",
+      "region": "aws-region",
+      "service": "bedrock"
+    }
+  },
+
+  "schema": {
+    "type": "object",
+    "properties": {
+      "aws-access-key": {
+        "type": "string",
+        "title": "AWS Access Key ID"
+      },
+      "aws-secret-key": {
+        "type": "string",
+        "title": "AWS Secret Access Key"
+      },
+      "aws-region": {
+        "type": "string",
+        "title": "AWS Region",
+        "default": "us-east-1",
+        "examples": [
+          "us-east-1",
+          "us-east-2",
+          "us-west-2",
+          "eu-central-1",
+          "eu-west-1",
+          "ap-northeast-1",
+          "ap-southeast-1"
+        ]
+      },
+      "model": {
+        "type": "string",
+        "title": "Model",
+        "description": "Bedrock model identifier (vendor.model-id-vN:M).",
+        "examples": [
+          "anthropic.claude-sonnet-4-7-20260101-v1:0",
+          "anthropic.claude-opus-4-7-20260101-v1:0",
+          "anthropic.claude-haiku-4-5-20251001-v1:0"
+        ]
+      },
+      "thinking": {
+        "type": "string",
+        "title": "Thinking Mode",
+        "enum": ["off", "adaptive", "budget"],
+        "default": "off"
+      },
+      "thinking-effort": {
+        "type": "string",
+        "title": "Thinking Effort",
+        "enum": ["low", "medium", "high", "xhigh", "max"],
+        "default": "high"
+      },
+      "thinking-budget": {
+        "type": "integer",
+        "title": "Thinking Budget (tokens)",
+        "default": 10000,
+        "minimum": 1024,
+        "maximum": 128000
+      },
+      "thinking-display": {
+        "type": "string",
+        "title": "Thinking Display",
+        "enum": ["summarized", "omitted"],
+        "default": "summarized"
+      },
+      "temperature": {
+        "type": "number",
+        "title": "Temperature",
+        "default": 1.0,
+        "minimum": 0,
+        "maximum": 1
+      }
+    },
+    "required": ["aws-access-key", "aws-secret-key", "aws-region", "model"]
+  },
+
+  "uiSchema": {
+    "aws-access-key": { "ui:widget": "secret" },
+    "aws-secret-key": { "ui:widget": "secret" },
+    "aws-region": { "ui:widget": "combobox" },
+    "model": { "ui:widget": "combobox" },
+    "thinking": { "ui:widget": "select" },
+    "thinking-effort": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "thinking": "adaptive" } }
+    },
+    "thinking-budget": {
+      "ui:widget": "number",
+      "ui:options": { "showIf": { "thinking": "budget" } }
+    },
+    "thinking-display": {
+      "ui:widget": "select",
+      "ui:options": { "showIf": { "thinking": "!off" } }
+    },
+    "temperature": { "ui:widget": "slider", "ui:options": { "step": 0.1 } }
+  },
+
+  "models": [
+    { "id": "anthropic.claude-sonnet-4-7-20260101-v1:0", "name": "Claude Sonnet 4.7 (Bedrock)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "anthropic.claude-opus-4-7-20260101-v1:0", "name": "Claude Opus 4.7 (Bedrock)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] },
+    { "id": "anthropic.claude-haiku-4-5-20251001-v1:0", "name": "Claude Haiku 4.5 (Bedrock)", "capabilities": ["streaming", "thinking", "vision", "prefill", "cache", "tools"] }
+  ],
+
+  "request": {
+    "url": "https://bedrock-runtime.{{aws-region}}.amazonaws.com/model/{{model}}/invoke-with-response-stream",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "anthropic_version": "bedrock-2023-05-31",
+      "messages": "{{$messages}}",
+      "system": "{{$system}}",
+      "max_tokens": "{{$max_tokens}}",
+      "temperature": "{{temperature}}"
+    }
+  },
+
+  "conditionals": [
+    {
+      "if": { "thinking": "budget" },
+      "merge": {
+        "body": {
+          "thinking": { "type": "enabled", "budget_tokens": "{{thinking-budget}}" }
+        }
+      },
+      "remove": { "body": ["temperature", "top_p", "top_k"] }
+    },
+    {
+      "if": { "thinking": "adaptive" },
+      "merge": {
+        "body": {
+          "thinking": { "type": "adaptive" },
+          "output_config": { "effort": "{{thinking-effort}}" }
+        }
+      },
+      "remove": { "body": ["temperature", "top_p", "top_k"] }
+    }
+  ],
+
+  "response": {
+    "streaming": {
+      "format": "sse",
+      "style": "anthropic-bedrock",
+      "textPath": "delta.text",
+      "thinkingPath": "delta.thinking",
+      "doneSentinel": "message_stop",
+      "usagePath": "usage"
+    },
+    "nonStreaming": {
+      "textPath": "content[0].text",
+      "usagePath": "usage"
+    }
+  }
+}

@@ -1,0 +1,111 @@
+{
+  "schemaVersion": 1,
+  "contentVersion": 1,
+  "updated": "2026-05-22",
+  "providers": [
+    {
+      "id": "openai",
+      "name": "OpenAI",
+      "description": "GPT-5 series / o-series / GPT-4o (official api.openai.com)",
+      "url": "providers/openai.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "anthropic",
+      "name": "Anthropic",
+      "description": "Claude 4.x with thinking, prompt caching (official api.anthropic.com)",
+      "url": "providers/anthropic.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "google-ais",
+      "name": "Google AI Studio (Gemini)",
+      "description": "Gemini 2.5 / 3.x via generativelanguage.googleapis.com",
+      "url": "providers/google-ais.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "deepseek",
+      "name": "DeepSeek",
+      "description": "DeepSeek Chat / Reasoner (official api.deepseek.com)",
+      "url": "providers/deepseek.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "openrouter",
+      "name": "OpenRouter",
+      "description": "Multi-vendor router (anthropic/openai/google/... via openrouter.ai)",
+      "url": "providers/openrouter.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "nanogpt",
+      "name": "NanoGPT",
+      "description": "Pay-per-use OpenAI-compatible gateway (nano-gpt.com)",
+      "url": "providers/nanogpt.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "vercel",
+      "name": "Vercel AI Gateway",
+      "description": "Vercel's AI Gateway with OpenAI/Anthropic/Google format select",
+      "url": "providers/vercel.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "ollama",
+      "name": "Ollama (Self-hosted)",
+      "description": "Self-hosted Ollama server (localhost or LAN)",
+      "url": "providers/ollama.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "ollama-cloud",
+      "name": "Ollama Cloud",
+      "description": "Ollama's hosted cloud (ollama.com) with managed models",
+      "url": "providers/ollama-cloud.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "openai-compatible",
+      "name": "OpenAI Compatible (Custom)",
+      "description": "Generic OpenAI-compatible endpoint (DeepInfra, Together, Groq, LiteLLM, vLLM, reverse proxies)",
+      "url": "providers/openai-compatible.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "vertex",
+      "name": "Vertex AI (Gemini)",
+      "description": "Gemini models on Google Cloud Vertex AI (Service Account auth)",
+      "url": "providers/vertex.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "vertex-claude",
+      "name": "Vertex AI (Claude)",
+      "description": "Claude models on Vertex AI Model Garden — publishers/anthropic + streamRawPredict",
+      "url": "providers/vertex-claude.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    },
+    {
+      "id": "bedrock",
+      "name": "AWS Bedrock",
+      "description": "Claude / other models on AWS Bedrock (AWS V4 signed)",
+      "url": "providers/bedrock.json",
+      "version": 1,
+      "updated": "2026-05-22"
+    }
+  ]
+}

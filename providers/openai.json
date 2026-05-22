@@ -1,0 +1,158 @@
+{
+  "id": "openai",
+  "name": "OpenAI",
+  "version": 1,
+  "description": "Official OpenAI Chat Completions API (GPT-5 series, o-series, GPT-4o).",
+  "messageFormat": "openai",
+
+  "auth": { "type": "bearer", "fieldKey": "api-key" },
+
+  "schema": {
+    "type": "object",
+    "properties": {
+      "api-key": {
+        "type": "array",
+        "items": { "type": "string" },
+        "title": "API Key",
+        "description": "OpenAI API key. Enter multiple keys (one per line) for automatic rotation on 429/503."
+      },
+      "model": {
+        "type": "string",
+        "title": "Model",
+        "description": "Model ID. You can also type any model name the API accepts.",
+        "examples": [
+          "gpt-5.5",
+          "gpt-5",
+          "gpt-5-mini",
+          "o4",
+          "o3",
+          "gpt-4o",
+          "gpt-4o-mini"
+        ]
+      },
+      "reasoning-effort": {
+        "type": "string",
+        "title": "Reasoning Effort",
+        "description": "For o-series / GPT-5. 'none' disables reasoning; other values control depth. Non-reasoning models ignore this field.",
+        "enum": ["none", "minimal", "low", "medium", "high", "xhigh"],
+        "default": "none"
+      },
+      "verbosity": {
+        "type": "string",
+        "title": "Response Verbosity",
+        "description": "GPT-5 only. Controls answer length. Leave 'off' to omit the field entirely.",
+        "enum": ["off", "low", "medium", "high"],
+        "default": "off"
+      },
+      "service-tier": {
+        "type": "string",
+        "title": "Service Tier",
+        "description": "Priority/scale = paid tiers with stronger guarantees. Flex = cheaper, may queue. Auto/default let OpenAI choose.",
+        "enum": ["auto", "default", "flex", "priority", "scale"],
+        "default": "auto"
+      },
+      "prompt-cache-retention": {
+        "type": "string",
+        "title": "Prompt Cache Retention",
+        "description": "'in_memory' is the default short-term cache; '24h' enables the extended-retention beta.",
+        "enum": ["off", "in_memory", "24h"],
+        "default": "off"
+      },
+      "temperature": {
+        "type": "number",
+        "title": "Temperature",
+        "default": 1.0,
+        "minimum": 0,
+        "maximum": 2
+      }
+    },
+    "required": ["api-key", "model"]
+  },
+
+  "uiSchema": {
+    "api-key": { "ui:widget": "secret-list" },
+    "model": { "ui:widget": "combobox" },
+    "reasoning-effort": { "ui:widget": "select" },
+    "verbosity": { "ui:widget": "select" },
+    "service-tier": { "ui:widget": "select" },
+    "prompt-cache-retention": { "ui:widget": "select", "ui:options": { "collapsed": true } },
+    "temperature": { "ui:widget": "slider", "ui:options": { "step": 0.1 } }
+  },
+
+  "models": [
+    { "id": "gpt-5.5", "name": "GPT-5.5", "capabilities": ["streaming", "thinking", "vision", "tools", "cache"] },
+    { "id": "gpt-5", "name": "GPT-5", "capabilities": ["streaming", "thinking", "vision", "tools", "cache"] },
+    { "id": "gpt-5-mini", "name": "GPT-5 Mini", "capabilities": ["streaming", "thinking", "vision", "tools"] },
+    { "id": "o4", "name": "o4", "capabilities": ["streaming", "thinking", "vision", "tools"] },
+    { "id": "o3", "name": "o3", "capabilities": ["streaming", "thinking", "tools"] },
+    { "id": "gpt-4o", "name": "GPT-4o", "capabilities": ["streaming", "vision", "tools"] },
+    { "id": "gpt-4o-mini", "name": "GPT-4o Mini", "capabilities": ["streaming", "vision", "tools"] }
+  ],
+
+  "request": {
+    "url": "https://api.openai.com/v1/chat/completions",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "{{model}}",
+      "messages": "{{$messages}}",
+      "max_tokens": "{{$max_tokens}}",
+      "stream": "{{$streaming}}",
+      "temperature": "{{temperature}}"
+    }
+  },
+
+  "conditionals": [
+    {
+      "if": { "reasoning-effort": "!none" },
+      "merge": { "body": { "reasoning_effort": "{{reasoning-effort}}" } },
+      "remove": { "body": ["temperature", "top_p", "frequency_penalty", "presence_penalty"] }
+    },
+    {
+      "if": { "verbosity": "!off" },
+      "merge": { "body": { "verbosity": "{{verbosity}}" } }
+    },
+    {
+      "if": { "service-tier": "flex" },
+      "merge": { "body": { "service_tier": "flex" } }
+    },
+    {
+      "if": { "service-tier": "default" },
+      "merge": { "body": { "service_tier": "default" } }
+    },
+    {
+      "if": { "service-tier": "priority" },
+      "merge": { "body": { "service_tier": "priority" } }
+    },
+    {
+      "if": { "service-tier": "scale" },
+      "merge": { "body": { "service_tier": "scale" } }
+    },
+    {
+      "if": { "prompt-cache-retention": "in_memory" },
+      "merge": { "body": { "prompt_cache_retention": "in_memory" } }
+    },
+    {
+      "if": { "prompt-cache-retention": "24h" },
+      "merge": { "body": { "prompt_cache_retention": "24h" } }
+    }
+  ],
+
+  "response": {
+    "streaming": {
+      "format": "sse",
+      "style": "openai",
+      "textPath": "choices[0].delta.content",
+      "thinkingPath": "choices[0].delta.reasoning_content",
+      "doneSentinel": "[DONE]",
+      "usagePath": "usage"
+    },
+    "nonStreaming": {
+      "textPath": "choices[0].message.content",
+      "thinkingPath": "choices[0].message.reasoning_content",
+      "usagePath": "usage"
+    }
+  }
+}

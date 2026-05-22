@@ -1,0 +1,219 @@
+{
+  "$schema": "http://json-schema.org/draft-07/schema#",
+  "$id": "https://raw.githubusercontent.com/PocketRisu/pocketrisu-model-registry/main/schema/provider-template.schema.json",
+  "title": "PocketRisu Provider Template",
+  "description": "Declarative description of how PocketRisu (Risuai-NodeOnly) talks to an LLM provider. Loaded at runtime by PocketRisu.",
+  "type": "object",
+  "required": ["id", "name", "version", "messageFormat", "auth", "schema", "uiSchema", "models", "request", "response"],
+  "additionalProperties": false,
+  "properties": {
+    "id": {
+      "type": "string",
+      "pattern": "^[a-z][a-z0-9-]*$",
+      "description": "Unique kebab-case identifier (e.g. 'openai', 'anthropic', 'vertex')."
+    },
+    "name": {
+      "type": "string",
+      "description": "Human-readable display name."
+    },
+    "version": {
+      "type": "integer",
+      "minimum": 1,
+      "description": "Template version. Increment when wire-level behavior changes."
+    },
+    "description": {
+      "type": "string",
+      "description": "One-line summary shown in the template picker."
+    },
+    "changelog": {
+      "type": "string",
+      "description": "Recent changes summary."
+    },
+    "messageFormat": {
+      "enum": ["openai", "anthropic", "google"],
+      "description": "Which built-in message formatter PocketRisu uses to convert chat messages."
+    },
+    "auth": {
+      "$ref": "#/definitions/auth"
+    },
+    "schema": {
+      "type": "object",
+      "description": "JSON Schema (draft-07) describing user-input fields. Used to generate the configuration form."
+    },
+    "uiSchema": {
+      "type": "object",
+      "description": "Per-field UI hints (widget type, showIf conditions, ordering)."
+    },
+    "models": {
+      "type": "array",
+      "description": "Recommended model list. Users may also enter model IDs manually.",
+      "items": { "$ref": "#/definitions/model" }
+    },
+    "request": {
+      "$ref": "#/definitions/request"
+    },
+    "conditionals": {
+      "type": "array",
+      "description": "Rules that merge/remove body or header fields based on user input.",
+      "items": { "$ref": "#/definitions/conditional" }
+    },
+    "response": {
+      "$ref": "#/definitions/response"
+    }
+  },
+  "definitions": {
+    "auth": {
+      "type": "object",
+      "description": "Authentication strategy. PocketRisu injects the auth automatically; do not put auth headers in request.headers.",
+      "oneOf": [
+        {
+          "required": ["type", "fieldKey"],
+          "properties": {
+            "type": { "const": "bearer" },
+            "fieldKey": { "type": "string", "description": "Name of the schema field holding the API key. Sent as 'Authorization: Bearer {value}'." }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": ["type", "fieldKey"],
+          "properties": {
+            "type": { "const": "x-api-key" },
+            "fieldKey": { "type": "string" },
+            "header": { "type": "string", "description": "Header name (default 'x-api-key')." }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": ["type", "fieldKey"],
+          "properties": {
+            "type": { "const": "query" },
+            "fieldKey": { "type": "string" },
+            "param": { "type": "string", "description": "Query parameter name (default 'key')." }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": ["type", "fieldKey"],
+          "properties": {
+            "type": { "const": "google-service-account" },
+            "fieldKey": { "type": "string", "description": "Schema field holding the Service Account JSON. PocketRisu signs an RS256 JWT and exchanges it for an OAuth access token, cached per client_email." }
+          },
+          "additionalProperties": false
+        },
+        {
+          "required": ["type", "fieldsKey"],
+          "properties": {
+            "type": { "const": "aws-v4" },
+            "fieldsKey": {
+              "type": "object",
+              "required": ["accessKey", "secretKey", "region"],
+              "properties": {
+                "accessKey": { "type": "string" },
+                "secretKey": { "type": "string" },
+                "region": { "type": "string" },
+                "service": { "type": "string", "description": "AWS service name (default 'bedrock')." }
+              },
+              "additionalProperties": false
+            }
+          },
+          "additionalProperties": false
+        }
+      ]
+    },
+    "model": {
+      "type": "object",
+      "required": ["id", "name"],
+      "additionalProperties": false,
+      "properties": {
+        "id": { "type": "string", "description": "Model ID as accepted by the vendor API." },
+        "name": { "type": "string", "description": "Human-readable display name." },
+        "messageFormat": {
+          "enum": ["openai", "anthropic", "google"],
+          "description": "Override the template-level messageFormat for this model (e.g. Claude on Vertex)."
+        },
+        "capabilities": {
+          "type": "array",
+          "items": {
+            "enum": ["streaming", "thinking", "vision", "prefill", "cache", "tools"]
+          },
+          "uniqueItems": true
+        }
+      }
+    },
+    "request": {
+      "type": "object",
+      "required": ["url", "method"],
+      "additionalProperties": false,
+      "properties": {
+        "url": { "type": "string", "description": "Request URL with {{var}} substitution." },
+        "method": { "enum": ["GET", "POST", "PUT", "PATCH", "DELETE"] },
+        "headers": {
+          "type": "object",
+          "description": "Static request headers (auth headers are injected automatically)."
+        },
+        "body": {
+          "description": "Request body template. Variables are substituted; {{$messages}} and {{$system}} are injected by the formatter. Null/empty values are removed.",
+          "type": ["object", "array", "string", "null"]
+        }
+      }
+    },
+    "conditional": {
+      "type": "object",
+      "required": ["if"],
+      "additionalProperties": false,
+      "properties": {
+        "if": {
+          "type": "object",
+          "description": "Field-to-value map (AND). String prefix '!' negates (e.g. '!off'). 'true'/'false' check truthiness."
+        },
+        "merge": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "body": { "type": "object" },
+            "headers": { "type": "object" }
+          }
+        },
+        "remove": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "body": { "type": "array", "items": { "type": "string" } },
+            "headers": { "type": "array", "items": { "type": "string" } }
+          }
+        }
+      }
+    },
+    "response": {
+      "type": "object",
+      "additionalProperties": false,
+      "properties": {
+        "streaming": {
+          "type": "object",
+          "required": ["format", "style", "textPath"],
+          "additionalProperties": false,
+          "properties": {
+            "format": { "enum": ["sse"] },
+            "style": {
+              "enum": ["openai", "anthropic", "anthropic-bedrock", "google"],
+              "description": "Wire-level SSE framing. 'anthropic-bedrock' uses AWS event stream framing (application/vnd.amazon.eventstream) carrying Anthropic-style chunks; PocketRisu's dispatch unwraps the framing before applying textPath/doneSentinel."
+            },
+            "textPath": { "type": "string", "description": "JSON path within each SSE chunk that holds the streamed text delta." },
+            "thinkingPath": { "type": "string" },
+            "doneSentinel": { "type": ["string", "null"], "description": "Termination marker (e.g. '[DONE]', 'message_stop'). null = stream end alone." },
+            "usagePath": { "type": "string" }
+          }
+        },
+        "nonStreaming": {
+          "type": "object",
+          "additionalProperties": false,
+          "properties": {
+            "textPath": { "type": "string" },
+            "thinkingPath": { "type": "string" },
+            "usagePath": { "type": "string" }
+          }
+        }
+      }
+    }
+  }
+}

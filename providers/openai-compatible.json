@@ -1,0 +1,100 @@
+{
+  "id": "openai-compatible",
+  "name": "OpenAI Compatible (Custom)",
+  "version": 1,
+  "description": "Generic OpenAI-compatible endpoint. Use for DeepInfra, Together, Groq, Fireworks, LiteLLM, vLLM, LM Studio, or any reverse-proxy that speaks /v1/chat/completions. Thinking output is best-effort: PocketRisu reads choices[0].delta.reasoning_content if the server returns it (DeepSeek-style), otherwise treats the response as plain text.",
+  "messageFormat": "openai",
+
+  "auth": { "type": "bearer", "fieldKey": "api-key" },
+
+  "schema": {
+    "type": "object",
+    "properties": {
+      "url": {
+        "type": "string",
+        "title": "Endpoint URL",
+        "description": "Full Chat Completions URL (must end with the path your server expects).",
+        "examples": [
+          "https://api.deepinfra.com/v1/openai/chat/completions",
+          "https://api.together.xyz/v1/chat/completions",
+          "https://api.groq.com/openai/v1/chat/completions",
+          "https://api.fireworks.ai/inference/v1/chat/completions",
+          "https://your-litellm-proxy.example.com/v1/chat/completions"
+        ]
+      },
+      "api-key": {
+        "type": "array",
+        "items": { "type": "string" },
+        "title": "API Key",
+        "description": "API key for the endpoint. Multiple keys rotate automatically."
+      },
+      "model": {
+        "type": "string",
+        "title": "Model",
+        "description": "Model ID as the endpoint expects it."
+      },
+      "extra-headers": {
+        "type": "string",
+        "title": "Extra Headers (JSON)",
+        "description": "Free-form JSON object merged into request headers (e.g. {\"X-Custom\": \"value\"}).",
+        "default": ""
+      },
+      "custom-params": {
+        "type": "string",
+        "title": "Custom Params (JSON)",
+        "description": "Free-form JSON merged into the request body.",
+        "default": ""
+      },
+      "temperature": {
+        "type": "number",
+        "title": "Temperature",
+        "default": 1.0,
+        "minimum": 0,
+        "maximum": 2
+      }
+    },
+    "required": ["url", "api-key", "model"]
+  },
+
+  "uiSchema": {
+    "url": { "ui:widget": "text", "ui:options": { "placeholder": "https://example.com/v1/chat/completions" } },
+    "api-key": { "ui:widget": "secret-list" },
+    "model": { "ui:widget": "text" },
+    "extra-headers": { "ui:widget": "textarea", "ui:options": { "rows": 3, "collapsed": true } },
+    "custom-params": { "ui:widget": "textarea", "ui:options": { "rows": 3, "collapsed": true } },
+    "temperature": { "ui:widget": "slider", "ui:options": { "step": 0.1 } }
+  },
+
+  "models": [],
+
+  "request": {
+    "url": "{{url}}",
+    "method": "POST",
+    "headers": {
+      "content-type": "application/json"
+    },
+    "body": {
+      "model": "{{model}}",
+      "messages": "{{$messages}}",
+      "max_tokens": "{{$max_tokens}}",
+      "stream": "{{$streaming}}",
+      "temperature": "{{temperature}}"
+    }
+  },
+
+  "response": {
+    "streaming": {
+      "format": "sse",
+      "style": "openai",
+      "textPath": "choices[0].delta.content",
+      "thinkingPath": "choices[0].delta.reasoning_content",
+      "doneSentinel": "[DONE]",
+      "usagePath": "usage"
+    },
+    "nonStreaming": {
+      "textPath": "choices[0].message.content",
+      "thinkingPath": "choices[0].message.reasoning_content",
+      "usagePath": "usage"
+    }
+  }
+}
