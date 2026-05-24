@@ -21,6 +21,7 @@
     { "id": "anthropic:standard", "displayName": "Anthropic", "providerBaseId": "anthropic", "profileTier": "standard", "url": "profiles/anthropic/standard.json", "version": 1 },
     { "id": "google:standard", "displayName": "Google AI Studio", "providerBaseId": "google", "profileTier": "standard", "url": "profiles/google/standard.json", "version": 1 },
     { "id": "openai-compatible:custom", "displayName": "OpenAI Compatible (Custom)", "providerBaseId": "openai-compatible", "profileTier": "standard", "url": "profiles/openai-compatible/custom.json", "version": 1 },
+    { "id": "openai-compatible:custom-noauth", "displayName": "OpenAI Compatible (Custom, no auth)", "providerBaseId": "openai-compatible", "profileTier": "standard", "url": "profiles/openai-compatible/custom-noauth.json", "version": 1 },
     { "id": "openrouter:openai-compatible", "displayName": "OpenRouter", "providerBaseId": "openrouter", "profileTier": "standard", "url": "profiles/openrouter/openai-compatible.json", "version": 1 },
     { "id": "nanogpt:openai-compatible", "displayName": "NanoGPT", "providerBaseId": "nanogpt", "profileTier": "standard", "url": "profiles/nanogpt/openai-compatible.json", "version": 1 },
     { "id": "ollama:openai-compatible-local", "displayName": "Ollama (Self-hosted)", "providerBaseId": "ollama", "profileTier": "standard", "url": "profiles/ollama/openai-compatible-local.json", "version": 1 },
