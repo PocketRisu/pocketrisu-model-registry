@@ -1,111 +1,33 @@
 {
-  "schemaVersion": 1,
+  "schemaVersion": 4,
   "contentVersion": 1,
-  "updated": "2026-05-22",
-  "providers": [
-    {
-      "id": "openai",
-      "name": "OpenAI",
-      "description": "GPT-5 series / o-series / GPT-4o (official api.openai.com)",
-      "url": "providers/openai.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "anthropic",
-      "name": "Anthropic",
-      "description": "Claude 4.x with thinking, prompt caching (official api.anthropic.com)",
-      "url": "providers/anthropic.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "google-ais",
-      "name": "Google AI Studio (Gemini)",
-      "description": "Gemini 2.5 / 3.x via generativelanguage.googleapis.com",
-      "url": "providers/google-ais.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "deepseek",
-      "name": "DeepSeek",
-      "description": "DeepSeek Chat / Reasoner (official api.deepseek.com)",
-      "url": "providers/deepseek.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "openrouter",
-      "name": "OpenRouter",
-      "description": "Multi-vendor router (anthropic/openai/google/... via openrouter.ai)",
-      "url": "providers/openrouter.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "nanogpt",
-      "name": "NanoGPT",
-      "description": "Pay-per-use OpenAI-compatible gateway (nano-gpt.com)",
-      "url": "providers/nanogpt.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "vercel",
-      "name": "Vercel AI Gateway",
-      "description": "Vercel's AI Gateway with OpenAI/Anthropic/Google format select",
-      "url": "providers/vercel.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "ollama",
-      "name": "Ollama (Self-hosted)",
-      "description": "Self-hosted Ollama server (localhost or LAN)",
-      "url": "providers/ollama.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "ollama-cloud",
-      "name": "Ollama Cloud",
-      "description": "Ollama's hosted cloud (ollama.com) with managed models",
-      "url": "providers/ollama-cloud.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "openai-compatible",
-      "name": "OpenAI Compatible (Custom)",
-      "description": "Generic OpenAI-compatible endpoint (DeepInfra, Together, Groq, LiteLLM, vLLM, reverse proxies)",
-      "url": "providers/openai-compatible.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "vertex",
-      "name": "Vertex AI (Gemini)",
-      "description": "Gemini models on Google Cloud Vertex AI (Service Account auth)",
-      "url": "providers/vertex.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "vertex-claude",
-      "name": "Vertex AI (Claude)",
-      "description": "Claude models on Vertex AI Model Garden — publishers/anthropic + streamRawPredict",
-      "url": "providers/vertex-claude.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    },
-    {
-      "id": "bedrock",
-      "name": "AWS Bedrock",
-      "description": "Claude / other models on AWS Bedrock (AWS V4 signed)",
-      "url": "providers/bedrock.json",
-      "version": 1,
-      "updated": "2026-05-22"
-    }
+  "updated": "2026-05-24",
+  "baseProviders": [
+    { "id": "openai", "displayName": "OpenAI", "url": "base-providers/openai.json", "version": 1 },
+    { "id": "anthropic", "displayName": "Anthropic", "url": "base-providers/anthropic.json", "version": 1 },
+    { "id": "google", "displayName": "Google AI Studio (Gemini)", "url": "base-providers/google.json", "version": 1 },
+    { "id": "openai-compatible", "displayName": "OpenAI Compatible (Custom)", "url": "base-providers/openai-compatible.json", "version": 1 },
+    { "id": "openrouter", "displayName": "OpenRouter", "url": "base-providers/openrouter.json", "version": 1 },
+    { "id": "nanogpt", "displayName": "NanoGPT", "url": "base-providers/nanogpt.json", "version": 1 },
+    { "id": "ollama", "displayName": "Ollama (Self-hosted)", "url": "base-providers/ollama.json", "version": 1 },
+    { "id": "deepseek", "displayName": "DeepSeek", "url": "base-providers/deepseek.json", "version": 1 },
+    { "id": "deepinfra", "displayName": "DeepInfra", "url": "base-providers/deepinfra.json", "version": 1 },
+    { "id": "vercel", "displayName": "Vercel AI Gateway", "url": "base-providers/vercel.json", "version": 1 },
+    { "id": "bedrock", "displayName": "AWS Bedrock (OpenAI-compatible)", "url": "base-providers/bedrock.json", "version": 1 },
+    { "id": "vertex-openai", "displayName": "Vertex AI (OpenAI-compatible)", "url": "base-providers/vertex-openai.json", "version": 1 }
+  ],
+  "profiles": [
+    { "id": "openai:standard", "displayName": "OpenAI", "providerBaseId": "openai", "profileTier": "standard", "url": "profiles/openai/standard.json", "version": 1 },
+    { "id": "anthropic:standard", "displayName": "Anthropic", "providerBaseId": "anthropic", "profileTier": "standard", "url": "profiles/anthropic/standard.json", "version": 1 },
+    { "id": "google:standard", "displayName": "Google AI Studio", "providerBaseId": "google", "profileTier": "standard", "url": "profiles/google/standard.json", "version": 1 },
+    { "id": "openai-compatible:custom", "displayName": "OpenAI Compatible (Custom)", "providerBaseId": "openai-compatible", "profileTier": "standard", "url": "profiles/openai-compatible/custom.json", "version": 1 },
+    { "id": "openrouter:openai-compatible", "displayName": "OpenRouter", "providerBaseId": "openrouter", "profileTier": "standard", "url": "profiles/openrouter/openai-compatible.json", "version": 1 },
+    { "id": "nanogpt:openai-compatible", "displayName": "NanoGPT", "providerBaseId": "nanogpt", "profileTier": "standard", "url": "profiles/nanogpt/openai-compatible.json", "version": 1 },
+    { "id": "ollama:openai-compatible-local", "displayName": "Ollama (Self-hosted)", "providerBaseId": "ollama", "profileTier": "standard", "url": "profiles/ollama/openai-compatible-local.json", "version": 1 },
+    { "id": "deepseek:openai-compatible", "displayName": "DeepSeek", "providerBaseId": "deepseek", "profileTier": "standard", "url": "profiles/deepseek/openai-compatible.json", "version": 1 },
+    { "id": "deepinfra:openai-compatible", "displayName": "DeepInfra", "providerBaseId": "deepinfra", "profileTier": "standard", "url": "profiles/deepinfra/openai-compatible.json", "version": 1 },
+    { "id": "vercel:openai-compatible", "displayName": "Vercel AI Gateway", "providerBaseId": "vercel", "profileTier": "standard", "url": "profiles/vercel/openai-compatible.json", "version": 1 },
+    { "id": "bedrock:openai-compatible", "displayName": "AWS Bedrock (OpenAI-compatible)", "providerBaseId": "bedrock", "profileTier": "standard", "url": "profiles/bedrock/openai-compatible.json", "version": 1 },
+    { "id": "vertex-openai:standard", "displayName": "Vertex AI (OpenAI-compatible)", "providerBaseId": "vertex-openai", "profileTier": "standard", "url": "profiles/vertex-openai/standard.json", "version": 1 }
   ]
 }

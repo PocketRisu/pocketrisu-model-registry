@@ -1,0 +1,24 @@
+{
+  "id": "deepinfra:openai-compatible",
+  "version": 1,
+  "displayName": "DeepInfra",
+  "providerBaseId": "deepinfra",
+  "profileTier": "standard",
+  "description": "DeepInfra hosted models via OpenAI-compatible endpoint.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://api.deepinfra.com/v1/openai/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://deepinfra.com/docs/advanced/openai_api"
+  ]
+}

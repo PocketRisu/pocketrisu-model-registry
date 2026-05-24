@@ -1,6 +1,23 @@
 # Maintenance Guide
 
-This document lists the **source URLs we consult when refreshing the templates**, the **fetch reliability** we've observed, and the **refresh procedure** for future maintainers. Same cycle, same sources, less re-discovery.
+This document lists the **source URLs we consult when refreshing the registry**, the **fetch reliability** we've observed, and the **refresh procedure** for future maintainers. Same cycle, same sources, less re-discovery.
+
+The registry follows **schema v4** (see `schema/base-provider.schema.json` and `schema/model-profile.schema.json`). v3 single-file `providers/*.json` templates were retired in the v4 transition; their wire-level data moved into the `base-providers/<id>.json` + `profiles/<baseId>/<key>.json` split.
+
+---
+
+## v4 layout summary
+
+| Folder | What it holds |
+|---|---|
+| `base-providers/<id>.json` | `BaseProviderDefinition` — adapter/auth/endpoint primitives, default headers/body, shared request schema and UI schema. Consumed by every profile under this base. |
+| `profiles/<baseId>/<profileKey>.json` | `ModelProfile` — concrete profile a user picks (e.g. `openai:standard`). Has its own endpoint, auth wiring, `modelId`, and may extend the base's `schema`/`uiSchema`. MVP only ships `profileTier: 'standard'`. |
+| `schema/base-provider.schema.json` | JSON Schema for `BaseProviderDefinition`. |
+| `schema/model-profile.schema.json` | JSON Schema for `ModelProfile`. |
+| `index.json` | Mirror of every base provider + profile (used for fast HTTP catalog lookup). v4 sets `schemaVersion: 4`. |
+| `scripts/validate.mjs` | Cross-consistency validator. Run before every commit. Zero deps. |
+
+PocketRisu v4 consumes this layout via a bundled snapshot inside `Risuai-NodeOnly/src/ts/preset/registry/bundled/`. Bundled copy mirrors the same `base-providers/` and `profiles/<baseId>/` paths; sync at release time.
 
 ---
 
@@ -64,6 +81,7 @@ Markers: ✅ fetch tends to work · ⚠️ partial / sometimes blocked · ❌ bl
 - **Tier 1 — Vendor docs:** ⚠️ `https://ollama.com/` (marketing page, no API reference directly)
 - **Tier 2 — None**
 - **Tier 3 — Cross-check (primary):** upstream `Risuai-NodeOnly/src/ts/process/request/request.ts` — search for `ollama.com`. This is where we confirmed the cloud endpoint, headers, and three message-format variants (`/v1/chat/completions`, `/v1/responses`, `/v1/messages`).
+- **v4 status:** no profile shipped in the v4 skeleton. The `ollama` base provider covers self-hosted; an `ollama:cloud` profile can be added when there is demand.
 
 ### OpenAI Compatible (Custom)
 - **No first-party source** — this template targets OpenAI's wire shape applied to third-party hosts (DeepInfra, Together, Groq, Fireworks, LiteLLM, vLLM, …). When OpenAI's spec changes, mirror the change here.
@@ -78,12 +96,14 @@ Markers: ✅ fetch tends to work · ⚠️ partial / sometimes blocked · ❌ bl
 - **Tier 1 — Vendor docs:** ✅ `https://platform.claude.com/docs/en/build-with-claude/claude-on-vertex-ai` (Anthropic-side docs for Vertex Model Garden)
 - **Tier 2 — Raw SDK:** ✅ `https://raw.githubusercontent.com/anthropics/anthropic-sdk-python/main/src/anthropic/lib/vertex/_client.py` (Anthropic's official Vertex integration — confirms `publishers/anthropic`, `:streamRawPredict`, `anthropic_version: "vertex-2023-10-16"`)
 - **Tier 3 — Cross-check:** archive `provider-preset-spec.md` §15-2 (workspace internal)
+- **v4 status:** intentionally excluded (plan-v4 §5-3). Vertex support in v4 routes through `vertex-openai:standard`. Sources kept here for reference if Anthropic publishes a stable Vertex OpenAI-compatible endpoint.
 
-### AWS Bedrock
+### AWS Bedrock (native)
 - **Tier 1 — Vendor docs:** ✅ `https://docs.aws.amazon.com/bedrock/latest/APIReference/API_runtime_InvokeModelWithResponseStream.html`
   - `.../userguide/model-parameters-anthropic-claude-messages.html` — body shape + `anthropic_version: "bedrock-2023-05-31"`
 - **Tier 2 — Raw SDK:** ✅ `https://raw.githubusercontent.com/anthropics/anthropic-sdk-python/main/src/anthropic/lib/bedrock/_client.py`
 - **Tier 3 — Cross-check:** CPM `_temp/cpm-provider-aws.js` (if a deeper dive is needed)
+- **v4 status:** native SigV4 / Messages path is MVP-excluded (plan-v4 §5-4). v4 only ships `bedrock:openai-compatible`, sourced from `https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions-mantle.html`. Native sources stay here in case demand warrants a follow-up adapter.
 
 ---
 
@@ -108,12 +128,13 @@ These are not provider-specific but contain a wealth of wire-level information t
 
 ## Refresh procedure
 
-When you sit down to update the templates:
+When you sit down to update the registry:
 
 1. **Decide the scope.** Pick one of:
-   - **Routine refresh** — vendor released a new model, no wire changes. → edit `models[]` in the relevant `providers/*.json` and bump the file's `version`. Update `index.json`'s mirrored `version` and `updated` date.
-   - **Wire change** — vendor changed an endpoint, header, request/response shape, or added a new feature flag. → likely affects `request`, `conditionals`, or `response`. Bump the file's `version` and `index.json`'s `contentVersion`. Test against a real request before publishing.
-   - **New provider** — adding a JSON for a vendor we don't have. Add `providers/<id>.json`, add the entry to `index.json`, decide if `schema/provider-template.schema.json` needs a new enum value (e.g. a new SSE `style`).
+   - **Routine refresh** — vendor released a new model with no wire changes. → Update the relevant `ModelProfile.modelId` example or `capabilities`, bump `version` on the touched file, mirror the new `version` in `index.json`.
+   - **Wire change** — vendor changed endpoint, headers, request/response shape, or added a feature flag. → Likely affects `BaseProviderDefinition.requestSchema` / `defaultHeaders` / `defaultBody` / `capabilities`, or per-profile `endpoint` / `auth` / `bodyTemplate`. Bump `version` on every touched file plus `index.json.contentVersion`. Test against a real request before publishing.
+   - **New profile** — adding a `ModelProfile` under an existing base. Create `profiles/<baseId>/<profileKey>.json`, add it to `index.json.profiles`, ensure `providerBaseId` points at an existing base.
+   - **New base provider** — adding a `BaseProviderDefinition` for an adapter family we don't yet ship. Create `base-providers/<id>.json`, add it to `index.json.baseProviders`, decide whether `schema/base-provider.schema.json` needs a new enum value (new `adapterKind`, new `endpointKind`, …). Then create at least one profile under it.
 
 2. **Pull recent upstream changes first** (always — they often pre-empt the vendor's own docs):
    ```sh
@@ -126,44 +147,29 @@ When you sit down to update the templates:
 
 4. **Run the cross-checks:**
    ```sh
-   # JSON validity + cross-consistency (id/version/var/conditional/uiSchema refs)
-   for f in index.json schema/*.json providers/*.json; do
-     node -e "JSON.parse(require('fs').readFileSync('$f','utf8'))"
-   done
-   # Then the cross-check script (see this repo's CI / commit history for the snippet)
+   node scripts/validate.mjs
    ```
+   The validator enforces every plan-v4 §15-2 rule: index mirror, `providerBaseId` references, schema key uniqueness, `uiSchema.fields[].key` references, allowed `visibility` / `widget` / `mapsTo.target` values, non-empty `sourceUrls`, `profileTier === 'standard'` (MVP).
 
-5. **Commit, push, and update PocketRisu** — bumping `version` triggers an "update available" badge on installed presets, so users get the change on next sync.
+5. **Sync the PocketRisu bundle.** v4 bundles a snapshot of `base-providers/` and `profiles/` into `Risuai-NodeOnly/src/ts/preset/registry/bundled/`. After any registry change you intend to ship, copy the touched files into the NodeOnly bundle, run `pnpm run check && pnpm test src/ts/preset` over there, and land both commits together.
+
+6. **Commit, push, and update PocketRisu** — bumping `version` triggers an "update available" badge on installed snapshot ModelPresets, so users get the change on next sync.
 
 ---
 
-## Source of truth — `providers/*.json` vs `index.json`
+## Source of truth — `base-providers/` + `profiles/` vs `index.json`
 
-**`providers/*.json` is the source of truth.** That's where the wire-level spec lives (URL, body, conditionals, schema, etc.) and where contributor PRs land.
+**`base-providers/*.json` and `profiles/<baseId>/<profileKey>.json` are the source of truth.** That's where the wire-level spec lives (adapter, auth, endpoint, schema, UI schema, defaults) and where contributor PRs land.
 
-**`index.json` mirrors a subset for fast lookup.** It carries each provider's `id`, `name`, `description`, `url` (pointer to the file), `version`, and `updated` date. PocketRisu fetches `index.json` once at startup to know which templates exist and which versions are current; only when a per-preset `installedTemplateVersion` differs does it fetch the individual `providers/*.json`.
+**`index.json` mirrors a subset for fast lookup.** It carries each base provider's `id`, `displayName`, `url`, `version`, and each profile's `id`, `displayName`, `providerBaseId`, `profileTier`, `url`, `version`. PocketRisu fetches `index.json` once at startup to know which base providers and profiles exist and which versions are current; only when a per-preset `installedProfileVersion` differs does it fetch the individual profile/base files.
 
 ### Sync rules
 
-- Every wire-level change must **bump `version` in the provider file AND in `index.json`** in the same commit. The cross-check script in CI rejects mismatches.
-- If the two ever disagree, **the provider file wins** (treat `index.json` as stale and re-derive the mirrored fields from the provider file).
-- `index.json`'s own `contentVersion` bumps when any provider in the list changes — it's a coarse "something in the registry moved" signal, separate from per-provider `version`.
+- Every wire-level change must **bump `version` in the source file AND in `index.json`** in the same commit. `scripts/validate.mjs` rejects mismatches.
+- If the two ever disagree, **the source file wins** (treat `index.json` as stale and re-derive the mirrored fields from the source files).
+- `index.json`'s own `contentVersion` bumps when any base provider or profile in the list changes — it's a coarse "something in the registry moved" signal, separate from per-file `version`.
 
-The cross-check snippet that catches mismatches:
-
-```sh
-node -e '
-const fs = require("fs"), path = require("path");
-const idx = JSON.parse(fs.readFileSync("index.json", "utf8"));
-for (const e of idx.providers) {
-  const p = JSON.parse(fs.readFileSync(path.join("providers", e.id + ".json"), "utf8"));
-  if (p.id !== e.id || p.version !== e.version) {
-    console.error(e.id, "mismatch", e.version, "vs", p.version); process.exit(1);
-  }
-}
-console.log("OK");
-'
-```
+The validator handles mismatch detection — there is no separate snippet to maintain. Run `node scripts/validate.mjs` from the repo root before every commit.
 
 ---
 
@@ -171,6 +177,7 @@ console.log("OK");
 
 | Date | What was checked | Outcome |
 |------|------------------|---------|
-| 2026-05-22 | Initial v1 audit across 13 templates against vendor docs (where reachable), upstream RisuAI (last 30 days), CPM 1.30.18 analysis, Blessing 1.1.5, and archive spec §15. | 9 issues found and fixed across 4 commits. Vertex split into `vertex` (Gemini) and `vertex-claude` because the URL path, body shape, and required `anthropic_version` differ. See git log for `fix:` and `feat:` commits. |
+| 2026-05-22 | Initial v1 audit across 13 v3 templates against vendor docs (where reachable), upstream RisuAI (last 30 days), CPM 1.30.18 analysis, Blessing 1.1.5, and archive spec §15. | 9 issues found and fixed across 4 commits. Vertex split into `vertex` (Gemini) and `vertex-claude` because the URL path, body shape, and required `anthropic_version` differ. See git log for `fix:` and `feat:` commits. |
+| 2026-05-24 | v4 schema transition. v3 `providers/*.json` retired; replaced with 12 `BaseProviderDefinition` files and 12 `ModelProfile` files at `profileTier: 'standard'`. Vertex Claude excluded per plan-v4 §5-3. Bedrock native excluded per §5-4; `bedrock:openai-compatible` profile shipped instead. `scripts/validate.mjs` added. | First v4 skeleton landed alongside NodeOnly `feature/model-preset-v4`. Schemas detailed enough to host migration snapshots; full per-vendor `requestSchema` (reasoning, thinking, cache, etc.) is follow-up work. |
 
 When you do the next refresh, add a row.

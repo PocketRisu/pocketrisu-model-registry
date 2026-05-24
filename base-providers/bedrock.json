@@ -1,0 +1,53 @@
+{
+  "id": "bedrock",
+  "version": 1,
+  "displayName": "AWS Bedrock (OpenAI-compatible)",
+  "adapterKind": "openai-compatible",
+  "authKinds": ["bearer"],
+  "endpointKinds": ["static"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "endpointUrl",
+      "type": "string",
+      "label": "Endpoint URL",
+      "description": "Bedrock OpenAI-compatible chat completions URL (region-specific).",
+      "required": true,
+      "mapsTo": { "target": "custom", "path": "endpointUrl" }
+    },
+    {
+      "key": "apiKey",
+      "type": "string",
+      "label": "API Key",
+      "description": "Bedrock-issued bearer token / API key.",
+      "required": true,
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "apiKey" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Bedrock model identifier (e.g. anthropic.claude-3-7-sonnet-20250219-v1:0).",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "endpoint", "label": "Endpoint", "order": 1 },
+      { "id": "credentials", "label": "Credentials", "order": 2 },
+      { "id": "model", "label": "Model", "order": 3 }
+    ],
+    "fields": [
+      { "key": "endpointUrl", "widget": "text", "visibility": "basic", "group": "endpoint", "order": 1, "placeholder": "https://bedrock-mantle.us-east-1.api.aws/v1/chat/completions" },
+      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1 }
+    ]
+  },
+  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "sourceUrls": [
+    "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions-mantle.html"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "anthropic:standard",
+  "version": 1,
+  "displayName": "Anthropic",
+  "providerBaseId": "anthropic",
+  "profileTier": "standard",
+  "description": "Official Anthropic Messages endpoint. Pick a Claude model id.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://api.anthropic.com/v1/messages"
+  },
+  "auth": {
+    "kind": "x-api-key",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "sourceUrls": [
+    "https://platform.claude.com/docs/en/api/messages"
+  ]
+}

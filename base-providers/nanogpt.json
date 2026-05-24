@@ -1,0 +1,43 @@
+{
+  "id": "nanogpt",
+  "version": 1,
+  "displayName": "NanoGPT",
+  "adapterKind": "openai-compatible",
+  "authKinds": ["bearer"],
+  "endpointKinds": ["static"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "apiKey",
+      "type": "string",
+      "label": "API Key",
+      "description": "NanoGPT API key.",
+      "required": true,
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "apiKey" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Model identifier accepted by NanoGPT.",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "credentials", "label": "Credentials", "order": 1 },
+      { "id": "model", "label": "Model", "order": 2 }
+    ],
+    "fields": [
+      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1 }
+    ]
+  },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://nano-gpt.com/docs"
+  ]
+}

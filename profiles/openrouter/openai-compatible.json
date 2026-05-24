@@ -1,0 +1,24 @@
+{
+  "id": "openrouter:openai-compatible",
+  "version": 1,
+  "displayName": "OpenRouter",
+  "providerBaseId": "openrouter",
+  "profileTier": "standard",
+  "description": "OpenRouter multi-vendor router via OpenAI-compatible API.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "sourceUrls": [
+    "https://openrouter.ai/docs"
+  ]
+}

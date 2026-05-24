@@ -1,0 +1,52 @@
+{
+  "id": "openai-compatible",
+  "version": 1,
+  "displayName": "OpenAI Compatible (Custom)",
+  "adapterKind": "openai-compatible",
+  "authKinds": ["bearer", "none"],
+  "endpointKinds": ["static"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "endpointUrl",
+      "type": "string",
+      "label": "Endpoint URL",
+      "description": "Full chat completions URL (e.g. https://example.com/v1/chat/completions).",
+      "required": true,
+      "mapsTo": { "target": "custom", "path": "endpointUrl" }
+    },
+    {
+      "key": "apiKey",
+      "type": "string",
+      "label": "API Key",
+      "description": "Bearer token. Leave empty for endpoints without auth.",
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "apiKey" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Model identifier accepted by the upstream endpoint.",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "endpoint", "label": "Endpoint", "order": 1 },
+      { "id": "credentials", "label": "Credentials", "order": 2 },
+      { "id": "model", "label": "Model", "order": 3 }
+    ],
+    "fields": [
+      { "key": "endpointUrl", "widget": "text", "visibility": "basic", "group": "endpoint", "order": 1, "placeholder": "https://example.com/v1/chat/completions" },
+      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1 }
+    ]
+  },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://platform.openai.com/docs/api-reference/chat"
+  ]
+}

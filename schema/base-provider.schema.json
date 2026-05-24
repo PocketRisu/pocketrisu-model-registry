@@ -1,0 +1,155 @@
+{
+  "$schema": "https://json-schema.org/draft/2020-12/schema",
+  "$id": "https://pocketrisu.dev/registry/schema/base-provider.schema.json",
+  "title": "BaseProviderDefinition",
+  "type": "object",
+  "required": [
+    "id",
+    "version",
+    "displayName",
+    "adapterKind",
+    "authKinds",
+    "endpointKinds",
+    "requestSchema",
+    "uiSchema",
+    "sourceUrls"
+  ],
+  "properties": {
+    "id": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
+    "version": { "type": "integer", "minimum": 1 },
+    "displayName": { "type": "string", "minLength": 1 },
+    "adapterKind": { "enum": ["openai-compatible", "anthropic-messages", "google-gemini"] },
+    "authKinds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["none", "bearer", "x-api-key", "x-goog-api-key", "query", "google-service-account"] }
+    },
+    "endpointKinds": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "enum": ["static", "vertex-openai"] }
+    },
+    "defaultHeaders": {
+      "type": "object",
+      "additionalProperties": { "type": "string" }
+    },
+    "defaultBody": { "type": "object" },
+    "requestSchema": {
+      "type": "array",
+      "items": { "$ref": "#/$defs/fieldSchema" }
+    },
+    "uiSchema": { "$ref": "#/$defs/uiSchema" },
+    "capabilities": {
+      "type": "array",
+      "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning"] }
+    },
+    "sourceUrls": {
+      "type": "array",
+      "minItems": 1,
+      "items": { "type": "string", "format": "uri" }
+    }
+  },
+  "additionalProperties": false,
+  "$defs": {
+    "fieldSchema": {
+      "type": "object",
+      "required": ["key", "type", "label"],
+      "properties": {
+        "key": { "type": "string", "minLength": 1 },
+        "type": {
+          "enum": ["string", "number", "integer", "boolean", "json", "stringArray", "keyValue"]
+        },
+        "label": { "type": "string", "minLength": 1 },
+        "description": { "type": "string" },
+        "default": {},
+        "enum": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["value", "label"],
+            "properties": {
+              "value": {},
+              "label": { "type": "string" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "min": { "type": "number" },
+        "max": { "type": "number" },
+        "step": { "type": "number" },
+        "required": { "type": "boolean" },
+        "secret": { "type": "boolean" },
+        "mapsTo": {
+          "type": "object",
+          "required": ["target", "path"],
+          "properties": {
+            "target": { "enum": ["body", "header", "query", "auth", "custom"] },
+            "path": { "type": "string", "minLength": 1 }
+          },
+          "additionalProperties": false
+        }
+      },
+      "additionalProperties": false
+    },
+    "uiSchema": {
+      "type": "object",
+      "required": ["groups", "fields"],
+      "properties": {
+        "groups": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["id", "label"],
+            "properties": {
+              "id": { "type": "string", "minLength": 1 },
+              "label": { "type": "string", "minLength": 1 },
+              "order": { "type": "integer" }
+            },
+            "additionalProperties": false
+          }
+        },
+        "fields": {
+          "type": "array",
+          "items": {
+            "type": "object",
+            "required": ["key", "widget", "visibility"],
+            "properties": {
+              "key": { "type": "string", "minLength": 1 },
+              "widget": {
+                "enum": [
+                  "text",
+                  "secret",
+                  "textarea",
+                  "number-input",
+                  "slider",
+                  "select",
+                  "segmented",
+                  "toggle",
+                  "json",
+                  "key-value"
+                ]
+              },
+              "visibility": { "enum": ["basic", "advanced", "hidden"] },
+              "group": { "type": "string" },
+              "order": { "type": "integer" },
+              "placeholder": { "type": "string" },
+              "help": { "type": "string" },
+              "showIf": {
+                "type": "object",
+                "required": ["key"],
+                "properties": {
+                  "key": { "type": "string" },
+                  "equals": {},
+                  "notEquals": {}
+                },
+                "additionalProperties": false
+              }
+            },
+            "additionalProperties": false
+          }
+        }
+      },
+      "additionalProperties": false
+    }
+  }
+}

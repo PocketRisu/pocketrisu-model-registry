@@ -1,0 +1,24 @@
+{
+  "id": "vercel:openai-compatible",
+  "version": 1,
+  "displayName": "Vercel AI Gateway",
+  "providerBaseId": "vercel",
+  "profileTier": "standard",
+  "description": "Vercel AI Gateway via OpenAI-compatible API.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming", "vision", "tools"],
+  "sourceUrls": [
+    "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions/chat-completions"
+  ]
+}

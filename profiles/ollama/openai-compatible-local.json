@@ -1,0 +1,23 @@
+{
+  "id": "ollama:openai-compatible-local",
+  "version": 1,
+  "displayName": "Ollama (Self-hosted)",
+  "providerBaseId": "ollama",
+  "profileTier": "standard",
+  "description": "Self-hosted Ollama server with OpenAI-compatible endpoint.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "http://localhost:11434/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "none"
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md"
+  ]
+}

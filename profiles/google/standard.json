@@ -1,0 +1,24 @@
+{
+  "id": "google:standard",
+  "version": 1,
+  "displayName": "Google AI Studio",
+  "providerBaseId": "google",
+  "profileTier": "standard",
+  "description": "Google AI Studio generative-language endpoint. Pick a Gemini model id.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://generativelanguage.googleapis.com/v1beta/models"
+  },
+  "auth": {
+    "kind": "x-goog-api-key",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "sourceUrls": [
+    "https://ai.google.dev/api/generate-content"
+  ]
+}

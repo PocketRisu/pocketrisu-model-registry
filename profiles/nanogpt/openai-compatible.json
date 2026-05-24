@@ -1,0 +1,24 @@
+{
+  "id": "nanogpt:openai-compatible",
+  "version": 1,
+  "displayName": "NanoGPT",
+  "providerBaseId": "nanogpt",
+  "profileTier": "standard",
+  "description": "NanoGPT pay-per-use gateway via OpenAI-compatible API.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://nano-gpt.com/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://nano-gpt.com/docs"
+  ]
+}

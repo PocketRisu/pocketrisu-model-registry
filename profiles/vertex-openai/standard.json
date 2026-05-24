@@ -1,0 +1,24 @@
+{
+  "id": "vertex-openai:standard",
+  "version": 1,
+  "displayName": "Vertex AI (OpenAI-compatible)",
+  "providerBaseId": "vertex-openai",
+  "profileTier": "standard",
+  "description": "Google Cloud Vertex AI OpenAI-compatible endpoint. Service Account JSON required.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "vertex-openai"
+  },
+  "auth": {
+    "kind": "google-service-account",
+    "fields": ["serviceAccountJson"]
+  },
+  "defaults": { "location": "us-central1" },
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "sourceUrls": [
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/openai",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.endpoints.chat/completions"
+  ]
+}

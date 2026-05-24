@@ -1,0 +1,44 @@
+{
+  "id": "google",
+  "version": 1,
+  "displayName": "Google AI Studio (Gemini)",
+  "adapterKind": "google-gemini",
+  "authKinds": ["x-goog-api-key"],
+  "endpointKinds": ["static"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "apiKey",
+      "type": "string",
+      "label": "API Key",
+      "description": "Google AI Studio API key (sent as `x-goog-api-key` request header).",
+      "required": true,
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "apiKey" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Model identifier (e.g. gemini-2.5-pro, gemini-2.0-flash).",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "credentials", "label": "Credentials", "order": 1 },
+      { "id": "model", "label": "Model", "order": 2 }
+    ],
+    "fields": [
+      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gemini-2.5-pro" }
+    ]
+  },
+  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "sourceUrls": [
+    "https://ai.google.dev/api/generate-content",
+    "https://raw.githubusercontent.com/googleapis/python-genai/main/google/genai/types.py"
+  ]
+}

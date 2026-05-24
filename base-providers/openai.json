@@ -1,0 +1,44 @@
+{
+  "id": "openai",
+  "version": 1,
+  "displayName": "OpenAI",
+  "adapterKind": "openai-compatible",
+  "authKinds": ["bearer"],
+  "endpointKinds": ["static"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "apiKey",
+      "type": "string",
+      "label": "API Key",
+      "description": "OpenAI API key.",
+      "required": true,
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "apiKey" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Model identifier (e.g. gpt-5, gpt-5-mini, o4).",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "credentials", "label": "Credentials", "order": 1 },
+      { "id": "model", "label": "Model", "order": 2 }
+    ],
+    "fields": [
+      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gpt-5" }
+    ]
+  },
+  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "sourceUrls": [
+    "https://platform.openai.com/docs/api-reference/chat",
+    "https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml"
+  ]
+}

@@ -1,0 +1,64 @@
+{
+  "id": "vertex-openai",
+  "version": 1,
+  "displayName": "Vertex AI (OpenAI-compatible)",
+  "adapterKind": "openai-compatible",
+  "authKinds": ["google-service-account"],
+  "endpointKinds": ["vertex-openai"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "serviceAccountJson",
+      "type": "string",
+      "label": "Service Account JSON",
+      "description": "Full Service Account JSON for OAuth token exchange.",
+      "required": true,
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "serviceAccountJson" }
+    },
+    {
+      "key": "projectId",
+      "type": "string",
+      "label": "Project ID",
+      "description": "Google Cloud project id.",
+      "required": true,
+      "mapsTo": { "target": "custom", "path": "projectId" }
+    },
+    {
+      "key": "location",
+      "type": "string",
+      "label": "Location",
+      "description": "Vertex AI region (e.g. us-central1, global).",
+      "required": true,
+      "default": "us-central1",
+      "mapsTo": { "target": "custom", "path": "location" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Vertex OpenAI-compatible model id (e.g. google/gemini-2.5-pro).",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "credentials", "label": "Credentials", "order": 1 },
+      { "id": "project", "label": "Project", "order": 2 },
+      { "id": "model", "label": "Model", "order": 3 }
+    ],
+    "fields": [
+      { "key": "serviceAccountJson", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
+      { "key": "projectId", "widget": "text", "visibility": "basic", "group": "project", "order": 1 },
+      { "key": "location", "widget": "text", "visibility": "basic", "group": "project", "order": 2 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1, "placeholder": "google/gemini-2.5-pro" }
+    ]
+  },
+  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "sourceUrls": [
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/openai",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.endpoints.chat/completions"
+  ]
+}

@@ -1,0 +1,53 @@
+{
+  "id": "ollama",
+  "version": 1,
+  "displayName": "Ollama (Self-hosted)",
+  "adapterKind": "openai-compatible",
+  "authKinds": ["none", "bearer"],
+  "endpointKinds": ["static"],
+  "defaultHeaders": { "Content-Type": "application/json" },
+  "defaultBody": {},
+  "requestSchema": [
+    {
+      "key": "endpointUrl",
+      "type": "string",
+      "label": "Endpoint URL",
+      "description": "Ollama OpenAI-compatible chat completions URL.",
+      "required": true,
+      "default": "http://localhost:11434/v1/chat/completions",
+      "mapsTo": { "target": "custom", "path": "endpointUrl" }
+    },
+    {
+      "key": "apiKey",
+      "type": "string",
+      "label": "API Key (optional)",
+      "description": "Only required if the Ollama server enforces a token.",
+      "secret": true,
+      "mapsTo": { "target": "auth", "path": "apiKey" }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Local model name (e.g. llama3.1, qwen2.5).",
+      "required": true,
+      "mapsTo": { "target": "body", "path": "model" }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      { "id": "endpoint", "label": "Endpoint", "order": 1 },
+      { "id": "credentials", "label": "Credentials", "order": 2 },
+      { "id": "model", "label": "Model", "order": 3 }
+    ],
+    "fields": [
+      { "key": "endpointUrl", "widget": "text", "visibility": "basic", "group": "endpoint", "order": 1 },
+      { "key": "apiKey", "widget": "secret", "visibility": "advanced", "group": "credentials", "order": 1 },
+      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1, "placeholder": "llama3.1" }
+    ]
+  },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md"
+  ]
+}

@@ -1,0 +1,24 @@
+{
+  "id": "openai-compatible:custom",
+  "version": 1,
+  "displayName": "OpenAI Compatible (Custom)",
+  "providerBaseId": "openai-compatible",
+  "profileTier": "standard",
+  "description": "Generic OpenAI Chat Completions endpoint. Provide your own URL, key, and model id.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": ""
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://platform.openai.com/docs/api-reference/chat"
+  ]
+}
