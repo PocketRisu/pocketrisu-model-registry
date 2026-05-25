@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai:standard",
-  "version": 1,
+  "version": 2,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "providerBaseId": "vertex-openai",
   "profileTier": "standard",
@@ -13,7 +13,7 @@
     "kind": "google-service-account",
     "fields": ["serviceAccountJson"]
   },
-  "defaults": { "location": "us-central1" },
+  "defaults": {},
   "schema": [],
   "uiSchema": { "groups": [], "fields": [] },
   "capabilities": ["streaming", "reasoning", "vision", "tools"],

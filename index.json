@@ -1,7 +1,7 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 1,
-  "updated": "2026-05-24",
+  "contentVersion": 2,
+  "updated": "2026-05-25",
   "baseProviders": [
     { "id": "openai", "displayName": "OpenAI", "url": "base-providers/openai.json", "version": 1 },
     { "id": "anthropic", "displayName": "Anthropic", "url": "base-providers/anthropic.json", "version": 1 },
@@ -14,7 +14,7 @@
     { "id": "deepinfra", "displayName": "DeepInfra", "url": "base-providers/deepinfra.json", "version": 1 },
     { "id": "vercel", "displayName": "Vercel AI Gateway", "url": "base-providers/vercel.json", "version": 1 },
     { "id": "bedrock", "displayName": "AWS Bedrock (OpenAI-compatible)", "url": "base-providers/bedrock.json", "version": 1 },
-    { "id": "vertex-openai", "displayName": "Vertex AI (OpenAI-compatible)", "url": "base-providers/vertex-openai.json", "version": 1 }
+    { "id": "vertex-openai", "displayName": "Vertex AI (OpenAI-compatible)", "url": "base-providers/vertex-openai.json", "version": 2 }
   ],
   "profiles": [
     { "id": "openai:standard", "displayName": "OpenAI", "providerBaseId": "openai", "profileTier": "standard", "url": "profiles/openai/standard.json", "version": 1 },
@@ -29,6 +29,6 @@
     { "id": "deepinfra:openai-compatible", "displayName": "DeepInfra", "providerBaseId": "deepinfra", "profileTier": "standard", "url": "profiles/deepinfra/openai-compatible.json", "version": 1 },
     { "id": "vercel:openai-compatible", "displayName": "Vercel AI Gateway", "providerBaseId": "vercel", "profileTier": "standard", "url": "profiles/vercel/openai-compatible.json", "version": 1 },
     { "id": "bedrock:openai-compatible", "displayName": "AWS Bedrock (OpenAI-compatible)", "providerBaseId": "bedrock", "profileTier": "standard", "url": "profiles/bedrock/openai-compatible.json", "version": 1 },
-    { "id": "vertex-openai:standard", "displayName": "Vertex AI (OpenAI-compatible)", "providerBaseId": "vertex-openai", "profileTier": "standard", "url": "profiles/vertex-openai/standard.json", "version": 1 }
+    { "id": "vertex-openai:standard", "displayName": "Vertex AI (OpenAI-compatible)", "providerBaseId": "vertex-openai", "profileTier": "standard", "url": "profiles/vertex-openai/standard.json", "version": 2 }
   ]
 }

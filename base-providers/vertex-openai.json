@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 1,
+  "version": 2,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": ["google-service-account"],
@@ -15,7 +15,7 @@
       "description": "Full Service Account JSON for OAuth token exchange.",
       "required": true,
       "secret": true,
-      "mapsTo": { "target": "auth", "path": "serviceAccountJson" }
+      "mapsTo": { "target": "auth", "path": "apiKey" }
     },
     {
       "key": "projectId",
@@ -23,7 +23,7 @@
       "label": "Project ID",
       "description": "Google Cloud project id.",
       "required": true,
-      "mapsTo": { "target": "custom", "path": "projectId" }
+      "mapsTo": { "target": "custom", "path": "project" }
     },
     {
       "key": "location",
