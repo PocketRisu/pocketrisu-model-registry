@@ -1,6 +1,6 @@
 {
   "id": "anthropic",
-  "version": 1,
+  "version": 2,
   "displayName": "Anthropic",
   "adapterKind": "anthropic-messages",
   "authKinds": ["x-api-key"],
@@ -9,7 +9,9 @@
     "Content-Type": "application/json",
     "anthropic-version": "2023-06-01"
   },
-  "defaultBody": {},
+  "defaultBody": {
+    "max_tokens": 4096
+  },
   "requestSchema": [
     {
       "key": "apiKey",
