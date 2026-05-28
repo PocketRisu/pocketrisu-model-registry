@@ -36,6 +36,8 @@ const ALLOWED_WIDGET = new Set([
     'select',
     'segmented',
     'toggle',
+    'combobox',
+    'string-array',
     'json',
     'key-value',
 ])

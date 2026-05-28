@@ -1,6 +1,6 @@
 {
   "id": "ollama",
-  "version": 1,
+  "version": 2,
   "displayName": "Ollama (Self-hosted)",
   "adapterKind": "openai-compatible",
   "authKinds": ["none", "bearer"],
@@ -32,22 +32,127 @@
       "description": "Local model name (e.g. llama3.1, qwen2.5).",
       "required": true,
       "mapsTo": { "target": "body", "path": "model" }
+    },
+    {
+      "key": "temperature",
+      "type": "number",
+      "label": "Temperature",
+      "min": 0, "max": 2, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "temperature" }
+    },
+    {
+      "key": "top_p",
+      "type": "number",
+      "label": "Top P",
+      "min": 0, "max": 1, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "top_p" }
+    },
+    {
+      "key": "top_k",
+      "type": "integer",
+      "label": "Top K",
+      "min": 0, "max": 500,
+      "mapsTo": { "target": "body", "path": "top_k" }
+    },
+    {
+      "key": "max_tokens",
+      "type": "integer",
+      "label": "Max Tokens",
+      "description": "Ollama maps to num_predict.",
+      "min": 1, "max": 32768,
+      "mapsTo": { "target": "body", "path": "max_tokens" }
+    },
+    {
+      "key": "num_ctx",
+      "type": "integer",
+      "label": "Context Window (num_ctx)",
+      "description": "Model context window size in tokens. Overrides model default.",
+      "min": 512, "max": 131072,
+      "mapsTo": { "target": "body", "path": "num_ctx" }
+    },
+    {
+      "key": "repeat_penalty",
+      "type": "number",
+      "label": "Repeat Penalty",
+      "min": 0, "max": 2, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "repeat_penalty" }
+    },
+    {
+      "key": "repeat_last_n",
+      "type": "integer",
+      "label": "Repeat Last N",
+      "description": "Token window to consider for repeat penalty.",
+      "min": 0, "max": 2048,
+      "mapsTo": { "target": "body", "path": "repeat_last_n" }
+    },
+    {
+      "key": "mirostat",
+      "type": "integer",
+      "label": "Mirostat",
+      "description": "Mirostat sampling mode.",
+      "enum": [
+        { "value": 0, "label": "Off" },
+        { "value": 1, "label": "Mirostat v1" },
+        { "value": 2, "label": "Mirostat v2" }
+      ],
+      "mapsTo": { "target": "body", "path": "mirostat" }
+    },
+    {
+      "key": "mirostat_tau",
+      "type": "number",
+      "label": "Mirostat Tau",
+      "min": 0, "max": 10, "step": 0.1,
+      "mapsTo": { "target": "body", "path": "mirostat_tau" }
+    },
+    {
+      "key": "mirostat_eta",
+      "type": "number",
+      "label": "Mirostat Eta",
+      "min": 0, "max": 1, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "mirostat_eta" }
+    },
+    {
+      "key": "stop",
+      "type": "stringArray",
+      "label": "Stop Sequences",
+      "mapsTo": { "target": "body", "path": "stop" }
+    },
+    {
+      "key": "seed",
+      "type": "integer",
+      "label": "Seed",
+      "mapsTo": { "target": "body", "path": "seed" }
     }
   ],
   "uiSchema": {
     "groups": [
       { "id": "endpoint", "label": "Endpoint", "order": 1 },
       { "id": "credentials", "label": "Credentials", "order": 2 },
-      { "id": "model", "label": "Model", "order": 3 }
+      { "id": "model", "label": "Model", "order": 3 },
+      { "id": "generation", "label": "Generation", "order": 4 },
+      { "id": "advanced", "label": "Advanced Sampling", "order": 5 }
     ],
     "fields": [
       { "key": "endpointUrl", "widget": "text", "visibility": "basic", "group": "endpoint", "order": 1 },
       { "key": "apiKey", "widget": "secret", "visibility": "advanced", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1, "placeholder": "llama3.1" }
+      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "llama3.1" },
+      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
+      { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
+      { "key": "num_ctx", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 3 },
+      { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
+      { "key": "top_k", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 5 },
+      { "key": "repeat_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 6 },
+      { "key": "repeat_last_n", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 7 },
+      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 8 },
+      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 9 },
+      { "key": "mirostat", "widget": "select", "visibility": "advanced", "group": "advanced", "order": 1 },
+      { "key": "mirostat_tau", "widget": "slider", "visibility": "advanced", "group": "advanced", "order": 2, "showIf": { "key": "mirostat", "notEquals": 0 } },
+      { "key": "mirostat_eta", "widget": "slider", "visibility": "advanced", "group": "advanced", "order": 3, "showIf": { "key": "mirostat", "notEquals": 0 } }
     ]
   },
   "capabilities": ["streaming"],
   "sourceUrls": [
-    "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md"
+    "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md",
+    "https://raw.githubusercontent.com/ollama/ollama/main/docs/modelfile.md"
   ]
 }

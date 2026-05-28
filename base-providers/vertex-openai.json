@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 2,
+  "version": 3,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": ["google-service-account"],
@@ -38,22 +38,84 @@
       "key": "modelId",
       "type": "string",
       "label": "Model ID",
-      "description": "Vertex OpenAI-compatible model id (e.g. google/gemini-2.5-pro).",
+      "description": "Vertex OpenAI-compatible model id.",
       "required": true,
+      "enum": [
+        { "value": "google/gemini-2.5-pro", "label": "Google / Gemini 2.5 Pro" },
+        { "value": "google/gemini-2.5-flash", "label": "Google / Gemini 2.5 Flash" },
+        { "value": "google/gemini-2.0-flash", "label": "Google / Gemini 2.0 Flash" },
+        { "value": "google/gemini-1.5-pro", "label": "Google / Gemini 1.5 Pro" },
+        { "value": "google/gemini-1.5-flash", "label": "Google / Gemini 1.5 Flash" }
+      ],
       "mapsTo": { "target": "body", "path": "model" }
+    },
+    {
+      "key": "temperature",
+      "type": "number",
+      "label": "Temperature",
+      "min": 0, "max": 2, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "temperature" }
+    },
+    {
+      "key": "top_p",
+      "type": "number",
+      "label": "Top P",
+      "min": 0, "max": 1, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "top_p" }
+    },
+    {
+      "key": "max_tokens",
+      "type": "integer",
+      "label": "Max Tokens",
+      "min": 1, "max": 65536,
+      "mapsTo": { "target": "body", "path": "max_tokens" }
+    },
+    {
+      "key": "frequency_penalty",
+      "type": "number",
+      "label": "Frequency Penalty",
+      "min": -2, "max": 2, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "frequency_penalty" }
+    },
+    {
+      "key": "presence_penalty",
+      "type": "number",
+      "label": "Presence Penalty",
+      "min": -2, "max": 2, "step": 0.01,
+      "mapsTo": { "target": "body", "path": "presence_penalty" }
+    },
+    {
+      "key": "stop",
+      "type": "stringArray",
+      "label": "Stop Sequences",
+      "mapsTo": { "target": "body", "path": "stop" }
+    },
+    {
+      "key": "seed",
+      "type": "integer",
+      "label": "Seed",
+      "mapsTo": { "target": "body", "path": "seed" }
     }
   ],
   "uiSchema": {
     "groups": [
       { "id": "credentials", "label": "Credentials", "order": 1 },
       { "id": "project", "label": "Project", "order": 2 },
-      { "id": "model", "label": "Model", "order": 3 }
+      { "id": "model", "label": "Model", "order": 3 },
+      { "id": "generation", "label": "Generation", "order": 4 }
     ],
     "fields": [
       { "key": "serviceAccountJson", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
       { "key": "projectId", "widget": "text", "visibility": "basic", "group": "project", "order": 1 },
       { "key": "location", "widget": "text", "visibility": "basic", "group": "project", "order": 2 },
-      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1, "placeholder": "google/gemini-2.5-pro" }
+      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "google/gemini-2.5-pro" },
+      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
+      { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
+      { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
+      { "key": "frequency_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
+      { "key": "presence_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 5 },
+      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 6 },
+      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 7 }
     ]
   },
   "capabilities": ["streaming", "reasoning", "vision", "tools"],
