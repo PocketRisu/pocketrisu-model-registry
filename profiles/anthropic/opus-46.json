@@ -1,6 +1,6 @@
 {
   "id": "anthropic:opus-46",
-  "version": 1,
+  "version": 2,
   "displayName": "Claude Opus 4.6",
   "displayNameI18n": {
     "ko": "Claude Opus 4.6"
@@ -351,5 +351,13 @@
     "https://platform.claude.com/docs/en/about-claude/models/overview",
     "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
     "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "maxOutputTokens": 128000,
+    "sourceUrls": [
+      "https://platform.claude.com/docs/en/about-claude/models/overview"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "openrouter",
-  "version": 2,
+  "version": 3,
   "displayName": "OpenRouter",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -102,7 +102,6 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 200000,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -364,7 +363,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "slider",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "generation",
         "order": 2
@@ -478,5 +477,13 @@
   "sourceUrls": [
     "https://openrouter.ai/docs",
     "https://raw.githubusercontent.com/vercel/ai/main/packages/openrouter-provider/"
-  ]
+  ],
+  "limits": {
+    "known": false,
+    "sourceUrls": [
+      "https://openrouter.ai/docs",
+      "https://raw.githubusercontent.com/vercel/ai/main/packages/openrouter-provider/"
+    ],
+    "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+  }
 }

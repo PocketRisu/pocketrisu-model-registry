@@ -1,6 +1,6 @@
 {
   "id": "openai:chatgpt",
-  "version": 1,
+  "version": 2,
   "displayName": "OpenAI ChatGPT Snapshots",
   "displayNameI18n": {
     "ko": "OpenAI ChatGPT Snapshots"
@@ -412,5 +412,13 @@
   "sourceUrls": [
     "https://developers.openai.com/api/docs/models/gpt-5.3-chat-latest",
     "https://developers.openai.com/api/docs/models/gpt-5.2-chat-latest"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 128000,
+    "maxOutputTokens": 16384,
+    "sourceUrls": [
+      "https://platform.openai.com/docs/models/compare"
+    ]
+  }
 }

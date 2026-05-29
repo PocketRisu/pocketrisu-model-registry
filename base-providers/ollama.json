@@ -1,6 +1,6 @@
 {
   "id": "ollama",
-  "version": 2,
+  "version": 3,
   "displayName": "Ollama (Self-hosted)",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -99,7 +99,6 @@
       "label": "Max Tokens",
       "description": "Ollama maps to num_predict.",
       "min": 1,
-      "max": 32768,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -296,7 +295,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "slider",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "generation",
         "order": 2
@@ -387,5 +386,13 @@
   "sourceUrls": [
     "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md",
     "https://raw.githubusercontent.com/ollama/ollama/main/docs/modelfile.md"
-  ]
+  ],
+  "limits": {
+    "known": false,
+    "sourceUrls": [
+      "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md",
+      "https://raw.githubusercontent.com/ollama/ollama/main/docs/modelfile.md"
+    ],
+    "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+  }
 }

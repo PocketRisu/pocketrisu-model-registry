@@ -1,6 +1,6 @@
 {
   "id": "openai:gpt-55",
-  "version": 1,
+  "version": 2,
   "displayName": "OpenAI GPT-5.5",
   "displayNameI18n": {
     "ko": "OpenAI GPT-5.5"
@@ -405,5 +405,13 @@
   "sourceUrls": [
     "https://platform.openai.com/docs/models",
     "https://platform.openai.com/docs/guides/latest-model"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1050000,
+    "maxOutputTokens": 128000,
+    "sourceUrls": [
+      "https://platform.openai.com/docs/models/compare"
+    ]
+  }
 }

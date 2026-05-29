@@ -1,6 +1,6 @@
 {
   "id": "deepseek:legacy",
-  "version": 1,
+  "version": 2,
   "displayName": "DeepSeek Legacy",
   "displayNameI18n": {
     "ko": "DeepSeek Legacy"
@@ -301,5 +301,13 @@
     "https://api-docs.deepseek.com/quick_start/pricing",
     "https://api-docs.deepseek.com/api/create-chat-completion",
     "https://api-docs.deepseek.com/updates/"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 65536,
+    "maxOutputTokens": 8192,
+    "sourceUrls": [
+      "https://api-docs.deepseek.com/quick_start/pricing-details-usd"
+    ]
+  }
 }

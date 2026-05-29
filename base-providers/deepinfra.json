@@ -1,6 +1,6 @@
 {
   "id": "deepinfra",
-  "version": 2,
+  "version": 3,
   "displayName": "DeepInfra",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -83,7 +83,6 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 32768,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -208,7 +207,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "slider",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "generation",
         "order": 2
@@ -276,5 +275,12 @@
   ],
   "sourceUrls": [
     "https://deepinfra.com/docs/advanced/openai_api"
-  ]
+  ],
+  "limits": {
+    "known": false,
+    "sourceUrls": [
+      "https://deepinfra.com/docs/advanced/openai_api"
+    ],
+    "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+  }
 }

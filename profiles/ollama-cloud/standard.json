@@ -1,10 +1,10 @@
 {
   "id": "ollama-cloud:standard",
-  "version": 1,
-  "displayName": "Ollama Cloud (Turbo)",
+  "version": 2,
+  "displayName": "Ollama Cloud",
   "providerBaseId": "ollama-cloud",
   "profileTier": "standard",
-  "description": "Ollama-hosted cloud inference (Turbo). OpenAI-compatible chat completions at https://ollama.com/v1/chat/completions. Bearer auth via ollama.com API key. Model list and exact endpoint path PENDING VERIFICATION — see sourceUrls.",
+  "description": "Ollama-hosted cloud inference. OpenAI-compatible chat completions at https://ollama.com/v1/chat/completions. Bearer auth via ollama.com API key.",
   "modelId": "",
   "endpoint": {
     "kind": "static",
@@ -29,18 +29,17 @@
     "https://docs.ollama.com/cloud",
     "https://ollama.com/search?c=cloud"
   ],
-  "visibility": "advanced",
-  "lifecycle": "experimental",
+  "visibility": "standard",
+  "lifecycle": "current",
   "tags": [
     "ollama",
-    "cloud",
-    "experimental"
+    "cloud"
   ],
   "sortOrder": 610,
   "displayNameI18n": {
-    "ko": "Ollama Cloud (실험적)"
+    "ko": "Ollama Cloud"
   },
   "descriptionI18n": {
-    "ko": "Ollama 호스팅 클라우드 추론 (Turbo). OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증. 모델 목록과 정확한 endpoint는 sourceUrls 참조 필요."
+    "ko": "Ollama 호스팅 클라우드 추론. OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증."
   }
 }

@@ -43,6 +43,7 @@
       "type": "array",
       "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning"] }
     },
+    "limits": { "$ref": "#/$defs/modelLimits" },
     "sourceUrls": {
       "type": "array",
       "minItems": 1,
@@ -152,6 +153,21 @@
             "additionalProperties": false
           }
         }
+      },
+      "additionalProperties": false
+    },
+    "modelLimits": {
+      "type": "object",
+      "properties": {
+        "known": { "type": "boolean" },
+        "contextWindowTokens": { "type": "integer", "minimum": 1 },
+        "maxOutputTokens": { "type": "integer", "minimum": 1 },
+        "sourceUrls": {
+          "type": "array",
+          "items": { "type": "string", "format": "uri" }
+        },
+        "notes": { "type": "string" },
+        "notesI18n": { "$ref": "#/$defs/i18nStringMap" }
       },
       "additionalProperties": false
     },

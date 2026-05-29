@@ -1,6 +1,6 @@
 {
   "id": "anthropic:sonnet-adaptive",
-  "version": 1,
+  "version": 2,
   "displayName": "Claude Sonnet Adaptive",
   "displayNameI18n": {
     "ko": "Claude Sonnet Adaptive"
@@ -253,5 +253,13 @@
     "https://platform.claude.com/docs/en/about-claude/models/overview",
     "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
     "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "maxOutputTokens": 64000,
+    "sourceUrls": [
+      "https://platform.claude.com/docs/en/about-claude/models/overview"
+    ]
+  }
 }

@@ -1,6 +1,6 @@
 {
   "id": "openai:reasoning",
-  "version": 1,
+  "version": 2,
   "displayName": "OpenAI o-series",
   "displayNameI18n": {
     "ko": "OpenAI o-series"
@@ -383,5 +383,13 @@
   ],
   "sourceUrls": [
     "https://platform.openai.com/docs/models"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 200000,
+    "maxOutputTokens": 128000,
+    "sourceUrls": [
+      "https://platform.openai.com/docs/models/compare"
+    ]
+  }
 }

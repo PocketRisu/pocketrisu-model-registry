@@ -1,6 +1,6 @@
 {
   "id": "deepseek:v4",
-  "version": 1,
+  "version": 2,
   "displayName": "DeepSeek V4",
   "displayNameI18n": {
     "ko": "DeepSeek V4"
@@ -304,5 +304,13 @@
     "https://api-docs.deepseek.com/quick_start/pricing",
     "https://api-docs.deepseek.com/api/create-chat-completion",
     "https://api-docs.deepseek.com/updates/"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "maxOutputTokens": 384000,
+    "sourceUrls": [
+      "https://api-docs.deepseek.com/quick_start/pricing-details-usd"
+    ]
+  }
 }

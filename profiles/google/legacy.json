@@ -1,6 +1,6 @@
 {
   "id": "google:legacy",
-  "version": 1,
+  "version": 2,
   "displayName": "Gemini Legacy",
   "displayNameI18n": {
     "ko": "Gemini Legacy"
@@ -106,7 +106,7 @@
       "type": "integer",
       "label": "Max Output Tokens",
       "min": 1,
-      "max": 65536,
+      "max": 8192,
       "mapsTo": {
         "target": "body",
         "path": "generationConfig.maxOutputTokens"
@@ -415,5 +415,13 @@
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/thinking",
     "https://ai.google.dev/api/generate-content"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 2097152,
+    "maxOutputTokens": 8192,
+    "sourceUrls": [
+      "https://ai.google.dev/api/models"
+    ]
+  }
 }

@@ -158,6 +158,35 @@ function validateCapabilities(file, caps, path) {
     }
 }
 
+function validateLimits(file, limits, path) {
+    if (limits === undefined) return
+    if (!isPlainObject(limits)) {
+        fail(file, `${path}: must be object`)
+        return
+    }
+    if (limits.known !== undefined && typeof limits.known !== 'boolean') {
+        fail(file, `${path}.known: must be boolean`)
+    }
+    for (const key of ['contextWindowTokens', 'maxOutputTokens']) {
+        if (limits[key] !== undefined && (!Number.isInteger(limits[key]) || limits[key] < 1)) {
+            fail(file, `${path}.${key}: must be integer >= 1`)
+        }
+    }
+    if (limits.sourceUrls !== undefined) {
+        if (!Array.isArray(limits.sourceUrls)) {
+            fail(file, `${path}.sourceUrls: must be array`)
+        } else {
+            for (const u of limits.sourceUrls) {
+                if (typeof u !== 'string' || u.length === 0) fail(file, `${path}.sourceUrls: contains non-string entry`)
+            }
+        }
+    }
+    if (limits.notes !== undefined && typeof limits.notes !== 'string') {
+        fail(file, `${path}.notes: must be string`)
+    }
+    validateI18nStringMap(file, limits.notesI18n, `${path}.notesI18n`)
+}
+
 function validateSourceUrls(file, urls) {
     if (!Array.isArray(urls) || urls.length === 0) {
         fail(file, `sourceUrls: must be non-empty array`)
@@ -251,6 +280,7 @@ function validateBaseProvider(file, baseProviderMap) {
     }
 
     validateCapabilities(file, data.capabilities, 'capabilities')
+    validateLimits(file, data.limits, 'limits')
     validateSourceUrls(file, data.sourceUrls)
 
     if (typeof data.id === 'string') baseProviderMap.set(data.id, data)
@@ -322,6 +352,7 @@ function validateProfile(file, baseProviderMap) {
     validateUiSchema(file, data.uiSchema, mergedKeys, 'uiSchema')
 
     validateCapabilities(file, data.capabilities, 'capabilities')
+    validateLimits(file, data.limits, 'limits')
     validateSourceUrls(file, data.sourceUrls)
 
     return data

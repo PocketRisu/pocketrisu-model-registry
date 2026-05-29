@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 3,
+  "version": 4,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -123,7 +123,6 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 65536,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -247,7 +246,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "slider",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "generation",
         "order": 2
@@ -298,5 +297,13 @@
   "sourceUrls": [
     "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/openai",
     "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.endpoints.chat/completions"
-  ]
+  ],
+  "limits": {
+    "known": false,
+    "sourceUrls": [
+      "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/openai",
+      "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.endpoints.chat/completions"
+    ],
+    "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+  }
 }

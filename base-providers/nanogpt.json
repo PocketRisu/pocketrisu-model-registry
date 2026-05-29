@@ -1,6 +1,6 @@
 {
   "id": "nanogpt",
-  "version": 2,
+  "version": 3,
   "displayName": "NanoGPT",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -60,7 +60,6 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 128000,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -173,7 +172,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "slider",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "generation",
         "order": 2
@@ -220,5 +219,12 @@
   ],
   "sourceUrls": [
     "https://nano-gpt.com/docs"
-  ]
+  ],
+  "limits": {
+    "known": false,
+    "sourceUrls": [
+      "https://nano-gpt.com/docs"
+    ],
+    "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+  }
 }

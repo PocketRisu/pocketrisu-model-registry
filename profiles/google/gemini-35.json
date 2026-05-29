@@ -1,6 +1,6 @@
 {
   "id": "google:gemini-35",
-  "version": 1,
+  "version": 2,
   "displayName": "Gemini 3.5",
   "displayNameI18n": {
     "ko": "Gemini 3.5"
@@ -415,5 +415,13 @@
     "https://ai.google.dev/gemini-api/docs/models",
     "https://ai.google.dev/gemini-api/docs/thinking",
     "https://ai.google.dev/api/generate-content"
-  ]
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "maxOutputTokens": 65536,
+    "sourceUrls": [
+      "https://ai.google.dev/api/models"
+    ]
+  }
 }
