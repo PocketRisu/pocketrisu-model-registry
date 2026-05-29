@@ -15,9 +15,26 @@
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md"
-  ]
+  ],
+  "visibility": "popular",
+  "lifecycle": "current",
+  "tags": [
+    "ollama",
+    "local",
+    "self-hosted",
+    "openai-compatible"
+  ],
+  "sortOrder": 600,
+  "displayNameI18n": {
+    "ko": "Ollama (로컬)"
+  }
 }

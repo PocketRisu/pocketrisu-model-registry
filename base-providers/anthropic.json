@@ -1,17 +1,19 @@
 {
   "id": "anthropic",
-  "version": 3,
+  "version": 4,
   "displayName": "Anthropic",
   "adapterKind": "anthropic-messages",
-  "authKinds": ["x-api-key"],
-  "endpointKinds": ["static"],
+  "authKinds": [
+    "x-api-key"
+  ],
+  "endpointKinds": [
+    "static"
+  ],
   "defaultHeaders": {
     "Content-Type": "application/json",
     "anthropic-version": "2023-06-01"
   },
-  "defaultBody": {
-    "max_tokens": 4096
-  },
+  "defaultBody": {},
   "requestSchema": [
     {
       "key": "apiKey",
@@ -20,135 +22,40 @@
       "description": "Anthropic API key.",
       "required": true,
       "secret": true,
-      "mapsTo": { "target": "auth", "path": "apiKey" }
-    },
-    {
-      "key": "modelId",
-      "type": "string",
-      "label": "Model ID",
-      "description": "Model identifier (e.g. claude-sonnet-4-5, claude-opus-4-1, claude-haiku-4).",
-      "required": true,
-      "enum": [
-        { "value": "claude-sonnet-4-5", "label": "Claude Sonnet 4.5" },
-        { "value": "claude-opus-4-1", "label": "Claude Opus 4.1" },
-        { "value": "claude-opus-4", "label": "Claude Opus 4" },
-        { "value": "claude-haiku-4", "label": "Claude Haiku 4" },
-        { "value": "claude-3-7-sonnet-latest", "label": "Claude 3.7 Sonnet" },
-        { "value": "claude-3-5-sonnet-latest", "label": "Claude 3.5 Sonnet" },
-        { "value": "claude-3-5-haiku-latest", "label": "Claude 3.5 Haiku" }
-      ],
-      "mapsTo": { "target": "body", "path": "model" }
-    },
-    {
-      "key": "max_tokens",
-      "type": "integer",
-      "label": "Max Tokens",
-      "description": "Maximum tokens to generate in the response.",
-      "default": 4096,
-      "min": 1,
-      "max": 64000,
-      "required": true,
-      "mapsTo": { "target": "body", "path": "max_tokens" }
-    },
-    {
-      "key": "temperature",
-      "type": "number",
-      "label": "Temperature",
-      "description": "Randomness. 0 = deterministic, 1 = creative.",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "temperature" }
-    },
-    {
-      "key": "top_p",
-      "type": "number",
-      "label": "Top P",
-      "description": "Nucleus sampling probability mass.",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "top_p" }
-    },
-    {
-      "key": "top_k",
-      "type": "integer",
-      "label": "Top K",
-      "description": "Sample from top K tokens. 0 to disable.",
-      "min": 0,
-      "max": 500,
-      "mapsTo": { "target": "body", "path": "top_k" }
-    },
-    {
-      "key": "stop_sequences",
-      "type": "stringArray",
-      "label": "Stop Sequences",
-      "description": "Up to 4 sequences that stop generation.",
-      "mapsTo": { "target": "body", "path": "stop_sequences" }
-    },
-    {
-      "key": "thinking_enabled",
-      "type": "boolean",
-      "label": "Extended Thinking",
-      "description": "Enable extended thinking (reasoning) for supported Claude models.",
-      "default": false,
-      "mapsTo": { "target": "body", "path": "thinking.type" }
-    },
-    {
-      "key": "thinking_budget_tokens",
-      "type": "integer",
-      "label": "Thinking Budget Tokens",
-      "description": "Token budget for extended thinking. Must be < max_tokens.",
-      "default": 4096,
-      "min": 1024,
-      "max": 32000,
-      "mapsTo": { "target": "body", "path": "thinking.budget_tokens" }
-    },
-    {
-      "key": "service_tier",
-      "type": "string",
-      "label": "Service Tier",
-      "description": "Priority routing for the request.",
-      "enum": [
-        { "value": "auto", "label": "Auto" },
-        { "value": "standard_only", "label": "Standard only" }
-      ],
-      "mapsTo": { "target": "body", "path": "service_tier" }
-    },
-    {
-      "key": "user_id",
-      "type": "string",
-      "label": "User ID (metadata)",
-      "description": "Opaque end-user identifier for abuse monitoring.",
-      "mapsTo": { "target": "body", "path": "metadata.user_id" }
+      "mapsTo": {
+        "target": "auth",
+        "path": "apiKey"
+      }
     }
   ],
   "uiSchema": {
     "groups": [
-      { "id": "credentials", "label": "Credentials", "order": 1 },
-      { "id": "model", "label": "Model", "order": 2 },
-      { "id": "generation", "label": "Generation", "order": 3 },
-      { "id": "thinking", "label": "Extended Thinking", "order": 4 },
-      { "id": "control", "label": "Control", "order": 5 }
+      {
+        "id": "credentials",
+        "label": "Credentials",
+        "order": 1
+      }
     ],
     "fields": [
-      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "claude-sonnet-4-5" },
-      { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 1 },
-      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 2 },
-      { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "top_k", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "stop_sequences", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 5 },
-      { "key": "thinking_enabled", "widget": "toggle", "visibility": "advanced", "group": "thinking", "order": 1 },
-      { "key": "thinking_budget_tokens", "widget": "number-input", "visibility": "advanced", "group": "thinking", "order": 2, "showIf": { "key": "thinking_enabled", "equals": true } },
-      { "key": "service_tier", "widget": "select", "visibility": "advanced", "group": "control", "order": 1 },
-      { "key": "user_id", "widget": "text", "visibility": "advanced", "group": "control", "order": 2 }
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "basic",
+        "group": "credentials",
+        "order": 1
+      }
     ]
   },
-  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
   "sourceUrls": [
-    "https://platform.claude.com/docs/en/api/messages",
-    "https://platform.claude.com/docs/en/build-with-claude/extended-thinking",
-    "https://raw.githubusercontent.com/anthropics/anthropic-sdk-python/main/src/anthropic/types/message_create_params.py"
+    "https://platform.claude.com/docs/en/about-claude/models/overview",
+    "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
+    "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
   ]
 }

@@ -1,36 +1,652 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 5,
+  "contentVersion": 7,
   "updated": "2026-05-29",
   "baseProviders": [
-    { "id": "openai", "displayName": "OpenAI", "url": "base-providers/openai.json", "version": 2 },
-    { "id": "anthropic", "displayName": "Anthropic", "url": "base-providers/anthropic.json", "version": 3 },
-    { "id": "google", "displayName": "Google AI Studio (Gemini)", "url": "base-providers/google.json", "version": 2 },
-    { "id": "openai-compatible", "displayName": "OpenAI Compatible (Custom)", "url": "base-providers/openai-compatible.json", "version": 2 },
-    { "id": "openrouter", "displayName": "OpenRouter", "url": "base-providers/openrouter.json", "version": 2 },
-    { "id": "nanogpt", "displayName": "NanoGPT", "url": "base-providers/nanogpt.json", "version": 2 },
-    { "id": "ollama", "displayName": "Ollama (Self-hosted)", "url": "base-providers/ollama.json", "version": 2 },
-    { "id": "ollama-cloud", "displayName": "Ollama Cloud (Turbo)", "url": "base-providers/ollama-cloud.json", "version": 1 },
-    { "id": "deepseek", "displayName": "DeepSeek", "url": "base-providers/deepseek.json", "version": 2 },
-    { "id": "deepinfra", "displayName": "DeepInfra", "url": "base-providers/deepinfra.json", "version": 2 },
-    { "id": "vercel", "displayName": "Vercel AI Gateway", "url": "base-providers/vercel.json", "version": 2 },
-    { "id": "bedrock", "displayName": "AWS Bedrock (OpenAI-compatible)", "url": "base-providers/bedrock.json", "version": 2 },
-    { "id": "vertex-openai", "displayName": "Vertex AI (OpenAI-compatible)", "url": "base-providers/vertex-openai.json", "version": 3 }
+    {
+      "id": "openai",
+      "displayName": "OpenAI",
+      "url": "base-providers/openai.json",
+      "version": 3
+    },
+    {
+      "id": "anthropic",
+      "displayName": "Anthropic",
+      "url": "base-providers/anthropic.json",
+      "version": 4
+    },
+    {
+      "id": "google",
+      "displayName": "Google AI Studio (Gemini)",
+      "url": "base-providers/google.json",
+      "version": 3
+    },
+    {
+      "id": "openai-compatible",
+      "displayName": "OpenAI Compatible (Custom)",
+      "url": "base-providers/openai-compatible.json",
+      "version": 2
+    },
+    {
+      "id": "openrouter",
+      "displayName": "OpenRouter",
+      "url": "base-providers/openrouter.json",
+      "version": 2
+    },
+    {
+      "id": "nanogpt",
+      "displayName": "NanoGPT",
+      "url": "base-providers/nanogpt.json",
+      "version": 2
+    },
+    {
+      "id": "ollama",
+      "displayName": "Ollama (Self-hosted)",
+      "url": "base-providers/ollama.json",
+      "version": 2
+    },
+    {
+      "id": "ollama-cloud",
+      "displayName": "Ollama Cloud (Turbo)",
+      "url": "base-providers/ollama-cloud.json",
+      "version": 1
+    },
+    {
+      "id": "deepseek",
+      "displayName": "DeepSeek",
+      "url": "base-providers/deepseek.json",
+      "version": 3
+    },
+    {
+      "id": "deepinfra",
+      "displayName": "DeepInfra",
+      "url": "base-providers/deepinfra.json",
+      "version": 2
+    },
+    {
+      "id": "vercel",
+      "displayName": "Vercel AI Gateway",
+      "url": "base-providers/vercel.json",
+      "version": 2
+    },
+    {
+      "id": "bedrock",
+      "displayName": "AWS Bedrock (OpenAI-compatible)",
+      "url": "base-providers/bedrock.json",
+      "version": 2
+    },
+    {
+      "id": "vertex-openai",
+      "displayName": "Vertex AI (OpenAI-compatible)",
+      "url": "base-providers/vertex-openai.json",
+      "version": 3
+    }
   ],
   "profiles": [
-    { "id": "openai:standard", "displayName": "OpenAI", "providerBaseId": "openai", "profileTier": "standard", "url": "profiles/openai/standard.json", "version": 1 },
-    { "id": "anthropic:standard", "displayName": "Anthropic", "providerBaseId": "anthropic", "profileTier": "standard", "url": "profiles/anthropic/standard.json", "version": 1 },
-    { "id": "google:standard", "displayName": "Google AI Studio", "providerBaseId": "google", "profileTier": "standard", "url": "profiles/google/standard.json", "version": 1 },
-    { "id": "openai-compatible:custom", "displayName": "OpenAI Compatible (Custom)", "providerBaseId": "openai-compatible", "profileTier": "standard", "url": "profiles/openai-compatible/custom.json", "version": 1 },
-    { "id": "openai-compatible:custom-noauth", "displayName": "OpenAI Compatible (Custom, no auth)", "providerBaseId": "openai-compatible", "profileTier": "standard", "url": "profiles/openai-compatible/custom-noauth.json", "version": 1 },
-    { "id": "openrouter:openai-compatible", "displayName": "OpenRouter", "providerBaseId": "openrouter", "profileTier": "standard", "url": "profiles/openrouter/openai-compatible.json", "version": 1 },
-    { "id": "nanogpt:openai-compatible", "displayName": "NanoGPT", "providerBaseId": "nanogpt", "profileTier": "standard", "url": "profiles/nanogpt/openai-compatible.json", "version": 1 },
-    { "id": "ollama:openai-compatible-local", "displayName": "Ollama (Self-hosted)", "providerBaseId": "ollama", "profileTier": "standard", "url": "profiles/ollama/openai-compatible-local.json", "version": 1 },
-    { "id": "ollama-cloud:standard", "displayName": "Ollama Cloud (Turbo)", "providerBaseId": "ollama-cloud", "profileTier": "standard", "url": "profiles/ollama-cloud/standard.json", "version": 1 },
-    { "id": "deepseek:openai-compatible", "displayName": "DeepSeek", "providerBaseId": "deepseek", "profileTier": "standard", "url": "profiles/deepseek/openai-compatible.json", "version": 1 },
-    { "id": "deepinfra:openai-compatible", "displayName": "DeepInfra", "providerBaseId": "deepinfra", "profileTier": "standard", "url": "profiles/deepinfra/openai-compatible.json", "version": 1 },
-    { "id": "vercel:openai-compatible", "displayName": "Vercel AI Gateway", "providerBaseId": "vercel", "profileTier": "standard", "url": "profiles/vercel/openai-compatible.json", "version": 1 },
-    { "id": "bedrock:openai-compatible", "displayName": "AWS Bedrock (OpenAI-compatible)", "providerBaseId": "bedrock", "profileTier": "standard", "url": "profiles/bedrock/openai-compatible.json", "version": 1 },
-    { "id": "vertex-openai:standard", "displayName": "Vertex AI (OpenAI-compatible)", "providerBaseId": "vertex-openai", "profileTier": "standard", "url": "profiles/vertex-openai/standard.json", "version": 2 }
+    {
+      "id": "openai:gpt-55",
+      "displayName": "OpenAI GPT-5.5",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/gpt-55.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-5.5"
+      },
+      "visibility": "popular",
+      "lifecycle": "experimental",
+      "tags": [
+        "openai",
+        "gpt",
+        "gpt-5",
+        "reasoning",
+        "latest",
+        "coding"
+      ],
+      "sortOrder": 100
+    },
+    {
+      "id": "openai:gpt-54",
+      "displayName": "OpenAI GPT-5.4",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/gpt-54.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-5.4"
+      },
+      "visibility": "popular",
+      "lifecycle": "recommended",
+      "tags": [
+        "openai",
+        "gpt",
+        "gpt-5",
+        "reasoning",
+        "latest",
+        "coding"
+      ],
+      "sortOrder": 105
+    },
+    {
+      "id": "openai:gpt-5",
+      "displayName": "OpenAI GPT-5",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/gpt-5.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-5"
+      },
+      "visibility": "popular",
+      "lifecycle": "recommended",
+      "tags": [
+        "openai",
+        "gpt",
+        "gpt-5",
+        "reasoning"
+      ],
+      "sortOrder": 110
+    },
+    {
+      "id": "openai:codex",
+      "displayName": "OpenAI Codex",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/codex.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI Codex"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "openai",
+        "codex",
+        "gpt-5",
+        "coding",
+        "reasoning"
+      ],
+      "sortOrder": 120
+    },
+    {
+      "id": "openai:chatgpt",
+      "displayName": "OpenAI ChatGPT Snapshots",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/chatgpt.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI ChatGPT Snapshots"
+      },
+      "visibility": "advanced",
+      "lifecycle": "experimental",
+      "tags": [
+        "openai",
+        "chatgpt",
+        "gpt-5",
+        "chat",
+        "instant"
+      ],
+      "sortOrder": 130
+    },
+    {
+      "id": "openai:reasoning",
+      "displayName": "OpenAI o-series",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/reasoning.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI o-series"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "openai",
+        "reasoning",
+        "o-series"
+      ],
+      "sortOrder": 140
+    },
+    {
+      "id": "openai:gpt-4o",
+      "displayName": "OpenAI GPT-4o / GPT-4.1",
+      "providerBaseId": "openai",
+      "profileTier": "standard",
+      "url": "profiles/openai/gpt-4o.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-4o / GPT-4.1"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "openai",
+        "gpt",
+        "chat",
+        "vision"
+      ],
+      "sortOrder": 180
+    },
+    {
+      "id": "anthropic:opus-adaptive",
+      "displayName": "Claude Opus Adaptive",
+      "providerBaseId": "anthropic",
+      "profileTier": "standard",
+      "url": "profiles/anthropic/opus-adaptive.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus Adaptive"
+      },
+      "visibility": "popular",
+      "lifecycle": "recommended",
+      "tags": [
+        "anthropic",
+        "claude",
+        "opus",
+        "reasoning",
+        "coding",
+        "long-context"
+      ],
+      "sortOrder": 200
+    },
+    {
+      "id": "anthropic:sonnet-adaptive",
+      "displayName": "Claude Sonnet Adaptive",
+      "providerBaseId": "anthropic",
+      "profileTier": "standard",
+      "url": "profiles/anthropic/sonnet-adaptive.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Sonnet Adaptive"
+      },
+      "visibility": "popular",
+      "lifecycle": "recommended",
+      "tags": [
+        "anthropic",
+        "claude",
+        "sonnet",
+        "reasoning",
+        "coding"
+      ],
+      "sortOrder": 210
+    },
+    {
+      "id": "anthropic:opus-46",
+      "displayName": "Claude Opus 4.6",
+      "providerBaseId": "anthropic",
+      "profileTier": "standard",
+      "url": "profiles/anthropic/opus-46.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.6"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "anthropic",
+        "claude",
+        "opus",
+        "reasoning",
+        "long-context"
+      ],
+      "sortOrder": 220
+    },
+    {
+      "id": "anthropic:claude-45",
+      "displayName": "Claude 4.5",
+      "providerBaseId": "anthropic",
+      "profileTier": "standard",
+      "url": "profiles/anthropic/claude-45.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude 4.5"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "anthropic",
+        "claude",
+        "sonnet",
+        "haiku",
+        "reasoning"
+      ],
+      "sortOrder": 240
+    },
+    {
+      "id": "google:gemini-35",
+      "displayName": "Gemini 3.5",
+      "providerBaseId": "google",
+      "profileTier": "standard",
+      "url": "profiles/google/gemini-35.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.5"
+      },
+      "visibility": "popular",
+      "lifecycle": "recommended",
+      "tags": [
+        "google",
+        "gemini",
+        "flash",
+        "reasoning",
+        "latest"
+      ],
+      "sortOrder": 300
+    },
+    {
+      "id": "google:gemini-31",
+      "displayName": "Gemini 3 / 3.1",
+      "providerBaseId": "google",
+      "profileTier": "standard",
+      "url": "profiles/google/gemini-31.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3 / 3.1"
+      },
+      "visibility": "popular",
+      "lifecycle": "current",
+      "tags": [
+        "google",
+        "gemini",
+        "pro",
+        "flash",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 320
+    },
+    {
+      "id": "google:gemini-25",
+      "displayName": "Gemini 2.5",
+      "providerBaseId": "google",
+      "profileTier": "standard",
+      "url": "profiles/google/gemini-25.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 2.5"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "google",
+        "gemini",
+        "pro",
+        "flash",
+        "reasoning"
+      ],
+      "sortOrder": 340
+    },
+    {
+      "id": "deepseek:v4",
+      "displayName": "DeepSeek V4",
+      "providerBaseId": "deepseek",
+      "profileTier": "standard",
+      "url": "profiles/deepseek/v4.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4"
+      },
+      "visibility": "popular",
+      "lifecycle": "recommended",
+      "tags": [
+        "deepseek",
+        "v4",
+        "reasoning",
+        "coding"
+      ],
+      "sortOrder": 400
+    },
+    {
+      "id": "openrouter:openai-compatible",
+      "displayName": "OpenRouter",
+      "providerBaseId": "openrouter",
+      "profileTier": "standard",
+      "url": "profiles/openrouter/openai-compatible.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenRouter"
+      },
+      "visibility": "popular",
+      "lifecycle": "current",
+      "tags": [
+        "openrouter",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 500
+    },
+    {
+      "id": "nanogpt:openai-compatible",
+      "displayName": "NanoGPT",
+      "providerBaseId": "nanogpt",
+      "profileTier": "standard",
+      "url": "profiles/nanogpt/openai-compatible.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "NanoGPT"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "nanogpt",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 520
+    },
+    {
+      "id": "deepinfra:openai-compatible",
+      "displayName": "DeepInfra",
+      "providerBaseId": "deepinfra",
+      "profileTier": "standard",
+      "url": "profiles/deepinfra/openai-compatible.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepInfra"
+      },
+      "visibility": "advanced",
+      "lifecycle": "current",
+      "tags": [
+        "deepinfra",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 530
+    },
+    {
+      "id": "vercel:openai-compatible",
+      "displayName": "Vercel AI Gateway",
+      "providerBaseId": "vercel",
+      "profileTier": "standard",
+      "url": "profiles/vercel/openai-compatible.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Vercel AI Gateway"
+      },
+      "visibility": "standard",
+      "lifecycle": "current",
+      "tags": [
+        "vercel",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 540
+    },
+    {
+      "id": "ollama:openai-compatible-local",
+      "displayName": "Ollama (Self-hosted)",
+      "providerBaseId": "ollama",
+      "profileTier": "standard",
+      "url": "profiles/ollama/openai-compatible-local.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Ollama (로컬)"
+      },
+      "visibility": "popular",
+      "lifecycle": "current",
+      "tags": [
+        "ollama",
+        "local",
+        "self-hosted",
+        "openai-compatible"
+      ],
+      "sortOrder": 600
+    },
+    {
+      "id": "ollama-cloud:standard",
+      "displayName": "Ollama Cloud (Turbo)",
+      "providerBaseId": "ollama-cloud",
+      "profileTier": "standard",
+      "url": "profiles/ollama-cloud/standard.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Ollama Cloud (실험적)"
+      },
+      "visibility": "advanced",
+      "lifecycle": "experimental",
+      "tags": [
+        "ollama",
+        "cloud",
+        "experimental"
+      ],
+      "sortOrder": 610
+    },
+    {
+      "id": "bedrock:openai-compatible",
+      "displayName": "AWS Bedrock (OpenAI-compatible)",
+      "providerBaseId": "bedrock",
+      "profileTier": "standard",
+      "url": "profiles/bedrock/openai-compatible.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "AWS Bedrock (OpenAI 호환)"
+      },
+      "visibility": "advanced",
+      "lifecycle": "current",
+      "tags": [
+        "aws",
+        "bedrock",
+        "openai-compatible"
+      ],
+      "sortOrder": 800
+    },
+    {
+      "id": "vertex-openai:standard",
+      "displayName": "Vertex AI (OpenAI-compatible)",
+      "providerBaseId": "vertex-openai",
+      "profileTier": "standard",
+      "url": "profiles/vertex-openai/standard.json",
+      "version": 2,
+      "displayNameI18n": {
+        "ko": "Vertex AI (OpenAI 호환)"
+      },
+      "visibility": "advanced",
+      "lifecycle": "current",
+      "tags": [
+        "google",
+        "vertex",
+        "openai-compatible"
+      ],
+      "sortOrder": 820
+    },
+    {
+      "id": "openai-compatible:custom",
+      "displayName": "OpenAI Compatible (Custom)",
+      "providerBaseId": "openai-compatible",
+      "profileTier": "standard",
+      "url": "profiles/openai-compatible/custom.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI 호환 (커스텀)"
+      },
+      "visibility": "advanced",
+      "lifecycle": "current",
+      "tags": [
+        "custom",
+        "openai-compatible"
+      ],
+      "sortOrder": 7000
+    },
+    {
+      "id": "openai-compatible:custom-noauth",
+      "displayName": "OpenAI Compatible (Custom, no auth)",
+      "providerBaseId": "openai-compatible",
+      "profileTier": "standard",
+      "url": "profiles/openai-compatible/custom-noauth.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "OpenAI 호환 (커스텀, 인증 없음)"
+      },
+      "visibility": "advanced",
+      "lifecycle": "current",
+      "tags": [
+        "custom",
+        "openai-compatible",
+        "noauth"
+      ],
+      "sortOrder": 7010
+    },
+    {
+      "id": "anthropic:legacy",
+      "displayName": "Claude Legacy",
+      "providerBaseId": "anthropic",
+      "profileTier": "standard",
+      "url": "profiles/anthropic/legacy.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Legacy"
+      },
+      "visibility": "legacy",
+      "lifecycle": "legacy",
+      "tags": [
+        "anthropic",
+        "claude",
+        "legacy",
+        "sonnet",
+        "haiku"
+      ],
+      "sortOrder": 9200
+    },
+    {
+      "id": "google:legacy",
+      "displayName": "Gemini Legacy",
+      "providerBaseId": "google",
+      "profileTier": "standard",
+      "url": "profiles/google/legacy.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini Legacy"
+      },
+      "visibility": "legacy",
+      "lifecycle": "legacy",
+      "tags": [
+        "google",
+        "gemini",
+        "legacy",
+        "flash",
+        "pro"
+      ],
+      "sortOrder": 9300
+    },
+    {
+      "id": "deepseek:legacy",
+      "displayName": "DeepSeek Legacy",
+      "providerBaseId": "deepseek",
+      "profileTier": "standard",
+      "url": "profiles/deepseek/legacy.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek Legacy"
+      },
+      "visibility": "legacy",
+      "lifecycle": "deprecated",
+      "tags": [
+        "deepseek",
+        "legacy",
+        "reasoning"
+      ],
+      "sortOrder": 9400
+    }
   ]
 }

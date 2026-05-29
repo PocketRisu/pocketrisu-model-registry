@@ -11,7 +11,7 @@ The registry follows **schema v4** (see `schema/base-provider.schema.json` and `
 | Folder | What it holds |
 |---|---|
 | `base-providers/<id>.json` | `BaseProviderDefinition` — adapter/auth/endpoint primitives, default headers/body, shared request schema and UI schema. Consumed by every profile under this base. |
-| `profiles/<baseId>/<profileKey>.json` | `ModelProfile` — concrete profile a user picks (e.g. `openai:standard`). Has its own endpoint, auth wiring, `modelId`, and may extend the base's `schema`/`uiSchema`. MVP only ships `profileTier: 'standard'`. |
+| `profiles/<baseId>/<profileKey>.json` | `ModelProfile` — concrete profile a user picks (e.g. `openai:gpt-5`). Has its own endpoint, auth wiring, `modelId`, and may extend the base's `schema`/`uiSchema`. MVP only ships `profileTier: 'standard'`. |
 | `schema/base-provider.schema.json` | JSON Schema for `BaseProviderDefinition`. |
 | `schema/model-profile.schema.json` | JSON Schema for `ModelProfile`. |
 | `index.json` | Mirror of every base provider + profile (used for fast HTTP catalog lookup). v4 sets `schemaVersion: 4`. |

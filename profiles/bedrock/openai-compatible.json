@@ -12,13 +12,34 @@
   },
   "auth": {
     "kind": "bearer",
-    "fields": ["apiKey"]
+    "fields": [
+      "apiKey"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools"
+  ],
   "sourceUrls": [
     "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions-mantle.html"
-  ]
+  ],
+  "visibility": "advanced",
+  "lifecycle": "current",
+  "tags": [
+    "aws",
+    "bedrock",
+    "openai-compatible"
+  ],
+  "sortOrder": 800,
+  "displayNameI18n": {
+    "ko": "AWS Bedrock (OpenAI 호환)"
+  }
 }

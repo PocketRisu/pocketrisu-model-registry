@@ -45,6 +45,8 @@ const ALLOWED_VISIBILITY = new Set(['basic', 'advanced', 'hidden'])
 const ALLOWED_MAPS_TO_TARGET = new Set(['body', 'header', 'query', 'auth', 'custom'])
 const ALLOWED_CAPABILITY = new Set(['streaming', 'vision', 'tools', 'json', 'reasoning'])
 const ALLOWED_PROFILE_TIER = new Set(['standard'])
+const ALLOWED_PROFILE_VISIBILITY = new Set(['popular', 'standard', 'advanced', 'legacy'])
+const ALLOWED_LIFECYCLE = new Set(['recommended', 'current', 'legacy', 'deprecated', 'experimental'])
 
 const errors = []
 
@@ -157,6 +159,45 @@ function validateSourceUrls(file, urls) {
     }
 }
 
+function validateI18nStringMap(file, value, path) {
+    if (value === undefined) return
+    if (!isPlainObject(value)) {
+        fail(file, `${path}: must be object`)
+        return
+    }
+    for (const [locale, label] of Object.entries(value)) {
+        if (typeof locale !== 'string' || locale.length === 0) {
+            fail(file, `${path}: locale keys must be non-empty strings`)
+        }
+        if (typeof label !== 'string' || label.length === 0) {
+            fail(file, `${path}.${locale}: must be non-empty string`)
+        }
+    }
+}
+
+function validateProfileMetadata(file, data) {
+    validateI18nStringMap(file, data.displayNameI18n, 'displayNameI18n')
+    validateI18nStringMap(file, data.descriptionI18n, 'descriptionI18n')
+    if (data.visibility !== undefined && !ALLOWED_PROFILE_VISIBILITY.has(data.visibility)) {
+        fail(file, `visibility: invalid (${data.visibility})`)
+    }
+    if (data.lifecycle !== undefined && !ALLOWED_LIFECYCLE.has(data.lifecycle)) {
+        fail(file, `lifecycle: invalid (${data.lifecycle})`)
+    }
+    if (data.tags !== undefined) {
+        if (!Array.isArray(data.tags)) {
+            fail(file, 'tags: must be array')
+        } else {
+            for (const tag of data.tags) {
+                if (typeof tag !== 'string' || tag.length === 0) fail(file, 'tags: entries must be non-empty strings')
+            }
+        }
+    }
+    if (data.sortOrder !== undefined && (!Number.isInteger(data.sortOrder))) {
+        fail(file, 'sortOrder: must be integer')
+    }
+}
+
 function validateBaseProvider(file, baseProviderMap) {
     const data = readJson(file)
     if (!data) return
@@ -219,6 +260,7 @@ function validateProfile(file, baseProviderMap) {
     if (typeof data.displayName !== 'string' || data.displayName.length === 0) {
         fail(file, 'displayName: must be non-empty string')
     }
+    validateProfileMetadata(file, data)
 
     const base = typeof data.providerBaseId === 'string' ? baseProviderMap.get(data.providerBaseId) : undefined
     if (!base) {

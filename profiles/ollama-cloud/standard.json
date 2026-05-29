@@ -12,14 +12,32 @@
   },
   "auth": {
     "kind": "bearer",
-    "fields": ["apiKey"]
+    "fields": [
+      "apiKey"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://docs.ollama.com/cloud",
     "https://ollama.com/search?c=cloud"
-  ]
+  ],
+  "visibility": "advanced",
+  "lifecycle": "experimental",
+  "tags": [
+    "ollama",
+    "cloud",
+    "experimental"
+  ],
+  "sortOrder": 610,
+  "displayNameI18n": {
+    "ko": "Ollama Cloud (실험적)"
+  }
 }

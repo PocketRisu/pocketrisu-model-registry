@@ -12,13 +12,31 @@
   },
   "auth": {
     "kind": "bearer",
-    "fields": ["apiKey"]
+    "fields": [
+      "apiKey"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://deepinfra.com/docs/advanced/openai_api"
-  ]
+  ],
+  "visibility": "advanced",
+  "lifecycle": "current",
+  "tags": [
+    "deepinfra",
+    "aggregator",
+    "openai-compatible"
+  ],
+  "sortOrder": 530,
+  "displayNameI18n": {
+    "ko": "DeepInfra"
+  }
 }

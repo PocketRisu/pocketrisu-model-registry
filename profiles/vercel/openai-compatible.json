@@ -12,13 +12,33 @@
   },
   "auth": {
     "kind": "bearer",
-    "fields": ["apiKey"]
+    "fields": [
+      "apiKey"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming", "vision", "tools"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "vision",
+    "tools"
+  ],
   "sourceUrls": [
     "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions/chat-completions"
-  ]
+  ],
+  "visibility": "standard",
+  "lifecycle": "current",
+  "tags": [
+    "vercel",
+    "aggregator",
+    "openai-compatible"
+  ],
+  "sortOrder": 540,
+  "displayNameI18n": {
+    "ko": "Vercel AI Gateway"
+  }
 }

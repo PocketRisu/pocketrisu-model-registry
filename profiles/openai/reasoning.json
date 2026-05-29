@@ -1,0 +1,365 @@
+{
+  "id": "openai:reasoning",
+  "version": 1,
+  "displayName": "OpenAI o-series",
+  "displayNameI18n": {
+    "ko": "OpenAI o-series"
+  },
+  "providerBaseId": "openai",
+  "profileTier": "standard",
+  "description": "OpenAI reasoning model profile.",
+  "descriptionI18n": {
+    "ko": "OpenAI reasoning model profile."
+  },
+  "visibility": "standard",
+  "lifecycle": "current",
+  "tags": [
+    "openai",
+    "reasoning",
+    "o-series"
+  ],
+  "sortOrder": 140,
+  "modelId": "o4-mini",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://api.openai.com/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "OpenAI model identifier.",
+      "required": true,
+      "enum": [
+        {
+          "value": "o4-mini",
+          "label": "o4-mini"
+        },
+        {
+          "value": "o3",
+          "label": "o3"
+        },
+        {
+          "value": "o3-mini",
+          "label": "o3 Mini"
+        },
+        {
+          "value": "o1",
+          "label": "o1"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "model"
+      }
+    },
+    {
+      "key": "max_completion_tokens",
+      "type": "integer",
+      "label": "Max Completion Tokens",
+      "min": 1,
+      "max": 128000,
+      "mapsTo": {
+        "target": "body",
+        "path": "max_completion_tokens"
+      }
+    },
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "minimal",
+          "label": "Minimal"
+        },
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra high"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      }
+    },
+    {
+      "key": "service_tier",
+      "type": "string",
+      "label": "Service Tier",
+      "enum": [
+        {
+          "value": "auto",
+          "label": "Auto"
+        },
+        {
+          "value": "default",
+          "label": "Default"
+        },
+        {
+          "value": "flex",
+          "label": "Flex"
+        },
+        {
+          "value": "priority",
+          "label": "Priority"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "service_tier"
+      }
+    },
+    {
+      "key": "stop",
+      "type": "stringArray",
+      "label": "Stop Sequences",
+      "mapsTo": {
+        "target": "body",
+        "path": "stop"
+      }
+    },
+    {
+      "key": "seed",
+      "type": "integer",
+      "label": "Seed",
+      "mapsTo": {
+        "target": "body",
+        "path": "seed"
+      }
+    },
+    {
+      "key": "response_format",
+      "type": "string",
+      "label": "Response Format",
+      "enum": [
+        {
+          "value": "text",
+          "label": "Text"
+        },
+        {
+          "value": "json_object",
+          "label": "JSON object"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "response_format.type"
+      }
+    },
+    {
+      "key": "parallel_tool_calls",
+      "type": "boolean",
+      "label": "Parallel Tool Calls",
+      "default": true,
+      "mapsTo": {
+        "target": "body",
+        "path": "parallel_tool_calls"
+      }
+    },
+    {
+      "key": "logprobs",
+      "type": "boolean",
+      "label": "Logprobs",
+      "default": false,
+      "mapsTo": {
+        "target": "body",
+        "path": "logprobs"
+      }
+    },
+    {
+      "key": "top_logprobs",
+      "type": "integer",
+      "label": "Top Logprobs",
+      "min": 0,
+      "max": 20,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_logprobs"
+      }
+    },
+    {
+      "key": "user",
+      "type": "string",
+      "label": "User",
+      "mapsTo": {
+        "target": "body",
+        "path": "user"
+      }
+    },
+    {
+      "key": "metadata",
+      "type": "json",
+      "label": "Metadata",
+      "mapsTo": {
+        "target": "body",
+        "path": "metadata"
+      }
+    }
+  ],
+  "uiSchema": {
+    "groups": [
+      {
+        "id": "credentials",
+        "label": "Credentials",
+        "order": 1
+      },
+      {
+        "id": "model",
+        "label": "Model",
+        "order": 2
+      },
+      {
+        "id": "generation",
+        "label": "Generation",
+        "order": 3
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 4
+      },
+      {
+        "id": "output",
+        "label": "Output",
+        "order": 4
+      },
+      {
+        "id": "control",
+        "label": "Control",
+        "order": 5
+      }
+    ],
+    "fields": [
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "basic",
+        "group": "credentials",
+        "order": 1
+      },
+      {
+        "key": "modelId",
+        "widget": "combobox",
+        "visibility": "basic",
+        "group": "model",
+        "order": 1
+      },
+      {
+        "key": "max_completion_tokens",
+        "widget": "number-input",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 1
+      },
+      {
+        "key": "reasoning_effort",
+        "widget": "select",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
+      },
+      {
+        "key": "service_tier",
+        "widget": "select",
+        "visibility": "advanced",
+        "group": "control",
+        "order": 1
+      },
+      {
+        "key": "stop",
+        "widget": "string-array",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 2
+      },
+      {
+        "key": "seed",
+        "widget": "number-input",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 3
+      },
+      {
+        "key": "response_format",
+        "widget": "select",
+        "visibility": "advanced",
+        "group": "output",
+        "order": 1
+      },
+      {
+        "key": "parallel_tool_calls",
+        "widget": "toggle",
+        "visibility": "advanced",
+        "group": "output",
+        "order": 2
+      },
+      {
+        "key": "logprobs",
+        "widget": "toggle",
+        "visibility": "advanced",
+        "group": "output",
+        "order": 3
+      },
+      {
+        "key": "top_logprobs",
+        "widget": "number-input",
+        "visibility": "advanced",
+        "group": "output",
+        "order": 4,
+        "showIf": {
+          "key": "logprobs",
+          "equals": true
+        }
+      },
+      {
+        "key": "user",
+        "widget": "text",
+        "visibility": "advanced",
+        "group": "control",
+        "order": 1
+      },
+      {
+        "key": "metadata",
+        "widget": "json",
+        "visibility": "advanced",
+        "group": "control",
+        "order": 2
+      }
+    ]
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://platform.openai.com/docs/models"
+  ]
+}

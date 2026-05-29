@@ -12,13 +12,31 @@
   },
   "auth": {
     "kind": "bearer",
-    "fields": ["apiKey"]
+    "fields": [
+      "apiKey"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://nano-gpt.com/docs"
-  ]
+  ],
+  "visibility": "standard",
+  "lifecycle": "current",
+  "tags": [
+    "nanogpt",
+    "aggregator",
+    "openai-compatible"
+  ],
+  "sortOrder": 520,
+  "displayNameI18n": {
+    "ko": "NanoGPT"
+  }
 }

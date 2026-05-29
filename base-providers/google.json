@@ -1,214 +1,59 @@
 {
   "id": "google",
-  "version": 2,
+  "version": 3,
   "displayName": "Google AI Studio (Gemini)",
   "adapterKind": "google-gemini",
-  "authKinds": ["x-goog-api-key"],
-  "endpointKinds": ["static"],
-  "defaultHeaders": { "Content-Type": "application/json" },
+  "authKinds": [
+    "x-goog-api-key"
+  ],
+  "endpointKinds": [
+    "static"
+  ],
+  "defaultHeaders": {
+    "Content-Type": "application/json"
+  },
   "defaultBody": {},
   "requestSchema": [
     {
       "key": "apiKey",
       "type": "string",
       "label": "API Key",
-      "description": "Google AI Studio API key (sent as `x-goog-api-key` request header).",
+      "description": "Google AI Studio API key.",
       "required": true,
       "secret": true,
-      "mapsTo": { "target": "auth", "path": "apiKey" }
-    },
-    {
-      "key": "modelId",
-      "type": "string",
-      "label": "Model ID",
-      "description": "Model identifier (e.g. gemini-2.5-pro, gemini-2.5-flash).",
-      "required": true,
-      "enum": [
-        { "value": "gemini-2.5-pro", "label": "Gemini 2.5 Pro" },
-        { "value": "gemini-2.5-flash", "label": "Gemini 2.5 Flash" },
-        { "value": "gemini-2.5-flash-lite", "label": "Gemini 2.5 Flash Lite" },
-        { "value": "gemini-2.0-flash", "label": "Gemini 2.0 Flash" },
-        { "value": "gemini-1.5-pro", "label": "Gemini 1.5 Pro" },
-        { "value": "gemini-1.5-flash", "label": "Gemini 1.5 Flash" },
-        { "value": "gemini-1.5-flash-8b", "label": "Gemini 1.5 Flash 8B" }
-      ],
-      "mapsTo": { "target": "body", "path": "model" }
-    },
-    {
-      "key": "temperature",
-      "type": "number",
-      "label": "Temperature",
-      "description": "Randomness. 0 = deterministic, 2 = very creative.",
-      "min": 0,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "generationConfig.temperature" }
-    },
-    {
-      "key": "topP",
-      "type": "number",
-      "label": "Top P",
-      "description": "Nucleus sampling probability mass.",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "generationConfig.topP" }
-    },
-    {
-      "key": "topK",
-      "type": "integer",
-      "label": "Top K",
-      "description": "Sample from top K tokens.",
-      "min": 1,
-      "max": 1000,
-      "mapsTo": { "target": "body", "path": "generationConfig.topK" }
-    },
-    {
-      "key": "maxOutputTokens",
-      "type": "integer",
-      "label": "Max Output Tokens",
-      "description": "Maximum number of tokens to generate.",
-      "min": 1,
-      "max": 65536,
-      "mapsTo": { "target": "body", "path": "generationConfig.maxOutputTokens" }
-    },
-    {
-      "key": "stopSequences",
-      "type": "stringArray",
-      "label": "Stop Sequences",
-      "description": "Up to 5 character sequences that stop output.",
-      "mapsTo": { "target": "body", "path": "generationConfig.stopSequences" }
-    },
-    {
-      "key": "candidateCount",
-      "type": "integer",
-      "label": "Candidate Count",
-      "description": "Number of response candidates to generate (1–8).",
-      "min": 1,
-      "max": 8,
-      "default": 1,
-      "mapsTo": { "target": "body", "path": "generationConfig.candidateCount" }
-    },
-    {
-      "key": "seed",
-      "type": "integer",
-      "label": "Seed",
-      "description": "Seed for deterministic sampling.",
-      "mapsTo": { "target": "body", "path": "generationConfig.seed" }
-    },
-    {
-      "key": "presencePenalty",
-      "type": "number",
-      "label": "Presence Penalty",
-      "description": "Penalize tokens based on presence (newer Gemini).",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "generationConfig.presencePenalty" }
-    },
-    {
-      "key": "frequencyPenalty",
-      "type": "number",
-      "label": "Frequency Penalty",
-      "description": "Penalize tokens based on frequency (newer Gemini).",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "generationConfig.frequencyPenalty" }
-    },
-    {
-      "key": "thinkingBudget",
-      "type": "integer",
-      "label": "Thinking Budget",
-      "description": "Token budget for thinking. Set 0 to disable thinking on 2.5 models.",
-      "min": 0,
-      "max": 32768,
-      "mapsTo": { "target": "body", "path": "generationConfig.thinkingConfig.thinkingBudget" }
-    },
-    {
-      "key": "includeThoughts",
-      "type": "boolean",
-      "label": "Include Thoughts",
-      "description": "Include reasoning thoughts in the response.",
-      "default": false,
-      "mapsTo": { "target": "body", "path": "generationConfig.thinkingConfig.includeThoughts" }
-    },
-    {
-      "key": "responseMimeType",
-      "type": "string",
-      "label": "Response Mime Type",
-      "description": "Output format.",
-      "enum": [
-        { "value": "text/plain", "label": "Text" },
-        { "value": "application/json", "label": "JSON" }
-      ],
-      "mapsTo": { "target": "body", "path": "generationConfig.responseMimeType" }
-    },
-    {
-      "key": "responseSchema",
-      "type": "json",
-      "label": "Response Schema",
-      "description": "OpenAPI schema describing JSON response shape (use with JSON mime type).",
-      "mapsTo": { "target": "body", "path": "generationConfig.responseSchema" }
-    },
-    {
-      "key": "responseLogprobs",
-      "type": "boolean",
-      "label": "Response Logprobs",
-      "description": "Return log probabilities.",
-      "default": false,
-      "mapsTo": { "target": "body", "path": "generationConfig.responseLogprobs" }
-    },
-    {
-      "key": "logprobs",
-      "type": "integer",
-      "label": "Top Logprobs",
-      "description": "Number of top logprobs per token (requires Response Logprobs).",
-      "min": 1,
-      "max": 20,
-      "mapsTo": { "target": "body", "path": "generationConfig.logprobs" }
-    },
-    {
-      "key": "safetySettings",
-      "type": "json",
-      "label": "Safety Settings",
-      "description": "Array of { category, threshold } entries to relax content filters.",
-      "mapsTo": { "target": "body", "path": "safetySettings" }
+      "mapsTo": {
+        "target": "auth",
+        "path": "apiKey"
+      }
     }
   ],
   "uiSchema": {
     "groups": [
-      { "id": "credentials", "label": "Credentials", "order": 1 },
-      { "id": "model", "label": "Model", "order": 2 },
-      { "id": "generation", "label": "Generation", "order": 3 },
-      { "id": "thinking", "label": "Thinking", "order": 4 },
-      { "id": "output", "label": "Output Format", "order": 5 },
-      { "id": "safety", "label": "Safety", "order": 6 }
+      {
+        "id": "credentials",
+        "label": "Credentials",
+        "order": 1
+      }
     ],
     "fields": [
-      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gemini-2.5-pro" },
-      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
-      { "key": "maxOutputTokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
-      { "key": "topP", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "topK", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "stopSequences", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 5 },
-      { "key": "candidateCount", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 6 },
-      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 7 },
-      { "key": "presencePenalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 8 },
-      { "key": "frequencyPenalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 9 },
-      { "key": "thinkingBudget", "widget": "number-input", "visibility": "advanced", "group": "thinking", "order": 1 },
-      { "key": "includeThoughts", "widget": "toggle", "visibility": "advanced", "group": "thinking", "order": 2 },
-      { "key": "responseMimeType", "widget": "select", "visibility": "advanced", "group": "output", "order": 1 },
-      { "key": "responseSchema", "widget": "json", "visibility": "advanced", "group": "output", "order": 2 },
-      { "key": "responseLogprobs", "widget": "toggle", "visibility": "advanced", "group": "output", "order": 3 },
-      { "key": "logprobs", "widget": "number-input", "visibility": "advanced", "group": "output", "order": 4, "showIf": { "key": "responseLogprobs", "equals": true } },
-      { "key": "safetySettings", "widget": "json", "visibility": "advanced", "group": "safety", "order": 1 }
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "basic",
+        "group": "credentials",
+        "order": 1
+      }
     ]
   },
-  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
   "sourceUrls": [
-    "https://ai.google.dev/api/generate-content",
-    "https://raw.githubusercontent.com/googleapis/python-genai/main/google/genai/types.py"
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/api/generate-content"
   ]
 }

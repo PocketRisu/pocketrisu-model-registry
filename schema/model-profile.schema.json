@@ -24,9 +24,18 @@
     },
     "version": { "type": "integer", "minimum": 1 },
     "displayName": { "type": "string", "minLength": 1 },
+    "displayNameI18n": { "$ref": "#/$defs/i18nStringMap" },
     "providerBaseId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
     "profileTier": { "const": "standard" },
     "description": { "type": "string" },
+    "descriptionI18n": { "$ref": "#/$defs/i18nStringMap" },
+    "visibility": { "enum": ["popular", "standard", "advanced", "legacy"] },
+    "lifecycle": { "enum": ["recommended", "current", "legacy", "deprecated", "experimental"] },
+    "tags": {
+      "type": "array",
+      "items": { "type": "string", "minLength": 1 }
+    },
+    "sortOrder": { "type": "integer" },
     "modelId": { "type": "string" },
     "endpoint": {
       "type": "object",
@@ -74,5 +83,11 @@
       "items": { "type": "string", "format": "uri" }
     }
   },
-  "additionalProperties": false
+  "additionalProperties": false,
+  "$defs": {
+    "i18nStringMap": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
+    }
+  }
 }

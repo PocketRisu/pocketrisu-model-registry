@@ -17,7 +17,7 @@ Schema v4 splits the older single-file template into two layers:
 | Layer | Purpose |
 |---|---|
 | `BaseProviderDefinition` (`base-providers/<id>.json`) | adapter family + auth/endpoint primitives, default headers/body, shared request schema and UI schema. |
-| `ModelProfile` (`profiles/<baseId>/<profileKey>.json`) | concrete profile a user picks (e.g. `openai:standard`, `openrouter:openai-compatible`). Pins endpoint, auth wiring, `modelId`, and may extend the base's schema/UI. MVP only ships `profileTier: 'standard'`. |
+| `ModelProfile` (`profiles/<baseId>/<profileKey>.json`) | concrete profile a user picks (e.g. `openai:gpt-5`, `openrouter:openai-compatible`). Pins endpoint, auth wiring, `modelId`, and may extend the base's schema/UI. MVP only ships `profileTier: 'standard'`. |
 
 Each definition uses pure JSON and declares:
 
@@ -150,7 +150,7 @@ CC0 1.0 (public domain). See [LICENSE](./LICENSE).
 | 계층 | 역할 |
 |---|---|
 | `BaseProviderDefinition` (`base-providers/<id>.json`) | adapter family + auth/endpoint primitive, 기본 header/body, 공통 request/UI schema. |
-| `ModelProfile` (`profiles/<baseId>/<profileKey>.json`) | 사용자가 직접 고르는 단위 (예: `openai:standard`). endpoint, auth 와이어링, `modelId` 고정. base의 schema/UI를 확장 가능. MVP는 `profileTier: 'standard'`만 발행. |
+| `ModelProfile` (`profiles/<baseId>/<profileKey>.json`) | 사용자가 직접 고르는 단위 (예: `openai:gpt-5`). endpoint, auth 와이어링, `modelId` 고정. base의 schema/UI를 확장 가능. MVP는 `profileTier: 'standard'`만 발행. |
 
 각 정의는 순수 JSON으로 다음을 선언합니다:
 

@@ -12,13 +12,34 @@
   },
   "auth": {
     "kind": "bearer",
-    "fields": ["apiKey"]
+    "fields": [
+      "apiKey"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools"
+  ],
   "sourceUrls": [
     "https://openrouter.ai/docs"
-  ]
+  ],
+  "visibility": "popular",
+  "lifecycle": "current",
+  "tags": [
+    "openrouter",
+    "aggregator",
+    "openai-compatible"
+  ],
+  "sortOrder": 500,
+  "displayNameI18n": {
+    "ko": "OpenRouter"
+  }
 }

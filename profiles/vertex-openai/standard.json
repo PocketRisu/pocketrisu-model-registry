@@ -11,14 +11,35 @@
   },
   "auth": {
     "kind": "google-service-account",
-    "fields": ["serviceAccountJson"]
+    "fields": [
+      "serviceAccountJson"
+    ]
   },
   "defaults": {},
   "schema": [],
-  "uiSchema": { "groups": [], "fields": [] },
-  "capabilities": ["streaming", "reasoning", "vision", "tools"],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools"
+  ],
   "sourceUrls": [
     "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/start/openai",
     "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.endpoints.chat/completions"
-  ]
+  ],
+  "visibility": "advanced",
+  "lifecycle": "current",
+  "tags": [
+    "google",
+    "vertex",
+    "openai-compatible"
+  ],
+  "sortOrder": 820,
+  "displayNameI18n": {
+    "ko": "Vertex AI (OpenAI 호환)"
+  }
 }

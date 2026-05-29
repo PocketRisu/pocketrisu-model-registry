@@ -1,11 +1,17 @@
 {
   "id": "openai",
-  "version": 2,
+  "version": 3,
   "displayName": "OpenAI",
   "adapterKind": "openai-compatible",
-  "authKinds": ["bearer"],
-  "endpointKinds": ["static"],
-  "defaultHeaders": { "Content-Type": "application/json" },
+  "authKinds": [
+    "bearer"
+  ],
+  "endpointKinds": [
+    "static"
+  ],
+  "defaultHeaders": {
+    "Content-Type": "application/json"
+  },
   "defaultBody": {},
   "requestSchema": [
     {
@@ -15,240 +21,39 @@
       "description": "OpenAI API key.",
       "required": true,
       "secret": true,
-      "mapsTo": { "target": "auth", "path": "apiKey" }
-    },
-    {
-      "key": "modelId",
-      "type": "string",
-      "label": "Model ID",
-      "description": "Model identifier (e.g. gpt-5, gpt-5-mini, o4).",
-      "required": true,
-      "enum": [
-        { "value": "gpt-5", "label": "GPT-5" },
-        { "value": "gpt-5-mini", "label": "GPT-5 Mini" },
-        { "value": "gpt-5-nano", "label": "GPT-5 Nano" },
-        { "value": "gpt-4.1", "label": "GPT-4.1" },
-        { "value": "gpt-4o", "label": "GPT-4o" },
-        { "value": "gpt-4o-mini", "label": "GPT-4o Mini" },
-        { "value": "o4", "label": "o4" },
-        { "value": "o3-mini", "label": "o3 Mini" },
-        { "value": "o1", "label": "o1" },
-        { "value": "o1-mini", "label": "o1 Mini" }
-      ],
-      "mapsTo": { "target": "body", "path": "model" }
-    },
-    {
-      "key": "temperature",
-      "type": "number",
-      "label": "Temperature",
-      "description": "Randomness. 0 = deterministic, 2 = very creative.",
-      "min": 0,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "temperature" }
-    },
-    {
-      "key": "top_p",
-      "type": "number",
-      "label": "Top P",
-      "description": "Nucleus sampling probability mass.",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "top_p" }
-    },
-    {
-      "key": "max_tokens",
-      "type": "integer",
-      "label": "Max Tokens",
-      "description": "Max tokens to generate. For reasoning models use Max Completion Tokens instead.",
-      "min": 1,
-      "max": 128000,
-      "mapsTo": { "target": "body", "path": "max_tokens" }
-    },
-    {
-      "key": "max_completion_tokens",
-      "type": "integer",
-      "label": "Max Completion Tokens",
-      "description": "Total tokens budget incl. reasoning (o-series, gpt-5).",
-      "min": 1,
-      "max": 128000,
-      "mapsTo": { "target": "body", "path": "max_completion_tokens" }
-    },
-    {
-      "key": "frequency_penalty",
-      "type": "number",
-      "label": "Frequency Penalty",
-      "description": "Penalize tokens based on frequency in the text so far.",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "frequency_penalty" }
-    },
-    {
-      "key": "presence_penalty",
-      "type": "number",
-      "label": "Presence Penalty",
-      "description": "Penalize tokens based on whether they appear in the text so far.",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": { "target": "body", "path": "presence_penalty" }
-    },
-    {
-      "key": "stop",
-      "type": "stringArray",
-      "label": "Stop Sequences",
-      "description": "Up to 4 sequences where the API will stop generating.",
-      "mapsTo": { "target": "body", "path": "stop" }
-    },
-    {
-      "key": "seed",
-      "type": "integer",
-      "label": "Seed",
-      "description": "Best-effort determinism.",
-      "mapsTo": { "target": "body", "path": "seed" }
-    },
-    {
-      "key": "reasoning_effort",
-      "type": "string",
-      "label": "Reasoning Effort",
-      "description": "Effort level for reasoning models (gpt-5, o-series).",
-      "enum": [
-        { "value": "minimal", "label": "Minimal" },
-        { "value": "low", "label": "Low" },
-        { "value": "medium", "label": "Medium" },
-        { "value": "high", "label": "High" }
-      ],
-      "mapsTo": { "target": "body", "path": "reasoning_effort" }
-    },
-    {
-      "key": "verbosity",
-      "type": "string",
-      "label": "Verbosity",
-      "description": "Output length preference (gpt-5).",
-      "enum": [
-        { "value": "low", "label": "Low" },
-        { "value": "medium", "label": "Medium" },
-        { "value": "high", "label": "High" }
-      ],
-      "mapsTo": { "target": "body", "path": "verbosity" }
-    },
-    {
-      "key": "response_format",
-      "type": "string",
-      "label": "Response Format",
-      "description": "Force output type.",
-      "enum": [
-        { "value": "text", "label": "Text" },
-        { "value": "json_object", "label": "JSON object" }
-      ],
-      "mapsTo": { "target": "body", "path": "response_format.type" }
-    },
-    {
-      "key": "service_tier",
-      "type": "string",
-      "label": "Service Tier",
-      "description": "Latency/cost tier.",
-      "enum": [
-        { "value": "auto", "label": "Auto" },
-        { "value": "default", "label": "Default" },
-        { "value": "flex", "label": "Flex" },
-        { "value": "priority", "label": "Priority" }
-      ],
-      "mapsTo": { "target": "body", "path": "service_tier" }
-    },
-    {
-      "key": "parallel_tool_calls",
-      "type": "boolean",
-      "label": "Parallel Tool Calls",
-      "description": "Allow model to call tools in parallel.",
-      "default": true,
-      "mapsTo": { "target": "body", "path": "parallel_tool_calls" }
-    },
-    {
-      "key": "logprobs",
-      "type": "boolean",
-      "label": "Logprobs",
-      "description": "Return log probabilities of output tokens.",
-      "default": false,
-      "mapsTo": { "target": "body", "path": "logprobs" }
-    },
-    {
-      "key": "top_logprobs",
-      "type": "integer",
-      "label": "Top Logprobs",
-      "description": "Number of top tokens to return logprobs for (0–20). Requires Logprobs.",
-      "min": 0,
-      "max": 20,
-      "mapsTo": { "target": "body", "path": "top_logprobs" }
-    },
-    {
-      "key": "user",
-      "type": "string",
-      "label": "User Identifier",
-      "description": "Stable end-user identifier for abuse tracking.",
-      "mapsTo": { "target": "body", "path": "user" }
-    },
-    {
-      "key": "store",
-      "type": "boolean",
-      "label": "Store Conversation",
-      "description": "Store conversation for fine-tuning / evals access.",
-      "default": false,
-      "mapsTo": { "target": "body", "path": "store" }
-    },
-    {
-      "key": "logit_bias",
-      "type": "keyValue",
-      "label": "Logit Bias",
-      "description": "Token id → bias (-100..100). Modify likelihood of specific tokens.",
-      "mapsTo": { "target": "body", "path": "logit_bias" }
-    },
-    {
-      "key": "metadata",
-      "type": "keyValue",
-      "label": "Metadata",
-      "description": "Key/value pairs attached to the request (≤16 pairs).",
-      "mapsTo": { "target": "body", "path": "metadata" }
+      "mapsTo": {
+        "target": "auth",
+        "path": "apiKey"
+      }
     }
   ],
   "uiSchema": {
     "groups": [
-      { "id": "credentials", "label": "Credentials", "order": 1 },
-      { "id": "model", "label": "Model", "order": 2 },
-      { "id": "generation", "label": "Generation", "order": 3 },
-      { "id": "reasoning", "label": "Reasoning", "order": 4 },
-      { "id": "output", "label": "Output Control", "order": 5 },
-      { "id": "control", "label": "Request Control", "order": 6 }
+      {
+        "id": "credentials",
+        "label": "Credentials",
+        "order": 1
+      }
     ],
     "fields": [
-      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gpt-5" },
-      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
-      { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
-      { "key": "max_completion_tokens", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "frequency_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 5 },
-      { "key": "presence_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 6 },
-      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 7 },
-      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 8 },
-      { "key": "reasoning_effort", "widget": "select", "visibility": "advanced", "group": "reasoning", "order": 1 },
-      { "key": "verbosity", "widget": "select", "visibility": "advanced", "group": "reasoning", "order": 2 },
-      { "key": "response_format", "widget": "select", "visibility": "advanced", "group": "output", "order": 1 },
-      { "key": "logprobs", "widget": "toggle", "visibility": "advanced", "group": "output", "order": 2 },
-      { "key": "top_logprobs", "widget": "number-input", "visibility": "advanced", "group": "output", "order": 3, "showIf": { "key": "logprobs", "equals": true } },
-      { "key": "service_tier", "widget": "select", "visibility": "advanced", "group": "control", "order": 1 },
-      { "key": "parallel_tool_calls", "widget": "toggle", "visibility": "advanced", "group": "control", "order": 2 },
-      { "key": "store", "widget": "toggle", "visibility": "advanced", "group": "control", "order": 3 },
-      { "key": "user", "widget": "text", "visibility": "advanced", "group": "control", "order": 4 },
-      { "key": "logit_bias", "widget": "key-value", "visibility": "advanced", "group": "control", "order": 5 },
-      { "key": "metadata", "widget": "key-value", "visibility": "advanced", "group": "control", "order": 6 }
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "basic",
+        "group": "credentials",
+        "order": 1
+      }
     ]
   },
-  "capabilities": ["streaming", "reasoning", "vision", "tools", "json"],
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
   "sourceUrls": [
-    "https://platform.openai.com/docs/api-reference/chat",
-    "https://raw.githubusercontent.com/openai/openai-openapi/master/openapi.yaml"
+    "https://platform.openai.com/docs/models",
+    "https://platform.openai.com/docs/guides/latest-model"
   ]
 }

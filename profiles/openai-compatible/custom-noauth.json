@@ -19,11 +19,29 @@
   "uiSchema": {
     "groups": [],
     "fields": [
-      { "key": "apiKey", "widget": "secret", "visibility": "hidden", "group": "credentials" }
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "hidden",
+        "group": "credentials"
+      }
     ]
   },
-  "capabilities": ["streaming"],
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://platform.openai.com/docs/api-reference/chat"
-  ]
+  ],
+  "visibility": "advanced",
+  "lifecycle": "current",
+  "tags": [
+    "custom",
+    "openai-compatible",
+    "noauth"
+  ],
+  "sortOrder": 7010,
+  "displayNameI18n": {
+    "ko": "OpenAI 호환 (커스텀, 인증 없음)"
+  }
 }
