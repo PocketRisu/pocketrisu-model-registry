@@ -47,6 +47,7 @@ const ALLOWED_CAPABILITY = new Set(['streaming', 'vision', 'tools', 'json', 'rea
 const ALLOWED_PROFILE_TIER = new Set(['standard'])
 const ALLOWED_PROFILE_VISIBILITY = new Set(['popular', 'standard', 'advanced', 'legacy'])
 const ALLOWED_LIFECYCLE = new Set(['recommended', 'current', 'legacy', 'deprecated', 'experimental'])
+const ALLOWED_TOKENIZER = new Set(['tik', 'mistral', 'novelai', 'claude', 'llama', 'llama3', 'novellist', 'gemma', 'cohere', 'deepseek'])
 
 const errors = []
 
@@ -233,6 +234,9 @@ function validateProfileMetadata(file, data) {
     }
     if (data.sortOrder !== undefined && (!Number.isInteger(data.sortOrder))) {
         fail(file, 'sortOrder: must be integer')
+    }
+    if (data.recommendedTokenizer !== undefined && !ALLOWED_TOKENIZER.has(data.recommendedTokenizer)) {
+        fail(file, `recommendedTokenizer: invalid (${data.recommendedTokenizer})`)
     }
 }
 

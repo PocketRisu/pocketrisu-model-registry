@@ -419,5 +419,6 @@
     "sourceUrls": [
       "https://ai.google.dev/api/models"
     ]
-  }
+  },
+  "recommendedTokenizer": "gemma"
 }

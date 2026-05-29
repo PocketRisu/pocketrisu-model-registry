@@ -77,6 +77,10 @@
       "type": "array",
       "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning"] }
     },
+    "recommendedTokenizer": {
+      "enum": ["tik", "mistral", "novelai", "claude", "llama", "llama3", "novellist", "gemma", "cohere", "deepseek"],
+      "description": "Default tokenizer suggestion for this profile. Used as fallback when the user has not overridden ModelPreset.tokenizerOverride."
+    },
     "limits": {
       "$ref": "base-provider.schema.json#/$defs/modelLimits"
     },

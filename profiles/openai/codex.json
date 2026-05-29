@@ -403,5 +403,6 @@
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
     ]
-  }
+  },
+  "recommendedTokenizer": "tik"
 }

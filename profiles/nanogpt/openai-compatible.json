@@ -38,5 +38,6 @@
   "sortOrder": 520,
   "displayNameI18n": {
     "ko": "NanoGPT"
-  }
+  },
+  "recommendedTokenizer": "tik"
 }

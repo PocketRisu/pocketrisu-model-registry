@@ -41,5 +41,6 @@
   "sortOrder": 820,
   "displayNameI18n": {
     "ko": "Vertex AI (OpenAI 호환)"
-  }
+  },
+  "recommendedTokenizer": "gemma"
 }

@@ -261,5 +261,6 @@
     "sourceUrls": [
       "https://platform.claude.com/docs/en/about-claude/models/overview"
     ]
-  }
+  },
+  "recommendedTokenizer": "claude"
 }

@@ -312,5 +312,6 @@
     "sourceUrls": [
       "https://api-docs.deepseek.com/quick_start/pricing-details-usd"
     ]
-  }
+  },
+  "recommendedTokenizer": "deepseek"
 }
