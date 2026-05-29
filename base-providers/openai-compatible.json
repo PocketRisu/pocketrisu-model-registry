@@ -118,7 +118,7 @@
       { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
       { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
       { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "top_k", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 4 },
+      { "key": "top_k", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
       { "key": "min_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 5 },
       { "key": "frequency_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 6 },
       { "key": "presence_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 7 },

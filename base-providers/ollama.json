@@ -140,7 +140,7 @@
       { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
       { "key": "num_ctx", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 3 },
       { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "top_k", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 5 },
+      { "key": "top_k", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 5 },
       { "key": "repeat_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 6 },
       { "key": "repeat_last_n", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 7 },
       { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 8 },

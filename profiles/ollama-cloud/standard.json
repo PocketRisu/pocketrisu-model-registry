@@ -1,0 +1,25 @@
+{
+  "id": "ollama-cloud:standard",
+  "version": 1,
+  "displayName": "Ollama Cloud (Turbo)",
+  "providerBaseId": "ollama-cloud",
+  "profileTier": "standard",
+  "description": "Ollama-hosted cloud inference (Turbo). OpenAI-compatible chat completions at https://ollama.com/v1/chat/completions. Bearer auth via ollama.com API key. Model list and exact endpoint path PENDING VERIFICATION — see sourceUrls.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ollama.com/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": ["apiKey"]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": { "groups": [], "fields": [] },
+  "capabilities": ["streaming"],
+  "sourceUrls": [
+    "https://docs.ollama.com/cloud",
+    "https://ollama.com/search?c=cloud"
+  ]
+}

@@ -1,7 +1,7 @@
 {
-  "id": "deepinfra",
-  "version": 2,
-  "displayName": "DeepInfra",
+  "id": "ollama-cloud",
+  "version": 1,
+  "displayName": "Ollama Cloud (Turbo)",
   "adapterKind": "openai-compatible",
   "authKinds": ["bearer"],
   "endpointKinds": ["static"],
@@ -12,7 +12,7 @@
       "key": "apiKey",
       "type": "string",
       "label": "API Key",
-      "description": "DeepInfra API key.",
+      "description": "Generate at ollama.com/settings/keys.",
       "required": true,
       "secret": true,
       "mapsTo": { "target": "auth", "path": "apiKey" }
@@ -21,8 +21,15 @@
       "key": "modelId",
       "type": "string",
       "label": "Model ID",
-      "description": "Model identifier accepted by DeepInfra (e.g. meta-llama/Meta-Llama-3.1-70B-Instruct).",
+      "description": "Cloud-hosted model. Cloud models commonly use the :cloud suffix (e.g. gpt-oss:120b-cloud). See https://ollama.com/search?c=cloud for the current list.",
       "required": true,
+      "enum": [
+        { "value": "gpt-oss:120b-cloud", "label": "gpt-oss:120b (cloud)" },
+        { "value": "gpt-oss:20b-cloud", "label": "gpt-oss:20b (cloud)" },
+        { "value": "deepseek-v3.2:cloud", "label": "DeepSeek v3.2 (cloud)" },
+        { "value": "qwen3-coder-next:cloud", "label": "Qwen3 Coder Next (cloud)" },
+        { "value": "kimi-k2.6:cloud", "label": "Kimi K2.6 (cloud)" }
+      ],
       "mapsTo": { "target": "body", "path": "model" }
     },
     {
@@ -54,34 +61,6 @@
       "mapsTo": { "target": "body", "path": "max_tokens" }
     },
     {
-      "key": "frequency_penalty",
-      "type": "number",
-      "label": "Frequency Penalty",
-      "min": -2, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "frequency_penalty" }
-    },
-    {
-      "key": "presence_penalty",
-      "type": "number",
-      "label": "Presence Penalty",
-      "min": -2, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "presence_penalty" }
-    },
-    {
-      "key": "repetition_penalty",
-      "type": "number",
-      "label": "Repetition Penalty",
-      "min": 0, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "repetition_penalty" }
-    },
-    {
-      "key": "min_p",
-      "type": "number",
-      "label": "Min P",
-      "min": 0, "max": 1, "step": 0.001,
-      "mapsTo": { "target": "body", "path": "min_p" }
-    },
-    {
       "key": "stop",
       "type": "stringArray",
       "label": "Stop Sequences",
@@ -102,21 +81,19 @@
     ],
     "fields": [
       { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1 },
+      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gpt-oss:120b-cloud" },
       { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
       { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
       { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
       { "key": "top_k", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "min_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 5 },
-      { "key": "frequency_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 6 },
-      { "key": "presence_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 7 },
-      { "key": "repetition_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 8 },
-      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 9 },
-      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 10 }
+      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 5 },
+      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 6 }
     ]
   },
   "capabilities": ["streaming"],
   "sourceUrls": [
-    "https://deepinfra.com/docs/advanced/openai_api"
+    "https://docs.ollama.com/cloud",
+    "https://ollama.com/search?c=cloud",
+    "https://docs.ollama.com/api/openai-compatibility"
   ]
 }

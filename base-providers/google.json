@@ -191,7 +191,7 @@
       { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
       { "key": "maxOutputTokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
       { "key": "topP", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "topK", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 4 },
+      { "key": "topK", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
       { "key": "stopSequences", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 5 },
       { "key": "candidateCount", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 6 },
       { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 7 },

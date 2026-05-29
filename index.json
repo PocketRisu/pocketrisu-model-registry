@@ -1,7 +1,7 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 4,
-  "updated": "2026-05-28",
+  "contentVersion": 5,
+  "updated": "2026-05-29",
   "baseProviders": [
     { "id": "openai", "displayName": "OpenAI", "url": "base-providers/openai.json", "version": 2 },
     { "id": "anthropic", "displayName": "Anthropic", "url": "base-providers/anthropic.json", "version": 3 },
@@ -10,6 +10,7 @@
     { "id": "openrouter", "displayName": "OpenRouter", "url": "base-providers/openrouter.json", "version": 2 },
     { "id": "nanogpt", "displayName": "NanoGPT", "url": "base-providers/nanogpt.json", "version": 2 },
     { "id": "ollama", "displayName": "Ollama (Self-hosted)", "url": "base-providers/ollama.json", "version": 2 },
+    { "id": "ollama-cloud", "displayName": "Ollama Cloud (Turbo)", "url": "base-providers/ollama-cloud.json", "version": 1 },
     { "id": "deepseek", "displayName": "DeepSeek", "url": "base-providers/deepseek.json", "version": 2 },
     { "id": "deepinfra", "displayName": "DeepInfra", "url": "base-providers/deepinfra.json", "version": 2 },
     { "id": "vercel", "displayName": "Vercel AI Gateway", "url": "base-providers/vercel.json", "version": 2 },
@@ -25,6 +26,7 @@
     { "id": "openrouter:openai-compatible", "displayName": "OpenRouter", "providerBaseId": "openrouter", "profileTier": "standard", "url": "profiles/openrouter/openai-compatible.json", "version": 1 },
     { "id": "nanogpt:openai-compatible", "displayName": "NanoGPT", "providerBaseId": "nanogpt", "profileTier": "standard", "url": "profiles/nanogpt/openai-compatible.json", "version": 1 },
     { "id": "ollama:openai-compatible-local", "displayName": "Ollama (Self-hosted)", "providerBaseId": "ollama", "profileTier": "standard", "url": "profiles/ollama/openai-compatible-local.json", "version": 1 },
+    { "id": "ollama-cloud:standard", "displayName": "Ollama Cloud (Turbo)", "providerBaseId": "ollama-cloud", "profileTier": "standard", "url": "profiles/ollama-cloud/standard.json", "version": 1 },
     { "id": "deepseek:openai-compatible", "displayName": "DeepSeek", "providerBaseId": "deepseek", "profileTier": "standard", "url": "profiles/deepseek/openai-compatible.json", "version": 1 },
     { "id": "deepinfra:openai-compatible", "displayName": "DeepInfra", "providerBaseId": "deepinfra", "profileTier": "standard", "url": "profiles/deepinfra/openai-compatible.json", "version": 1 },
     { "id": "vercel:openai-compatible", "displayName": "Vercel AI Gateway", "providerBaseId": "vercel", "profileTier": "standard", "url": "profiles/vercel/openai-compatible.json", "version": 1 },
