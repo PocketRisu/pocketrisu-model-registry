@@ -32,7 +32,10 @@
       {
         "id": "credentials",
         "label": "Credentials",
-        "order": 1
+        "order": 1,
+        "labelI18n": {
+          "ko": "인증 정보"
+        }
       }
     ],
     "fields": [

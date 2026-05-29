@@ -3,9 +3,15 @@
   "version": 1,
   "displayName": "Ollama Cloud (Turbo)",
   "adapterKind": "openai-compatible",
-  "authKinds": ["bearer"],
-  "endpointKinds": ["static"],
-  "defaultHeaders": { "Content-Type": "application/json" },
+  "authKinds": [
+    "bearer"
+  ],
+  "endpointKinds": [
+    "static"
+  ],
+  "defaultHeaders": {
+    "Content-Type": "application/json"
+  },
   "defaultBody": {},
   "requestSchema": [
     {
@@ -15,7 +21,10 @@
       "description": "Generate at ollama.com/settings/keys.",
       "required": true,
       "secret": true,
-      "mapsTo": { "target": "auth", "path": "apiKey" }
+      "mapsTo": {
+        "target": "auth",
+        "path": "apiKey"
+      }
     },
     {
       "key": "modelId",
@@ -24,73 +33,187 @@
       "description": "Cloud-hosted model. Cloud models commonly use the :cloud suffix (e.g. gpt-oss:120b-cloud). See https://ollama.com/search?c=cloud for the current list.",
       "required": true,
       "enum": [
-        { "value": "gpt-oss:120b-cloud", "label": "gpt-oss:120b (cloud)" },
-        { "value": "gpt-oss:20b-cloud", "label": "gpt-oss:20b (cloud)" },
-        { "value": "deepseek-v3.2:cloud", "label": "DeepSeek v3.2 (cloud)" },
-        { "value": "qwen3-coder-next:cloud", "label": "Qwen3 Coder Next (cloud)" },
-        { "value": "kimi-k2.6:cloud", "label": "Kimi K2.6 (cloud)" }
+        {
+          "value": "gpt-oss:120b-cloud",
+          "label": "gpt-oss:120b (cloud)"
+        },
+        {
+          "value": "gpt-oss:20b-cloud",
+          "label": "gpt-oss:20b (cloud)"
+        },
+        {
+          "value": "deepseek-v3.2:cloud",
+          "label": "DeepSeek v3.2 (cloud)"
+        },
+        {
+          "value": "qwen3-coder-next:cloud",
+          "label": "Qwen3 Coder Next (cloud)"
+        },
+        {
+          "value": "kimi-k2.6:cloud",
+          "label": "Kimi K2.6 (cloud)"
+        }
       ],
-      "mapsTo": { "target": "body", "path": "model" }
+      "mapsTo": {
+        "target": "body",
+        "path": "model"
+      }
     },
     {
       "key": "temperature",
       "type": "number",
       "label": "Temperature",
-      "min": 0, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "temperature" }
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "temperature"
+      }
     },
     {
       "key": "top_p",
       "type": "number",
       "label": "Top P",
-      "min": 0, "max": 1, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "top_p" }
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_p"
+      }
     },
     {
       "key": "top_k",
       "type": "integer",
       "label": "Top K",
-      "min": 0, "max": 500,
-      "mapsTo": { "target": "body", "path": "top_k" }
+      "min": 0,
+      "max": 500,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_k"
+      }
     },
     {
       "key": "max_tokens",
       "type": "integer",
       "label": "Max Tokens",
-      "min": 1, "max": 32768,
-      "mapsTo": { "target": "body", "path": "max_tokens" }
+      "min": 1,
+      "max": 32768,
+      "mapsTo": {
+        "target": "body",
+        "path": "max_tokens"
+      }
     },
     {
       "key": "stop",
       "type": "stringArray",
       "label": "Stop Sequences",
-      "mapsTo": { "target": "body", "path": "stop" }
+      "mapsTo": {
+        "target": "body",
+        "path": "stop"
+      }
     },
     {
       "key": "seed",
       "type": "integer",
       "label": "Seed",
-      "mapsTo": { "target": "body", "path": "seed" }
+      "mapsTo": {
+        "target": "body",
+        "path": "seed"
+      }
     }
   ],
   "uiSchema": {
     "groups": [
-      { "id": "credentials", "label": "Credentials", "order": 1 },
-      { "id": "model", "label": "Model", "order": 2 },
-      { "id": "generation", "label": "Generation", "order": 3 }
+      {
+        "id": "credentials",
+        "label": "Credentials",
+        "order": 1,
+        "labelI18n": {
+          "ko": "인증 정보"
+        }
+      },
+      {
+        "id": "model",
+        "label": "Model",
+        "order": 2,
+        "labelI18n": {
+          "ko": "모델"
+        }
+      },
+      {
+        "id": "generation",
+        "label": "Generation",
+        "order": 3,
+        "labelI18n": {
+          "ko": "생성"
+        }
+      }
     ],
     "fields": [
-      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gpt-oss:120b-cloud" },
-      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
-      { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
-      { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "top_k", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 5 },
-      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 6 }
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "basic",
+        "group": "credentials",
+        "order": 1
+      },
+      {
+        "key": "modelId",
+        "widget": "combobox",
+        "visibility": "basic",
+        "group": "model",
+        "order": 1,
+        "placeholder": "gpt-oss:120b-cloud"
+      },
+      {
+        "key": "temperature",
+        "widget": "slider",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 1
+      },
+      {
+        "key": "max_tokens",
+        "widget": "number-input",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 2
+      },
+      {
+        "key": "top_p",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 3
+      },
+      {
+        "key": "top_k",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 4
+      },
+      {
+        "key": "stop",
+        "widget": "string-array",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 5
+      },
+      {
+        "key": "seed",
+        "widget": "number-input",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 6
+      }
     ]
   },
-  "capabilities": ["streaming"],
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://docs.ollama.com/cloud",
     "https://ollama.com/search?c=cloud",

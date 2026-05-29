@@ -50,6 +50,9 @@
       "mapsTo": {
         "target": "body",
         "path": "model"
+      },
+      "descriptionI18n": {
+        "ko": "OpenAI 모델 ID."
       }
     },
     {
@@ -240,32 +243,50 @@
       {
         "id": "credentials",
         "label": "Credentials",
-        "order": 1
+        "order": 1,
+        "labelI18n": {
+          "ko": "인증 정보"
+        }
       },
       {
         "id": "model",
         "label": "Model",
-        "order": 2
+        "order": 2,
+        "labelI18n": {
+          "ko": "모델"
+        }
       },
       {
         "id": "generation",
         "label": "Generation",
-        "order": 3
+        "order": 3,
+        "labelI18n": {
+          "ko": "생성"
+        }
       },
       {
         "id": "reasoning",
         "label": "Reasoning",
-        "order": 4
+        "order": 4,
+        "labelI18n": {
+          "ko": "추론"
+        }
       },
       {
         "id": "output",
         "label": "Output",
-        "order": 4
+        "order": 4,
+        "labelI18n": {
+          "ko": "출력"
+        }
       },
       {
         "id": "control",
         "label": "Control",
-        "order": 5
+        "order": 5,
+        "labelI18n": {
+          "ko": "요청 제어"
+        }
       }
     ],
     "fields": [

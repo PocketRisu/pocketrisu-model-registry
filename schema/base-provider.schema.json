@@ -61,6 +61,7 @@
         },
         "label": { "type": "string", "minLength": 1 },
         "description": { "type": "string" },
+        "descriptionI18n": { "$ref": "#/$defs/i18nStringMap" },
         "default": {},
         "enum": {
           "type": "array",
@@ -103,6 +104,7 @@
             "properties": {
               "id": { "type": "string", "minLength": 1 },
               "label": { "type": "string", "minLength": 1 },
+              "labelI18n": { "$ref": "#/$defs/i18nStringMap" },
               "order": { "type": "integer" }
             },
             "additionalProperties": false
@@ -152,6 +154,10 @@
         }
       },
       "additionalProperties": false
+    },
+    "i18nStringMap": {
+      "type": "object",
+      "additionalProperties": { "type": "string", "minLength": 1 }
     }
   }
 }

@@ -3,9 +3,16 @@
   "version": 2,
   "displayName": "OpenAI Compatible (Custom)",
   "adapterKind": "openai-compatible",
-  "authKinds": ["bearer", "none"],
-  "endpointKinds": ["static"],
-  "defaultHeaders": { "Content-Type": "application/json" },
+  "authKinds": [
+    "bearer",
+    "none"
+  ],
+  "endpointKinds": [
+    "static"
+  ],
+  "defaultHeaders": {
+    "Content-Type": "application/json"
+  },
   "defaultBody": {},
   "requestSchema": [
     {
@@ -14,7 +21,13 @@
       "label": "Endpoint URL",
       "description": "Full chat completions URL (e.g. https://example.com/v1/chat/completions).",
       "required": true,
-      "mapsTo": { "target": "custom", "path": "endpointUrl" }
+      "mapsTo": {
+        "target": "custom",
+        "path": "endpointUrl"
+      },
+      "descriptionI18n": {
+        "ko": "전체 chat completions URL (예: https://example.com/v1/chat/completions)."
+      }
     },
     {
       "key": "apiKey",
@@ -22,7 +35,13 @@
       "label": "API Key",
       "description": "Bearer token. Leave empty for endpoints without auth.",
       "secret": true,
-      "mapsTo": { "target": "auth", "path": "apiKey" }
+      "mapsTo": {
+        "target": "auth",
+        "path": "apiKey"
+      },
+      "descriptionI18n": {
+        "ko": "Bearer 토큰. 인증이 없는 엔드포인트는 비워두세요."
+      }
     },
     {
       "key": "modelId",
@@ -30,104 +49,272 @@
       "label": "Model ID",
       "description": "Model identifier accepted by the upstream endpoint.",
       "required": true,
-      "mapsTo": { "target": "body", "path": "model" }
+      "mapsTo": {
+        "target": "body",
+        "path": "model"
+      },
+      "descriptionI18n": {
+        "ko": "상위 엔드포인트가 허용하는 모델 ID."
+      }
     },
     {
       "key": "temperature",
       "type": "number",
       "label": "Temperature",
-      "min": 0, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "temperature" }
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "temperature"
+      }
     },
     {
       "key": "top_p",
       "type": "number",
       "label": "Top P",
-      "min": 0, "max": 1, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "top_p" }
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_p"
+      }
     },
     {
       "key": "max_tokens",
       "type": "integer",
       "label": "Max Tokens",
-      "min": 1, "max": 128000,
-      "mapsTo": { "target": "body", "path": "max_tokens" }
+      "min": 1,
+      "max": 128000,
+      "mapsTo": {
+        "target": "body",
+        "path": "max_tokens"
+      }
     },
     {
       "key": "frequency_penalty",
       "type": "number",
       "label": "Frequency Penalty",
-      "min": -2, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "frequency_penalty" }
+      "min": -2,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "frequency_penalty"
+      }
     },
     {
       "key": "presence_penalty",
       "type": "number",
       "label": "Presence Penalty",
-      "min": -2, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "presence_penalty" }
+      "min": -2,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "presence_penalty"
+      }
     },
     {
       "key": "stop",
       "type": "stringArray",
       "label": "Stop Sequences",
-      "mapsTo": { "target": "body", "path": "stop" }
+      "mapsTo": {
+        "target": "body",
+        "path": "stop"
+      }
     },
     {
       "key": "seed",
       "type": "integer",
       "label": "Seed",
-      "mapsTo": { "target": "body", "path": "seed" }
+      "mapsTo": {
+        "target": "body",
+        "path": "seed"
+      }
     },
     {
       "key": "top_k",
       "type": "integer",
       "label": "Top K",
       "description": "Some upstream providers (Together / Fireworks / DeepInfra) accept top_k.",
-      "min": 0, "max": 500,
-      "mapsTo": { "target": "body", "path": "top_k" }
+      "min": 0,
+      "max": 500,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_k"
+      },
+      "descriptionI18n": {
+        "ko": "일부 상위 공급자(Together / Fireworks / DeepInfra)는 top_k를 받습니다."
+      }
     },
     {
       "key": "min_p",
       "type": "number",
       "label": "Min P",
       "description": "Minimum probability threshold (vLLM / OpenRouter-compat).",
-      "min": 0, "max": 1, "step": 0.001,
-      "mapsTo": { "target": "body", "path": "min_p" }
+      "min": 0,
+      "max": 1,
+      "step": 0.001,
+      "mapsTo": {
+        "target": "body",
+        "path": "min_p"
+      },
+      "descriptionI18n": {
+        "ko": "최소 확률 임계값 (vLLM / OpenRouter 호환)."
+      }
     },
     {
       "key": "repetition_penalty",
       "type": "number",
       "label": "Repetition Penalty",
       "description": "Penalize repetition (Together / Fireworks / vLLM extension).",
-      "min": 0, "max": 2, "step": 0.01,
-      "mapsTo": { "target": "body", "path": "repetition_penalty" }
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "repetition_penalty"
+      },
+      "descriptionI18n": {
+        "ko": "반복을 페널티 처리 (Together / Fireworks / vLLM 확장)."
+      }
     }
   ],
   "uiSchema": {
     "groups": [
-      { "id": "endpoint", "label": "Endpoint", "order": 1 },
-      { "id": "credentials", "label": "Credentials", "order": 2 },
-      { "id": "model", "label": "Model", "order": 3 },
-      { "id": "generation", "label": "Generation", "order": 4 }
+      {
+        "id": "endpoint",
+        "label": "Endpoint",
+        "order": 1,
+        "labelI18n": {
+          "ko": "엔드포인트"
+        }
+      },
+      {
+        "id": "credentials",
+        "label": "Credentials",
+        "order": 2,
+        "labelI18n": {
+          "ko": "인증 정보"
+        }
+      },
+      {
+        "id": "model",
+        "label": "Model",
+        "order": 3,
+        "labelI18n": {
+          "ko": "모델"
+        }
+      },
+      {
+        "id": "generation",
+        "label": "Generation",
+        "order": 4,
+        "labelI18n": {
+          "ko": "생성"
+        }
+      }
     ],
     "fields": [
-      { "key": "endpointUrl", "widget": "text", "visibility": "basic", "group": "endpoint", "order": 1, "placeholder": "https://example.com/v1/chat/completions" },
-      { "key": "apiKey", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
-      { "key": "modelId", "widget": "text", "visibility": "basic", "group": "model", "order": 1 },
-      { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
-      { "key": "max_tokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
-      { "key": "top_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },
-      { "key": "top_k", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 4 },
-      { "key": "min_p", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 5 },
-      { "key": "frequency_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 6 },
-      { "key": "presence_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 7 },
-      { "key": "repetition_penalty", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 8 },
-      { "key": "stop", "widget": "string-array", "visibility": "advanced", "group": "generation", "order": 9 },
-      { "key": "seed", "widget": "number-input", "visibility": "advanced", "group": "generation", "order": 10 }
+      {
+        "key": "endpointUrl",
+        "widget": "text",
+        "visibility": "basic",
+        "group": "endpoint",
+        "order": 1,
+        "placeholder": "https://example.com/v1/chat/completions"
+      },
+      {
+        "key": "apiKey",
+        "widget": "secret",
+        "visibility": "basic",
+        "group": "credentials",
+        "order": 1
+      },
+      {
+        "key": "modelId",
+        "widget": "text",
+        "visibility": "basic",
+        "group": "model",
+        "order": 1
+      },
+      {
+        "key": "temperature",
+        "widget": "slider",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 1
+      },
+      {
+        "key": "max_tokens",
+        "widget": "number-input",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 2
+      },
+      {
+        "key": "top_p",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 3
+      },
+      {
+        "key": "top_k",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 4
+      },
+      {
+        "key": "min_p",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 5
+      },
+      {
+        "key": "frequency_penalty",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 6
+      },
+      {
+        "key": "presence_penalty",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 7
+      },
+      {
+        "key": "repetition_penalty",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 8
+      },
+      {
+        "key": "stop",
+        "widget": "string-array",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 9
+      },
+      {
+        "key": "seed",
+        "widget": "number-input",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 10
+      }
     ]
   },
-  "capabilities": ["streaming"],
+  "capabilities": [
+    "streaming"
+  ],
   "sourceUrls": [
     "https://platform.openai.com/docs/api-reference/chat"
   ]

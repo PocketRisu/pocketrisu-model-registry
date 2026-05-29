@@ -99,6 +99,7 @@ function validateFieldSchema(file, field, path) {
     if (typeof field.key !== 'string' || field.key.length === 0) fail(file, `${path}.key: must be non-empty string`)
     if (!ALLOWED_FIELD_TYPE.has(field.type)) fail(file, `${path}.type: invalid (${field.type})`)
     if (typeof field.label !== 'string' || field.label.length === 0) fail(file, `${path}.label: must be non-empty string`)
+    validateI18nStringMap(file, field.descriptionI18n, `${path}.descriptionI18n`)
     if (field.mapsTo !== undefined) {
         if (!isPlainObject(field.mapsTo)) {
             fail(file, `${path}.mapsTo: must be object`)
@@ -120,6 +121,14 @@ function validateUiSchema(file, ui, fieldKeys, path) {
     }
     if (!Array.isArray(ui.groups)) fail(file, `${path}.groups: must be array`)
     if (!Array.isArray(ui.fields)) fail(file, `${path}.fields: must be array`)
+    if (Array.isArray(ui.groups)) {
+        for (let i = 0; i < ui.groups.length; i++) {
+            const g = ui.groups[i]
+            if (isPlainObject(g)) {
+                validateI18nStringMap(file, g.labelI18n, `${path}.groups[${i}].labelI18n`)
+            }
+        }
+    }
     if (!Array.isArray(ui.fields)) return
 
     for (let i = 0; i < ui.fields.length; i++) {
