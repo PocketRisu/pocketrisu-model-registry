@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Legacy Claude 3.7/3.5 compatibility profile.",
   "descriptionI18n": {
-    "ko": "Legacy Claude 3.7/3.5 compatibility profile."
+    "ko": "레거시 Claude 3.7/3.5 호환 프로필."
   },
   "visibility": "legacy",
   "lifecycle": "legacy",

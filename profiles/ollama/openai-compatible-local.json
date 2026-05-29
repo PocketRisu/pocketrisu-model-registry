@@ -36,5 +36,8 @@
   "sortOrder": 600,
   "displayNameI18n": {
     "ko": "Ollama (로컬)"
+  },
+  "descriptionI18n": {
+    "ko": "self-hosted Ollama 서버 (OpenAI 호환 엔드포인트)."
   }
 }

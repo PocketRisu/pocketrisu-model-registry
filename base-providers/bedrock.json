@@ -23,6 +23,9 @@
       "mapsTo": {
         "target": "custom",
         "path": "endpointUrl"
+      },
+      "descriptionI18n": {
+        "ko": "Bedrock OpenAI 호환 chat completions URL (리전별)."
       }
     },
     {
@@ -35,6 +38,9 @@
       "mapsTo": {
         "target": "auth",
         "path": "apiKey"
+      },
+      "descriptionI18n": {
+        "ko": "Bedrock에서 발급한 Bearer 토큰 / API 키."
       }
     },
     {
@@ -46,6 +52,9 @@
       "mapsTo": {
         "target": "body",
         "path": "model"
+      },
+      "descriptionI18n": {
+        "ko": "Bedrock 모델 ID."
       }
     },
     {

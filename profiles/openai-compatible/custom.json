@@ -37,5 +37,8 @@
   "sortOrder": 7000,
   "displayNameI18n": {
     "ko": "OpenAI 호환 (커스텀)"
+  },
+  "descriptionI18n": {
+    "ko": "범용 OpenAI Chat Completions 엔드포인트. URL, 키, 모델 ID를 직접 입력합니다."
   }
 }

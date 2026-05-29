@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Legacy Gemini 2.0/1.5 compatibility profile.",
   "descriptionI18n": {
-    "ko": "Legacy Gemini 2.0/1.5 compatibility profile."
+    "ko": "레거시 Gemini 2.0/1.5 호환 프로필."
   },
   "visibility": "legacy",
   "lifecycle": "legacy",

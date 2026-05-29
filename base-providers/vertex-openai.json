@@ -24,6 +24,9 @@
       "mapsTo": {
         "target": "auth",
         "path": "apiKey"
+      },
+      "descriptionI18n": {
+        "ko": "OAuth 토큰 교환용 Service Account 전체 JSON."
       }
     },
     {
@@ -35,6 +38,9 @@
       "mapsTo": {
         "target": "custom",
         "path": "project"
+      },
+      "descriptionI18n": {
+        "ko": "Google Cloud 프로젝트 ID."
       }
     },
     {
@@ -47,6 +53,9 @@
       "mapsTo": {
         "target": "custom",
         "path": "location"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex AI 리전 (예: us-central1, global)."
       }
     },
     {
@@ -80,6 +89,9 @@
       "mapsTo": {
         "target": "body",
         "path": "model"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex OpenAI 호환 모델 ID."
       }
     },
     {

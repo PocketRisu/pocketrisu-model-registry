@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "GPT-5.3 Codex profile for agentic coding workflows.",
   "descriptionI18n": {
-    "ko": "GPT-5.3 Codex profile for agentic coding workflows."
+    "ko": "GPT-5.3 Codex 프로필 (agentic coding 워크플로우)."
   },
   "visibility": "standard",
   "lifecycle": "current",

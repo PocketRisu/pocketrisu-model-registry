@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "GPT-5 family profile with reasoning and verbosity controls.",
   "descriptionI18n": {
-    "ko": "GPT-5 family profile with reasoning and verbosity controls."
+    "ko": "GPT-5 패밀리 프로필. reasoning / verbosity 제어 포함."
   },
   "visibility": "popular",
   "lifecycle": "recommended",

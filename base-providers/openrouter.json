@@ -263,6 +263,9 @@
       "mapsTo": {
         "target": "body",
         "path": "route"
+      },
+      "descriptionI18n": {
+        "ko": "라우팅 전략."
       }
     },
     {
@@ -273,6 +276,9 @@
       "mapsTo": {
         "target": "body",
         "path": "models"
+      },
+      "descriptionI18n": {
+        "ko": "순서대로 시도할 fallback 모델 목록."
       }
     },
     {
@@ -283,6 +289,9 @@
       "mapsTo": {
         "target": "body",
         "path": "provider"
+      },
+      "descriptionI18n": {
+        "ko": "공급자 라우팅 설정 (order, ignore, allow_fallbacks 등)."
       }
     }
   ],

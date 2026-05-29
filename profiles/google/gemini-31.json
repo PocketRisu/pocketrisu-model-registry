@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Gemini 3 and 3.1 profile with thinking level controls.",
   "descriptionI18n": {
-    "ko": "Gemini 3 and 3.1 profile with thinking level controls."
+    "ko": "Gemini 3 / 3.1 프로필. thinking 레벨 제어 포함."
   },
   "visibility": "popular",
   "lifecycle": "current",

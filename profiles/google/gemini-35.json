@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Latest Gemini 3.5 Flash profile with thinking level controls.",
   "descriptionI18n": {
-    "ko": "Latest Gemini 3.5 Flash profile with thinking level controls."
+    "ko": "최신 Gemini 3.5 Flash 프로필. thinking 레벨 제어 포함."
   },
   "visibility": "popular",
   "lifecycle": "recommended",

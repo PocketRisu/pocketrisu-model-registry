@@ -24,6 +24,9 @@
       "mapsTo": {
         "target": "auth",
         "path": "apiKey"
+      },
+      "descriptionI18n": {
+        "ko": "DeepSeek API 키."
       }
     }
   ],

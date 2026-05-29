@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Gemini 2.5 profile with thinking budget controls.",
   "descriptionI18n": {
-    "ko": "Gemini 2.5 profile with thinking budget controls."
+    "ko": "Gemini 2.5 프로필. thinking budget 제어 포함."
   },
   "visibility": "standard",
   "lifecycle": "current",

@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Claude Sonnet 4.6 profile using adaptive thinking.",
   "descriptionI18n": {
-    "ko": "Claude Sonnet 4.6 profile using adaptive thinking."
+    "ko": "Claude Sonnet 4.6 프로필 (적응형 thinking)."
   },
   "visibility": "popular",
   "lifecycle": "recommended",

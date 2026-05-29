@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Claude Sonnet/Haiku 4.5 profile with manual thinking budget controls.",
   "descriptionI18n": {
-    "ko": "Claude Sonnet/Haiku 4.5 profile with manual thinking budget controls."
+    "ko": "Claude Sonnet/Haiku 4.5 프로필. 수동 thinking budget 제어."
   },
   "visibility": "standard",
   "lifecycle": "current",

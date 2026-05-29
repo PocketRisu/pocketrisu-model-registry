@@ -24,6 +24,9 @@
       "mapsTo": {
         "target": "auth",
         "path": "apiKey"
+      },
+      "descriptionI18n": {
+        "ko": "ollama.com/settings/keys 에서 발급."
       }
     },
     {
@@ -57,6 +60,9 @@
       "mapsTo": {
         "target": "body",
         "path": "model"
+      },
+      "descriptionI18n": {
+        "ko": "클라우드 호스팅 모델. 보통 :cloud 접미사를 사용합니다 (예: gpt-oss:120b-cloud). 최신 목록은 https://ollama.com/search?c=cloud 참조."
       }
     },
     {

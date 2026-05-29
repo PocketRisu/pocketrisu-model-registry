@@ -41,5 +41,8 @@
   "sortOrder": 800,
   "displayNameI18n": {
     "ko": "AWS Bedrock (OpenAI 호환)"
+  },
+  "descriptionI18n": {
+    "ko": "AWS Bedrock OpenAI 호환 Chat Completions 엔드포인트 (리전별 URL)."
   }
 }

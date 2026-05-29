@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "DeepSeek V4 Flash/Pro profile.",
   "descriptionI18n": {
-    "ko": "DeepSeek V4 Flash/Pro profile."
+    "ko": "DeepSeek V4 Flash/Pro 프로필."
   },
   "visibility": "popular",
   "lifecycle": "recommended",

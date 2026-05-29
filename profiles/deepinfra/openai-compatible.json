@@ -38,5 +38,8 @@
   "sortOrder": 530,
   "displayNameI18n": {
     "ko": "DeepInfra"
+  },
+  "descriptionI18n": {
+    "ko": "DeepInfra 호스팅 모델 (OpenAI 호환 엔드포인트)."
   }
 }

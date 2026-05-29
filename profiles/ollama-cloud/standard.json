@@ -39,5 +39,8 @@
   "sortOrder": 610,
   "displayNameI18n": {
     "ko": "Ollama Cloud (실험적)"
+  },
+  "descriptionI18n": {
+    "ko": "Ollama 호스팅 클라우드 추론 (Turbo). OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증. 모델 목록과 정확한 endpoint는 sourceUrls 참조 필요."
   }
 }

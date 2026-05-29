@@ -40,5 +40,8 @@
   "sortOrder": 540,
   "displayNameI18n": {
     "ko": "Vercel AI Gateway"
+  },
+  "descriptionI18n": {
+    "ko": "Vercel AI Gateway (OpenAI 호환 API)."
   }
 }

@@ -9,7 +9,7 @@
   "profileTier": "standard",
   "description": "Claude Opus 4.8/4.7 profile using adaptive thinking.",
   "descriptionI18n": {
-    "ko": "Claude Opus 4.8/4.7 profile using adaptive thinking."
+    "ko": "Claude Opus 4.8/4.7 프로필 (적응형 thinking)."
   },
   "visibility": "popular",
   "lifecycle": "recommended",

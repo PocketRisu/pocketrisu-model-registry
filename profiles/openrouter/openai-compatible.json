@@ -41,5 +41,8 @@
   "sortOrder": 500,
   "displayNameI18n": {
     "ko": "OpenRouter"
+  },
+  "descriptionI18n": {
+    "ko": "OpenRouter 다중 공급자 라우터 (OpenAI 호환 API)."
   }
 }

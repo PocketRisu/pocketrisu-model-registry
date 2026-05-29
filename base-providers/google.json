@@ -24,6 +24,9 @@
       "mapsTo": {
         "target": "auth",
         "path": "apiKey"
+      },
+      "descriptionI18n": {
+        "ko": "Google AI Studio API 키."
       }
     }
   ],
