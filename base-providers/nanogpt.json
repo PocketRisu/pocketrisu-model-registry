@@ -64,7 +64,8 @@
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
-      }
+      },
+      "default": 4096
     },
     {
       "key": "top_p",
@@ -172,7 +173,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "number-input",
+        "widget": "slider",
         "visibility": "basic",
         "group": "generation",
         "order": 2

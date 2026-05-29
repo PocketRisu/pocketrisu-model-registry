@@ -73,7 +73,8 @@
       "mapsTo": {
         "target": "body",
         "path": "max_completion_tokens"
-      }
+      },
+      "default": 16384
     },
     {
       "key": "reasoning_effort",
@@ -292,7 +293,7 @@
       },
       {
         "key": "max_completion_tokens",
-        "widget": "number-input",
+        "widget": "slider",
         "visibility": "basic",
         "group": "generation",
         "order": 1

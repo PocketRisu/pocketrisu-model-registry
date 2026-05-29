@@ -106,7 +106,8 @@
       "mapsTo": {
         "target": "body",
         "path": "generationConfig.maxOutputTokens"
-      }
+      },
+      "default": 8192
     },
     {
       "key": "stopSequences",
@@ -297,7 +298,7 @@
       },
       {
         "key": "maxOutputTokens",
-        "widget": "number-input",
+        "widget": "slider",
         "visibility": "basic",
         "group": "generation",
         "order": 2

@@ -67,7 +67,8 @@
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
-      }
+      },
+      "default": 4096
     },
     {
       "key": "temperature",
@@ -306,7 +307,7 @@
       },
       {
         "key": "max_tokens",
-        "widget": "number-input",
+        "widget": "slider",
         "visibility": "basic",
         "group": "generation",
         "order": 2
