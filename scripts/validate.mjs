@@ -11,7 +11,7 @@
  *   6. uiSchema.fields[].widget is in the v4 allowed widget set
  *   7. fieldSchema.mapsTo.target is body | header | query | auth | custom
  *   8. sourceUrls is a non-empty array
- *   9. profileTier === 'standard' (MVP)
+ *   9. profileStatus is current | outdated | deprecated
  *
  * Zero deps. Run with `node scripts/validate.mjs` from the repo root.
  */
@@ -44,9 +44,8 @@ const ALLOWED_WIDGET = new Set([
 const ALLOWED_VISIBILITY = new Set(['basic', 'advanced', 'hidden'])
 const ALLOWED_MAPS_TO_TARGET = new Set(['body', 'header', 'query', 'auth', 'custom'])
 const ALLOWED_CAPABILITY = new Set(['streaming', 'vision', 'tools', 'json', 'reasoning'])
-const ALLOWED_PROFILE_TIER = new Set(['standard'])
-const ALLOWED_PROFILE_VISIBILITY = new Set(['popular', 'standard', 'advanced', 'legacy'])
-const ALLOWED_LIFECYCLE = new Set(['recommended', 'current', 'legacy', 'deprecated', 'experimental'])
+const ALLOWED_PROFILE_STATUS = new Set(['current', 'outdated', 'deprecated'])
+const DISALLOWED_TEMPORAL_TAG = new Set(['latest', 'current', 'recommended', 'experimental', 'legacy', 'deprecated', 'outdated', 'popular'])
 const ALLOWED_TOKENIZER = new Set(['tik', 'mistral', 'novelai', 'claude', 'llama', 'llama3', 'novellist', 'gemma', 'cohere', 'deepseek'])
 
 const errors = []
@@ -217,11 +216,20 @@ function validateI18nStringMap(file, value, path) {
 function validateProfileMetadata(file, data) {
     validateI18nStringMap(file, data.displayNameI18n, 'displayNameI18n')
     validateI18nStringMap(file, data.descriptionI18n, 'descriptionI18n')
-    if (data.visibility !== undefined && !ALLOWED_PROFILE_VISIBILITY.has(data.visibility)) {
-        fail(file, `visibility: invalid (${data.visibility})`)
+    if (!ALLOWED_PROFILE_STATUS.has(data.profileStatus)) {
+        fail(file, `profileStatus: must be one of [${[...ALLOWED_PROFILE_STATUS].join(', ')}] (got "${data.profileStatus}")`)
     }
-    if (data.lifecycle !== undefined && !ALLOWED_LIFECYCLE.has(data.lifecycle)) {
-        fail(file, `lifecycle: invalid (${data.lifecycle})`)
+    if (data.statusReason !== undefined && (typeof data.statusReason !== 'string' || data.statusReason.length === 0)) {
+        fail(file, 'statusReason: must be non-empty string')
+    }
+    if (data.statusSourceUrls !== undefined) {
+        if (!Array.isArray(data.statusSourceUrls)) {
+            fail(file, 'statusSourceUrls: must be array')
+        } else {
+            for (const u of data.statusSourceUrls) {
+                if (typeof u !== 'string' || u.length === 0) fail(file, 'statusSourceUrls: contains non-string entry')
+            }
+        }
     }
     if (data.tags !== undefined) {
         if (!Array.isArray(data.tags)) {
@@ -229,6 +237,7 @@ function validateProfileMetadata(file, data) {
         } else {
             for (const tag of data.tags) {
                 if (typeof tag !== 'string' || tag.length === 0) fail(file, 'tags: entries must be non-empty strings')
+                if (DISALLOWED_TEMPORAL_TAG.has(tag)) fail(file, `tags: temporal status tag "${tag}" is not allowed`)
             }
         }
     }
@@ -310,9 +319,6 @@ function validateProfile(file, baseProviderMap) {
         fail(file, `providerBaseId: unknown base provider "${data.providerBaseId}"`)
     }
 
-    if (!ALLOWED_PROFILE_TIER.has(data.profileTier)) {
-        fail(file, `profileTier: must be one of [${[...ALLOWED_PROFILE_TIER].join(', ')}] (got "${data.profileTier}")`)
-    }
     if (typeof data.modelId !== 'string') fail(file, 'modelId: must be string')
 
     if (!isPlainObject(data.endpoint)) {

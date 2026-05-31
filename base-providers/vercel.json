@@ -1,6 +1,6 @@
 {
   "id": "vercel",
-  "version": 3,
+  "version": 1,
   "displayName": "Vercel AI Gateway",
   "adapterKind": "openai-compatible",
   "authKinds": [

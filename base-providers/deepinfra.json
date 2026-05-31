@@ -1,6 +1,6 @@
 {
   "id": "deepinfra",
-  "version": 3,
+  "version": 1,
   "displayName": "DeepInfra",
   "adapterKind": "openai-compatible",
   "authKinds": [

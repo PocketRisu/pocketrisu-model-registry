@@ -1,18 +1,15 @@
 {
   "id": "openai:codex",
-  "version": 2,
+  "version": 1,
   "displayName": "OpenAI Codex",
   "displayNameI18n": {
     "ko": "OpenAI Codex"
   },
   "providerBaseId": "openai",
-  "profileTier": "standard",
   "description": "GPT-5.3 Codex profile for agentic coding workflows.",
   "descriptionI18n": {
-    "ko": "GPT-5.3 Codex 프로필 (agentic coding 워크플로우)."
+    "ko": "에이전트형 코딩 워크플로우용 GPT-5.3 Codex 프로필."
   },
-  "visibility": "standard",
-  "lifecycle": "current",
   "tags": [
     "openai",
     "codex",
@@ -398,11 +395,12 @@
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1050000,
+    "contextWindowTokens": 400000,
     "maxOutputTokens": 128000,
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
     ]
   },
-  "recommendedTokenizer": "tik"
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
 }

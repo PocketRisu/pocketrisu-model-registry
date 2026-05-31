@@ -1,18 +1,15 @@
 {
   "id": "anthropic:sonnet-adaptive",
-  "version": 2,
-  "displayName": "Claude Sonnet Adaptive",
+  "version": 1,
+  "displayName": "Claude Sonnet 4.6",
   "displayNameI18n": {
-    "ko": "Claude Sonnet Adaptive"
+    "ko": "Claude Sonnet 4.6"
   },
   "providerBaseId": "anthropic",
-  "profileTier": "standard",
   "description": "Claude Sonnet 4.6 profile using adaptive thinking.",
   "descriptionI18n": {
     "ko": "Claude Sonnet 4.6 프로필 (적응형 thinking)."
   },
-  "visibility": "popular",
-  "lifecycle": "recommended",
   "tags": [
     "anthropic",
     "claude",
@@ -100,10 +97,6 @@
         {
           "value": "high",
           "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
         },
         {
           "value": "max",
@@ -262,5 +255,6 @@
       "https://platform.claude.com/docs/en/about-claude/models/overview"
     ]
   },
-  "recommendedTokenizer": "claude"
+  "recommendedTokenizer": "claude",
+  "profileStatus": "current"
 }

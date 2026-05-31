@@ -1,18 +1,15 @@
 {
   "id": "deepseek:v4",
-  "version": 2,
+  "version": 1,
   "displayName": "DeepSeek V4",
   "displayNameI18n": {
     "ko": "DeepSeek V4"
   },
   "providerBaseId": "deepseek",
-  "profileTier": "standard",
   "description": "DeepSeek V4 Flash/Pro profile.",
   "descriptionI18n": {
     "ko": "DeepSeek V4 Flash/Pro 프로필."
   },
-  "visibility": "popular",
-  "lifecycle": "recommended",
   "tags": [
     "deepseek",
     "v4",
@@ -313,5 +310,6 @@
       "https://api-docs.deepseek.com/quick_start/pricing-details-usd"
     ]
   },
-  "recommendedTokenizer": "deepseek"
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
 }

@@ -1,6 +1,6 @@
 {
   "id": "google",
-  "version": 3,
+  "version": 1,
   "displayName": "Google AI Studio (Gemini)",
   "adapterKind": "google-gemini",
   "authKinds": [

@@ -1,9 +1,8 @@
 {
   "id": "ollama-cloud:standard",
-  "version": 2,
+  "version": 1,
   "displayName": "Ollama Cloud",
   "providerBaseId": "ollama-cloud",
-  "profileTier": "standard",
   "description": "Ollama-hosted cloud inference. OpenAI-compatible chat completions at https://ollama.com/v1/chat/completions. Bearer auth via ollama.com API key.",
   "modelId": "",
   "endpoint": {
@@ -29,8 +28,6 @@
     "https://docs.ollama.com/cloud",
     "https://ollama.com/search?c=cloud"
   ],
-  "visibility": "standard",
-  "lifecycle": "current",
   "tags": [
     "ollama",
     "cloud"
@@ -41,5 +38,6 @@
   },
   "descriptionI18n": {
     "ko": "Ollama 호스팅 클라우드 추론. OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증."
-  }
+  },
+  "profileStatus": "current"
 }

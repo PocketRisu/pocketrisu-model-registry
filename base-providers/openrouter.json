@@ -1,6 +1,6 @@
 {
   "id": "openrouter",
-  "version": 3,
+  "version": 1,
   "displayName": "OpenRouter",
   "adapterKind": "openai-compatible",
   "authKinds": [

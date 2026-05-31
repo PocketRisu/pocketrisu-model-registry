@@ -8,7 +8,7 @@
     "version",
     "displayName",
     "providerBaseId",
-    "profileTier",
+    "profileStatus",
     "modelId",
     "endpoint",
     "auth",
@@ -26,14 +26,23 @@
     "displayName": { "type": "string", "minLength": 1 },
     "displayNameI18n": { "$ref": "#/$defs/i18nStringMap" },
     "providerBaseId": { "type": "string", "pattern": "^[a-z][a-z0-9-]*$" },
-    "profileTier": { "const": "standard" },
+    "profileStatus": { "enum": ["current", "outdated", "deprecated"] },
+    "statusReason": { "type": "string", "minLength": 1 },
+    "statusSourceUrls": {
+      "type": "array",
+      "items": { "type": "string", "format": "uri" }
+    },
     "description": { "type": "string" },
     "descriptionI18n": { "$ref": "#/$defs/i18nStringMap" },
-    "visibility": { "enum": ["popular", "standard", "advanced", "legacy"] },
-    "lifecycle": { "enum": ["recommended", "current", "legacy", "deprecated", "experimental"] },
     "tags": {
       "type": "array",
-      "items": { "type": "string", "minLength": 1 }
+      "items": {
+        "type": "string",
+        "minLength": 1,
+        "not": {
+          "enum": ["latest", "current", "recommended", "experimental", "legacy", "deprecated", "outdated", "popular"]
+        }
+      }
     },
     "sortOrder": { "type": "integer" },
     "modelId": { "type": "string" },

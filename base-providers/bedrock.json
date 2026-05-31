@@ -1,6 +1,6 @@
 {
   "id": "bedrock",
-  "version": 3,
+  "version": 1,
   "displayName": "AWS Bedrock (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [

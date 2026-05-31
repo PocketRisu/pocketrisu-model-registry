@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "NanoGPT",
   "providerBaseId": "nanogpt",
-  "profileTier": "standard",
   "description": "NanoGPT pay-per-use gateway via OpenAI-compatible API.",
   "modelId": "",
   "endpoint": {
@@ -28,8 +27,6 @@
   "sourceUrls": [
     "https://nano-gpt.com/docs"
   ],
-  "visibility": "standard",
-  "lifecycle": "current",
   "tags": [
     "nanogpt",
     "aggregator",
@@ -39,5 +36,6 @@
   "displayNameI18n": {
     "ko": "NanoGPT"
   },
-  "recommendedTokenizer": "tik"
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
 }

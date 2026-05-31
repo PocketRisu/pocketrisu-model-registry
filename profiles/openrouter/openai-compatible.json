@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "OpenRouter",
   "providerBaseId": "openrouter",
-  "profileTier": "standard",
   "description": "OpenRouter multi-vendor router via OpenAI-compatible API.",
   "modelId": "",
   "endpoint": {
@@ -31,8 +30,6 @@
   "sourceUrls": [
     "https://openrouter.ai/docs"
   ],
-  "visibility": "popular",
-  "lifecycle": "current",
   "tags": [
     "openrouter",
     "aggregator",
@@ -44,5 +41,6 @@
   },
   "descriptionI18n": {
     "ko": "OpenRouter 다중 공급자 라우터 (OpenAI 호환 API)."
-  }
+  },
+  "profileStatus": "current"
 }

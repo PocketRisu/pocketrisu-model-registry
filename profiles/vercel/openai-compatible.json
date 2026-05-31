@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "Vercel AI Gateway",
   "providerBaseId": "vercel",
-  "profileTier": "standard",
   "description": "Vercel AI Gateway via OpenAI-compatible API.",
   "modelId": "",
   "endpoint": {
@@ -30,8 +29,6 @@
   "sourceUrls": [
     "https://vercel.com/docs/ai-gateway/sdks-and-apis/openai-chat-completions/chat-completions"
   ],
-  "visibility": "standard",
-  "lifecycle": "current",
   "tags": [
     "vercel",
     "aggregator",
@@ -43,5 +40,6 @@
   },
   "descriptionI18n": {
     "ko": "Vercel AI Gateway (OpenAI 호환 API)."
-  }
+  },
+  "profileStatus": "current"
 }

@@ -1,32 +1,31 @@
 {
-  "id": "openai:gpt-4o",
-  "version": 2,
-  "displayName": "OpenAI GPT-4o / GPT-4.1",
+  "id": "google:gemini-3",
+  "version": 1,
+  "displayName": "Gemini 3",
   "displayNameI18n": {
-    "ko": "OpenAI GPT-4o / GPT-4.1"
+    "ko": "Gemini 3"
   },
-  "providerBaseId": "openai",
-  "profileTier": "standard",
-  "description": "Legacy/current non-GPT-5 Chat Completions profile.",
+  "providerBaseId": "google",
+  "description": "Gemini 3 family profile with thinking level controls.",
   "descriptionI18n": {
-    "ko": "Legacy/current non-GPT-5 Chat Completions profile."
+    "ko": "Gemini 3 패밀리 프로필. thinking 레벨 제어 포함."
   },
-  "visibility": "standard",
-  "lifecycle": "current",
   "tags": [
-    "openai",
-    "gpt",
-    "chat",
+    "google",
+    "gemini",
+    "pro",
+    "flash",
+    "reasoning",
     "vision"
   ],
-  "sortOrder": 180,
-  "modelId": "gpt-4.1",
+  "sortOrder": 300,
+  "modelId": "gemini-3.5-flash",
   "endpoint": {
     "kind": "static",
-    "url": "https://api.openai.com/v1/chat/completions"
+    "url": "https://generativelanguage.googleapis.com/v1beta/models"
   },
   "auth": {
-    "kind": "bearer",
+    "kind": "x-goog-api-key",
     "fields": [
       "apiKey"
     ]
@@ -37,28 +36,36 @@
       "key": "modelId",
       "type": "string",
       "label": "Model ID",
-      "description": "OpenAI model identifier.",
+      "description": "Gemini model identifier.",
       "required": true,
       "enum": [
         {
-          "value": "gpt-4.1",
-          "label": "GPT-4.1"
+          "value": "gemini-3.5-flash",
+          "label": "Gemini 3.5 Flash"
         },
         {
-          "value": "gpt-4.1-mini",
-          "label": "GPT-4.1 Mini"
+          "value": "gemini-3.1-pro",
+          "label": "Gemini 3.1 Pro"
         },
         {
-          "value": "gpt-4.1-nano",
-          "label": "GPT-4.1 Nano"
+          "value": "gemini-3.1-flash-lite",
+          "label": "Gemini 3.1 Flash-Lite"
         },
         {
-          "value": "gpt-4o",
-          "label": "GPT-4o"
+          "value": "gemini-3-pro-preview",
+          "label": "Gemini 3 Pro Preview"
         },
         {
-          "value": "gpt-4o-mini",
-          "label": "GPT-4o Mini"
+          "value": "gemini-3-flash-preview",
+          "label": "Gemini 3 Flash Preview"
+        },
+        {
+          "value": "gemini-3-pro-image-preview",
+          "label": "Gemini 3 Pro Image Preview"
+        },
+        {
+          "value": "gemini-flash-latest",
+          "label": "Gemini Flash Latest"
         }
       ],
       "mapsTo": {
@@ -66,20 +73,8 @@
         "path": "model"
       },
       "descriptionI18n": {
-        "ko": "OpenAI 모델 ID."
+        "ko": "Gemini 모델 ID."
       }
-    },
-    {
-      "key": "max_tokens",
-      "type": "integer",
-      "label": "Max Tokens",
-      "min": 1,
-      "max": 32768,
-      "mapsTo": {
-        "target": "body",
-        "path": "max_tokens"
-      },
-      "default": 8192
     },
     {
       "key": "temperature",
@@ -90,11 +85,11 @@
       "step": 0.01,
       "mapsTo": {
         "target": "body",
-        "path": "temperature"
+        "path": "generationConfig.temperature"
       }
     },
     {
-      "key": "top_p",
+      "key": "topP",
       "type": "number",
       "label": "Top P",
       "min": 0,
@@ -102,40 +97,39 @@
       "step": 0.01,
       "mapsTo": {
         "target": "body",
-        "path": "top_p"
+        "path": "generationConfig.topP"
       }
     },
     {
-      "key": "frequency_penalty",
-      "type": "number",
-      "label": "Frequency Penalty",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
+      "key": "topK",
+      "type": "integer",
+      "label": "Top K",
+      "min": 1,
+      "max": 1000,
       "mapsTo": {
         "target": "body",
-        "path": "frequency_penalty"
+        "path": "generationConfig.topK"
       }
     },
     {
-      "key": "presence_penalty",
-      "type": "number",
-      "label": "Presence Penalty",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
+      "key": "maxOutputTokens",
+      "type": "integer",
+      "label": "Max Output Tokens",
+      "min": 1,
+      "max": 65536,
       "mapsTo": {
         "target": "body",
-        "path": "presence_penalty"
-      }
+        "path": "generationConfig.maxOutputTokens"
+      },
+      "default": 8192
     },
     {
-      "key": "stop",
+      "key": "stopSequences",
       "type": "stringArray",
       "label": "Stop Sequences",
       "mapsTo": {
         "target": "body",
-        "path": "stop"
+        "path": "generationConfig.stopSequences"
       }
     },
     {
@@ -144,102 +138,126 @@
       "label": "Seed",
       "mapsTo": {
         "target": "body",
-        "path": "seed"
+        "path": "generationConfig.seed"
       }
     },
     {
-      "key": "service_tier",
+      "key": "presencePenalty",
+      "type": "number",
+      "label": "Presence Penalty",
+      "min": -2,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "generationConfig.presencePenalty"
+      }
+    },
+    {
+      "key": "frequencyPenalty",
+      "type": "number",
+      "label": "Frequency Penalty",
+      "min": -2,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "generationConfig.frequencyPenalty"
+      }
+    },
+    {
+      "key": "thinkingLevel",
       "type": "string",
-      "label": "Service Tier",
+      "label": "Thinking Level",
       "enum": [
         {
-          "value": "auto",
-          "label": "Auto"
+          "value": "minimal",
+          "label": "Minimal"
         },
         {
-          "value": "default",
-          "label": "Default"
+          "value": "low",
+          "label": "Low"
         },
         {
-          "value": "flex",
-          "label": "Flex"
+          "value": "medium",
+          "label": "Medium"
         },
         {
-          "value": "priority",
-          "label": "Priority"
+          "value": "high",
+          "label": "High"
         }
       ],
       "mapsTo": {
         "target": "body",
-        "path": "service_tier"
+        "path": "generationConfig.thinkingConfig.thinkingLevel"
       }
     },
     {
-      "key": "response_format",
+      "key": "includeThoughts",
+      "type": "boolean",
+      "label": "Include Thoughts",
+      "default": false,
+      "mapsTo": {
+        "target": "body",
+        "path": "generationConfig.thinkingConfig.includeThoughts"
+      }
+    },
+    {
+      "key": "responseMimeType",
       "type": "string",
-      "label": "Response Format",
+      "label": "Response Mime Type",
       "enum": [
         {
-          "value": "text",
+          "value": "text/plain",
           "label": "Text"
         },
         {
-          "value": "json_object",
-          "label": "JSON object"
+          "value": "application/json",
+          "label": "JSON"
         }
       ],
       "mapsTo": {
         "target": "body",
-        "path": "response_format.type"
+        "path": "generationConfig.responseMimeType"
       }
     },
     {
-      "key": "parallel_tool_calls",
-      "type": "boolean",
-      "label": "Parallel Tool Calls",
-      "default": true,
+      "key": "responseSchema",
+      "type": "json",
+      "label": "Response Schema",
       "mapsTo": {
         "target": "body",
-        "path": "parallel_tool_calls"
+        "path": "generationConfig.responseSchema"
+      }
+    },
+    {
+      "key": "responseLogprobs",
+      "type": "boolean",
+      "label": "Response Logprobs",
+      "default": false,
+      "mapsTo": {
+        "target": "body",
+        "path": "generationConfig.responseLogprobs"
       }
     },
     {
       "key": "logprobs",
-      "type": "boolean",
-      "label": "Logprobs",
-      "default": false,
-      "mapsTo": {
-        "target": "body",
-        "path": "logprobs"
-      }
-    },
-    {
-      "key": "top_logprobs",
       "type": "integer",
       "label": "Top Logprobs",
-      "min": 0,
+      "min": 1,
       "max": 20,
       "mapsTo": {
         "target": "body",
-        "path": "top_logprobs"
+        "path": "generationConfig.logprobs"
       }
     },
     {
-      "key": "user",
-      "type": "string",
-      "label": "User",
-      "mapsTo": {
-        "target": "body",
-        "path": "user"
-      }
-    },
-    {
-      "key": "metadata",
+      "key": "safetySettings",
       "type": "json",
-      "label": "Metadata",
+      "label": "Safety Settings",
       "mapsTo": {
         "target": "body",
-        "path": "metadata"
+        "path": "safetySettings"
       }
     }
   ],
@@ -284,14 +302,6 @@
         "labelI18n": {
           "ko": "출력"
         }
-      },
-      {
-        "id": "control",
-        "label": "Control",
-        "order": 5,
-        "labelI18n": {
-          "ko": "요청 제어"
-        }
       }
     ],
     "fields": [
@@ -317,99 +327,106 @@
         "order": 1
       },
       {
-        "key": "max_tokens",
+        "key": "maxOutputTokens",
         "widget": "slider",
         "visibility": "basic",
         "group": "generation",
         "order": 2
       },
       {
-        "key": "top_p",
+        "key": "topP",
         "widget": "slider",
         "visibility": "advanced",
         "group": "generation",
         "order": 3
       },
       {
-        "key": "frequency_penalty",
-        "widget": "slider",
+        "key": "topK",
+        "widget": "number-input",
         "visibility": "advanced",
         "group": "generation",
         "order": 4
       },
       {
-        "key": "presence_penalty",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 5
-      },
-      {
-        "key": "stop",
+        "key": "stopSequences",
         "widget": "string-array",
         "visibility": "advanced",
         "group": "generation",
-        "order": 6
+        "order": 5
       },
       {
         "key": "seed",
         "widget": "number-input",
         "visibility": "advanced",
         "group": "generation",
+        "order": 6
+      },
+      {
+        "key": "presencePenalty",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
         "order": 7
       },
       {
-        "key": "service_tier",
-        "widget": "select",
+        "key": "frequencyPenalty",
+        "widget": "slider",
         "visibility": "advanced",
-        "group": "control",
+        "group": "generation",
+        "order": 8
+      },
+      {
+        "key": "thinkingLevel",
+        "widget": "select",
+        "visibility": "basic",
+        "group": "reasoning",
         "order": 1
       },
       {
-        "key": "response_format",
+        "key": "includeThoughts",
+        "widget": "toggle",
+        "visibility": "advanced",
+        "group": "reasoning",
+        "order": 2
+      },
+      {
+        "key": "responseMimeType",
         "widget": "select",
         "visibility": "advanced",
         "group": "output",
         "order": 1
       },
       {
-        "key": "parallel_tool_calls",
-        "widget": "toggle",
+        "key": "responseSchema",
+        "widget": "json",
         "visibility": "advanced",
         "group": "output",
         "order": 2
       },
       {
-        "key": "logprobs",
+        "key": "responseLogprobs",
         "widget": "toggle",
         "visibility": "advanced",
         "group": "output",
         "order": 3
       },
       {
-        "key": "top_logprobs",
+        "key": "logprobs",
         "widget": "number-input",
         "visibility": "advanced",
         "group": "output",
         "order": 4,
         "showIf": {
-          "key": "logprobs",
+          "key": "responseLogprobs",
           "equals": true
         }
       },
       {
-        "key": "user",
-        "widget": "text",
-        "visibility": "advanced",
-        "group": "control",
-        "order": 1
-      },
-      {
-        "key": "metadata",
+        "key": "safetySettings",
         "widget": "json",
         "visibility": "advanced",
-        "group": "control",
-        "order": 2
+        "group": "output",
+        "order": 5
       }
     ]
   },
@@ -421,16 +438,18 @@
     "json"
   ],
   "sourceUrls": [
-    "https://platform.openai.com/docs/models",
-    "https://platform.openai.com/docs/api-reference/chat/create"
+    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/thinking",
+    "https://ai.google.dev/api/generate-content"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1047576,
-    "maxOutputTokens": 32768,
+    "contextWindowTokens": 1048576,
+    "maxOutputTokens": 65536,
     "sourceUrls": [
-      "https://platform.openai.com/docs/models/compare"
+      "https://ai.google.dev/api/models"
     ]
   },
-  "recommendedTokenizer": "tik"
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
 }

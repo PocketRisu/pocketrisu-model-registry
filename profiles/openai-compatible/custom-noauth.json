@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "OpenAI Compatible (Custom, no auth)",
   "providerBaseId": "openai-compatible",
-  "profileTier": "standard",
   "description": "Generic OpenAI Chat Completions endpoint without authentication. Use for self-hosted setups (vLLM, LiteLLM, local Ollama OpenAI mode, etc.) or any gateway that does not require an API key.",
   "modelId": "",
   "endpoint": {
@@ -33,8 +32,6 @@
   "sourceUrls": [
     "https://platform.openai.com/docs/api-reference/chat"
   ],
-  "visibility": "advanced",
-  "lifecycle": "current",
   "tags": [
     "custom",
     "openai-compatible",
@@ -43,5 +40,6 @@
   "sortOrder": 7010,
   "displayNameI18n": {
     "ko": "OpenAI 호환 (커스텀, 인증 없음)"
-  }
+  },
+  "profileStatus": "current"
 }

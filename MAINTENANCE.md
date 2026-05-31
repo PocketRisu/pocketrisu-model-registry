@@ -11,7 +11,7 @@ The registry follows **schema v4** (see `schema/base-provider.schema.json` and `
 | Folder | What it holds |
 |---|---|
 | `base-providers/<id>.json` | `BaseProviderDefinition` — adapter/auth/endpoint primitives, default headers/body, shared request schema and UI schema. Consumed by every profile under this base. |
-| `profiles/<baseId>/<profileKey>.json` | `ModelProfile` — concrete profile a user picks (e.g. `openai:gpt-5`). Has its own endpoint, auth wiring, `modelId`, and may extend the base's `schema`/`uiSchema`. MVP only ships `profileTier: 'standard'`. |
+| `profiles/<baseId>/<profileKey>.json` | `ModelProfile` — concrete profile a user picks (e.g. `openai:gpt-55`). Has its own endpoint, auth wiring, `modelId`, profile status, and may extend the base's `schema`/`uiSchema`. |
 | `schema/base-provider.schema.json` | JSON Schema for `BaseProviderDefinition`. |
 | `schema/model-profile.schema.json` | JSON Schema for `ModelProfile`. |
 | `index.json` | Mirror of every base provider + profile (used for fast HTTP catalog lookup). v4 sets `schemaVersion: 4`. |
@@ -149,7 +149,7 @@ When you sit down to update the registry:
    ```sh
    node scripts/validate.mjs
    ```
-   The validator enforces every plan-v4 §15-2 rule: index mirror, `providerBaseId` references, schema key uniqueness, `uiSchema.fields[].key` references, allowed `visibility` / `widget` / `mapsTo.target` values, non-empty `sourceUrls`, `profileTier === 'standard'` (MVP).
+   The validator enforces every plan-v4 §15-2 rule: index mirror, `providerBaseId` references, schema key uniqueness, `uiSchema.fields[].key` references, allowed `visibility` / `widget` / `mapsTo.target` values, non-empty `sourceUrls`, and `profileStatus` in `current | outdated | deprecated`.
 
 5. **Sync the PocketRisu bundle.** v4 bundles a snapshot of `base-providers/` and `profiles/` into `Risuai-NodeOnly/src/ts/preset/registry/bundled/`. After any registry change you intend to ship, copy the touched files into the NodeOnly bundle, run `pnpm run check && pnpm test src/ts/preset` over there, and land both commits together.
 
@@ -161,7 +161,7 @@ When you sit down to update the registry:
 
 **`base-providers/*.json` and `profiles/<baseId>/<profileKey>.json` are the source of truth.** That's where the wire-level spec lives (adapter, auth, endpoint, schema, UI schema, defaults) and where contributor PRs land.
 
-**`index.json` mirrors a subset for fast lookup.** It carries each base provider's `id`, `displayName`, `url`, `version`, and each profile's `id`, `displayName`, `providerBaseId`, `profileTier`, `url`, `version`. PocketRisu fetches `index.json` once at startup to know which base providers and profiles exist and which versions are current; only when a per-preset `installedProfileVersion` differs does it fetch the individual profile/base files.
+**`index.json` mirrors a subset for fast lookup.** It carries each base provider's `id`, `displayName`, `url`, `version`, and each profile's `id`, `displayName`, `providerBaseId`, `profileStatus`, `url`, `version`. PocketRisu fetches `index.json` once at startup to know which base providers and profiles exist and which versions are current; only when a per-preset `installedProfileVersion` differs does it fetch the individual profile/base files.
 
 ### Sync rules
 
@@ -178,6 +178,7 @@ The validator handles mismatch detection — there is no separate snippet to mai
 | Date | What was checked | Outcome |
 |------|------------------|---------|
 | 2026-05-22 | Initial v1 audit across 13 v3 templates against vendor docs (where reachable), upstream RisuAI (last 30 days), CPM 1.30.18 analysis, Blessing 1.1.5, and archive spec §15. | 9 issues found and fixed across 4 commits. Vertex split into `vertex` (Gemini) and `vertex-claude` because the URL path, body shape, and required `anthropic_version` differ. See git log for `fix:` and `feat:` commits. |
-| 2026-05-24 | v4 schema transition. v3 `providers/*.json` retired; replaced with 12 `BaseProviderDefinition` files and 12 `ModelProfile` files at `profileTier: 'standard'`. Vertex Claude excluded per plan-v4 §5-3. Bedrock native excluded per §5-4; `bedrock:openai-compatible` profile shipped instead. `scripts/validate.mjs` added. | First v4 skeleton landed alongside NodeOnly `feature/model-preset-v4`. Schemas detailed enough to host migration snapshots; full per-vendor `requestSchema` (reasoning, thinking, cache, etc.) is follow-up work. |
+| 2026-05-24 | v4 schema transition. v3 `providers/*.json` retired; replaced with 12 `BaseProviderDefinition` files and 12 `ModelProfile` files. Vertex Claude excluded per plan-v4 §5-3. Bedrock native excluded per §5-4; `bedrock:openai-compatible` profile shipped instead. `scripts/validate.mjs` added. | First v4 skeleton landed alongside NodeOnly `feature/model-preset-v4`. Schemas detailed enough to host migration snapshots; full per-vendor `requestSchema` (reasoning, thinking, cache, etc.) is follow-up work. |
+| 2026-05-31 | Model preset UX audit and official-doc refresh for OpenAI / Anthropic / Google profiles. | Decision: remove heuristic profile grouping (`profileTier`, profile-level `visibility`, `lifecycle`) and keep one explicit `profileStatus` axis: `current`, `outdated`, `deprecated`. Temporal tags (`latest`, `recommended`, `legacy`, etc.) are banned. The shipped current set is narrowed to GPT-5.5 / GPT-5.4 / GPT-5.3 Codex, Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5, and one `google:gemini-3` profile; legacy Gemini/OpenAI/o-series/older Claude profiles were removed before first release. |
 
 When you do the next refresh, add a row.

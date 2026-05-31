@@ -1,6 +1,6 @@
 {
   "id": "nanogpt",
-  "version": 3,
+  "version": 1,
   "displayName": "NanoGPT",
   "adapterKind": "openai-compatible",
   "authKinds": [

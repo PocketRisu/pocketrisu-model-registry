@@ -1,6 +1,6 @@
 {
   "id": "ollama-cloud",
-  "version": 2,
+  "version": 1,
   "displayName": "Ollama Cloud",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -33,7 +33,7 @@
       "key": "modelId",
       "type": "string",
       "label": "Model ID",
-      "description": "Cloud-hosted model. Cloud models commonly use the :cloud suffix (e.g. gpt-oss:120b-cloud). See https://ollama.com/search?c=cloud for the current list.",
+      "description": "Cloud-hosted model. Local Ollama cloud models commonly use the :cloud suffix (e.g. gpt-oss:120b-cloud), while direct ollama.com API examples may use the bare model name (e.g. gpt-oss:120b). See https://ollama.com/search?c=cloud for the current list.",
       "required": true,
       "enum": [
         {
@@ -62,7 +62,7 @@
         "path": "model"
       },
       "descriptionI18n": {
-        "ko": "클라우드 호스팅 모델. 보통 :cloud 접미사를 사용합니다 (예: gpt-oss:120b-cloud). 최신 목록은 https://ollama.com/search?c=cloud 참조."
+        "ko": "클라우드 호스팅 모델. 로컬 Ollama의 클라우드 모델은 보통 :cloud 접미사를 사용하지만(예: gpt-oss:120b-cloud), ollama.com 직접 API 예시는 접미사 없는 모델명도 사용합니다(예: gpt-oss:120b). 최신 목록은 https://ollama.com/search?c=cloud 참조."
       }
     },
     {

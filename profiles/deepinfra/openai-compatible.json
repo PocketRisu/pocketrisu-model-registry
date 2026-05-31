@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "DeepInfra",
   "providerBaseId": "deepinfra",
-  "profileTier": "standard",
   "description": "DeepInfra hosted models via OpenAI-compatible endpoint.",
   "modelId": "",
   "endpoint": {
@@ -28,8 +27,6 @@
   "sourceUrls": [
     "https://deepinfra.com/docs/advanced/openai_api"
   ],
-  "visibility": "advanced",
-  "lifecycle": "current",
   "tags": [
     "deepinfra",
     "aggregator",
@@ -41,5 +38,6 @@
   },
   "descriptionI18n": {
     "ko": "DeepInfra 호스팅 모델 (OpenAI 호환 엔드포인트)."
-  }
+  },
+  "profileStatus": "current"
 }

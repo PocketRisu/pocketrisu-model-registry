@@ -1,24 +1,20 @@
 {
   "id": "openai:gpt-55",
-  "version": 2,
+  "version": 1,
   "displayName": "OpenAI GPT-5.5",
   "displayNameI18n": {
     "ko": "OpenAI GPT-5.5"
   },
   "providerBaseId": "openai",
-  "profileTier": "standard",
   "description": "Latest GPT-5.5 profile. Chat Completions-compatible controls only; use Responses API when advanced reasoning/tool semantics are required.",
   "descriptionI18n": {
-    "ko": "Latest GPT-5.5 profile. Chat Completions-compatible controls only; use Responses API when advanced reasoning/tool semantics are required."
+    "ko": "최신 GPT-5.5 프로필. Chat Completions 호환 제어만 포함하며, 고급 추론/도구 의미론이 필요하면 Responses API를 사용하세요."
   },
-  "visibility": "popular",
-  "lifecycle": "experimental",
   "tags": [
     "openai",
     "gpt",
     "gpt-5",
     "reasoning",
-    "latest",
     "coding"
   ],
   "sortOrder": 100,
@@ -75,10 +71,6 @@
         {
           "value": "none",
           "label": "None"
-        },
-        {
-          "value": "minimal",
-          "label": "Minimal"
         },
         {
           "value": "low",
@@ -414,5 +406,6 @@
       "https://platform.openai.com/docs/models/compare"
     ]
   },
-  "recommendedTokenizer": "tik"
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
 }

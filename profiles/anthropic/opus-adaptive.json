@@ -1,18 +1,15 @@
 {
   "id": "anthropic:opus-adaptive",
-  "version": 2,
-  "displayName": "Claude Opus Adaptive",
+  "version": 1,
+  "displayName": "Claude Opus 4.8",
   "displayNameI18n": {
-    "ko": "Claude Opus Adaptive"
+    "ko": "Claude Opus 4.8"
   },
   "providerBaseId": "anthropic",
-  "profileTier": "standard",
-  "description": "Claude Opus 4.8/4.7 profile using adaptive thinking.",
+  "description": "Claude Opus 4.8 profile using adaptive thinking.",
   "descriptionI18n": {
-    "ko": "Claude Opus 4.8/4.7 프로필 (적응형 thinking)."
+    "ko": "Claude Opus 4.8 프로필 (적응형 thinking)."
   },
-  "visibility": "popular",
-  "lifecycle": "recommended",
   "tags": [
     "anthropic",
     "claude",
@@ -47,10 +44,6 @@
         {
           "value": "claude-opus-4-8",
           "label": "Claude Opus 4.8"
-        },
-        {
-          "value": "claude-opus-4-7",
-          "label": "Claude Opus 4.7"
         }
       ],
       "mapsTo": {
@@ -105,10 +98,6 @@
         {
           "value": "high",
           "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
         },
         {
           "value": "max",
@@ -267,5 +256,6 @@
       "https://platform.claude.com/docs/en/about-claude/models/overview"
     ]
   },
-  "recommendedTokenizer": "claude"
+  "recommendedTokenizer": "claude",
+  "profileStatus": "current"
 }

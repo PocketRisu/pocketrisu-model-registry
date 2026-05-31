@@ -1,6 +1,6 @@
 {
   "id": "ollama",
-  "version": 3,
+  "version": 1,
   "displayName": "Ollama (Self-hosted)",
   "adapterKind": "openai-compatible",
   "authKinds": [

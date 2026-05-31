@@ -1,27 +1,23 @@
 {
-  "id": "anthropic:opus-46",
-  "version": 2,
-  "displayName": "Claude Opus 4.6",
+  "id": "anthropic:haiku-45",
+  "version": 1,
+  "displayName": "Claude Haiku 4.5",
   "displayNameI18n": {
-    "ko": "Claude Opus 4.6"
+    "ko": "Claude Haiku 4.5"
   },
   "providerBaseId": "anthropic",
-  "profileTier": "standard",
-  "description": "Claude Opus 4.6 profile. Adaptive thinking is preferred; manual thinking is legacy-compatible.",
+  "description": "Claude Haiku 4.5 profile with manual thinking budget controls.",
   "descriptionI18n": {
-    "ko": "Claude Opus 4.6 profile. Adaptive thinking is preferred; manual thinking is legacy-compatible."
+    "ko": "Claude Haiku 4.5 프로필. 수동 thinking budget 제어 포함."
   },
-  "visibility": "standard",
-  "lifecycle": "current",
   "tags": [
     "anthropic",
     "claude",
-    "opus",
-    "reasoning",
-    "long-context"
+    "haiku",
+    "reasoning"
   ],
   "sortOrder": 220,
-  "modelId": "claude-opus-4-6",
+  "modelId": "claude-haiku-4-5",
   "endpoint": {
     "kind": "static",
     "url": "https://api.anthropic.com/v1/messages"
@@ -44,8 +40,12 @@
       "required": true,
       "enum": [
         {
-          "value": "claude-opus-4-6",
-          "label": "Claude Opus 4.6"
+          "value": "claude-haiku-4-5",
+          "label": "Claude Haiku 4.5"
+        },
+        {
+          "value": "claude-haiku-4-5-20251001",
+          "label": "Claude Haiku 4.5 (20251001)"
         }
       ],
       "mapsTo": {
@@ -61,7 +61,7 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 128000,
+      "max": 64000,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -115,21 +115,20 @@
     {
       "key": "thinking_type",
       "type": "string",
-      "label": "Thinking Mode",
+      "label": "Extended Thinking",
       "enum": [
         {
-          "value": "adaptive",
-          "label": "Adaptive"
-        },
-        {
           "value": "enabled",
-          "label": "Manual budget"
+          "label": "Enabled"
         }
       ],
-      "default": "adaptive",
       "mapsTo": {
         "target": "body",
         "path": "thinking.type"
+      },
+      "description": "Enable manual extended thinking for supported Claude models. Leave unset to omit the thinking object.",
+      "descriptionI18n": {
+        "ko": "지원되는 Claude 모델에서 수동 extended thinking을 켭니다. 비워두면 thinking 객체를 보내지 않습니다."
       }
     },
     {
@@ -141,33 +140,6 @@
       "mapsTo": {
         "target": "body",
         "path": "thinking.budget_tokens"
-      }
-    },
-    {
-      "key": "effort",
-      "type": "string",
-      "label": "Thinking Effort",
-      "enum": [
-        {
-          "value": "low",
-          "label": "Low"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "high",
-          "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
-        }
-      ],
-      "mapsTo": {
-        "target": "body",
-        "path": "output_config.effort"
       }
     },
     {
@@ -300,22 +272,11 @@
         "order": 1
       },
       {
-        "key": "effort",
-        "widget": "select",
+        "key": "thinking_budget_tokens",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "reasoning",
         "order": 2,
-        "showIf": {
-          "key": "thinking_type",
-          "equals": "adaptive"
-        }
-      },
-      {
-        "key": "thinking_budget_tokens",
-        "widget": "number-input",
-        "visibility": "advanced",
-        "group": "reasoning",
-        "order": 3,
         "showIf": {
           "key": "thinking_type",
           "equals": "enabled"
@@ -355,10 +316,11 @@
   "limits": {
     "known": true,
     "contextWindowTokens": 1000000,
-    "maxOutputTokens": 128000,
+    "maxOutputTokens": 64000,
     "sourceUrls": [
       "https://platform.claude.com/docs/en/about-claude/models/overview"
     ]
   },
-  "recommendedTokenizer": "claude"
+  "recommendedTokenizer": "claude",
+  "profileStatus": "current"
 }

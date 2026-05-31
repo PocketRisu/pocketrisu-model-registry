@@ -1,21 +1,17 @@
 {
   "id": "deepseek:legacy",
-  "version": 2,
+  "version": 1,
   "displayName": "DeepSeek Legacy",
   "displayNameI18n": {
     "ko": "DeepSeek Legacy"
   },
   "providerBaseId": "deepseek",
-  "profileTier": "standard",
   "description": "Legacy DeepSeek Chat/Reasoner profile. These aliases are scheduled for discontinuation.",
   "descriptionI18n": {
     "ko": "Legacy DeepSeek Chat/Reasoner profile. These aliases are scheduled for discontinuation."
   },
-  "visibility": "legacy",
-  "lifecycle": "deprecated",
   "tags": [
     "deepseek",
-    "legacy",
     "reasoning"
   ],
   "sortOrder": 9400,
@@ -310,5 +306,7 @@
       "https://api-docs.deepseek.com/quick_start/pricing-details-usd"
     ]
   },
-  "recommendedTokenizer": "deepseek"
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "deprecated",
+  "statusReason": "Legacy DeepSeek aliases are kept only for compatibility."
 }

@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "AWS Bedrock (OpenAI-compatible)",
   "providerBaseId": "bedrock",
-  "profileTier": "standard",
   "description": "AWS Bedrock OpenAI-compatible Chat Completions endpoint (region-specific URL).",
   "modelId": "",
   "endpoint": {
@@ -31,8 +30,6 @@
   "sourceUrls": [
     "https://docs.aws.amazon.com/bedrock/latest/userguide/inference-chat-completions-mantle.html"
   ],
-  "visibility": "advanced",
-  "lifecycle": "current",
   "tags": [
     "aws",
     "bedrock",
@@ -44,5 +41,6 @@
   },
   "descriptionI18n": {
     "ko": "AWS Bedrock OpenAI 호환 Chat Completions 엔드포인트 (리전별 URL)."
-  }
+  },
+  "profileStatus": "current"
 }

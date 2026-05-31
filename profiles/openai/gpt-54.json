@@ -1,24 +1,20 @@
 {
   "id": "openai:gpt-54",
-  "version": 2,
+  "version": 1,
   "displayName": "OpenAI GPT-5.4",
   "displayNameI18n": {
     "ko": "OpenAI GPT-5.4"
   },
   "providerBaseId": "openai",
-  "profileTier": "standard",
   "description": "GPT-5.4 family profile for current frontier reasoning models compatible with Chat Completions.",
   "descriptionI18n": {
-    "ko": "GPT-5.4 family profile for current frontier reasoning models compatible with Chat Completions."
+    "ko": "Chat Completions와 호환되는 최신 프런티어 추론 모델용 GPT-5.4 패밀리 프로필."
   },
-  "visibility": "popular",
-  "lifecycle": "recommended",
   "tags": [
     "openai",
     "gpt",
     "gpt-5",
     "reasoning",
-    "latest",
     "coding"
   ],
   "sortOrder": 105,
@@ -412,12 +408,16 @@
     "https://developers.openai.com/api/docs/models/gpt-5.4-nano"
   ],
   "limits": {
-    "known": true,
-    "contextWindowTokens": 1050000,
+    "known": false,
     "maxOutputTokens": 128000,
+    "notes": "Model-dependent context window: GPT-5.4 supports 1,050,000 tokens, while GPT-5.4 mini/nano support 400,000 tokens.",
+    "notesI18n": {
+      "ko": "모델별 컨텍스트 한도가 다릅니다. GPT-5.4는 1,050,000 토큰, GPT-5.4 mini/nano는 400,000 토큰을 지원합니다."
+    },
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
     ]
   },
-  "recommendedTokenizer": "tik"
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
 }

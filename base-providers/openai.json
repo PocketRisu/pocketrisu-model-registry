@@ -1,6 +1,6 @@
 {
   "id": "openai",
-  "version": 3,
+  "version": 1,
   "displayName": "OpenAI",
   "adapterKind": "openai-compatible",
   "authKinds": [

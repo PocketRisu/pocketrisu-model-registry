@@ -1,6 +1,6 @@
 {
   "id": "anthropic",
-  "version": 4,
+  "version": 1,
   "displayName": "Anthropic",
   "adapterKind": "anthropic-messages",
   "authKinds": [

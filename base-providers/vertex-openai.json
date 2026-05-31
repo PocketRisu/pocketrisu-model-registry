@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 4,
+  "version": 1,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [

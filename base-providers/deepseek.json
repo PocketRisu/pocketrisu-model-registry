@@ -1,6 +1,6 @@
 {
   "id": "deepseek",
-  "version": 3,
+  "version": 1,
   "displayName": "DeepSeek",
   "adapterKind": "openai-compatible",
   "authKinds": [

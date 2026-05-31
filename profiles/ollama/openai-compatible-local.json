@@ -3,7 +3,6 @@
   "version": 1,
   "displayName": "Ollama (Self-hosted)",
   "providerBaseId": "ollama",
-  "profileTier": "standard",
   "description": "Self-hosted Ollama server with OpenAI-compatible endpoint.",
   "modelId": "",
   "endpoint": {
@@ -25,8 +24,6 @@
   "sourceUrls": [
     "https://raw.githubusercontent.com/ollama/ollama/main/docs/openai.md"
   ],
-  "visibility": "popular",
-  "lifecycle": "current",
   "tags": [
     "ollama",
     "local",
@@ -39,5 +36,6 @@
   },
   "descriptionI18n": {
     "ko": "self-hosted Ollama 서버 (OpenAI 호환 엔드포인트)."
-  }
+  },
+  "profileStatus": "current"
 }
