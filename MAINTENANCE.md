@@ -205,8 +205,10 @@ When you sit down to update the registry:
 0. **Pull the Tier 0 catalog first.** Hit the provider's `/models` API and the OpenRouter cross-catalog (above) before reading any doc. This gives you the authoritative model list, ship dates, limits, modalities, tokenizer, and `supported_parameters` — the skeleton of every profile you're about to touch, and the input to the selection rule. Doc-parsing (Tier 1/2) is now only for the exact wire keys Tier 0 can't express.
 
 1. **Decide the scope.** Pick one of:
-   - **Routine refresh** — vendor released a new model with no wire changes. → Update the relevant `ModelProfile.modelId` example or `capabilities`, bump `version` on the touched file, mirror the new `version` in `index.json`.
-   - **Wire change** — vendor changed endpoint, headers, request/response shape, or added a feature flag. → Likely affects `BaseProviderDefinition.requestSchema` / `defaultHeaders` / `defaultBody` / `capabilities`, or per-profile `endpoint` / `auth` / `bodyTemplate`. Bump `version` on every touched file plus `index.json.contentVersion`. Test against a real request before publishing.
+   - **Routine refresh** — vendor released a new model with no wire changes. → Update the relevant `ModelProfile.modelId` example or `capabilities`, set `updatedAt` to now (epoch millis) on the touched profile, bump `version` on the touched file, mirror the new `version` in `index.json`.
+   - **Wire change** — vendor changed endpoint, headers, request/response shape, or added a feature flag. → Likely affects `BaseProviderDefinition.requestSchema` / `defaultHeaders` / `defaultBody` / `capabilities`, or per-profile `endpoint` / `auth` / `bodyTemplate`. Set `updatedAt` to now on every touched profile, bump `version` on every touched file plus `index.json.contentVersion`. Test against a real request before publishing.
+
+   > **`updatedAt` is what users see.** Each `ModelProfile` carries `updatedAt` (precise epoch-millis timestamp). PocketRisu's per-preset "update available" hint compares a preset's recorded `profileUpdatedAt` against the current profile's `updatedAt` — **bump `updatedAt` on every revision** or installed presets won't be nudged. `version` is retained for the `index.json` mirror and the validator, but it no longer drives the update hint. (PocketRisu treats "update = a profile with the same id has a newer `updatedAt`"; a brand-new model is just a new profile id.)
    - **New profile** — adding a `ModelProfile` under an existing base. Create `profiles/<baseId>/<profileKey>.json`, add it to `index.json.profiles`, ensure `providerBaseId` points at an existing base.
    - **New base provider** — adding a `BaseProviderDefinition` for an adapter family we don't yet ship. Create `base-providers/<id>.json`, add it to `index.json.baseProviders`, decide whether `schema/base-provider.schema.json` needs a new enum value (new `adapterKind`, new `endpointKind`, …). Then create at least one profile under it.
 
@@ -227,7 +229,7 @@ When you sit down to update the registry:
 
 5. **Sync the PocketRisu bundle.** v4 bundles a snapshot of `base-providers/` and `profiles/` into `Risuai-NodeOnly/src/ts/preset/registry/bundled/`. After any registry change you intend to ship, copy the touched files into the NodeOnly bundle, run `pnpm run check && pnpm test src/ts/preset` over there, and land both commits together.
 
-6. **Commit, push, and update PocketRisu** — bumping `version` triggers an "update available" badge on installed snapshot ModelPresets, so users get the change on next sync.
+6. **Commit, push, and update PocketRisu** — a newer `updatedAt` on a profile triggers the "update available" badge on installed snapshot ModelPresets, so users get the change on next sync. (Always bump `updatedAt`; `version`/`index.json` are still mirrored for the catalog + validator.)
 
 ---
 
