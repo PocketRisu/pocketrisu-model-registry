@@ -21,9 +21,81 @@ PocketRisu v4 consumes this layout via a bundled snapshot inside `Risuai-NodeOnl
 
 ---
 
+## Tier 0 — Provider model-listing APIs (enumeration + live spec)
+
+**Before parsing any doc, hit the provider's own model-listing API.** It is the deterministic answer to "which models exist right now, when did they ship, and which knobs do they accept" — facts we used to *guess* from marketing pages. This is the registry-authoring equivalent of what dynamic provider-manager plugins do at runtime: we just consult the same endpoints at maintenance time instead of in code.
+
+Coverage varies a lot. Some APIs return a full spec; others only enumerate IDs. **OpenRouter `/api/v1/models` is the linchpin** — it is public (no key), lists ~340 models across every vendor, and returns a near-complete ModelProfile per model. Use it as the primary cross-catalog; fall back to the direct provider API for ID/lifecycle truth and to Tier 1/2 for the exact wire keys OpenRouter normalizes away.
+
+| Provider | Endpoint | Auth | What it returns |
+|---|---|---|---|
+| **OpenRouter** (cross-catalog) | `GET https://openrouter.ai/api/v1/models` | **none (public)** | **Full spec** — `context_length`, `top_provider.max_completion_tokens`, `architecture.input_modalities`/`tokenizer`, `supported_parameters[]`, `default_parameters{}`, `pricing{}`, `created`, `knowledge_cutoff`, `expiration_date`, `canonical_slug` (versioned) |
+| Google AI Studio | `GET https://generativelanguage.googleapis.com/v1beta/models?key=…` | query key | `displayName`, `inputTokenLimit`, `outputTokenLimit`, `supportedGenerationMethods[]` |
+| AWS Bedrock | `ListFoundationModels` | SigV4 | `modelId`, `providerName`, `inputModalities[]`/`outputModalities[]`, `responseStreamingSupported` |
+| OpenAI | `GET https://api.openai.com/v1/models` | Bearer key | `id`, `created`, `owned_by` — **enumeration + lifecycle only** (no limits/caps) |
+| Anthropic | `GET https://api.anthropic.com/v1/models` | `x-api-key` + `anthropic-version` | `id`, `display_name`, `created_at` — **enumeration + lifecycle only** |
+
+OpenAI and Anthropic direct APIs are thin (ID + date), but OpenRouter carries their models at **full** spec — so cross-reference OpenRouter for limits/capabilities and use the direct API only to confirm the canonical model ID and ship date.
+
+### Quick fetch — OpenRouter cross-catalog
+
+```sh
+# Full record for one model (no key needed)
+curl -s https://openrouter.ai/api/v1/models \
+  | jq '.data[] | select(.id=="openai/gpt-5.5")'
+
+# Enumerate a family, newest first, with the fields we map into a profile
+curl -s https://openrouter.ai/api/v1/models | jq -r '
+  .data[] | select(.id|test("anthropic/claude")) 
+  | [.created, .id, .context_length, .top_provider.max_completion_tokens,
+     (.supported_parameters|join(","))] | @tsv' | sort -rn
+```
+
+### `supported_parameters` / `architecture` → our schema & capabilities
+
+OpenRouter's `supported_parameters[]` is the authoritative "which knobs does this model take" list. Map it directly when authoring a `ModelProfile`:
+
+| OpenRouter signal | Registry effect |
+|---|---|
+| `reasoning` / `include_reasoning` | `capabilities += "reasoning"`; add a reasoning field (`reasoning_effort` for OpenAI, `thinking` for Anthropic — **confirm exact wire per direct provider**) |
+| `verbosity` | schema field `verbosity` (OpenAI GPT-5 family) |
+| `tools` / `tool_choice` | `capabilities += "tools"`; schema `parallel_tool_calls`, `tool_choice` |
+| `structured_outputs` / `response_format` | `capabilities += "json"`; schema `response_format` |
+| `max_tokens` | schema max-output field — **OpenAI direct uses `max_completion_tokens` for reasoning models; OpenRouter flattens to `max_tokens`. Re-confirm via Tier 1/2 before setting `mapsTo.path`.** |
+| `stop` / `seed` / `temperature` / `top_p` / `top_k` / `frequency_penalty` / `presence_penalty` / `logprobs` | standard schema fields (only include the ones present) |
+| `architecture.input_modalities` includes `image`/`file` | `capabilities += "vision"` |
+| `architecture.tokenizer` (`Claude`, `GPT`, `Gemini`, …) | `recommendedTokenizer` (`claude`, `tik`, `gemma`, …) |
+| `context_length` / `top_provider.max_completion_tokens` | `limits.contextWindowTokens` / `limits.maxOutputTokens` (`known: true`) |
+| `created` / `canonical_slug` | ship date + versioned slug → selection & `modelId` |
+
+**Caveat:** OpenRouter exposes *its own* normalized wire (e.g. `max_tokens`, abstracted `reasoning`). It is the source of truth for **enumeration, limits, modalities, tokenizer, and the *set* of valid knobs** — but the exact body key/shape a direct provider expects (`max_completion_tokens`, the Anthropic `thinking` object) must still be confirmed against that provider's Tier 1 docs / Tier 2 SDK before writing `mapsTo`.
+
+### What Tier 0 does NOT give you → go to Tier 2 SDK
+
+`supported_parameters` tells you a knob *exists*, never its **allowed values**. There is no enum/constraint field in the model API. So for a field like `reasoning_effort`, Tier 0 says "this model takes reasoning" — but the set `low / medium / high / xhigh` comes from elsewhere:
+
+1. **Tier 2 — SDK type literals (authoritative).** The provider's official SDK encodes allowed values as a `Literal[…]`, generated from the same internal spec the API validates against. e.g. OpenAI Python `src/openai/types/chat/completion_create_params.py` → `reasoning_effort: Optional[Literal["minimal","low","medium","high","xhigh"]]`. When the vendor adds a value, it lands here first. **This is where every `enum` in our `schema[]` should be sourced from.**
+2. **Tier 1 — vendor docs.** Describe the values in prose; lag the SDK and drift, so cross-check.
+3. **Runtime probe (last resort).** Send a bogus value; the API's `400` usually lists the valid set in the error. Use only to catch a brand-new value (`xhigh` before the SDK ships it) — not for routine authoring.
+
+The same applies to any constrained field: `verbosity` (`low/medium/high`), `service_tier`, `response_format.type`, Anthropic `thinking.type`. **Rule of thumb: Tier 0 picks *which* fields go in the schema; Tier 2 SDK literals fill in each field's `enum`.**
+
+This split is not unique to us — the dynamic Yumi Provider Manager plugin (which fetches model *lists* live) still hardcodes the value vocabularies as curated code constants (`["low","medium","high","xhigh","max"]`, etc.) plus per-model downgrade logic (`xhigh` → `high` when unsupported). It hits the same API gap and fills it by hand from the SDK. Our `schema[].enum` is the declarative equivalent — same source (Tier 2 SDK), stored as data per profile instead of as code branches.
+
+### Selection rule (semi-automatic — replaces heuristic picking)
+
+The "which profiles ship as `current`" decision used to be eyeballed. Ground it in Tier 0 instead, but keep the final call human:
+
+1. **Enumerate** the family via the direct provider `/models` (+ OpenRouter for spec).
+2. **Sort by `created` descending** — newest variants surface first; nothing is "current" by vibe.
+3. **Propose candidates** with their Tier 0 specs (limits, supported params, modalities).
+4. **Maintainer confirms** `profileStatus` per candidate (`current` / `outdated` / exclude). Judgment is retained — but it now starts from an API-verified list, not a doc-parsing guess. Record the cutoff in the audit-history row.
+
+---
+
 ## Per-provider source URLs
 
-For each provider we keep three layers of sources. **Tier 1 (vendor docs)** is the ground truth when reachable. **Tier 2 (raw GitHub SDK)** is the most reliable fetch target since `raw.githubusercontent.com` doesn't gate. **Tier 3 (third-party plugins / upstream RisuAI)** is a sanity check against real, in-the-wild traffic.
+These Tier 1–3 sources back-fill what Tier 0 can't give (exact wire keys, request/response shape, feature flags). For each provider we keep three layers. **Tier 1 (vendor docs)** is the ground truth when reachable. **Tier 2 (raw GitHub SDK)** is the most reliable fetch target since `raw.githubusercontent.com` doesn't gate. **Tier 3 (third-party plugins / upstream RisuAI)** is a sanity check against real, in-the-wild traffic.
 
 Markers: ✅ fetch tends to work · ⚠️ partial / sometimes blocked · ❌ blocked by Cloudflare/Fern/auth wall during the v1 audit (re-try with a different path).
 
@@ -130,6 +202,8 @@ These are not provider-specific but contain a wealth of wire-level information t
 
 When you sit down to update the registry:
 
+0. **Pull the Tier 0 catalog first.** Hit the provider's `/models` API and the OpenRouter cross-catalog (above) before reading any doc. This gives you the authoritative model list, ship dates, limits, modalities, tokenizer, and `supported_parameters` — the skeleton of every profile you're about to touch, and the input to the selection rule. Doc-parsing (Tier 1/2) is now only for the exact wire keys Tier 0 can't express.
+
 1. **Decide the scope.** Pick one of:
    - **Routine refresh** — vendor released a new model with no wire changes. → Update the relevant `ModelProfile.modelId` example or `capabilities`, bump `version` on the touched file, mirror the new `version` in `index.json`.
    - **Wire change** — vendor changed endpoint, headers, request/response shape, or added a feature flag. → Likely affects `BaseProviderDefinition.requestSchema` / `defaultHeaders` / `defaultBody` / `capabilities`, or per-profile `endpoint` / `auth` / `bodyTemplate`. Bump `version` on every touched file plus `index.json.contentVersion`. Test against a real request before publishing.
@@ -180,5 +254,6 @@ The validator handles mismatch detection — there is no separate snippet to mai
 | 2026-05-22 | Initial v1 audit across 13 v3 templates against vendor docs (where reachable), upstream RisuAI (last 30 days), CPM 1.30.18 analysis, Blessing 1.1.5, and archive spec §15. | 9 issues found and fixed across 4 commits. Vertex split into `vertex` (Gemini) and `vertex-claude` because the URL path, body shape, and required `anthropic_version` differ. See git log for `fix:` and `feat:` commits. |
 | 2026-05-24 | v4 schema transition. v3 `providers/*.json` retired; replaced with 12 `BaseProviderDefinition` files and 12 `ModelProfile` files. Vertex Claude excluded per plan-v4 §5-3. Bedrock native excluded per §5-4; `bedrock:openai-compatible` profile shipped instead. `scripts/validate.mjs` added. | First v4 skeleton landed alongside NodeOnly `feature/model-preset-v4`. Schemas detailed enough to host migration snapshots; full per-vendor `requestSchema` (reasoning, thinking, cache, etc.) is follow-up work. |
 | 2026-05-31 | Model preset UX audit and official-doc refresh for OpenAI / Anthropic / Google profiles. | Decision: remove heuristic profile grouping (`profileTier`, profile-level `visibility`, `lifecycle`) and keep one explicit `profileStatus` axis: `current`, `outdated`, `deprecated`. Temporal tags (`latest`, `recommended`, `legacy`, etc.) are banned. The shipped current set is narrowed to GPT-5.5 / GPT-5.4 / GPT-5.3 Codex, Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5, and one `google:gemini-3` profile; legacy Gemini/OpenAI/o-series/older Claude profiles were removed before first release. |
+| 2026-06-03 | Added **Tier 0 — provider model-listing APIs** as the primary source of truth for profile authoring, after studying the dynamic-discovery approach in Yumi Provider Manager v1.5.2. | OpenRouter `/api/v1/models` (public, full spec) adopted as cross-catalog; per-provider `/models` table + `supported_parameters`/`architecture` → schema/capabilities mapping documented. Selection of the `current` set moved from eyeballed picking to a semi-automatic rule (API enumerate → sort by `created` → maintainer confirms). No profile data changed this pass — guidance only. |
 
 When you do the next refresh, add a row.
