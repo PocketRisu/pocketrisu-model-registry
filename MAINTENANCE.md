@@ -237,13 +237,14 @@ When you sit down to update the registry:
 
 **`base-providers/*.json` and `profiles/<baseId>/<profileKey>.json` are the source of truth.** That's where the wire-level spec lives (adapter, auth, endpoint, schema, UI schema, defaults) and where contributor PRs land.
 
-**`index.json` mirrors a subset for fast lookup.** It carries each base provider's `id`, `displayName`, `url`, `version`, and each profile's `id`, `displayName`, `providerBaseId`, `profileStatus`, `url`, `version`. PocketRisu fetches `index.json` once at startup to know which base providers and profiles exist and which versions are current; only when a per-preset `installedProfileVersion` differs does it fetch the individual profile/base files.
+**`index.json` mirrors a subset for fast lookup.** It carries a top-level `updatedAt`, each base provider's `id`, `displayName`, `url`, `version`, and each profile's `id`, `displayName`, `providerBaseId`, `profileStatus`, `url`, `version`. PocketRisu fetches `index.json` when the user opens the Model Preset menu (debounced); when its top-level `updatedAt` differs from the last synced value it **eagerly re-downloads all referenced base-provider/profile files** and rebuilds its registry cache. (The files are small and few, so a full refresh on change is simpler than lazy per-profile fetching — the per-profile `updatedAt` lives in the full profile and drives both the per-preset update badge and the catalog "new/updated models" notice.)
 
 ### Sync rules
 
+- **`index.json.updatedAt` (epoch millis) is the client's change gate — bump it on EVERY publish** (new model, profile edit, wire change, anything). If you forget, clients won't re-download and users won't see the change. This is the single value PocketRisu compares to decide whether to refresh.
 - Every wire-level change must **bump `version` in the source file AND in `index.json`** in the same commit. `scripts/validate.mjs` rejects mismatches.
 - If the two ever disagree, **the source file wins** (treat `index.json` as stale and re-derive the mirrored fields from the source files).
-- `index.json`'s own `contentVersion` bumps when any base provider or profile in the list changes — it's a coarse "something in the registry moved" signal, separate from per-file `version`.
+- `index.json`'s own `contentVersion` bumps when any base provider or profile in the list changes — it's a coarse "something in the registry moved" signal, separate from per-file `version`. (Note: `contentVersion` only tracks wire-level catalog moves; `updatedAt` is the broader gate that must bump on routine `updatedAt`-only refreshes too.)
 
 The validator handles mismatch detection — there is no separate snippet to maintain. Run `node scripts/validate.mjs` from the repo root before every commit.
 

@@ -32,11 +32,11 @@ Each definition uses pure JSON and declares:
 ### How PocketRisu uses this
 
 ```
-PocketRisu boot
+PocketRisu opens the Model Preset menu
   ↓
   fetch https://raw.githubusercontent.com/PocketRisu/pocketrisu-model-registry/main/index.json
   ↓
-  fetch base-providers/<id>.json + profiles/<baseId>/<key>.json on demand (when user picks a profile)
+  if index.json `updatedAt` changed → eagerly fetch ALL base-providers/*.json + profiles/**/*.json
   ↓
   resolve a ResolvedModelProfileSnapshot (merge BaseProvider + ModelProfile)
   ↓
@@ -165,11 +165,11 @@ CC0 1.0 (public domain). See [LICENSE](./LICENSE).
 ### PocketRisu의 사용 흐름
 
 ```
-PocketRisu 부팅
+PocketRisu가 모델 프리셋 메뉴를 엶
   ↓
   https://raw.githubusercontent.com/PocketRisu/pocketrisu-model-registry/main/index.json fetch
   ↓
-  사용자가 profile 선택 시 base-providers/<id>.json + profiles/<baseId>/<key>.json fetch
+  index.json `updatedAt`이 바뀌었으면 → base-providers/*.json + profiles/**/*.json 전체 일괄 fetch
   ↓
   ResolvedModelProfileSnapshot 생성 (BaseProvider + ModelProfile merge)
   ↓
