@@ -2,7 +2,7 @@
   "schemaVersion": 4,
   "contentVersion": 1,
   "updated": "2026-05-31",
-  "updatedAt": 1780531200000,
+  "updatedAt": 1780617600000,
   "baseProviders": [
     {
       "id": "openai",
