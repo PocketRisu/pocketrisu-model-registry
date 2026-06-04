@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 7,
+  "contentVersion": 8,
   "updated": "2026-06-04",
-  "updatedAt": 1780594300728,
+  "updatedAt": 1780595479305,
   "baseProviders": [
     {
       "id": "openai",
@@ -80,7 +80,7 @@
       "id": "vertex-openai",
       "displayName": "Vertex AI (OpenAI-compatible)",
       "url": "base-providers/vertex-openai.json",
-      "version": 1
+      "version": 2
     }
   ],
   "profiles": [

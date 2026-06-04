@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 1,
+  "version": 2,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -66,6 +66,22 @@
       "required": true,
       "enum": [
         {
+          "value": "google/gemini-3.5-flash",
+          "label": "Google / Gemini 3.5 Flash"
+        },
+        {
+          "value": "google/gemini-3.1-pro-preview",
+          "label": "Google / Gemini 3.1 Pro"
+        },
+        {
+          "value": "google/gemini-3.1-flash-lite",
+          "label": "Google / Gemini 3.1 Flash-Lite"
+        },
+        {
+          "value": "google/gemini-3-flash-preview",
+          "label": "Google / Gemini 3 Flash"
+        },
+        {
           "value": "google/gemini-2.5-pro",
           "label": "Google / Gemini 2.5 Pro"
         },
@@ -74,16 +90,8 @@
           "label": "Google / Gemini 2.5 Flash"
         },
         {
-          "value": "google/gemini-2.0-flash",
-          "label": "Google / Gemini 2.0 Flash"
-        },
-        {
-          "value": "google/gemini-1.5-pro",
-          "label": "Google / Gemini 1.5 Pro"
-        },
-        {
-          "value": "google/gemini-1.5-flash",
-          "label": "Google / Gemini 1.5 Flash"
+          "value": "google/gemini-2.5-flash-lite",
+          "label": "Google / Gemini 2.5 Flash-Lite"
         }
       ],
       "mapsTo": {
