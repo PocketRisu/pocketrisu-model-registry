@@ -1,0 +1,63 @@
+{
+  "id": "ollama-cloud:gemma-4-31b",
+  "version": 1,
+  "updatedAt": 1780598376374,
+  "displayName": "Gemma 4 31B",
+  "displayNameI18n": {
+    "ko": "Gemma 4 31B"
+  },
+  "providerBaseId": "ollama-cloud",
+  "description": "Gemma 4 31B hosted on Ollama Cloud (gemma4:31b).",
+  "descriptionI18n": {
+    "ko": "Gemma 4 31B (Ollama Cloud 호스팅, gemma4:31b)."
+  },
+  "tags": [
+    "ollama",
+    "cloud",
+    "gemma"
+  ],
+  "sortOrder": 622,
+  "modelId": "gemma4:31b",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ollama.com/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ollama.com/v1/models",
+    "https://docs.ollama.com/cloud"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 262144,
+    "notes": "Native model spec; Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+    "notesI18n": {
+      "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+    },
+    "sourceUrls": [
+      "https://ollama.com/v1/models",
+      "https://ollama.com/search?c=cloud"
+    ],
+    "maxOutputTokens": 32768
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

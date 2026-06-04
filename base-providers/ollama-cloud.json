@@ -1,6 +1,6 @@
 {
   "id": "ollama-cloud",
-  "version": 1,
+  "version": 2,
   "displayName": "Ollama Cloud",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -37,24 +37,44 @@
       "required": true,
       "enum": [
         {
-          "value": "gpt-oss:120b-cloud",
-          "label": "gpt-oss:120b (cloud)"
+          "value": "glm-5.1",
+          "label": "GLM 5.1"
         },
         {
-          "value": "gpt-oss:20b-cloud",
-          "label": "gpt-oss:20b (cloud)"
+          "value": "kimi-k2.6",
+          "label": "Kimi K2.6"
         },
         {
-          "value": "deepseek-v3.2:cloud",
-          "label": "DeepSeek v3.2 (cloud)"
+          "value": "gemma4:31b",
+          "label": "Gemma 4 31B"
         },
         {
-          "value": "qwen3-coder-next:cloud",
-          "label": "Qwen3 Coder Next (cloud)"
+          "value": "gpt-oss:120b",
+          "label": "gpt-oss 120B"
         },
         {
-          "value": "kimi-k2.6:cloud",
-          "label": "Kimi K2.6 (cloud)"
+          "value": "gpt-oss:20b",
+          "label": "gpt-oss 20B"
+        },
+        {
+          "value": "deepseek-v4-pro",
+          "label": "DeepSeek V4 Pro"
+        },
+        {
+          "value": "deepseek-v4-flash",
+          "label": "DeepSeek V4 Flash"
+        },
+        {
+          "value": "qwen3.5:397b",
+          "label": "Qwen3.5 397B"
+        },
+        {
+          "value": "minimax-m3",
+          "label": "MiniMax M3"
+        },
+        {
+          "value": "glm-4.7",
+          "label": "GLM 4.7"
         }
       ],
       "mapsTo": {

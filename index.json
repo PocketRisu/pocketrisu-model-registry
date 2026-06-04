@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 10,
+  "contentVersion": 11,
   "updated": "2026-06-04",
-  "updatedAt": 1780597639744,
+  "updatedAt": 1780598376374,
   "baseProviders": [
     {
       "id": "openai",
@@ -50,7 +50,7 @@
       "id": "ollama-cloud",
       "displayName": "Ollama Cloud",
       "url": "base-providers/ollama-cloud.json",
-      "version": 1
+      "version": 2
     },
     {
       "id": "deepseek",
@@ -1569,6 +1569,108 @@
         "cloud"
       ],
       "sortOrder": 610
+    },
+    {
+      "id": "ollama-cloud:glm-51",
+      "displayName": "GLM 5.1",
+      "providerBaseId": "ollama-cloud",
+      "url": "profiles/ollama-cloud/glm-51.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GLM 5.1"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "ollama",
+        "cloud",
+        "glm"
+      ],
+      "sortOrder": 620
+    },
+    {
+      "id": "ollama-cloud:kimi-k26",
+      "displayName": "Kimi K2.6",
+      "providerBaseId": "ollama-cloud",
+      "url": "profiles/ollama-cloud/kimi-k26.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Kimi K2.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "ollama",
+        "cloud",
+        "kimi"
+      ],
+      "sortOrder": 621
+    },
+    {
+      "id": "ollama-cloud:gemma-4-31b",
+      "displayName": "Gemma 4 31B",
+      "providerBaseId": "ollama-cloud",
+      "url": "profiles/ollama-cloud/gemma-4-31b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "ollama",
+        "cloud",
+        "gemma"
+      ],
+      "sortOrder": 622
+    },
+    {
+      "id": "ollama-cloud:gpt-oss-120b",
+      "displayName": "gpt-oss 120B",
+      "providerBaseId": "ollama-cloud",
+      "url": "profiles/ollama-cloud/gpt-oss-120b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "gpt-oss 120B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "ollama",
+        "cloud",
+        "gpt-oss"
+      ],
+      "sortOrder": 623
+    },
+    {
+      "id": "ollama-cloud:deepseek-v4-pro",
+      "displayName": "DeepSeek V4 Pro",
+      "providerBaseId": "ollama-cloud",
+      "url": "profiles/ollama-cloud/deepseek-v4-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "ollama",
+        "cloud",
+        "deepseek"
+      ],
+      "sortOrder": 624
+    },
+    {
+      "id": "ollama-cloud:deepseek-v4-flash",
+      "displayName": "DeepSeek V4 Flash",
+      "providerBaseId": "ollama-cloud",
+      "url": "profiles/ollama-cloud/deepseek-v4-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "ollama",
+        "cloud",
+        "deepseek"
+      ],
+      "sortOrder": 625
     },
     {
       "id": "bedrock:openai-compatible",
