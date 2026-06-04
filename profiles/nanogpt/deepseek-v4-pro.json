@@ -1,0 +1,60 @@
+{
+  "id": "nanogpt:deepseek-v4-pro",
+  "version": 1,
+  "updatedAt": 1780599146598,
+  "displayName": "DeepSeek V4 Pro",
+  "displayNameI18n": {
+    "ko": "DeepSeek V4 Pro"
+  },
+  "providerBaseId": "nanogpt",
+  "description": "DeepSeek V4 Pro via NanoGPT (deepseek/deepseek-v4-pro).",
+  "descriptionI18n": {
+    "ko": "DeepSeek V4 Pro (NanoGPT, deepseek/deepseek-v4-pro)."
+  },
+  "tags": [
+    "nanogpt",
+    "deepseek"
+  ],
+  "sortOrder": 529,
+  "modelId": "deepseek/deepseek-v4-pro",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://nano-gpt.com/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://nano-gpt.com/api/v1/models",
+    "https://nano-gpt.com/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+    "notesI18n": {
+      "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+    },
+    "sourceUrls": [
+      "https://nano-gpt.com/api/v1/models"
+    ],
+    "maxOutputTokens": 384000
+  },
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
+}

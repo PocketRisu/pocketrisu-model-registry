@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 12,
+  "contentVersion": 14,
   "updated": "2026-06-04",
-  "updatedAt": 1780598669297,
+  "updatedAt": 1780599146598,
   "baseProviders": [
     {
       "id": "openai",
@@ -1149,6 +1149,102 @@
         "openai-compatible"
       ],
       "sortOrder": 520
+    },
+    {
+      "id": "nanogpt:glm-51",
+      "displayName": "GLM 5.1",
+      "providerBaseId": "nanogpt",
+      "url": "profiles/nanogpt/glm-51.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GLM 5.1"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "nanogpt",
+        "glm"
+      ],
+      "sortOrder": 525
+    },
+    {
+      "id": "nanogpt:kimi-k26",
+      "displayName": "Kimi K2.6",
+      "providerBaseId": "nanogpt",
+      "url": "profiles/nanogpt/kimi-k26.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Kimi K2.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "nanogpt",
+        "kimi"
+      ],
+      "sortOrder": 526
+    },
+    {
+      "id": "nanogpt:gemma-4-31b",
+      "displayName": "Gemma 4 31B",
+      "providerBaseId": "nanogpt",
+      "url": "profiles/nanogpt/gemma-4-31b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "nanogpt",
+        "gemma"
+      ],
+      "sortOrder": 527
+    },
+    {
+      "id": "nanogpt:gpt-oss-120b",
+      "displayName": "gpt-oss 120B",
+      "providerBaseId": "nanogpt",
+      "url": "profiles/nanogpt/gpt-oss-120b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "gpt-oss 120B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "nanogpt",
+        "gpt-oss"
+      ],
+      "sortOrder": 528
+    },
+    {
+      "id": "nanogpt:deepseek-v4-pro",
+      "displayName": "DeepSeek V4 Pro",
+      "providerBaseId": "nanogpt",
+      "url": "profiles/nanogpt/deepseek-v4-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "nanogpt",
+        "deepseek"
+      ],
+      "sortOrder": 529
+    },
+    {
+      "id": "nanogpt:deepseek-v4-flash",
+      "displayName": "DeepSeek V4 Flash",
+      "providerBaseId": "nanogpt",
+      "url": "profiles/nanogpt/deepseek-v4-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "nanogpt",
+        "deepseek"
+      ],
+      "sortOrder": 530
     },
     {
       "id": "deepinfra:openai-compatible",
