@@ -37,43 +37,43 @@
       "required": true,
       "enum": [
         {
-          "value": "glm-5.1",
+          "value": "glm-5.1:cloud",
           "label": "GLM 5.1"
         },
         {
-          "value": "kimi-k2.6",
+          "value": "kimi-k2.6:cloud",
           "label": "Kimi K2.6"
         },
         {
-          "value": "gemma4:31b",
+          "value": "gemma4:31b-cloud",
           "label": "Gemma 4 31B"
         },
         {
-          "value": "gpt-oss:120b",
+          "value": "gpt-oss:120b-cloud",
           "label": "gpt-oss 120B"
         },
         {
-          "value": "gpt-oss:20b",
+          "value": "gpt-oss:20b-cloud",
           "label": "gpt-oss 20B"
         },
         {
-          "value": "deepseek-v4-pro",
+          "value": "deepseek-v4-pro:cloud",
           "label": "DeepSeek V4 Pro"
         },
         {
-          "value": "deepseek-v4-flash",
+          "value": "deepseek-v4-flash:cloud",
           "label": "DeepSeek V4 Flash"
         },
         {
-          "value": "qwen3.5:397b",
+          "value": "qwen3.5:397b-cloud",
           "label": "Qwen3.5 397B"
         },
         {
-          "value": "minimax-m3",
+          "value": "minimax-m3:cloud",
           "label": "MiniMax M3"
         },
         {
-          "value": "glm-4.7",
+          "value": "glm-4.7:cloud",
           "label": "GLM 4.7"
         }
       ],

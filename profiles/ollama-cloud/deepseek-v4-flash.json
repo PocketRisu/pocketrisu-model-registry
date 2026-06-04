@@ -1,15 +1,15 @@
 {
   "id": "ollama-cloud:deepseek-v4-flash",
   "version": 1,
-  "updatedAt": 1780598376374,
+  "updatedAt": 1780598669297,
   "displayName": "DeepSeek V4 Flash",
   "displayNameI18n": {
     "ko": "DeepSeek V4 Flash"
   },
   "providerBaseId": "ollama-cloud",
-  "description": "DeepSeek V4 Flash hosted on Ollama Cloud (deepseek-v4-flash).",
+  "description": "DeepSeek V4 Flash hosted on Ollama Cloud (deepseek-v4-flash:cloud).",
   "descriptionI18n": {
-    "ko": "DeepSeek V4 Flash (Ollama Cloud 호스팅, deepseek-v4-flash)."
+    "ko": "DeepSeek V4 Flash (Ollama Cloud 호스팅, deepseek-v4-flash:cloud)."
   },
   "tags": [
     "ollama",
@@ -17,7 +17,7 @@
     "deepseek"
   ],
   "sortOrder": 625,
-  "modelId": "deepseek-v4-flash",
+  "modelId": "deepseek-v4-flash:cloud",
   "endpoint": {
     "kind": "static",
     "url": "https://ollama.com/v1/chat/completions"

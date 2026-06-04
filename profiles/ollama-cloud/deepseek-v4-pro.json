@@ -1,15 +1,15 @@
 {
   "id": "ollama-cloud:deepseek-v4-pro",
   "version": 1,
-  "updatedAt": 1780598376374,
+  "updatedAt": 1780598669297,
   "displayName": "DeepSeek V4 Pro",
   "displayNameI18n": {
     "ko": "DeepSeek V4 Pro"
   },
   "providerBaseId": "ollama-cloud",
-  "description": "DeepSeek V4 Pro hosted on Ollama Cloud (deepseek-v4-pro).",
+  "description": "DeepSeek V4 Pro hosted on Ollama Cloud (deepseek-v4-pro:cloud).",
   "descriptionI18n": {
-    "ko": "DeepSeek V4 Pro (Ollama Cloud 호스팅, deepseek-v4-pro)."
+    "ko": "DeepSeek V4 Pro (Ollama Cloud 호스팅, deepseek-v4-pro:cloud)."
   },
   "tags": [
     "ollama",
@@ -17,7 +17,7 @@
     "deepseek"
   ],
   "sortOrder": 624,
-  "modelId": "deepseek-v4-pro",
+  "modelId": "deepseek-v4-pro:cloud",
   "endpoint": {
     "kind": "static",
     "url": "https://ollama.com/v1/chat/completions"

@@ -1,15 +1,15 @@
 {
   "id": "ollama-cloud:kimi-k26",
   "version": 1,
-  "updatedAt": 1780598376374,
+  "updatedAt": 1780598669297,
   "displayName": "Kimi K2.6",
   "displayNameI18n": {
     "ko": "Kimi K2.6"
   },
   "providerBaseId": "ollama-cloud",
-  "description": "Kimi K2.6 hosted on Ollama Cloud (kimi-k2.6).",
+  "description": "Kimi K2.6 hosted on Ollama Cloud (kimi-k2.6:cloud).",
   "descriptionI18n": {
-    "ko": "Kimi K2.6 (Ollama Cloud 호스팅, kimi-k2.6)."
+    "ko": "Kimi K2.6 (Ollama Cloud 호스팅, kimi-k2.6:cloud)."
   },
   "tags": [
     "ollama",
@@ -17,7 +17,7 @@
     "kimi"
   ],
   "sortOrder": 621,
-  "modelId": "kimi-k2.6",
+  "modelId": "kimi-k2.6:cloud",
   "endpoint": {
     "kind": "static",
     "url": "https://ollama.com/v1/chat/completions"

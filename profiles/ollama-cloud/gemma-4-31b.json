@@ -1,15 +1,15 @@
 {
   "id": "ollama-cloud:gemma-4-31b",
   "version": 1,
-  "updatedAt": 1780598376374,
+  "updatedAt": 1780598669297,
   "displayName": "Gemma 4 31B",
   "displayNameI18n": {
     "ko": "Gemma 4 31B"
   },
   "providerBaseId": "ollama-cloud",
-  "description": "Gemma 4 31B hosted on Ollama Cloud (gemma4:31b).",
+  "description": "Gemma 4 31B hosted on Ollama Cloud (gemma4:31b-cloud).",
   "descriptionI18n": {
-    "ko": "Gemma 4 31B (Ollama Cloud 호스팅, gemma4:31b)."
+    "ko": "Gemma 4 31B (Ollama Cloud 호스팅, gemma4:31b-cloud)."
   },
   "tags": [
     "ollama",
@@ -17,7 +17,7 @@
     "gemma"
   ],
   "sortOrder": 622,
-  "modelId": "gemma4:31b",
+  "modelId": "gemma4:31b-cloud",
   "endpoint": {
     "kind": "static",
     "url": "https://ollama.com/v1/chat/completions"

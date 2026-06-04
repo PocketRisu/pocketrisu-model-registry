@@ -1,15 +1,15 @@
 {
   "id": "ollama-cloud:glm-51",
   "version": 1,
-  "updatedAt": 1780598376374,
+  "updatedAt": 1780598669297,
   "displayName": "GLM 5.1",
   "displayNameI18n": {
     "ko": "GLM 5.1"
   },
   "providerBaseId": "ollama-cloud",
-  "description": "GLM 5.1 hosted on Ollama Cloud (glm-5.1).",
+  "description": "GLM 5.1 hosted on Ollama Cloud (glm-5.1:cloud).",
   "descriptionI18n": {
-    "ko": "GLM 5.1 (Ollama Cloud 호스팅, glm-5.1)."
+    "ko": "GLM 5.1 (Ollama Cloud 호스팅, glm-5.1:cloud)."
   },
   "tags": [
     "ollama",
@@ -17,7 +17,7 @@
     "glm"
   ],
   "sortOrder": 620,
-  "modelId": "glm-5.1",
+  "modelId": "glm-5.1:cloud",
   "endpoint": {
     "kind": "static",
     "url": "https://ollama.com/v1/chat/completions"
