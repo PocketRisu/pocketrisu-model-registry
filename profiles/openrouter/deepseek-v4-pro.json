@@ -1,0 +1,56 @@
+{
+  "id": "openrouter:deepseek-v4-pro",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "DeepSeek V4 Pro",
+  "displayNameI18n": {
+    "ko": "DeepSeek V4 Pro"
+  },
+  "providerBaseId": "openrouter",
+  "description": "DeepSeek V4 Pro via OpenRouter (deepseek/deepseek-v4-pro).",
+  "descriptionI18n": {
+    "ko": "DeepSeek V4 Pro (OpenRouter, deepseek/deepseek-v4-pro)."
+  },
+  "tags": [
+    "openrouter",
+    "deepseek"
+  ],
+  "sortOrder": 529,
+  "modelId": "deepseek/deepseek-v4-pro",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 384000
+  },
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
+}

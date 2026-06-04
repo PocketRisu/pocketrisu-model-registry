@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:gpt-5-mini",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "GPT-5 Mini",
+  "displayNameI18n": {
+    "ko": "GPT-5 Mini"
+  },
+  "providerBaseId": "openrouter",
+  "description": "GPT-5 Mini via OpenRouter (openai/gpt-5-mini).",
+  "descriptionI18n": {
+    "ko": "GPT-5 Mini (OpenRouter, openai/gpt-5-mini)."
+  },
+  "tags": [
+    "openrouter",
+    "gpt"
+  ],
+  "sortOrder": 517,
+  "modelId": "openai/gpt-5-mini",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 400000,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 128000
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

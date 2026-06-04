@@ -1,0 +1,55 @@
+{
+  "id": "openrouter:glm-51",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "GLM 5.1",
+  "displayNameI18n": {
+    "ko": "GLM 5.1"
+  },
+  "providerBaseId": "openrouter",
+  "description": "GLM 5.1 via OpenRouter (z-ai/glm-5.1).",
+  "descriptionI18n": {
+    "ko": "GLM 5.1 (OpenRouter, z-ai/glm-5.1)."
+  },
+  "tags": [
+    "openrouter",
+    "glm"
+  ],
+  "sortOrder": 531,
+  "modelId": "z-ai/glm-5.1",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 202752,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ]
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

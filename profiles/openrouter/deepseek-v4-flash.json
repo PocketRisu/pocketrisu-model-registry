@@ -1,0 +1,56 @@
+{
+  "id": "openrouter:deepseek-v4-flash",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "DeepSeek V4 Flash",
+  "displayNameI18n": {
+    "ko": "DeepSeek V4 Flash"
+  },
+  "providerBaseId": "openrouter",
+  "description": "DeepSeek V4 Flash via OpenRouter (deepseek/deepseek-v4-flash).",
+  "descriptionI18n": {
+    "ko": "DeepSeek V4 Flash (OpenRouter, deepseek/deepseek-v4-flash)."
+  },
+  "tags": [
+    "openrouter",
+    "deepseek"
+  ],
+  "sortOrder": 530,
+  "modelId": "deepseek/deepseek-v4-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 131072
+  },
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
+}

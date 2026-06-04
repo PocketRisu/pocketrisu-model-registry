@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:gemma-4-31b",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "Gemma 4 31B",
+  "displayNameI18n": {
+    "ko": "Gemma 4 31B"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Gemma 4 31B via OpenRouter (google/gemma-4-31b-it).",
+  "descriptionI18n": {
+    "ko": "Gemma 4 31B (OpenRouter, google/gemma-4-31b-it)."
+  },
+  "tags": [
+    "openrouter",
+    "gemini"
+  ],
+  "sortOrder": 527,
+  "modelId": "google/gemma-4-31b-it",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 262144,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 16384
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

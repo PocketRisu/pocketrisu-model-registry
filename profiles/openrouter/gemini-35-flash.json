@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:gemini-35-flash",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "Gemini 3.5 Flash",
+  "displayNameI18n": {
+    "ko": "Gemini 3.5 Flash"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Gemini 3.5 Flash via OpenRouter (google/gemini-3.5-flash).",
+  "descriptionI18n": {
+    "ko": "Gemini 3.5 Flash (OpenRouter, google/gemini-3.5-flash)."
+  },
+  "tags": [
+    "openrouter",
+    "gemini"
+  ],
+  "sortOrder": 523,
+  "modelId": "google/gemini-3.5-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 65536
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

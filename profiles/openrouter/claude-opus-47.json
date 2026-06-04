@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:claude-opus-47",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "Claude Opus 4.7",
+  "displayNameI18n": {
+    "ko": "Claude Opus 4.7"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Claude Opus 4.7 via OpenRouter (anthropic/claude-opus-4.7).",
+  "descriptionI18n": {
+    "ko": "Claude Opus 4.7 (OpenRouter, anthropic/claude-opus-4.7)."
+  },
+  "tags": [
+    "openrouter",
+    "claude"
+  ],
+  "sortOrder": 520,
+  "modelId": "anthropic/claude-opus-4.7",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 128000
+  },
+  "recommendedTokenizer": "claude",
+  "profileStatus": "current"
+}

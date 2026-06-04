@@ -1,0 +1,56 @@
+{
+  "id": "openrouter:gemma-4-26b",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "Gemma 4 26B",
+  "displayNameI18n": {
+    "ko": "Gemma 4 26B"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Gemma 4 26B via OpenRouter (google/gemma-4-26b-a4b-it).",
+  "descriptionI18n": {
+    "ko": "Gemma 4 26B (OpenRouter, google/gemma-4-26b-a4b-it)."
+  },
+  "tags": [
+    "openrouter",
+    "gemini"
+  ],
+  "sortOrder": 528,
+  "modelId": "google/gemma-4-26b-a4b-it",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 262144,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ]
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:kimi-k26",
+  "version": 1,
+  "updatedAt": 1780597329608,
+  "displayName": "Kimi K2.6",
+  "displayNameI18n": {
+    "ko": "Kimi K2.6"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Kimi K2.6 via OpenRouter (moonshotai/kimi-k2.6).",
+  "descriptionI18n": {
+    "ko": "Kimi K2.6 (OpenRouter, moonshotai/kimi-k2.6)."
+  },
+  "tags": [
+    "openrouter",
+    "kimi"
+  ],
+  "sortOrder": 532,
+  "modelId": "moonshotai/kimi-k2.6",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 262144,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 262144
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

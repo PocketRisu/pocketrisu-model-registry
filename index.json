@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 8,
+  "contentVersion": 9,
   "updated": "2026-06-04",
-  "updatedAt": 1780595479305,
+  "updatedAt": 1780597329608,
   "baseProviders": [
     {
       "id": "openai",
@@ -764,6 +764,374 @@
         "openai-compatible"
       ],
       "sortOrder": 500
+    },
+    {
+      "id": "openrouter:gpt-55",
+      "displayName": "GPT-5.5",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-55.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.5"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 510
+    },
+    {
+      "id": "openrouter:gpt-54",
+      "displayName": "GPT-5.4",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-54.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.4"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 511
+    },
+    {
+      "id": "openrouter:gpt-54-mini",
+      "displayName": "GPT-5.4 Mini",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-54-mini.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.4 Mini"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 512
+    },
+    {
+      "id": "openrouter:gpt-54-nano",
+      "displayName": "GPT-5.4 Nano",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-54-nano.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.4 Nano"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 513
+    },
+    {
+      "id": "openrouter:gpt-52",
+      "displayName": "GPT-5.2",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-52.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.2"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 514
+    },
+    {
+      "id": "openrouter:gpt-51",
+      "displayName": "GPT-5.1",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-51.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.1"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 515
+    },
+    {
+      "id": "openrouter:gpt-5",
+      "displayName": "GPT-5",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-5.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 516
+    },
+    {
+      "id": "openrouter:gpt-5-mini",
+      "displayName": "GPT-5 Mini",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-5-mini.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5 Mini"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 517
+    },
+    {
+      "id": "openrouter:gpt-5-nano",
+      "displayName": "GPT-5 Nano",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gpt-5-nano.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5 Nano"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gpt"
+      ],
+      "sortOrder": 518
+    },
+    {
+      "id": "openrouter:claude-opus-48",
+      "displayName": "Claude Opus 4.8",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/claude-opus-48.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.8"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "claude"
+      ],
+      "sortOrder": 519
+    },
+    {
+      "id": "openrouter:claude-opus-47",
+      "displayName": "Claude Opus 4.7",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/claude-opus-47.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.7"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "claude"
+      ],
+      "sortOrder": 520
+    },
+    {
+      "id": "openrouter:claude-opus-46",
+      "displayName": "Claude Opus 4.6",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/claude-opus-46.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "claude"
+      ],
+      "sortOrder": 521
+    },
+    {
+      "id": "openrouter:claude-sonnet-46",
+      "displayName": "Claude Sonnet 4.6",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/claude-sonnet-46.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Sonnet 4.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "claude"
+      ],
+      "sortOrder": 522
+    },
+    {
+      "id": "openrouter:gemini-35-flash",
+      "displayName": "Gemini 3.5 Flash",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gemini-35-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 523
+    },
+    {
+      "id": "openrouter:gemini-31-pro",
+      "displayName": "Gemini 3.1 Pro",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gemini-31-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.1 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 524
+    },
+    {
+      "id": "openrouter:gemini-31-flash-lite",
+      "displayName": "Gemini 3.1 Flash-Lite",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gemini-31-flash-lite.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.1 Flash-Lite"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 525
+    },
+    {
+      "id": "openrouter:gemini-3-flash",
+      "displayName": "Gemini 3 Flash",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gemini-3-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 526
+    },
+    {
+      "id": "openrouter:gemma-4-31b",
+      "displayName": "Gemma 4 31B",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gemma-4-31b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 527
+    },
+    {
+      "id": "openrouter:gemma-4-26b",
+      "displayName": "Gemma 4 26B",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/gemma-4-26b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemma 4 26B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 528
+    },
+    {
+      "id": "openrouter:deepseek-v4-pro",
+      "displayName": "DeepSeek V4 Pro",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/deepseek-v4-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "deepseek"
+      ],
+      "sortOrder": 529
+    },
+    {
+      "id": "openrouter:deepseek-v4-flash",
+      "displayName": "DeepSeek V4 Flash",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/deepseek-v4-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "deepseek"
+      ],
+      "sortOrder": 530
+    },
+    {
+      "id": "openrouter:glm-51",
+      "displayName": "GLM 5.1",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/glm-51.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GLM 5.1"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "glm"
+      ],
+      "sortOrder": 531
+    },
+    {
+      "id": "openrouter:kimi-k26",
+      "displayName": "Kimi K2.6",
+      "providerBaseId": "openrouter",
+      "url": "profiles/openrouter/kimi-k26.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Kimi K2.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "openrouter",
+        "kimi"
+      ],
+      "sortOrder": 532
     },
     {
       "id": "nanogpt:openai-compatible",
