@@ -1,0 +1,57 @@
+{
+  "id": "vercel:gemma-4-26b",
+  "version": 1,
+  "updatedAt": 1780597639744,
+  "displayName": "Gemma 4 26B",
+  "displayNameI18n": {
+    "ko": "Gemma 4 26B"
+  },
+  "providerBaseId": "vercel",
+  "description": "Gemma 4 26B via Vercel AI Gateway (google/gemma-4-26b-a4b-it).",
+  "descriptionI18n": {
+    "ko": "Gemma 4 26B (Vercel AI Gateway, google/gemma-4-26b-a4b-it)."
+  },
+  "tags": [
+    "vercel",
+    "gemini"
+  ],
+  "sortOrder": 567,
+  "modelId": "google/gemma-4-26b-a4b-it",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 262144,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 131072
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

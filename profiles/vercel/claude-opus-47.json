@@ -1,0 +1,57 @@
+{
+  "id": "vercel:claude-opus-47",
+  "version": 1,
+  "updatedAt": 1780597639744,
+  "displayName": "Claude Opus 4.7",
+  "displayNameI18n": {
+    "ko": "Claude Opus 4.7"
+  },
+  "providerBaseId": "vercel",
+  "description": "Claude Opus 4.7 via Vercel AI Gateway (anthropic/claude-opus-4.7).",
+  "descriptionI18n": {
+    "ko": "Claude Opus 4.7 (Vercel AI Gateway, anthropic/claude-opus-4.7)."
+  },
+  "tags": [
+    "vercel",
+    "claude"
+  ],
+  "sortOrder": 559,
+  "modelId": "anthropic/claude-opus-4.7",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 128000
+  },
+  "recommendedTokenizer": "claude",
+  "profileStatus": "current"
+}

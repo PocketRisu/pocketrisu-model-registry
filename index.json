@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 9,
+  "contentVersion": 10,
   "updated": "2026-06-04",
-  "updatedAt": 1780597329608,
+  "updatedAt": 1780597639744,
   "baseProviders": [
     {
       "id": "openai",
@@ -1183,6 +1183,358 @@
         "openai-compatible"
       ],
       "sortOrder": 540
+    },
+    {
+      "id": "vercel:gpt-55",
+      "displayName": "GPT-5.5",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-55.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.5"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 550
+    },
+    {
+      "id": "vercel:gpt-54",
+      "displayName": "GPT-5.4",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-54.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.4"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 551
+    },
+    {
+      "id": "vercel:gpt-54-mini",
+      "displayName": "GPT-5.4 Mini",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-54-mini.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.4 Mini"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 552
+    },
+    {
+      "id": "vercel:gpt-54-nano",
+      "displayName": "GPT-5.4 Nano",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-54-nano.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.4 Nano"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 553
+    },
+    {
+      "id": "vercel:gpt-52",
+      "displayName": "GPT-5.2",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-52.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5.2"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 554
+    },
+    {
+      "id": "vercel:gpt-5",
+      "displayName": "GPT-5",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-5.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 555
+    },
+    {
+      "id": "vercel:gpt-5-mini",
+      "displayName": "GPT-5 Mini",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-5-mini.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5 Mini"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 556
+    },
+    {
+      "id": "vercel:gpt-5-nano",
+      "displayName": "GPT-5 Nano",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gpt-5-nano.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GPT-5 Nano"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 557
+    },
+    {
+      "id": "vercel:claude-opus-48",
+      "displayName": "Claude Opus 4.8",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/claude-opus-48.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.8"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "claude"
+      ],
+      "sortOrder": 558
+    },
+    {
+      "id": "vercel:claude-opus-47",
+      "displayName": "Claude Opus 4.7",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/claude-opus-47.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.7"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "claude"
+      ],
+      "sortOrder": 559
+    },
+    {
+      "id": "vercel:claude-opus-46",
+      "displayName": "Claude Opus 4.6",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/claude-opus-46.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "claude"
+      ],
+      "sortOrder": 560
+    },
+    {
+      "id": "vercel:claude-sonnet-46",
+      "displayName": "Claude Sonnet 4.6",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/claude-sonnet-46.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Claude Sonnet 4.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "claude"
+      ],
+      "sortOrder": 561
+    },
+    {
+      "id": "vercel:gemini-35-flash",
+      "displayName": "Gemini 3.5 Flash",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gemini-35-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 562
+    },
+    {
+      "id": "vercel:gemini-31-pro",
+      "displayName": "Gemini 3.1 Pro",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gemini-31-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.1 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 563
+    },
+    {
+      "id": "vercel:gemini-31-flash-lite",
+      "displayName": "Gemini 3.1 Flash-Lite",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gemini-31-flash-lite.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3.1 Flash-Lite"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 564
+    },
+    {
+      "id": "vercel:gemini-3-flash",
+      "displayName": "Gemini 3 Flash",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gemini-3-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemini 3 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 565
+    },
+    {
+      "id": "vercel:gemma-4-31b",
+      "displayName": "Gemma 4 31B",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gemma-4-31b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 566
+    },
+    {
+      "id": "vercel:gemma-4-26b",
+      "displayName": "Gemma 4 26B",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/gemma-4-26b.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Gemma 4 26B"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 567
+    },
+    {
+      "id": "vercel:deepseek-v4-pro",
+      "displayName": "DeepSeek V4 Pro",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/deepseek-v4-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "deepseek"
+      ],
+      "sortOrder": 568
+    },
+    {
+      "id": "vercel:deepseek-v4-flash",
+      "displayName": "DeepSeek V4 Flash",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/deepseek-v4-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "deepseek"
+      ],
+      "sortOrder": 569
+    },
+    {
+      "id": "vercel:glm-51",
+      "displayName": "GLM 5.1",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/glm-51.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "GLM 5.1"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "glm"
+      ],
+      "sortOrder": 570
+    },
+    {
+      "id": "vercel:kimi-k26",
+      "displayName": "Kimi K2.6",
+      "providerBaseId": "vercel",
+      "url": "profiles/vercel/kimi-k26.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "Kimi K2.6"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "vercel",
+        "kimi"
+      ],
+      "sortOrder": 571
     },
     {
       "id": "ollama:openai-compatible-local",

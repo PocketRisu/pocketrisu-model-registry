@@ -1,0 +1,57 @@
+{
+  "id": "vercel:gemini-31-pro",
+  "version": 1,
+  "updatedAt": 1780597639744,
+  "displayName": "Gemini 3.1 Pro",
+  "displayNameI18n": {
+    "ko": "Gemini 3.1 Pro"
+  },
+  "providerBaseId": "vercel",
+  "description": "Gemini 3.1 Pro via Vercel AI Gateway (google/gemini-3.1-pro-preview).",
+  "descriptionI18n": {
+    "ko": "Gemini 3.1 Pro (Vercel AI Gateway, google/gemini-3.1-pro-preview)."
+  },
+  "tags": [
+    "vercel",
+    "gemini"
+  ],
+  "sortOrder": 563,
+  "modelId": "google/gemini-3.1-pro-preview",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 64000
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

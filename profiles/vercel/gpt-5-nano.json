@@ -1,0 +1,57 @@
+{
+  "id": "vercel:gpt-5-nano",
+  "version": 1,
+  "updatedAt": 1780597639744,
+  "displayName": "GPT-5 Nano",
+  "displayNameI18n": {
+    "ko": "GPT-5 Nano"
+  },
+  "providerBaseId": "vercel",
+  "description": "GPT-5 Nano via Vercel AI Gateway (openai/gpt-5-nano).",
+  "descriptionI18n": {
+    "ko": "GPT-5 Nano (Vercel AI Gateway, openai/gpt-5-nano)."
+  },
+  "tags": [
+    "vercel",
+    "gpt"
+  ],
+  "sortOrder": 557,
+  "modelId": "openai/gpt-5-nano",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 400000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 128000
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}
