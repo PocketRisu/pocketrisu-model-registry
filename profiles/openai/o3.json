@@ -1,22 +1,22 @@
 {
-  "id": "openai:gpt-55",
-  "version": 2,
-  "displayName": "OpenAI GPT-5.5",
+  "id": "openai:o3",
+  "version": 1,
+  "displayName": "OpenAI o3",
   "displayNameI18n": {
-    "ko": "OpenAI GPT-5.5"
+    "ko": "OpenAI o3"
   },
   "providerBaseId": "openai",
-  "description": "GPT-5.5 via OpenAI Chat Completions.",
+  "description": "o3 via OpenAI Chat Completions.",
   "descriptionI18n": {
-    "ko": "GPT-5.5 (OpenAI Chat Completions)."
+    "ko": "o3 (OpenAI Chat Completions)."
   },
   "tags": [
     "openai",
     "gpt",
     "reasoning"
   ],
-  "sortOrder": 100,
-  "modelId": "gpt-5.5",
+  "sortOrder": 130,
+  "modelId": "o3",
   "updatedAt": 1780591128566,
   "endpoint": {
     "kind": "static",
@@ -38,8 +38,8 @@
       "required": true,
       "enum": [
         {
-          "value": "gpt-5.5",
-          "label": "GPT-5.5"
+          "value": "o3",
+          "label": "o3"
         }
       ],
       "mapsTo": {
@@ -55,7 +55,7 @@
       "type": "integer",
       "label": "Max Completion Tokens",
       "min": 1,
-      "max": 128000,
+      "max": 100000,
       "mapsTo": {
         "target": "body",
         "path": "max_completion_tokens"
@@ -68,10 +68,6 @@
       "label": "Reasoning Effort",
       "enum": [
         {
-          "value": "none",
-          "label": "None"
-        },
-        {
           "value": "low",
           "label": "Low"
         },
@@ -82,38 +78,15 @@
         {
           "value": "high",
           "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
         }
       ],
       "mapsTo": {
         "target": "body",
         "path": "reasoning_effort"
-      }
-    },
-    {
-      "key": "verbosity",
-      "type": "string",
-      "label": "Verbosity",
-      "enum": [
-        {
-          "value": "low",
-          "label": "Low"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "high",
-          "label": "High"
-        }
-      ],
-      "mapsTo": {
-        "target": "body",
-        "path": "verbosity"
+      },
+      "description": "Effort levels are inferred from the generation flagship; override via additional parameters if your model differs.",
+      "descriptionI18n": {
+        "ko": "추론 강도 값은 동세대 대표 모델 기준 추정치입니다. 모델이 다르면 추가 파라미터로 덮어쓰세요."
       }
     },
     {
@@ -311,13 +284,6 @@
         "order": 1
       },
       {
-        "key": "verbosity",
-        "widget": "select",
-        "visibility": "basic",
-        "group": "reasoning",
-        "order": 2
-      },
-      {
         "key": "service_tier",
         "widget": "select",
         "visibility": "advanced",
@@ -395,16 +361,17 @@
   ],
   "sourceUrls": [
     "https://platform.openai.com/docs/models",
-    "https://developers.openai.com/api/docs/models/gpt-5.5"
+    "https://developers.openai.com/api/docs/models/o3"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1050000,
-    "maxOutputTokens": 128000,
+    "contextWindowTokens": 200000,
+    "maxOutputTokens": 100000,
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "outdated",
+  "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
 }

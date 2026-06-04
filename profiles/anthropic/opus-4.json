@@ -1,24 +1,24 @@
 {
-  "id": "anthropic:haiku-45",
+  "id": "anthropic:opus-4",
   "version": 1,
   "updatedAt": 1780592606461,
-  "displayName": "Claude Haiku 4.5",
+  "displayName": "Claude Opus 4",
   "displayNameI18n": {
-    "ko": "Claude Haiku 4.5"
+    "ko": "Claude Opus 4"
   },
   "providerBaseId": "anthropic",
-  "description": "Claude Haiku 4.5 via the Anthropic Messages API (manual extended thinking).",
+  "description": "Claude Opus 4 via the Anthropic Messages API (manual extended thinking).",
   "descriptionI18n": {
-    "ko": "Claude Haiku 4.5 (Anthropic Messages API, 수동 extended thinking)."
+    "ko": "Claude Opus 4 (Anthropic Messages API, 수동 extended thinking)."
   },
   "tags": [
     "anthropic",
     "claude",
-    "haiku",
+    "opus",
     "reasoning"
   ],
-  "sortOrder": 212,
-  "modelId": "claude-haiku-4-5-20251001",
+  "sortOrder": 215,
+  "modelId": "claude-opus-4-20250514",
   "endpoint": {
     "kind": "static",
     "url": "https://api.anthropic.com/v1/messages"
@@ -41,8 +41,8 @@
       "required": true,
       "enum": [
         {
-          "value": "claude-haiku-4-5-20251001",
-          "label": "Claude Haiku 4.5"
+          "value": "claude-opus-4-20250514",
+          "label": "Claude Opus 4"
         }
       ],
       "mapsTo": {
@@ -58,7 +58,7 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 64000,
+      "max": 32000,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -133,7 +133,7 @@
       "type": "integer",
       "label": "Thinking Budget Tokens",
       "min": 1024,
-      "max": 64000,
+      "max": 32000,
       "mapsTo": {
         "target": "body",
         "path": "thinking.budget_tokens"
@@ -310,7 +310,7 @@
   "limits": {
     "known": true,
     "contextWindowTokens": 200000,
-    "maxOutputTokens": 64000,
+    "maxOutputTokens": 32000,
     "sourceUrls": [
       "https://platform.claude.com/docs/en/about-claude/models/overview"
     ]

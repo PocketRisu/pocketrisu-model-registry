@@ -1,24 +1,23 @@
 {
   "id": "openai:gpt-54",
-  "version": 1,
+  "version": 2,
   "displayName": "OpenAI GPT-5.4",
   "displayNameI18n": {
     "ko": "OpenAI GPT-5.4"
   },
   "providerBaseId": "openai",
-  "description": "GPT-5.4 family profile for current frontier reasoning models compatible with Chat Completions.",
+  "description": "GPT-5.4 via OpenAI Chat Completions.",
   "descriptionI18n": {
-    "ko": "Chat Completions와 호환되는 최신 프런티어 추론 모델용 GPT-5.4 패밀리 프로필."
+    "ko": "GPT-5.4 (OpenAI Chat Completions)."
   },
   "tags": [
     "openai",
     "gpt",
-    "gpt-5",
-    "reasoning",
-    "coding"
+    "reasoning"
   ],
   "sortOrder": 105,
   "modelId": "gpt-5.4",
+  "updatedAt": 1780591128566,
   "endpoint": {
     "kind": "static",
     "url": "https://api.openai.com/v1/chat/completions"
@@ -41,14 +40,6 @@
         {
           "value": "gpt-5.4",
           "label": "GPT-5.4"
-        },
-        {
-          "value": "gpt-5.4-mini",
-          "label": "GPT-5.4 Mini"
-        },
-        {
-          "value": "gpt-5.4-nano",
-          "label": "GPT-5.4 Nano"
         }
       ],
       "mapsTo": {
@@ -276,7 +267,7 @@
       {
         "id": "output",
         "label": "Output",
-        "order": 4,
+        "order": 5,
         "labelI18n": {
           "ko": "출력"
         }
@@ -284,7 +275,7 @@
       {
         "id": "control",
         "label": "Control",
-        "order": 5,
+        "order": 6,
         "labelI18n": {
           "ko": "요청 제어"
         }
@@ -384,14 +375,14 @@
         "widget": "text",
         "visibility": "advanced",
         "group": "control",
-        "order": 1
+        "order": 2
       },
       {
         "key": "metadata",
         "widget": "json",
         "visibility": "advanced",
         "group": "control",
-        "order": 2
+        "order": 3
       }
     ]
   },
@@ -403,17 +394,13 @@
     "json"
   ],
   "sourceUrls": [
-    "https://developers.openai.com/api/docs/models/gpt-5.4",
-    "https://developers.openai.com/api/docs/models/gpt-5.4-mini",
-    "https://developers.openai.com/api/docs/models/gpt-5.4-nano"
+    "https://platform.openai.com/docs/models",
+    "https://developers.openai.com/api/docs/models/gpt-5.4"
   ],
   "limits": {
-    "known": false,
+    "known": true,
+    "contextWindowTokens": 1050000,
     "maxOutputTokens": 128000,
-    "notes": "Model-dependent context window: GPT-5.4 supports 1,050,000 tokens, while GPT-5.4 mini/nano support 400,000 tokens.",
-    "notesI18n": {
-      "ko": "모델별 컨텍스트 한도가 다릅니다. GPT-5.4는 1,050,000 토큰, GPT-5.4 mini/nano는 400,000 토큰을 지원합니다."
-    },
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
     ]

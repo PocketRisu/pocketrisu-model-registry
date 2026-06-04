@@ -1,25 +1,24 @@
 {
-  "id": "anthropic:sonnet-adaptive",
+  "id": "anthropic:opus-41",
   "version": 1,
-  "updatedAt": 1780531200000,
-  "displayName": "Claude Sonnet 4.6",
+  "updatedAt": 1780592606461,
+  "displayName": "Claude Opus 4.1",
   "displayNameI18n": {
-    "ko": "Claude Sonnet 4.6"
+    "ko": "Claude Opus 4.1"
   },
   "providerBaseId": "anthropic",
-  "description": "Claude Sonnet 4.6 profile using adaptive thinking.",
+  "description": "Claude Opus 4.1 via the Anthropic Messages API (manual extended thinking).",
   "descriptionI18n": {
-    "ko": "Claude Sonnet 4.6 프로필 (적응형 thinking)."
+    "ko": "Claude Opus 4.1 (Anthropic Messages API, 수동 extended thinking)."
   },
   "tags": [
     "anthropic",
     "claude",
-    "sonnet",
-    "reasoning",
-    "coding"
+    "opus",
+    "reasoning"
   ],
-  "sortOrder": 210,
-  "modelId": "claude-sonnet-4-6",
+  "sortOrder": 213,
+  "modelId": "claude-opus-4-1-20250805",
   "endpoint": {
     "kind": "static",
     "url": "https://api.anthropic.com/v1/messages"
@@ -42,8 +41,8 @@
       "required": true,
       "enum": [
         {
-          "value": "claude-sonnet-4-6",
-          "label": "Claude Sonnet 4.6"
+          "value": "claude-opus-4-1-20250805",
+          "label": "Claude Opus 4.1"
         }
       ],
       "mapsTo": {
@@ -59,7 +58,7 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 64000,
+      "max": 32000,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -67,46 +66,77 @@
       "default": 4096
     },
     {
-      "key": "thinking_type",
-      "type": "string",
-      "label": "Thinking Mode",
-      "enum": [
-        {
-          "value": "adaptive",
-          "label": "Adaptive"
-        }
-      ],
-      "default": "adaptive",
+      "key": "temperature",
+      "type": "number",
+      "label": "Temperature",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
       "mapsTo": {
         "target": "body",
-        "path": "thinking.type"
+        "path": "temperature"
       }
     },
     {
-      "key": "effort",
+      "key": "top_p",
+      "type": "number",
+      "label": "Top P",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_p"
+      }
+    },
+    {
+      "key": "top_k",
+      "type": "integer",
+      "label": "Top K",
+      "min": 0,
+      "max": 500,
+      "mapsTo": {
+        "target": "body",
+        "path": "top_k"
+      }
+    },
+    {
+      "key": "stop_sequences",
+      "type": "stringArray",
+      "label": "Stop Sequences",
+      "mapsTo": {
+        "target": "body",
+        "path": "stop_sequences"
+      }
+    },
+    {
+      "key": "thinking_type",
       "type": "string",
-      "label": "Thinking Effort",
+      "label": "Extended Thinking",
       "enum": [
         {
-          "value": "low",
-          "label": "Low"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "high",
-          "label": "High"
-        },
-        {
-          "value": "max",
-          "label": "Max"
+          "value": "enabled",
+          "label": "Enabled"
         }
       ],
       "mapsTo": {
         "target": "body",
-        "path": "output_config.effort"
+        "path": "thinking.type"
+      },
+      "description": "Enable manual extended thinking for supported Claude models. Leave unset to omit the thinking object.",
+      "descriptionI18n": {
+        "ko": "지원되는 Claude 모델에서 수동 extended thinking을 켭니다. 비워두면 thinking 객체를 보내지 않습니다."
+      }
+    },
+    {
+      "key": "thinking_budget_tokens",
+      "type": "integer",
+      "label": "Thinking Budget Tokens",
+      "min": 1024,
+      "max": 32000,
+      "mapsTo": {
+        "target": "body",
+        "path": "thinking.budget_tokens"
       }
     },
     {
@@ -204,6 +234,34 @@
         "order": 1
       },
       {
+        "key": "temperature",
+        "widget": "slider",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 2
+      },
+      {
+        "key": "top_p",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 3
+      },
+      {
+        "key": "top_k",
+        "widget": "number-input",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 4
+      },
+      {
+        "key": "stop_sequences",
+        "widget": "string-array",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 5
+      },
+      {
         "key": "thinking_type",
         "widget": "select",
         "visibility": "basic",
@@ -211,11 +269,15 @@
         "order": 1
       },
       {
-        "key": "effort",
-        "widget": "select",
+        "key": "thinking_budget_tokens",
+        "widget": "number-input",
         "visibility": "basic",
         "group": "reasoning",
-        "order": 2
+        "order": 2,
+        "showIf": {
+          "key": "thinking_type",
+          "equals": "enabled"
+        }
       },
       {
         "key": "service_tier",
@@ -233,9 +295,6 @@
       }
     ]
   },
-  "headerTemplate": {
-    "anthropic-version": "2023-06-01"
-  },
   "capabilities": [
     "streaming",
     "reasoning",
@@ -250,12 +309,13 @@
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1000000,
-    "maxOutputTokens": 64000,
+    "contextWindowTokens": 200000,
+    "maxOutputTokens": 32000,
     "sourceUrls": [
       "https://platform.claude.com/docs/en/about-claude/models/overview"
     ]
   },
   "recommendedTokenizer": "claude",
-  "profileStatus": "current"
+  "profileStatus": "outdated",
+  "statusReason": "Below the current Claude 4.6 threshold; superseded by a newer release."
 }

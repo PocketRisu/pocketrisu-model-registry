@@ -1,22 +1,22 @@
 {
-  "id": "openai:gpt-55",
-  "version": 2,
-  "displayName": "OpenAI GPT-5.5",
+  "id": "openai:gpt-5-nano",
+  "version": 1,
+  "displayName": "OpenAI GPT-5 Nano",
   "displayNameI18n": {
-    "ko": "OpenAI GPT-5.5"
+    "ko": "OpenAI GPT-5 Nano"
   },
   "providerBaseId": "openai",
-  "description": "GPT-5.5 via OpenAI Chat Completions.",
+  "description": "GPT-5 Nano via OpenAI Chat Completions.",
   "descriptionI18n": {
-    "ko": "GPT-5.5 (OpenAI Chat Completions)."
+    "ko": "GPT-5 Nano (OpenAI Chat Completions)."
   },
   "tags": [
     "openai",
     "gpt",
     "reasoning"
   ],
-  "sortOrder": 100,
-  "modelId": "gpt-5.5",
+  "sortOrder": 122,
+  "modelId": "gpt-5-nano",
   "updatedAt": 1780591128566,
   "endpoint": {
     "kind": "static",
@@ -38,8 +38,8 @@
       "required": true,
       "enum": [
         {
-          "value": "gpt-5.5",
-          "label": "GPT-5.5"
+          "value": "gpt-5-nano",
+          "label": "GPT-5 Nano"
         }
       ],
       "mapsTo": {
@@ -68,8 +68,8 @@
       "label": "Reasoning Effort",
       "enum": [
         {
-          "value": "none",
-          "label": "None"
+          "value": "minimal",
+          "label": "Minimal"
         },
         {
           "value": "low",
@@ -82,15 +82,15 @@
         {
           "value": "high",
           "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
         }
       ],
       "mapsTo": {
         "target": "body",
         "path": "reasoning_effort"
+      },
+      "description": "Effort levels are inferred from the generation flagship; override via additional parameters if your model differs.",
+      "descriptionI18n": {
+        "ko": "추론 강도 값은 동세대 대표 모델 기준 추정치입니다. 모델이 다르면 추가 파라미터로 덮어쓰세요."
       }
     },
     {
@@ -395,11 +395,11 @@
   ],
   "sourceUrls": [
     "https://platform.openai.com/docs/models",
-    "https://developers.openai.com/api/docs/models/gpt-5.5"
+    "https://developers.openai.com/api/docs/models/gpt-5-nano"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1050000,
+    "contextWindowTokens": 400000,
     "maxOutputTokens": 128000,
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"

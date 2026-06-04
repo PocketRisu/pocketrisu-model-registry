@@ -1,22 +1,21 @@
 {
-  "id": "openai:gpt-55",
-  "version": 2,
-  "displayName": "OpenAI GPT-5.5",
+  "id": "openai:gpt-4o-mini",
+  "version": 1,
+  "displayName": "OpenAI GPT-4o Mini",
   "displayNameI18n": {
-    "ko": "OpenAI GPT-5.5"
+    "ko": "OpenAI GPT-4o Mini"
   },
   "providerBaseId": "openai",
-  "description": "GPT-5.5 via OpenAI Chat Completions.",
+  "description": "GPT-4o Mini via OpenAI Chat Completions.",
   "descriptionI18n": {
-    "ko": "GPT-5.5 (OpenAI Chat Completions)."
+    "ko": "GPT-4o Mini (OpenAI Chat Completions)."
   },
   "tags": [
     "openai",
-    "gpt",
-    "reasoning"
+    "gpt"
   ],
-  "sortOrder": 100,
-  "modelId": "gpt-5.5",
+  "sortOrder": 151,
+  "modelId": "gpt-4o-mini",
   "updatedAt": 1780591128566,
   "endpoint": {
     "kind": "static",
@@ -38,8 +37,8 @@
       "required": true,
       "enum": [
         {
-          "value": "gpt-5.5",
-          "label": "GPT-5.5"
+          "value": "gpt-4o-mini",
+          "label": "GPT-4o Mini"
         }
       ],
       "mapsTo": {
@@ -51,69 +50,63 @@
       }
     },
     {
-      "key": "max_completion_tokens",
+      "key": "max_tokens",
       "type": "integer",
-      "label": "Max Completion Tokens",
+      "label": "Max Tokens",
       "min": 1,
-      "max": 128000,
+      "max": 16384,
       "mapsTo": {
         "target": "body",
-        "path": "max_completion_tokens"
+        "path": "max_tokens"
       },
-      "default": 8192
+      "default": 4096
     },
     {
-      "key": "reasoning_effort",
-      "type": "string",
-      "label": "Reasoning Effort",
-      "enum": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "low",
-          "label": "Low"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "high",
-          "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
-        }
-      ],
+      "key": "temperature",
+      "type": "number",
+      "label": "Temperature",
+      "min": 0,
+      "max": 2,
+      "step": 0.01,
       "mapsTo": {
         "target": "body",
-        "path": "reasoning_effort"
+        "path": "temperature"
       }
     },
     {
-      "key": "verbosity",
-      "type": "string",
-      "label": "Verbosity",
-      "enum": [
-        {
-          "value": "low",
-          "label": "Low"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "high",
-          "label": "High"
-        }
-      ],
+      "key": "top_p",
+      "type": "number",
+      "label": "Top P",
+      "min": 0,
+      "max": 1,
+      "step": 0.01,
       "mapsTo": {
         "target": "body",
-        "path": "verbosity"
+        "path": "top_p"
+      }
+    },
+    {
+      "key": "frequency_penalty",
+      "type": "number",
+      "label": "Frequency Penalty",
+      "min": -2,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "frequency_penalty"
+      }
+    },
+    {
+      "key": "presence_penalty",
+      "type": "number",
+      "label": "Presence Penalty",
+      "min": -2,
+      "max": 2,
+      "step": 0.01,
+      "mapsTo": {
+        "target": "body",
+        "path": "presence_penalty"
       }
     },
     {
@@ -257,14 +250,6 @@
         }
       },
       {
-        "id": "reasoning",
-        "label": "Reasoning",
-        "order": 4,
-        "labelI18n": {
-          "ko": "추론"
-        }
-      },
-      {
         "id": "output",
         "label": "Output",
         "order": 5,
@@ -297,25 +282,39 @@
         "order": 1
       },
       {
-        "key": "max_completion_tokens",
+        "key": "max_tokens",
         "widget": "slider",
         "visibility": "basic",
         "group": "generation",
         "order": 1
       },
       {
-        "key": "reasoning_effort",
-        "widget": "select",
+        "key": "temperature",
+        "widget": "slider",
         "visibility": "basic",
-        "group": "reasoning",
-        "order": 1
+        "group": "generation",
+        "order": 2
       },
       {
-        "key": "verbosity",
-        "widget": "select",
-        "visibility": "basic",
-        "group": "reasoning",
-        "order": 2
+        "key": "top_p",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 3
+      },
+      {
+        "key": "frequency_penalty",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 4
+      },
+      {
+        "key": "presence_penalty",
+        "widget": "slider",
+        "visibility": "advanced",
+        "group": "generation",
+        "order": 5
       },
       {
         "key": "service_tier",
@@ -329,14 +328,14 @@
         "widget": "string-array",
         "visibility": "advanced",
         "group": "generation",
-        "order": 2
+        "order": 6
       },
       {
         "key": "seed",
         "widget": "number-input",
         "visibility": "advanced",
         "group": "generation",
-        "order": 3
+        "order": 7
       },
       {
         "key": "response_format",
@@ -388,23 +387,23 @@
   },
   "capabilities": [
     "streaming",
-    "reasoning",
     "vision",
     "tools",
     "json"
   ],
   "sourceUrls": [
     "https://platform.openai.com/docs/models",
-    "https://developers.openai.com/api/docs/models/gpt-5.5"
+    "https://developers.openai.com/api/docs/models/gpt-4o-mini"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1050000,
-    "maxOutputTokens": 128000,
+    "contextWindowTokens": 128000,
+    "maxOutputTokens": 16384,
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "outdated",
+  "statusReason": "Previous-generation model, one major version below the current GPT-5 lineup."
 }

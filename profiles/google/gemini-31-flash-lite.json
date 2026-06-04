@@ -1,25 +1,24 @@
 {
-  "id": "google:gemini-3",
+  "id": "google:gemini-31-flash-lite",
   "version": 1,
-  "displayName": "Gemini 3",
+  "displayName": "Gemini 3.1 Flash-Lite",
   "displayNameI18n": {
-    "ko": "Gemini 3"
+    "ko": "Gemini 3.1 Flash-Lite"
   },
   "providerBaseId": "google",
-  "description": "Gemini 3 family profile with thinking level controls.",
+  "description": "Gemini 3.1 Flash-Lite via Google AI Studio (generateContent).",
   "descriptionI18n": {
-    "ko": "Gemini 3 패밀리 프로필. thinking 레벨 제어 포함."
+    "ko": "Gemini 3.1 Flash-Lite (Google AI Studio generateContent)."
   },
   "tags": [
     "google",
     "gemini",
-    "pro",
-    "flash",
     "reasoning",
     "vision"
   ],
-  "sortOrder": 300,
-  "modelId": "gemini-3.5-flash",
+  "sortOrder": 302,
+  "modelId": "gemini-3.1-flash-lite",
+  "updatedAt": 1780591762548,
   "endpoint": {
     "kind": "static",
     "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -40,32 +39,8 @@
       "required": true,
       "enum": [
         {
-          "value": "gemini-3.5-flash",
-          "label": "Gemini 3.5 Flash"
-        },
-        {
-          "value": "gemini-3.1-pro",
-          "label": "Gemini 3.1 Pro"
-        },
-        {
           "value": "gemini-3.1-flash-lite",
           "label": "Gemini 3.1 Flash-Lite"
-        },
-        {
-          "value": "gemini-3-pro-preview",
-          "label": "Gemini 3 Pro Preview"
-        },
-        {
-          "value": "gemini-3-flash-preview",
-          "label": "Gemini 3 Flash Preview"
-        },
-        {
-          "value": "gemini-3-pro-image-preview",
-          "label": "Gemini 3 Pro Image Preview"
-        },
-        {
-          "value": "gemini-flash-latest",
-          "label": "Gemini Flash Latest"
         }
       ],
       "mapsTo": {
@@ -298,7 +273,7 @@
       {
         "id": "output",
         "label": "Output",
-        "order": 4,
+        "order": 5,
         "labelI18n": {
           "ko": "출력"
         }
@@ -327,13 +302,6 @@
         "order": 1
       },
       {
-        "key": "maxOutputTokens",
-        "widget": "slider",
-        "visibility": "basic",
-        "group": "generation",
-        "order": 2
-      },
-      {
         "key": "topP",
         "widget": "slider",
         "visibility": "advanced",
@@ -346,6 +314,13 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 4
+      },
+      {
+        "key": "maxOutputTokens",
+        "widget": "slider",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 2
       },
       {
         "key": "stopSequences",
@@ -439,7 +414,6 @@
   ],
   "sourceUrls": [
     "https://ai.google.dev/gemini-api/docs/models",
-    "https://ai.google.dev/gemini-api/docs/thinking",
     "https://ai.google.dev/api/generate-content"
   ],
   "limits": {
@@ -447,7 +421,7 @@
     "contextWindowTokens": 1048576,
     "maxOutputTokens": 65536,
     "sourceUrls": [
-      "https://ai.google.dev/api/models"
+      "https://generativelanguage.googleapis.com/v1beta/models"
     ]
   },
   "recommendedTokenizer": "gemma",

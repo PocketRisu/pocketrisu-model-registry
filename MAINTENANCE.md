@@ -91,6 +91,25 @@ The "which profiles ship as `current`" decision used to be eyeballed. Ground it 
 3. **Propose candidates** with their Tier 0 specs (limits, supported params, modalities).
 4. **Maintainer confirms** `profileStatus` per candidate (`current` / `outdated` / exclude). Judgment is retained — but it now starts from an API-verified list, not a doc-parsing guess. Record the cutoff in the audit-history row.
 
+### Verified live-enumeration recipes (2026-06-05 refresh)
+
+These are the exact "source of truth" calls used to author the OpenAI / Google / Anthropic profiles. **No source-of-truth fact was taken from a marketing/doc page that renders via JS** — the doc HTML carries model *codes* but not the spec numbers (token limits load client-side), so scraping them yields nothing. Hit the APIs.
+
+The division of labour that held for every provider:
+
+- **native model ID + lifecycle** ← the provider's own `/models` endpoint (authoritative; nothing else gets the exact ID string or the deprecation state right).
+- **limits / modalities / `created` / `supported_parameters`** ← OpenRouter cross-catalog (`/api/v1/models`, public, full spec). It also *corrects registry drift* — this pass it fixed `gemini-2.5` output `65535 → 65536`, `claude-haiku-4.5` context `1,000,000 → 200,000`, `claude-sonnet-4.6` output `64,000 → 128,000`.
+- **constrained-field value vocabulary** (enum sets) ← the vendor SDK type literals (Tier 2). The `/models` APIs say a knob *exists* (`thinking: true`, `supported_parameters` includes `reasoning`) but never its allowed values.
+
+| Provider | Enumerate (native ID + lifecycle) | Auth | What it returns | Notes |
+|---|---|---|---|---|
+| **OpenRouter** | `curl -s https://openrouter.ai/api/v1/models` | **none** | full spec per model | IDs are OR slugs (dotted, `anthropic/claude-opus-4.8`) — **not** a provider native ID. Cross-catalog only. |
+| **OpenAI** | `GET https://api.openai.com/v1/models` (needs Bearer) → we instead used OpenRouter `openai/gpt-5*` enum | Bearer / (OR none) | id, created | mini/nano ship only on *platform* releases (gpt-5, gpt-5.4), never the `.1/.2/.5` bumps. `*-pro`/`o3-pro` are Responses-API-only → excluded from the chat-completions adapter. reasoning_effort/verbosity enums from SDK `shared/reasoning_effort.py`. |
+| **Google AI Studio** | `curl "https://generativelanguage.googleapis.com/v1beta/models?key=KEY&pageSize=1000"` | API key | name (native ID), inputTokenLimit, outputTokenLimit, supportedGenerationMethods[], temperature/maxTemperature/topP/topK, **`thinking` bool** | **This is the spec source** — limits live here, not in the docs. Gemma is Google-native (`gemma-4-*-it`, `generateContent`, `thinking:true`). Thinking knob differs by gen: `thinkingLevel`(3.x + gemma) vs `thinkingBudget`(2.5). |
+| **Anthropic** | `curl https://api.anthropic.com/v1/models -H "x-api-key: KEY" -H "anthropic-version: 2023-06-01"` | x-api-key | **id, display_name, created_at only** (no limits) | Pair with OpenRouter for limits, SDK for thinking shapes. ID scheme is irregular: newest = bare alias (`claude-opus-4-8`), older = dated snapshot (`claude-opus-4-5-20251101`) — use the string the API returns. effort → `output_config.effort` (`low/medium/high/max`); SDK `thinking_config_{enabled,adaptive,disabled}_param.py`. |
+
+**Keys are single-use, read-only, never stored.** A user-supplied Google/Anthropic key is used for one `/models` GET and then discarded (not written to any file, commit, or memory); advise the user to rotate it afterward.
+
 ---
 
 ## Per-provider source URLs
@@ -258,5 +277,6 @@ The validator handles mismatch detection — there is no separate snippet to mai
 | 2026-05-24 | v4 schema transition. v3 `providers/*.json` retired; replaced with 12 `BaseProviderDefinition` files and 12 `ModelProfile` files. Vertex Claude excluded per plan-v4 §5-3. Bedrock native excluded per §5-4; `bedrock:openai-compatible` profile shipped instead. `scripts/validate.mjs` added. | First v4 skeleton landed alongside NodeOnly `feature/model-preset-v4`. Schemas detailed enough to host migration snapshots; full per-vendor `requestSchema` (reasoning, thinking, cache, etc.) is follow-up work. |
 | 2026-05-31 | Model preset UX audit and official-doc refresh for OpenAI / Anthropic / Google profiles. | Decision: remove heuristic profile grouping (`profileTier`, profile-level `visibility`, `lifecycle`) and keep one explicit `profileStatus` axis: `current`, `outdated`, `deprecated`. Temporal tags (`latest`, `recommended`, `legacy`, etc.) are banned. The shipped current set is narrowed to GPT-5.5 / GPT-5.4 / GPT-5.3 Codex, Claude Opus 4.8 / Sonnet 4.6 / Haiku 4.5, and one `google:gemini-3` profile; legacy Gemini/OpenAI/o-series/older Claude profiles were removed before first release. |
 | 2026-06-03 | Added **Tier 0 — provider model-listing APIs** as the primary source of truth for profile authoring, after studying the dynamic-discovery approach in Yumi Provider Manager v1.5.2. | OpenRouter `/api/v1/models` (public, full spec) adopted as cross-catalog; per-provider `/models` table + `supported_parameters`/`architecture` → schema/capabilities mapping documented. Selection of the `current` set moved from eyeballed picking to a semi-automatic rule (API enumerate → sort by `created` → maintainer confirms). No profile data changed this pass — guidance only. |
+| 2026-06-05 | First full live-enumeration refresh of OpenAI / Google / Anthropic via the recipes now recorded under "Verified live-enumeration recipes". OpenRouter (no key), Google AI Studio `/v1beta/models` (user key), Anthropic `/v1/models` (user key); limits cross-checked against OpenRouter; enum vocab from SDK Tier 2. | Provider profiles flattened (one model = one profile) and expanded: **OpenAI 3→15** (current 9 gpt-5.x / outdated 6 gpt-4.x+o3; codex removed; Responses-only `*-pro`/`o3-pro` excluded), **Google 1→9** (current gemini-3.x + Gemma 4 / outdated gemini-2.5; merged `gemini-3` split; `thinkingLevel` vs `thinkingBudget`), **Anthropic 3→10** (current ≥4.6 / outdated <4.6; adaptive-effort vs budget). Registry 19→46 profiles. **`profileStatus` curation rule = "major one below current → outdated", per-provider threshold** (OpenAI gpt-5 line current; Google gemini-3 current; Anthropic ≥4.6 current). OpenRouter corrected three limit errors (see recipes). Bundled snapshot synced into NodeOnly; 305 preset tests green. |
 
 When you do the next refresh, add a row.

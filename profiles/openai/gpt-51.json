@@ -1,22 +1,22 @@
 {
-  "id": "openai:gpt-55",
-  "version": 2,
-  "displayName": "OpenAI GPT-5.5",
+  "id": "openai:gpt-51",
+  "version": 1,
+  "displayName": "OpenAI GPT-5.1",
   "displayNameI18n": {
-    "ko": "OpenAI GPT-5.5"
+    "ko": "OpenAI GPT-5.1"
   },
   "providerBaseId": "openai",
-  "description": "GPT-5.5 via OpenAI Chat Completions.",
+  "description": "GPT-5.1 via OpenAI Chat Completions.",
   "descriptionI18n": {
-    "ko": "GPT-5.5 (OpenAI Chat Completions)."
+    "ko": "GPT-5.1 (OpenAI Chat Completions)."
   },
   "tags": [
     "openai",
     "gpt",
     "reasoning"
   ],
-  "sortOrder": 100,
-  "modelId": "gpt-5.5",
+  "sortOrder": 115,
+  "modelId": "gpt-5.1",
   "updatedAt": 1780591128566,
   "endpoint": {
     "kind": "static",
@@ -38,8 +38,8 @@
       "required": true,
       "enum": [
         {
-          "value": "gpt-5.5",
-          "label": "GPT-5.5"
+          "value": "gpt-5.1",
+          "label": "GPT-5.1"
         }
       ],
       "mapsTo": {
@@ -82,10 +82,6 @@
         {
           "value": "high",
           "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
         }
       ],
       "mapsTo": {
@@ -395,11 +391,11 @@
   ],
   "sourceUrls": [
     "https://platform.openai.com/docs/models",
-    "https://developers.openai.com/api/docs/models/gpt-5.5"
+    "https://developers.openai.com/api/docs/models/gpt-5.1"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1050000,
+    "contextWindowTokens": 400000,
     "maxOutputTokens": 128000,
     "sourceUrls": [
       "https://platform.openai.com/docs/models/compare"
