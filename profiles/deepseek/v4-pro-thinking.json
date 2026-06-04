@@ -1,21 +1,23 @@
 {
-  "id": "deepseek:legacy",
+  "id": "deepseek:v4-pro-thinking",
   "version": 1,
-  "displayName": "DeepSeek Legacy",
+  "updatedAt": 1780594300728,
+  "displayName": "DeepSeek V4 Pro (Thinking)",
   "displayNameI18n": {
-    "ko": "DeepSeek Legacy"
+    "ko": "DeepSeek V4 Pro (Thinking)"
   },
   "providerBaseId": "deepseek",
-  "description": "Legacy DeepSeek Chat/Reasoner profile. These aliases are scheduled for discontinuation.",
+  "description": "DeepSeek V4 Pro via the DeepSeek API (thinking mode).",
   "descriptionI18n": {
-    "ko": "Legacy DeepSeek Chat/Reasoner profile. These aliases are scheduled for discontinuation."
+    "ko": "DeepSeek V4 Pro (DeepSeek API, thinking 모드)."
   },
   "tags": [
     "deepseek",
+    "v4",
     "reasoning"
   ],
-  "sortOrder": 9400,
-  "modelId": "deepseek-chat",
+  "sortOrder": 400,
+  "modelId": "deepseek-v4-pro",
   "endpoint": {
     "kind": "static",
     "url": "https://api.deepseek.com/chat/completions"
@@ -26,7 +28,11 @@
       "apiKey"
     ]
   },
-  "defaults": {},
+  "defaults": {
+    "thinking": {
+      "type": "enabled"
+    }
+  },
   "schema": [
     {
       "key": "modelId",
@@ -36,12 +42,8 @@
       "required": true,
       "enum": [
         {
-          "value": "deepseek-chat",
-          "label": "DeepSeek Chat (legacy alias)"
-        },
-        {
-          "value": "deepseek-reasoner",
-          "label": "DeepSeek Reasoner (legacy alias)"
+          "value": "deepseek-v4-pro",
+          "label": "DeepSeek V4 Pro"
         }
       ],
       "mapsTo": {
@@ -81,7 +83,7 @@
       "type": "integer",
       "label": "Max Tokens",
       "min": 1,
-      "max": 8192,
+      "max": 384000,
       "mapsTo": {
         "target": "body",
         "path": "max_tokens"
@@ -119,6 +121,29 @@
       "mapsTo": {
         "target": "body",
         "path": "stop"
+      }
+    },
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "DeepSeek thinking effort. low/medium map to high; xhigh maps to max.",
+      "enum": [
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "max",
+          "label": "Max"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      },
+      "descriptionI18n": {
+        "ko": "DeepSeek thinking 강도. low/medium은 high로, xhigh는 max로 매핑됩니다."
       }
     },
     {
@@ -199,7 +224,7 @@
       {
         "id": "output",
         "label": "Output",
-        "order": 4,
+        "order": 5,
         "labelI18n": {
           "ko": "출력"
         }
@@ -228,18 +253,18 @@
         "order": 1
       },
       {
-        "key": "max_tokens",
-        "widget": "slider",
-        "visibility": "basic",
-        "group": "generation",
-        "order": 2
-      },
-      {
         "key": "top_p",
         "widget": "slider",
         "visibility": "advanced",
         "group": "generation",
         "order": 3
+      },
+      {
+        "key": "max_tokens",
+        "widget": "slider",
+        "visibility": "basic",
+        "group": "generation",
+        "order": 2
       },
       {
         "key": "frequency_penalty",
@@ -261,6 +286,13 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 6
+      },
+      {
+        "key": "reasoning_effort",
+        "widget": "select",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
       },
       {
         "key": "response_format",
@@ -291,22 +323,23 @@
   },
   "capabilities": [
     "streaming",
-    "reasoning"
+    "reasoning",
+    "tools",
+    "json"
   ],
   "sourceUrls": [
     "https://api-docs.deepseek.com/quick_start/pricing",
-    "https://api-docs.deepseek.com/api/create-chat-completion",
-    "https://api-docs.deepseek.com/updates/"
+    "https://api-docs.deepseek.com/guides/thinking_mode",
+    "https://api-docs.deepseek.com/api/create-chat-completion"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 65536,
-    "maxOutputTokens": 8192,
+    "contextWindowTokens": 1000000,
+    "maxOutputTokens": 384000,
     "sourceUrls": [
-      "https://api-docs.deepseek.com/quick_start/pricing-details-usd"
+      "https://api-docs.deepseek.com/quick_start/pricing"
     ]
   },
   "recommendedTokenizer": "deepseek",
-  "profileStatus": "deprecated",
-  "statusReason": "Legacy DeepSeek aliases are kept only for compatibility."
+  "profileStatus": "current"
 }

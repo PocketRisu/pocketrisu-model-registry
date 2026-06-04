@@ -1,8 +1,8 @@
 {
   "schemaVersion": 4,
-  "contentVersion": 5,
+  "contentVersion": 7,
   "updated": "2026-06-04",
-  "updatedAt": 1780592606461,
+  "updatedAt": 1780594300728,
   "baseProviders": [
     {
       "id": "openai",
@@ -683,22 +683,70 @@
       "sortOrder": 321
     },
     {
-      "id": "deepseek:v4",
-      "displayName": "DeepSeek V4",
+      "id": "deepseek:v4-pro-thinking",
+      "displayName": "DeepSeek V4 Pro (Thinking)",
       "providerBaseId": "deepseek",
-      "url": "profiles/deepseek/v4.json",
+      "url": "profiles/deepseek/v4-pro-thinking.json",
       "version": 1,
       "displayNameI18n": {
-        "ko": "DeepSeek V4"
+        "ko": "DeepSeek V4 Pro (Thinking)"
       },
       "profileStatus": "current",
       "tags": [
         "deepseek",
         "v4",
-        "reasoning",
-        "coding"
+        "reasoning"
       ],
       "sortOrder": 400
+    },
+    {
+      "id": "deepseek:v4-pro",
+      "displayName": "DeepSeek V4 Pro",
+      "providerBaseId": "deepseek",
+      "url": "profiles/deepseek/v4-pro.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "deepseek",
+        "v4"
+      ],
+      "sortOrder": 401
+    },
+    {
+      "id": "deepseek:v4-flash-thinking",
+      "displayName": "DeepSeek V4 Flash (Thinking)",
+      "providerBaseId": "deepseek",
+      "url": "profiles/deepseek/v4-flash-thinking.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash (Thinking)"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "deepseek",
+        "v4",
+        "reasoning"
+      ],
+      "sortOrder": 402
+    },
+    {
+      "id": "deepseek:v4-flash",
+      "displayName": "DeepSeek V4 Flash",
+      "providerBaseId": "deepseek",
+      "url": "profiles/deepseek/v4-flash.json",
+      "version": 1,
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "profileStatus": "current",
+      "tags": [
+        "deepseek",
+        "v4"
+      ],
+      "sortOrder": 403
     },
     {
       "id": "openrouter:openai-compatible",
@@ -868,23 +916,6 @@
         "noauth"
       ],
       "sortOrder": 7010
-    },
-    {
-      "id": "deepseek:legacy",
-      "displayName": "DeepSeek Legacy",
-      "providerBaseId": "deepseek",
-      "url": "profiles/deepseek/legacy.json",
-      "version": 1,
-      "displayNameI18n": {
-        "ko": "DeepSeek Legacy"
-      },
-      "profileStatus": "deprecated",
-      "tags": [
-        "deepseek",
-        "reasoning"
-      ],
-      "sortOrder": 9400,
-      "statusReason": "Legacy DeepSeek aliases are kept only for compatibility."
     }
   ]
 }
