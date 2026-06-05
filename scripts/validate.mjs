@@ -417,7 +417,9 @@ function main() {
         fail(indexPath, 'missing index.json')
     } else {
         const index = readJson(indexPath)
-        if (index) {
+        if (!isPlainObject(index)) {
+            fail(indexPath, 'index.json must be a JSON object (run scripts/build.mjs)')
+        } else {
             if (index.schemaVersion !== 4) fail(indexPath, `schemaVersion: must be 4 (got ${index.schemaVersion})`)
             if (!Array.isArray(index.baseProviders)) fail(indexPath, 'baseProviders: must be array')
             if (!Array.isArray(index.profiles)) fail(indexPath, 'profiles: must be array')
@@ -469,27 +471,61 @@ function main() {
     } else {
         const catalog = readJson(catalogPath)
         const index = exists(indexPath2) ? readJson(indexPath2) : null
-        if (catalog) {
+        if (!isPlainObject(catalog)) {
+            fail(catalogPath, 'catalog.json must be a JSON object (run scripts/build.mjs)')
+        } else if (index !== null && !isPlainObject(index)) {
+            fail(indexPath2, 'index.json must be a JSON object (run scripts/build.mjs)')
+        } else {
             if (catalog.schemaVersion !== 4) fail(catalogPath, `schemaVersion: must be 4 (got ${catalog.schemaVersion})`)
+
+            // Expected hashes recomputed from the source files.
             const baseHashes = {}
             const profileHashesExpected = {}
             for (const { data } of baseProviders) baseHashes[data.id] = hashOf(data)
             for (const { data } of profiles) profileHashesExpected[data.id] = hashOf(data)
             const topHash = hashOf({ schemaVersion: 4, baseProviders: baseHashes, profiles: profileHashesExpected })
 
-            if (catalog.hash !== topHash) fail(catalogPath, `hash stale: rebuild with scripts/build.mjs`)
-            if (index && index.hash !== topHash) fail(indexPath2, `hash stale: rebuild with scripts/build.mjs`)
+            if (catalog.hash !== topHash) fail(catalogPath, 'hash stale: rebuild with scripts/build.mjs')
+            if (index && index.hash !== topHash) fail(indexPath2, 'hash stale: rebuild with scripts/build.mjs')
 
-            for (const [id, h] of Object.entries(profileHashesExpected)) {
-                if (catalog.profileHashes?.[id] !== h) fail(catalogPath, `profileHashes["${id}"] stale/missing`)
-                if (!catalog.profiles?.[id]) fail(catalogPath, `profiles["${id}"] missing`)
+            // index per-item hash maps, with duplicate-entry detection. Old
+            // clients use index.profiles[] as the download list, so a ghost or
+            // duplicate entry there means 404s — fail on it.
+            const indexMap = (arr, kind) => {
+                const map = {}
+                if (!Array.isArray(arr)) return map
+                for (const e of arr) {
+                    if (!e || typeof e.id !== 'string') continue
+                    if (Object.prototype.hasOwnProperty.call(map, e.id)) fail(indexPath2, `${kind}[] duplicate entry "${e.id}"`)
+                    map[e.id] = e.hash
+                }
+                return map
             }
-            for (const id of Object.keys(catalog.profiles ?? {})) {
-                if (!(id in profileHashesExpected)) fail(catalogPath, `profiles["${id}"] has no source file`)
+            const indexProfileHash = indexMap(index?.profiles, 'profiles')
+            const indexBaseHash = indexMap(index?.baseProviders, 'baseProviders')
+
+            // Exact key-set equality across source / catalog body / hash map /
+            // index — no missing, no extra, body matches source by hash.
+            const checkSide = (kind, expected, bodies, hashMap, idxMap) => {
+                bodies = isPlainObject(bodies) ? bodies : {}
+                hashMap = isPlainObject(hashMap) ? hashMap : {}
+                for (const [id, h] of Object.entries(expected)) {
+                    const body = bodies[id]
+                    if (!body) {
+                        fail(catalogPath, `${kind}["${id}"] missing from catalog body`)
+                    } else if (hashOf(body) !== h) {
+                        fail(catalogPath, `${kind}["${id}"] body does not match source (rebuild)`)
+                    }
+                    if (hashMap[id] !== h) fail(catalogPath, `${kind}Hashes["${id}"] stale/missing`)
+                    if (index && idxMap[id] !== h) fail(indexPath2, `${kind}["${id}"] index hash stale/missing`)
+                }
+                // Extra entries with no source file (ghost) — in body, hash map, or index.
+                for (const id of Object.keys(bodies)) if (!(id in expected)) fail(catalogPath, `${kind}["${id}"] has no source file`)
+                for (const id of Object.keys(hashMap)) if (!(id in expected)) fail(catalogPath, `${kind}Hashes["${id}"] has no source file`)
+                if (index) for (const id of Object.keys(idxMap)) if (!(id in expected)) fail(indexPath2, `${kind}["${id}"] index entry has no source file`)
             }
-            for (const [id, h] of Object.entries(baseHashes)) {
-                if (catalog.baseProviderHashes?.[id] !== h) fail(catalogPath, `baseProviderHashes["${id}"] stale/missing`)
-            }
+            checkSide('profile', profileHashesExpected, catalog.profiles, catalog.profileHashes, indexProfileHash)
+            checkSide('baseProvider', baseHashes, catalog.baseProviders, catalog.baseProviderHashes, indexBaseHash)
         }
     }
 
