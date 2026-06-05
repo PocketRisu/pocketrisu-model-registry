@@ -14,8 +14,25 @@ The registry follows **schema v4** (see `schema/base-provider.schema.json` and `
 | `profiles/<baseId>/<profileKey>.json` | `ModelProfile` — concrete profile a user picks (e.g. `openai:gpt-55`). Has its own endpoint, auth wiring, `modelId`, profile status, and may extend the base's `schema`/`uiSchema`. |
 | `schema/base-provider.schema.json` | JSON Schema for `BaseProviderDefinition`. |
 | `schema/model-profile.schema.json` | JSON Schema for `ModelProfile`. |
-| `index.json` | Mirror of every base provider + profile (used for fast HTTP catalog lookup). v4 sets `schemaVersion: 4`. |
-| `scripts/validate.mjs` | Cross-consistency validator. Run before every commit. Zero deps. |
+| `index.json` | **Generated.** Tiny gate + manifest: `{ schemaVersion, hash, baseProviders[], profiles[] }`. The client fetches this every menu entry and re-downloads `catalog.json` only when `hash` differs. |
+| `catalog.json` | **Generated.** The whole registry in one file (all base providers + profiles inline, plus `baseProviderHashes`/`profileHashes` maps). The client downloads this one file on a hash change — no per-file fan-out. |
+| `scripts/build.mjs` | **Generator.** Reads the per-file sources → writes `index.json` + `catalog.json`. Deterministic (canonical key-sorted hashing). Zero deps. |
+| `scripts/validate.mjs` | Cross-consistency validator + stale-artifact check (recomputes hashes; fails if `build.mjs` wasn't re-run). Run before every commit. Zero deps. |
+
+**Source of truth = the per-file `base-providers/*.json` and `profiles/<baseId>/*.json`.** `index.json` and `catalog.json` are build artifacts — never hand-edit them.
+
+**Gate = content hash, not a version/timestamp.** `build.mjs` hashes the catalog; the client re-downloads only when the hash differs ("different ⇒ adopt the published version"). No `updatedAt`/`contentVersion` bump to remember. (Per-profile `updatedAt` inside profiles is passed through untouched — the per-preset "update available" check still uses it.)
+
+### Maintenance flow (every change)
+
+```
+1. edit profiles/<provider>/<key>.json (or base-providers/*.json)   ← source only
+2. node scripts/build.mjs       → regenerates index.json + catalog.json
+3. node scripts/validate.mjs    → schema + hash-consistency (catches "forgot to rebuild")
+4. git commit                   → commit sources + index.json + catalog.json together
+```
+
+Deploy order when the client fetch format changes: **registry first, client after** (per-file profiles stay published, so an older client still resolves).
 
 PocketRisu v4 consumes this layout via a bundled snapshot inside `Risuai-NodeOnly/src/ts/preset/registry/bundled/`. Bundled copy mirrors the same `base-providers/` and `profiles/<baseId>/` paths; sync at release time.
 
