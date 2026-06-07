@@ -1,7 +1,12 @@
 {
   "schemaVersion": 4,
-  "hash": "785ab5af2cf018fc348ecf5c9314ad280bb8a3927556dd4ec6d7cb01673f9737",
+  "hash": "133b0834d3bc714ae6c97f2b84058eaf95b2576ed51a06f00234798281daa38c",
   "baseProviders": [
+    {
+      "id": "anthropic-compatible",
+      "url": "base-providers/anthropic-compatible.json",
+      "hash": "a551813a000d025607590d06952cd530d73223a2ef3546c061a74edbe35c75ec"
+    },
     {
       "id": "anthropic",
       "url": "base-providers/anthropic.json",
@@ -118,6 +123,16 @@
       "id": "anthropic:sonnet-46",
       "url": "profiles/anthropic/sonnet-46.json",
       "hash": "619d57b44a4144274c892436461f8de3441ea33b622c1caac9fce7d797bb3c65"
+    },
+    {
+      "id": "anthropic-compatible:custom-noauth",
+      "url": "profiles/anthropic-compatible/custom-noauth.json",
+      "hash": "0733ab30b5e607cadae59a94f2714cd033efa1a225a2d990b8a92481354c50ec"
+    },
+    {
+      "id": "anthropic-compatible:custom",
+      "url": "profiles/anthropic-compatible/custom.json",
+      "hash": "974516690e49db6f15e5bd744fd08ba9d3855685d74e55437cf7fe4209578481"
     },
     {
       "id": "bedrock:openai-compatible",

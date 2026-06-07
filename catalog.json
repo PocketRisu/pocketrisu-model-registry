@@ -1,7 +1,238 @@
 {
   "schemaVersion": 4,
-  "hash": "785ab5af2cf018fc348ecf5c9314ad280bb8a3927556dd4ec6d7cb01673f9737",
+  "hash": "133b0834d3bc714ae6c97f2b84058eaf95b2576ed51a06f00234798281daa38c",
   "baseProviders": {
+    "anthropic-compatible": {
+      "id": "anthropic-compatible",
+      "version": 1,
+      "displayName": "Anthropic Compatible (Custom)",
+      "adapterKind": "anthropic-messages",
+      "authKinds": [
+        "x-api-key",
+        "none"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json",
+        "anthropic-version": "2023-06-01"
+      },
+      "defaultBody": {
+        "max_tokens": 4096
+      },
+      "requestSchema": [
+        {
+          "key": "endpointUrl",
+          "type": "string",
+          "label": "Endpoint URL",
+          "description": "Full Anthropic Messages URL (e.g. http://localhost:4141/v1/messages). Use for proxies that speak the Anthropic Messages wire format (GitHub Copilot bridges, LiteLLM Anthropic passthrough, etc.).",
+          "required": true,
+          "mapsTo": {
+            "target": "custom",
+            "path": "endpointUrl"
+          },
+          "descriptionI18n": {
+            "ko": "전체 Anthropic Messages URL (예: http://localhost:4141/v1/messages). Anthropic Messages 포맷을 따르는 프록시용 (GitHub Copilot 브릿지, LiteLLM Anthropic 패스스루 등)."
+          }
+        },
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "Sent as the x-api-key header. Leave empty only when using the no-auth profile.",
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "x-api-key 헤더로 전송됩니다. 인증 없는 프로파일을 쓸 때만 비워두세요."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Model identifier accepted by the upstream endpoint (e.g. claude-sonnet-4-5).",
+          "required": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "상위 엔드포인트가 허용하는 모델 ID (예: claude-sonnet-4-5)."
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "description": "Anthropic Messages requires max_tokens on every request.",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096,
+          "descriptionI18n": {
+            "ko": "Anthropic Messages는 모든 요청에 max_tokens가 필요합니다."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "top_k",
+          "type": "integer",
+          "label": "Top K",
+          "min": 0,
+          "max": 500,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_k"
+          }
+        },
+        {
+          "key": "stop_sequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop_sequences"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "endpoint",
+            "label": "Endpoint",
+            "order": 1,
+            "labelI18n": {
+              "ko": "엔드포인트"
+            }
+          },
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 2,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 3,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 4,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "endpointUrl",
+            "widget": "text",
+            "visibility": "basic",
+            "group": "endpoint",
+            "order": 1,
+            "placeholder": "http://localhost:4141/v1/messages"
+          },
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "text",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "top_k",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "stop_sequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/api/messages"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://platform.claude.com/docs/en/api/messages"
+        ],
+        "notes": "Model-dependent provider. Context and output token limits vary by the upstream endpoint and selected model, so PocketRisu uses a number input instead of a fixed-limit slider."
+      }
+    },
     "anthropic": {
       "id": "anthropic",
       "version": 1,
@@ -6180,6 +6411,95 @@
         ]
       },
       "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "anthropic-compatible:custom-noauth": {
+      "id": "anthropic-compatible:custom-noauth",
+      "version": 1,
+      "displayName": "Anthropic Compatible (Custom, no auth)",
+      "providerBaseId": "anthropic-compatible",
+      "description": "Generic Anthropic Messages endpoint without authentication. Use for local bridges (e.g. a GitHub Copilot proxy on localhost) or any gateway that does not require an API key.",
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": ""
+      },
+      "auth": {
+        "kind": "none",
+        "fields": []
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "hidden",
+            "group": "credentials"
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/api/messages"
+      ],
+      "tags": [
+        "custom",
+        "anthropic-compatible",
+        "noauth"
+      ],
+      "sortOrder": 7030,
+      "recommendedTokenizer": "claude",
+      "displayNameI18n": {
+        "ko": "Anthropic 호환 (커스텀, 인증 없음)"
+      },
+      "profileStatus": "current"
+    },
+    "anthropic-compatible:custom": {
+      "id": "anthropic-compatible:custom",
+      "version": 1,
+      "displayName": "Anthropic Compatible (Custom)",
+      "providerBaseId": "anthropic-compatible",
+      "description": "Generic Anthropic Messages endpoint. Provide your own URL, key, and model id. Use for proxies that speak the Anthropic wire format (e.g. a GitHub Copilot bridge).",
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": ""
+      },
+      "auth": {
+        "kind": "x-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/api/messages"
+      ],
+      "tags": [
+        "custom",
+        "anthropic-compatible"
+      ],
+      "sortOrder": 7020,
+      "recommendedTokenizer": "claude",
+      "displayNameI18n": {
+        "ko": "Anthropic 호환 (커스텀)"
+      },
+      "descriptionI18n": {
+        "ko": "범용 Anthropic Messages 엔드포인트. URL, 키, 모델 ID를 직접 입력합니다. Anthropic 포맷을 따르는 프록시용 (예: GitHub Copilot 브릿지)."
+      },
       "profileStatus": "current"
     },
     "bedrock:openai-compatible": {
@@ -21097,6 +21417,7 @@
     }
   },
   "baseProviderHashes": {
+    "anthropic-compatible": "a551813a000d025607590d06952cd530d73223a2ef3546c061a74edbe35c75ec",
     "anthropic": "52268f92498a8d181d78098077eb1f34ca38e47457515bfeeac25963a60d77c2",
     "bedrock": "30d85601a597e964b00f09c8972b4a7654e28afe32891a49039830b1f1bc4b2a",
     "deepinfra": "c75425c339fe1b390df34aad812b776a8199729821038a03ba1b8f8ecbda5b3e",
@@ -21122,6 +21443,8 @@
     "anthropic:sonnet-4": "02e291c45b9dcd443e764c3df396c0b6ee1994a1dc9a63f64df8c41d84e55b34",
     "anthropic:sonnet-45": "14d18d63f3aa94f01b888d6c1b2fe3390f909653581e28a1f9505dc8f1d1b449",
     "anthropic:sonnet-46": "619d57b44a4144274c892436461f8de3441ea33b622c1caac9fce7d797bb3c65",
+    "anthropic-compatible:custom-noauth": "0733ab30b5e607cadae59a94f2714cd033efa1a225a2d990b8a92481354c50ec",
+    "anthropic-compatible:custom": "974516690e49db6f15e5bd744fd08ba9d3855685d74e55437cf7fe4209578481",
     "bedrock:openai-compatible": "e4317519ab87ec59c35173a7d4c242f0753ac9ffaf0ed54aad626cb6bb57fed1",
     "deepinfra:openai-compatible": "73bc47c91611be1ada29339572ed1beb4bd4f05692b5230774cc0a0bd77fd394",
     "deepseek:v4-flash-thinking": "ddadbc7b3f8fc710892ca7f16720bd04ea5891c9cfce09c479f75751a31866b2",
