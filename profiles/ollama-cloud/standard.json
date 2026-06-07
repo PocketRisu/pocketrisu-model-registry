@@ -39,5 +39,6 @@
   "descriptionI18n": {
     "ko": "Ollama 호스팅 클라우드 추론. OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증."
   },
-  "profileStatus": "current"
+  "profileStatus": "current",
+  "updatedAt": 1780830394470
 }

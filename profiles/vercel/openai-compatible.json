@@ -41,5 +41,6 @@
   "descriptionI18n": {
     "ko": "Vercel AI Gateway (OpenAI 호환 API)."
   },
-  "profileStatus": "current"
+  "profileStatus": "current",
+  "updatedAt": 1780830394470
 }

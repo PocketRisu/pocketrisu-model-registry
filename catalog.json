@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "052c783eeab6edf7a07495c61a38f9c14ea4fe5d6ff9694c290c9263efea3da3",
+  "hash": "a41491cc4b716926ff8f9a9eacc413bc17b1553355642543daadacd2eb79645e",
   "baseProviders": {
     "anthropic": {
       "id": "anthropic",
@@ -11362,7 +11362,7 @@
     "nanogpt:deepseek-v4-flash": {
       "id": "nanogpt:deepseek-v4-flash",
       "version": 1,
-      "updatedAt": 1780599146598,
+      "updatedAt": 1780830394470,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -11422,7 +11422,7 @@
     "nanogpt:deepseek-v4-pro": {
       "id": "nanogpt:deepseek-v4-pro",
       "version": 1,
-      "updatedAt": 1780599146598,
+      "updatedAt": 1780830394470,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -11482,7 +11482,7 @@
     "nanogpt:gemma-4-31b": {
       "id": "nanogpt:gemma-4-31b",
       "version": 1,
-      "updatedAt": 1780599146598,
+      "updatedAt": 1780830394470,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
@@ -11543,7 +11543,7 @@
     "nanogpt:glm-51": {
       "id": "nanogpt:glm-51",
       "version": 1,
-      "updatedAt": 1780599146598,
+      "updatedAt": 1780830394470,
       "displayName": "GLM 5.1",
       "displayNameI18n": {
         "ko": "GLM 5.1"
@@ -11602,7 +11602,7 @@
     "nanogpt:gpt-oss-120b": {
       "id": "nanogpt:gpt-oss-120b",
       "version": 1,
-      "updatedAt": 1780599146598,
+      "updatedAt": 1780830394470,
       "displayName": "gpt-oss 120B",
       "displayNameI18n": {
         "ko": "gpt-oss 120B"
@@ -11661,7 +11661,7 @@
     "nanogpt:kimi-k26": {
       "id": "nanogpt:kimi-k26",
       "version": 1,
-      "updatedAt": 1780599146598,
+      "updatedAt": 1780830394470,
       "displayName": "Kimi K2.6",
       "displayNameI18n": {
         "ko": "Kimi K2.6"
@@ -11758,7 +11758,8 @@
         "ko": "NanoGPT"
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "current",
+      "updatedAt": 1780830394470
     },
     "ollama:openai-compatible-local": {
       "id": "ollama:openai-compatible-local",
@@ -11804,7 +11805,7 @@
     "ollama-cloud:deepseek-v4-flash": {
       "id": "ollama-cloud:deepseek-v4-flash",
       "version": 1,
-      "updatedAt": 1780598669297,
+      "updatedAt": 1780830394470,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -11866,7 +11867,7 @@
     "ollama-cloud:deepseek-v4-pro": {
       "id": "ollama-cloud:deepseek-v4-pro",
       "version": 1,
-      "updatedAt": 1780598669297,
+      "updatedAt": 1780830394470,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -11928,7 +11929,7 @@
     "ollama-cloud:gemma-4-31b": {
       "id": "ollama-cloud:gemma-4-31b",
       "version": 1,
-      "updatedAt": 1780598669297,
+      "updatedAt": 1780830394470,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
@@ -11991,7 +11992,7 @@
     "ollama-cloud:glm-51": {
       "id": "ollama-cloud:glm-51",
       "version": 1,
-      "updatedAt": 1780598669297,
+      "updatedAt": 1780830394470,
       "displayName": "GLM 5.1",
       "displayNameI18n": {
         "ko": "GLM 5.1"
@@ -12052,7 +12053,7 @@
     "ollama-cloud:gpt-oss-120b": {
       "id": "ollama-cloud:gpt-oss-120b",
       "version": 1,
-      "updatedAt": 1780598669297,
+      "updatedAt": 1780830394470,
       "displayName": "gpt-oss 120B",
       "displayNameI18n": {
         "ko": "gpt-oss 120B"
@@ -12113,7 +12114,7 @@
     "ollama-cloud:kimi-k26": {
       "id": "ollama-cloud:kimi-k26",
       "version": 1,
-      "updatedAt": 1780598669297,
+      "updatedAt": 1780830394470,
       "displayName": "Kimi K2.6",
       "displayNameI18n": {
         "ko": "Kimi K2.6"
@@ -12214,7 +12215,8 @@
       "descriptionI18n": {
         "ko": "Ollama 호스팅 클라우드 추론. OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증."
       },
-      "profileStatus": "current"
+      "profileStatus": "current",
+      "updatedAt": 1780830394470
     },
     "openai:gpt-4": {
       "id": "openai:gpt-4",
@@ -19626,7 +19628,7 @@
     "vercel:claude-opus-46": {
       "id": "vercel:claude-opus-46",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Claude Opus 4.6",
       "displayNameI18n": {
         "ko": "Claude Opus 4.6"
@@ -19683,7 +19685,7 @@
     "vercel:claude-opus-47": {
       "id": "vercel:claude-opus-47",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Claude Opus 4.7",
       "displayNameI18n": {
         "ko": "Claude Opus 4.7"
@@ -19740,7 +19742,7 @@
     "vercel:claude-opus-48": {
       "id": "vercel:claude-opus-48",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Claude Opus 4.8",
       "displayNameI18n": {
         "ko": "Claude Opus 4.8"
@@ -19797,7 +19799,7 @@
     "vercel:claude-sonnet-46": {
       "id": "vercel:claude-sonnet-46",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Claude Sonnet 4.6",
       "displayNameI18n": {
         "ko": "Claude Sonnet 4.6"
@@ -19854,7 +19856,7 @@
     "vercel:deepseek-v4-flash": {
       "id": "vercel:deepseek-v4-flash",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -19911,7 +19913,7 @@
     "vercel:deepseek-v4-pro": {
       "id": "vercel:deepseek-v4-pro",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -19967,7 +19969,7 @@
     "vercel:gemini-3-flash": {
       "id": "vercel:gemini-3-flash",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Gemini 3 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3 Flash"
@@ -20024,7 +20026,7 @@
     "vercel:gemini-31-flash-lite": {
       "id": "vercel:gemini-31-flash-lite",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Gemini 3.1 Flash-Lite",
       "displayNameI18n": {
         "ko": "Gemini 3.1 Flash-Lite"
@@ -20081,7 +20083,7 @@
     "vercel:gemini-31-pro": {
       "id": "vercel:gemini-31-pro",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Gemini 3.1 Pro",
       "displayNameI18n": {
         "ko": "Gemini 3.1 Pro"
@@ -20138,7 +20140,7 @@
     "vercel:gemini-35-flash": {
       "id": "vercel:gemini-35-flash",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Gemini 3.5 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3.5 Flash"
@@ -20195,7 +20197,7 @@
     "vercel:gemma-4-26b": {
       "id": "vercel:gemma-4-26b",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Gemma 4 26B",
       "displayNameI18n": {
         "ko": "Gemma 4 26B"
@@ -20252,7 +20254,7 @@
     "vercel:gemma-4-31b": {
       "id": "vercel:gemma-4-31b",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
@@ -20308,7 +20310,7 @@
     "vercel:glm-51": {
       "id": "vercel:glm-51",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GLM 5.1",
       "displayNameI18n": {
         "ko": "GLM 5.1"
@@ -20365,7 +20367,7 @@
     "vercel:gpt-5-mini": {
       "id": "vercel:gpt-5-mini",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5 Mini",
       "displayNameI18n": {
         "ko": "GPT-5 Mini"
@@ -20422,7 +20424,7 @@
     "vercel:gpt-5-nano": {
       "id": "vercel:gpt-5-nano",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5 Nano",
       "displayNameI18n": {
         "ko": "GPT-5 Nano"
@@ -20479,7 +20481,7 @@
     "vercel:gpt-5": {
       "id": "vercel:gpt-5",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5",
       "displayNameI18n": {
         "ko": "GPT-5"
@@ -20536,7 +20538,7 @@
     "vercel:gpt-51-instant": {
       "id": "vercel:gpt-51-instant",
       "version": 1,
-      "updatedAt": 1780827296328,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.1 Instant",
       "displayNameI18n": {
         "ko": "GPT-5.1 Instant"
@@ -20593,7 +20595,7 @@
     "vercel:gpt-51-thinking": {
       "id": "vercel:gpt-51-thinking",
       "version": 1,
-      "updatedAt": 1780827296328,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.1 Thinking",
       "displayNameI18n": {
         "ko": "GPT-5.1 Thinking"
@@ -20650,7 +20652,7 @@
     "vercel:gpt-52": {
       "id": "vercel:gpt-52",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.2",
       "displayNameI18n": {
         "ko": "GPT-5.2"
@@ -20707,7 +20709,7 @@
     "vercel:gpt-54-mini": {
       "id": "vercel:gpt-54-mini",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.4 Mini",
       "displayNameI18n": {
         "ko": "GPT-5.4 Mini"
@@ -20764,7 +20766,7 @@
     "vercel:gpt-54-nano": {
       "id": "vercel:gpt-54-nano",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.4 Nano",
       "displayNameI18n": {
         "ko": "GPT-5.4 Nano"
@@ -20821,7 +20823,7 @@
     "vercel:gpt-54": {
       "id": "vercel:gpt-54",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.4",
       "displayNameI18n": {
         "ko": "GPT-5.4"
@@ -20878,7 +20880,7 @@
     "vercel:gpt-55": {
       "id": "vercel:gpt-55",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "GPT-5.5",
       "displayNameI18n": {
         "ko": "GPT-5.5"
@@ -20935,7 +20937,7 @@
     "vercel:kimi-k26": {
       "id": "vercel:kimi-k26",
       "version": 1,
-      "updatedAt": 1780597639744,
+      "updatedAt": 1780830394470,
       "displayName": "Kimi K2.6",
       "displayNameI18n": {
         "ko": "Kimi K2.6"
@@ -21032,7 +21034,8 @@
       "descriptionI18n": {
         "ko": "Vercel AI Gateway (OpenAI 호환 API)."
       },
-      "profileStatus": "current"
+      "profileStatus": "current",
+      "updatedAt": 1780830394470
     },
     "vertex-openai:standard": {
       "id": "vertex-openai:standard",
@@ -21076,7 +21079,8 @@
         "ko": "Vertex AI (OpenAI 호환)"
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "current"
+      "profileStatus": "current",
+      "updatedAt": 1780830394470
     }
   },
   "baseProviderHashes": {
@@ -21120,21 +21124,21 @@
     "google:gemini-35-flash": "ea27cfc03c58a20ffde1c853a9afd88d8304b0fe9f4e970ea36a12353d410d6e",
     "google:gemma-4-26b": "d7a3be619fbca63459dc5af2e77fed2d51f9a2ee3a5e4c13c9de34478d53e08a",
     "google:gemma-4-31b": "928240029cceef0560f4474ef20d7ca8a2c06a9084acdfb5ce4fcd8bb5371379",
-    "nanogpt:deepseek-v4-flash": "5a5b6aaf663a599eca7dd05680a18f581be933ebf6509b0e42cb5fcb55dd7bf3",
-    "nanogpt:deepseek-v4-pro": "731b79d5b6c7045f521c24be2376937aeba07bf8bb915f5ca28b1a70a3394ff9",
-    "nanogpt:gemma-4-31b": "5f75458405bf9b6e56d68e59b9e98446ef79ba1d052595efbc452cbcc941bc71",
-    "nanogpt:glm-51": "3fa6a076c7e52617fd42ba5e07f66a5d57284f3261bf4261cb99d460d6afe365",
-    "nanogpt:gpt-oss-120b": "6bd87eed88bb4ba4606fd804cb30bcd47b6932f8538159a69f25d1852a23d013",
-    "nanogpt:kimi-k26": "f1adb682c50a57cfb98c9619da0cf0af1bef35d1347837d7da4b1a1f8eb007a0",
-    "nanogpt:openai-compatible": "d9e08f1ad84e7207dd4041e6d58b130885d496e563bc181173430e1fdeb89eb2",
+    "nanogpt:deepseek-v4-flash": "5b5014ff4b295a85dc3fd11f470c100cea8076152489143328db815e2f468b3e",
+    "nanogpt:deepseek-v4-pro": "90e51555d009581698e41bcd02593717f2d885dfe4ed54f9871640a73295d8a8",
+    "nanogpt:gemma-4-31b": "c70a1cb1df6d88d3c904f0905e77213315f71dcc3c46bf3745adfd0c159787a1",
+    "nanogpt:glm-51": "8e7cce8968963ec4c746e4cbdc1280abf67c6f7525b8e21ac2575aa80ee77e5f",
+    "nanogpt:gpt-oss-120b": "f06828bfd553730526aa31c71ac7c9464234df5c0947b71cb7e5c416d8b66108",
+    "nanogpt:kimi-k26": "fdc819922e3f5c0519bd6e914228b299bf5d8521b5317900ad7e2d2d087d2665",
+    "nanogpt:openai-compatible": "34caeb020c92d32881c77661a52ab0dd4d0ae5bf5c1c595e5042d9f65c005e46",
     "ollama:openai-compatible-local": "626020e05a68a54259f794002ab4672b4c2258f9bb934f7c3fd8e4ab3438983f",
-    "ollama-cloud:deepseek-v4-flash": "3609224de955b88d31f453556b9f11cb26e7091aed07ef5fc1611f7198782a42",
-    "ollama-cloud:deepseek-v4-pro": "1ba1dbac17163786d0e9ac15e32f1c53a27743ef332fbd4635f06e049a0363b0",
-    "ollama-cloud:gemma-4-31b": "37381d3915ceee1cad67c1f17af37b583cfac2490ece0d9e6843895cc2bdf033",
-    "ollama-cloud:glm-51": "868d5aa4c036fb4826a4e457eeb1b5cfaa33eab282b298c0a56e09f22fab42cf",
-    "ollama-cloud:gpt-oss-120b": "f58d52392770974070ef5b7ea10fccc023d0c77c89cd30322e83703123d9da97",
-    "ollama-cloud:kimi-k26": "13d3bfcf3fe9da5c3550c9fac4355abcc354006fa2c22bf5ea63dbf7ef6301f4",
-    "ollama-cloud:standard": "2302416a549f2074f98709c7b42fa07ef892445f831d1279adfee5c9337a89c3",
+    "ollama-cloud:deepseek-v4-flash": "91ad0419ca617589a8a0513c0344b723cb0569393fe3c7a929e541b460a3b13d",
+    "ollama-cloud:deepseek-v4-pro": "25bd826fb1f02dbe18cd6fa2d5ad50ce9dede6f6d2403ccbad53a9edc85b9c6c",
+    "ollama-cloud:gemma-4-31b": "03dfc25bcded326c2a2eb504bac68d3df81d275925a8d7d8791b76ae1a8006a8",
+    "ollama-cloud:glm-51": "ac912e832cfd714fdc2285b9e0ba05b04b1fe9710407fb70a8c677508f0205e9",
+    "ollama-cloud:gpt-oss-120b": "08da93f7c4b7773c486a8232d2bda6a9cd6958fb318c406d56b7dc06c8ac9f0e",
+    "ollama-cloud:kimi-k26": "0e5b5f9aea8c9251a3995ffb0fad431da204307253351876ef9c8d5b5ce3b139",
+    "ollama-cloud:standard": "e30893ec672c8e2b672611edf8867e6e0bc8cd7ea49366cfadd21762f53a4240",
     "openai:gpt-4": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299",
     "openai:gpt-41-mini": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4",
     "openai:gpt-41": "c997a8c6d6c59b2413146ec3904b13e7e3ad58a30d0fcef544135679600f01ed",
@@ -21176,31 +21180,31 @@
     "openrouter:gpt-55": "8c7594d27e7d71ac0da2d32af859a07b4292801a1b416d866525988ce817b8ae",
     "openrouter:kimi-k26": "9999039e4e7ed152e97c2b0d1c75e751a2f9f40582cd416625220aac3a804ed9",
     "openrouter:openai-compatible": "56bf578acbc147b68d8fc91d9b077cb75ae8ce6ede385f5e7062dc7ce3f0c2c1",
-    "vercel:claude-opus-46": "a217132b461c1834f1a65b9f0eacddffaa692604a439ab7e8ec3a302b14c123c",
-    "vercel:claude-opus-47": "ee482832938fd1489dc3a782217c8bdcbaec3fa13e427db41ec69abb68965939",
-    "vercel:claude-opus-48": "34526504d334894797532f9d0535d1081fb489977bd283c64ffb08125972e4ce",
-    "vercel:claude-sonnet-46": "1d6ed5e245a5dbc35d62520f53443306db70788d9e11c61d55cc8a65be470a16",
-    "vercel:deepseek-v4-flash": "1d67e93126040441998151f9ca7ae1279a08f5ae9c71fe99aaf3e6035affcdc7",
-    "vercel:deepseek-v4-pro": "dcb06115e41aa1dedae0a41a3b5445236a004d539a1e1838d47667dcec77c923",
-    "vercel:gemini-3-flash": "5abdbee59b540457d5aa772771312ca324a99c0cc7cfcbc2cc1536f7fd72484c",
-    "vercel:gemini-31-flash-lite": "68fe7d8fbe4ac179755373cb166774495a2c74e55db72c4fbd32bef715b56f9f",
-    "vercel:gemini-31-pro": "b2514122791ffa0a46780e8b1da02106fec0fd1342e43bca78ab6ba1b4c71a35",
-    "vercel:gemini-35-flash": "dc57b382ec2fd3cf3a33f240887d86640e760c38c8e9511980643578988e421c",
-    "vercel:gemma-4-26b": "f5da9bc225991924d81d973c3bbb867732b37e705a22fec1d0853bd2bf60cbd8",
-    "vercel:gemma-4-31b": "ace5b83ac0b7271d85eed045d202c2031401472593aecba667f743c4b66e53a5",
-    "vercel:glm-51": "65ec91f71a410f99a7e326c572cc3e2171d54784174ab486636024f8f2c18f15",
-    "vercel:gpt-5-mini": "b17a75906aa92b7c5703ded2a95c9f8a5b3df9987d47e18dfa597501153f34b1",
-    "vercel:gpt-5-nano": "996bb9165596f1f6567dd8307248ff7bc036243afad84f5ef6aff85e6fbf4c82",
-    "vercel:gpt-5": "e86a35b214fe8b8a2570b0c551ae6144d12381b3354da6455c6e2a3b87a0eeae",
-    "vercel:gpt-51-instant": "49951784af261200b75ad741fd1066eaacd41c2a83df765a161aa29502a89e2c",
-    "vercel:gpt-51-thinking": "053384ab1c24f667c4d2e38d913c4dea8404739b1c65717baa6ba79066af307c",
-    "vercel:gpt-52": "2165cc106f107c55c158d15cb8db0d135c6a0d020d7f0eba46aff1e40ec96932",
-    "vercel:gpt-54-mini": "dfd0e35627949ae11f40202844be7c6f4c542a46a7321ca2e73cb761b488f05a",
-    "vercel:gpt-54-nano": "c2e69f585a06b47a6f1ac0d3b2a9f106adb068e25a8f5479e2f23927f75b7aec",
-    "vercel:gpt-54": "adb6437f602bd43f9ff252c72a5962ecb8fe60002c4810efdb5f5ba2ac134fd5",
-    "vercel:gpt-55": "5a886037f668430f47a5b828573f4c6ab11f1fbffb9602adf34c1f15ee90c33a",
-    "vercel:kimi-k26": "eca8614f4f7b248b0d9c1fb09cbfd335361e0fcec0116f9a96d23719361a4c69",
-    "vercel:openai-compatible": "42a02abfc665b38d1e6c368378084dc4c6f913a1fee70c17ef5892cc7b5ae89b",
-    "vertex-openai:standard": "43b0817e27be46a89979012a330529d2c9eaac9336150469c132c0d55afba78b"
+    "vercel:claude-opus-46": "3a7f3a8493349e7cbc06cd703179837975d84afc6938281e474401cf9a23f650",
+    "vercel:claude-opus-47": "63fdfa54a8d0bdb252f1b1c54d9b8b956a744ea2c1f5b11d2d65c4f90a5fa43a",
+    "vercel:claude-opus-48": "22ffe6beb37c6b1d051b095f1a0fd7675e7f231d6069693725bb7f53472373c8",
+    "vercel:claude-sonnet-46": "e77c98aad8ea23370b52604d765e99d1d8c86ff86b6c70e9082489054a2e1855",
+    "vercel:deepseek-v4-flash": "8b8d50929aa37edc9000d9de675708f337de20792881d5eaab2b0ec213a00ed2",
+    "vercel:deepseek-v4-pro": "625fa3d594984ad2f28ed46eb7b542fbd9388eecabd5a02ab3cb616fd7cc72d4",
+    "vercel:gemini-3-flash": "c03c46a4001099c8626ae321eaae0a0b5761bd6e8445cf762e9a96d9f19cb5f9",
+    "vercel:gemini-31-flash-lite": "b2ea08d4418fa7097d2dfa558ee4aab23f9b7403433fa936b976ac24ae79b4ff",
+    "vercel:gemini-31-pro": "22340343e48900feaca0502aafe893730af27dd84660a0db3b9ea571fc7d02f8",
+    "vercel:gemini-35-flash": "4a6e6cebb90a029be5e7bc0696005e585e50747cba39ba54c1815b7d57658d24",
+    "vercel:gemma-4-26b": "8c8460a42ef8144121371cb471b44f05e42f9a86a81da7fb716dc0ec8c4c9b1b",
+    "vercel:gemma-4-31b": "5d8d7b5cf589d583061ec8fd308ae0a9d7a0715209eecff0255b0d729b319c96",
+    "vercel:glm-51": "8dbea4d3f79980678c299cd1ca418f2e3837b3f3a772ddd95f96a001faee704d",
+    "vercel:gpt-5-mini": "5619a168f89140bd725b71a1b8c650545d6e2faaf6cc1ab7b2b5e74082c70cd9",
+    "vercel:gpt-5-nano": "537c90dd34ea3861fbe713a27928d2d527816fc8b1e8994a018282587a9c13f8",
+    "vercel:gpt-5": "0c29e813bd4aa317f03cee6f029b618f9174c1f9dd26a12ad9665dfc90bc6569",
+    "vercel:gpt-51-instant": "931b743870b60b9c7827e653577c551f3ead13632a63bf8947bd12cbf39f1125",
+    "vercel:gpt-51-thinking": "c3c5b80070d1c1c5c928e8380e5fae6dabff1a89d5b1c276ae6afa2fefc3ed27",
+    "vercel:gpt-52": "c0253ff320028928cc81f80101dc54a8274fbaffa52007b75765be81b495fff3",
+    "vercel:gpt-54-mini": "cd13695270b3a667f3a41f3b4367538381f3a06a7f8174abf92970f9533539c4",
+    "vercel:gpt-54-nano": "4bdfd707927151eabee105afe611a2964bf912282b36d3fedc75f523f29f2aa8",
+    "vercel:gpt-54": "949899a6952f3333b041f39f371487558fa55f7875601d7bf12140829a9d9afb",
+    "vercel:gpt-55": "8491128e244b04ea138774852992f0f58398cf8f0da5f44ccdc9b549b538d3ff",
+    "vercel:kimi-k26": "50c00f93ebce363564968e48c3952c1af842aac0bd46709fdd2339549e8db87f",
+    "vercel:openai-compatible": "54f89e147fb80159af10752790e4e0e68b0f43b2a02994a39c592b0450cb7350",
+    "vertex-openai:standard": "64cee4878321d32a6cb465b7599827e380c30caa9653b0450483f8447d9120df"
   }
 }

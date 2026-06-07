@@ -37,5 +37,6 @@
     "ko": "NanoGPT"
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "current",
+  "updatedAt": 1780830394470
 }

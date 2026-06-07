@@ -40,5 +40,6 @@
     "ko": "Vertex AI (OpenAI 호환)"
   },
   "recommendedTokenizer": "gemma",
-  "profileStatus": "current"
+  "profileStatus": "current",
+  "updatedAt": 1780830394470
 }
