@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "42bfab94976a9dc3a883ac23e89149be980684983a300c34b5a965ddf55c48b3",
+  "hash": "0489811a7f68aadc72844c63a85a03eb328dba3d355809e094562dbe58c08aa5",
   "baseProviders": {
     "anthropic": {
       "id": "anthropic",
@@ -2566,6 +2566,45 @@
           }
         },
         {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "minimal",
+              "label": "Minimal"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning.effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+          }
+        },
+        {
           "key": "temperature",
           "type": "number",
           "label": "Temperature",
@@ -2668,6 +2707,14 @@
             "labelI18n": {
               "ko": "생성"
             }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
           }
         ],
         "fields": [
@@ -2733,6 +2780,13 @@
             "visibility": "advanced",
             "group": "generation",
             "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
           }
         ]
       },
@@ -20179,7 +20233,7 @@
         "vercel",
         "gpt"
       ],
-      "sortOrder": 556,
+      "sortOrder": 558,
       "modelId": "openai/gpt-5-mini",
       "endpoint": {
         "kind": "static",
@@ -20236,7 +20290,7 @@
         "vercel",
         "gpt"
       ],
-      "sortOrder": 557,
+      "sortOrder": 559,
       "modelId": "openai/gpt-5-nano",
       "endpoint": {
         "kind": "static",
@@ -20293,8 +20347,122 @@
         "vercel",
         "gpt"
       ],
-      "sortOrder": 555,
+      "sortOrder": 557,
       "modelId": "openai/gpt-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 400000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:gpt-51-instant": {
+      "id": "vercel:gpt-51-instant",
+      "version": 1,
+      "updatedAt": 1780827296328,
+      "displayName": "GPT-5.1 Instant",
+      "displayNameI18n": {
+        "ko": "GPT-5.1 Instant"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-5.1 Instant via Vercel AI Gateway (openai/gpt-5.1-instant).",
+      "descriptionI18n": {
+        "ko": "GPT-5.1 Instant (Vercel AI Gateway, openai/gpt-5.1-instant)."
+      },
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 556,
+      "modelId": "openai/gpt-5.1-instant",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 128000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 16384
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:gpt-51-thinking": {
+      "id": "vercel:gpt-51-thinking",
+      "version": 1,
+      "updatedAt": 1780827296328,
+      "displayName": "GPT-5.1 Thinking",
+      "displayNameI18n": {
+        "ko": "GPT-5.1 Thinking"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-5.1 Thinking via Vercel AI Gateway (openai/gpt-5.1-thinking).",
+      "descriptionI18n": {
+        "ko": "GPT-5.1 Thinking (Vercel AI Gateway, openai/gpt-5.1-thinking)."
+      },
+      "tags": [
+        "vercel",
+        "gpt"
+      ],
+      "sortOrder": 555,
+      "modelId": "openai/gpt-5.1-thinking",
       "endpoint": {
         "kind": "static",
         "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
@@ -20777,7 +20945,7 @@
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "7bd14ec7888a6765cfdea05007b5382a19e57f41a1bc48301a3cd762071d4074",
-    "vercel": "f9d95829f6ad3b4f0adde9b28a2fca3905ef23abb81a5cf70ef2d08ce446cc3c",
+    "vercel": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea",
     "vertex-openai": "f53835855aae6c9d4ce1c5f3103c06fc3fb4e05700b8f5fb1fca4b55e0c2c565"
   },
   "profileHashes": {
@@ -20875,9 +21043,11 @@
     "vercel:gemma-4-26b": "f5da9bc225991924d81d973c3bbb867732b37e705a22fec1d0853bd2bf60cbd8",
     "vercel:gemma-4-31b": "ace5b83ac0b7271d85eed045d202c2031401472593aecba667f743c4b66e53a5",
     "vercel:glm-51": "65ec91f71a410f99a7e326c572cc3e2171d54784174ab486636024f8f2c18f15",
-    "vercel:gpt-5-mini": "02abb83a3420acc6f42c71cba8bc8efff255085d2b516ef7f031292a9371f021",
-    "vercel:gpt-5-nano": "9496c2f106a0dfecb956a185a6094640d98b0a917eaba47a02190b9614e24b93",
-    "vercel:gpt-5": "b05a5cae48f8f8568b4bcee7e22ed1c0621d6fbb9634b99fe58237e65ae6a68a",
+    "vercel:gpt-5-mini": "b17a75906aa92b7c5703ded2a95c9f8a5b3df9987d47e18dfa597501153f34b1",
+    "vercel:gpt-5-nano": "996bb9165596f1f6567dd8307248ff7bc036243afad84f5ef6aff85e6fbf4c82",
+    "vercel:gpt-5": "e86a35b214fe8b8a2570b0c551ae6144d12381b3354da6455c6e2a3b87a0eeae",
+    "vercel:gpt-51-instant": "49951784af261200b75ad741fd1066eaacd41c2a83df765a161aa29502a89e2c",
+    "vercel:gpt-51-thinking": "053384ab1c24f667c4d2e38d913c4dea8404739b1c65717baa6ba79066af307c",
     "vercel:gpt-52": "2165cc106f107c55c158d15cb8db0d135c6a0d020d7f0eba46aff1e40ec96932",
     "vercel:gpt-54-mini": "dfd0e35627949ae11f40202844be7c6f4c542a46a7321ca2e73cb761b488f05a",
     "vercel:gpt-54-nano": "c2e69f585a06b47a6f1ac0d3b2a9f106adb068e25a8f5479e2f23927f75b7aec",

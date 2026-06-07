@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "42bfab94976a9dc3a883ac23e89149be980684983a300c34b5a965ddf55c48b3",
+  "hash": "0489811a7f68aadc72844c63a85a03eb328dba3d355809e094562dbe58c08aa5",
   "baseProviders": [
     {
       "id": "anthropic",
@@ -60,7 +60,7 @@
     {
       "id": "vercel",
       "url": "base-providers/vercel.json",
-      "hash": "f9d95829f6ad3b4f0adde9b28a2fca3905ef23abb81a5cf70ef2d08ce446cc3c"
+      "hash": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea"
     },
     {
       "id": "vertex-openai",
@@ -542,17 +542,27 @@
     {
       "id": "vercel:gpt-5-mini",
       "url": "profiles/vercel/gpt-5-mini.json",
-      "hash": "02abb83a3420acc6f42c71cba8bc8efff255085d2b516ef7f031292a9371f021"
+      "hash": "b17a75906aa92b7c5703ded2a95c9f8a5b3df9987d47e18dfa597501153f34b1"
     },
     {
       "id": "vercel:gpt-5-nano",
       "url": "profiles/vercel/gpt-5-nano.json",
-      "hash": "9496c2f106a0dfecb956a185a6094640d98b0a917eaba47a02190b9614e24b93"
+      "hash": "996bb9165596f1f6567dd8307248ff7bc036243afad84f5ef6aff85e6fbf4c82"
     },
     {
       "id": "vercel:gpt-5",
       "url": "profiles/vercel/gpt-5.json",
-      "hash": "b05a5cae48f8f8568b4bcee7e22ed1c0621d6fbb9634b99fe58237e65ae6a68a"
+      "hash": "e86a35b214fe8b8a2570b0c551ae6144d12381b3354da6455c6e2a3b87a0eeae"
+    },
+    {
+      "id": "vercel:gpt-51-instant",
+      "url": "profiles/vercel/gpt-51-instant.json",
+      "hash": "49951784af261200b75ad741fd1066eaacd41c2a83df765a161aa29502a89e2c"
+    },
+    {
+      "id": "vercel:gpt-51-thinking",
+      "url": "profiles/vercel/gpt-51-thinking.json",
+      "hash": "053384ab1c24f667c4d2e38d913c4dea8404739b1c65717baa6ba79066af307c"
     },
     {
       "id": "vercel:gpt-52",

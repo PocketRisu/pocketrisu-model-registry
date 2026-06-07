@@ -66,6 +66,45 @@
       }
     },
     {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "Reasoning depth. The gateway maps this to each model's native thinking config (e.g. Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort).",
+      "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "minimal",
+          "label": "Minimal"
+        },
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra High"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning.effort"
+      },
+      "descriptionI18n": {
+        "ko": "추론(사고) 강도. 게이트웨이가 모델별 thinking 설정(Gemini thinkingLevel/thinkingBudget, OpenAI reasoning effort 등)으로 변환합니다."
+      }
+    },
+    {
       "key": "temperature",
       "type": "number",
       "label": "Temperature",
@@ -168,6 +207,14 @@
         "labelI18n": {
           "ko": "생성"
         }
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 4,
+        "labelI18n": {
+          "ko": "추론"
+        }
       }
     ],
     "fields": [
@@ -233,6 +280,13 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 7
+      },
+      {
+        "key": "reasoning_effort",
+        "widget": "select",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
       }
     ]
   },
