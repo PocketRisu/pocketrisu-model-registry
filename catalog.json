@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "a41491cc4b716926ff8f9a9eacc413bc17b1553355642543daadacd2eb79645e",
+  "hash": "785ab5af2cf018fc348ecf5c9314ad280bb8a3927556dd4ec6d7cb01673f9737",
   "baseProviders": {
     "anthropic": {
       "id": "anthropic",
@@ -2337,6 +2337,10 @@
             {
               "value": "high",
               "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
             }
           ],
           "mapsTo": {
@@ -4754,8 +4758,8 @@
     },
     "anthropic:opus-47": {
       "id": "anthropic:opus-47",
-      "version": 1,
-      "updatedAt": 1780592606461,
+      "version": 2,
+      "updatedAt": 1780842360000,
       "displayName": "Claude Opus 4.7",
       "displayNameI18n": {
         "ko": "Claude Opus 4.7"
@@ -4852,6 +4856,10 @@
             {
               "value": "high",
               "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
             },
             {
               "value": "max",
@@ -5012,8 +5020,8 @@
     },
     "anthropic:opus-48": {
       "id": "anthropic:opus-48",
-      "version": 1,
-      "updatedAt": 1780592606461,
+      "version": 2,
+      "updatedAt": 1780842360000,
       "displayName": "Claude Opus 4.8",
       "displayNameI18n": {
         "ko": "Claude Opus 4.8"
@@ -5110,6 +5118,10 @@
             {
               "value": "high",
               "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
             },
             {
               "value": "max",
@@ -18277,7 +18289,7 @@
     "openrouter:claude-opus-46": {
       "id": "openrouter:claude-opus-46",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Claude Opus 4.6",
       "displayNameI18n": {
         "ko": "Claude Opus 4.6"
@@ -18334,7 +18346,7 @@
     "openrouter:claude-opus-47": {
       "id": "openrouter:claude-opus-47",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Claude Opus 4.7",
       "displayNameI18n": {
         "ko": "Claude Opus 4.7"
@@ -18391,7 +18403,7 @@
     "openrouter:claude-opus-48": {
       "id": "openrouter:claude-opus-48",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Claude Opus 4.8",
       "displayNameI18n": {
         "ko": "Claude Opus 4.8"
@@ -18448,7 +18460,7 @@
     "openrouter:claude-sonnet-46": {
       "id": "openrouter:claude-sonnet-46",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Claude Sonnet 4.6",
       "displayNameI18n": {
         "ko": "Claude Sonnet 4.6"
@@ -18505,7 +18517,7 @@
     "openrouter:deepseek-v4-flash": {
       "id": "openrouter:deepseek-v4-flash",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -18561,7 +18573,7 @@
     "openrouter:deepseek-v4-pro": {
       "id": "openrouter:deepseek-v4-pro",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -18617,7 +18629,7 @@
     "openrouter:gemini-3-flash": {
       "id": "openrouter:gemini-3-flash",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Gemini 3 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3 Flash"
@@ -18674,7 +18686,7 @@
     "openrouter:gemini-31-flash-lite": {
       "id": "openrouter:gemini-31-flash-lite",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Gemini 3.1 Flash-Lite",
       "displayNameI18n": {
         "ko": "Gemini 3.1 Flash-Lite"
@@ -18731,7 +18743,7 @@
     "openrouter:gemini-31-pro": {
       "id": "openrouter:gemini-31-pro",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Gemini 3.1 Pro",
       "displayNameI18n": {
         "ko": "Gemini 3.1 Pro"
@@ -18788,7 +18800,7 @@
     "openrouter:gemini-35-flash": {
       "id": "openrouter:gemini-35-flash",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Gemini 3.5 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3.5 Flash"
@@ -18845,7 +18857,7 @@
     "openrouter:gemma-4-26b": {
       "id": "openrouter:gemma-4-26b",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Gemma 4 26B",
       "displayNameI18n": {
         "ko": "Gemma 4 26B"
@@ -18901,7 +18913,7 @@
     "openrouter:gemma-4-31b": {
       "id": "openrouter:gemma-4-31b",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
@@ -18958,7 +18970,7 @@
     "openrouter:glm-51": {
       "id": "openrouter:glm-51",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GLM 5.1",
       "displayNameI18n": {
         "ko": "GLM 5.1"
@@ -19013,7 +19025,7 @@
     "openrouter:gpt-5-mini": {
       "id": "openrouter:gpt-5-mini",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5 Mini",
       "displayNameI18n": {
         "ko": "GPT-5 Mini"
@@ -19070,7 +19082,7 @@
     "openrouter:gpt-5-nano": {
       "id": "openrouter:gpt-5-nano",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5 Nano",
       "displayNameI18n": {
         "ko": "GPT-5 Nano"
@@ -19126,7 +19138,7 @@
     "openrouter:gpt-5": {
       "id": "openrouter:gpt-5",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5",
       "displayNameI18n": {
         "ko": "GPT-5"
@@ -19183,7 +19195,7 @@
     "openrouter:gpt-51": {
       "id": "openrouter:gpt-51",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5.1",
       "displayNameI18n": {
         "ko": "GPT-5.1"
@@ -19240,7 +19252,7 @@
     "openrouter:gpt-52": {
       "id": "openrouter:gpt-52",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5.2",
       "displayNameI18n": {
         "ko": "GPT-5.2"
@@ -19297,7 +19309,7 @@
     "openrouter:gpt-54-mini": {
       "id": "openrouter:gpt-54-mini",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5.4 Mini",
       "displayNameI18n": {
         "ko": "GPT-5.4 Mini"
@@ -19354,7 +19366,7 @@
     "openrouter:gpt-54-nano": {
       "id": "openrouter:gpt-54-nano",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5.4 Nano",
       "displayNameI18n": {
         "ko": "GPT-5.4 Nano"
@@ -19411,7 +19423,7 @@
     "openrouter:gpt-54": {
       "id": "openrouter:gpt-54",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5.4",
       "displayNameI18n": {
         "ko": "GPT-5.4"
@@ -19468,7 +19480,7 @@
     "openrouter:gpt-55": {
       "id": "openrouter:gpt-55",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "GPT-5.5",
       "displayNameI18n": {
         "ko": "GPT-5.5"
@@ -19525,7 +19537,7 @@
     "openrouter:kimi-k26": {
       "id": "openrouter:kimi-k26",
       "version": 1,
-      "updatedAt": 1780597329608,
+      "updatedAt": 1780842571073,
       "displayName": "Kimi K2.6",
       "displayNameI18n": {
         "ko": "Kimi K2.6"
@@ -19582,6 +19594,7 @@
     "openrouter:openai-compatible": {
       "id": "openrouter:openai-compatible",
       "version": 1,
+      "updatedAt": 1780842571073,
       "displayName": "OpenRouter",
       "providerBaseId": "openrouter",
       "description": "OpenRouter multi-vendor router via OpenAI-compatible API.",
@@ -21094,7 +21107,7 @@
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
-    "openrouter": "7bd14ec7888a6765cfdea05007b5382a19e57f41a1bc48301a3cd762071d4074",
+    "openrouter": "4024dd6e789bae10edd06daf997bfe78f596111b8e16aa44a509bd49d8873742",
     "vercel": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea",
     "vertex-openai": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
   },
@@ -21104,8 +21117,8 @@
     "anthropic:opus-41": "a7a68ca2240f421dc55ea743e76e6c2faa972beae61df60073f19a8db3f53273",
     "anthropic:opus-45": "711f77ea23800bdb7a21c3728e02164c75a0e0eea6a0db41fd277152d7a2a791",
     "anthropic:opus-46": "780591b9a74699ec67b1740d01ceea90dbaaad13dbb12115d4d2f9fb03b921c7",
-    "anthropic:opus-47": "2a3e13e5ff3522c4b7a3e72526467d890faa08c37e220238037b0a85109123ee",
-    "anthropic:opus-48": "b33a7432adfa2e5612cfea28316e555eac70f0c49fff204d812d2b13b15bc35e",
+    "anthropic:opus-47": "582476366d25b70060f4b7e332b830c485ee03837ab85b4529ccad5186cc1b5e",
+    "anthropic:opus-48": "d68949028518b236fab1974c05a079f46514ef951149536f9003c5cefb67082e",
     "anthropic:sonnet-4": "02e291c45b9dcd443e764c3df396c0b6ee1994a1dc9a63f64df8c41d84e55b34",
     "anthropic:sonnet-45": "14d18d63f3aa94f01b888d6c1b2fe3390f909653581e28a1f9505dc8f1d1b449",
     "anthropic:sonnet-46": "619d57b44a4144274c892436461f8de3441ea33b622c1caac9fce7d797bb3c65",
@@ -21156,30 +21169,30 @@
     "openai:o3": "4f4766b2e890712d3bf734bc9b64c186ef1366ab0928501e36a2c40c91f341e4",
     "openai-compatible:custom-noauth": "7048ecedbb15d1f851a38077305a2a78093277e81eb8e829f13f9b5f3f7ac696",
     "openai-compatible:custom": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b",
-    "openrouter:claude-opus-46": "045d267c689585eb3cc481f70f31b02d7884f546795dc36e566a43d5e0f15f7e",
-    "openrouter:claude-opus-47": "af2af6e9656ac08553b3483603682f2ccab809a08d18176e15293b32361719b7",
-    "openrouter:claude-opus-48": "2d297d74cccc2e45969aeeb03b54b7a500ef02ffa8adaf47facd43659598aaa8",
-    "openrouter:claude-sonnet-46": "a6698944f6d941f8d998522dd59f08cd09c89455af6f163222d065546f7315f1",
-    "openrouter:deepseek-v4-flash": "6a234c48ec4c42f6f297a19173aed2c6f7f75b675beb3cda8e5b5b81a7a62120",
-    "openrouter:deepseek-v4-pro": "094e32fbeb129cc1c646fe5237eb5f76ba944beaa22d5d755346362ec7442089",
-    "openrouter:gemini-3-flash": "5664f2a1c69cc99344fd80a0de27df289c5c9100fbbd5c735bcb2b4073c5510d",
-    "openrouter:gemini-31-flash-lite": "be13f1997863a7611fd37cc7e4a8b910cac9ef2925a0f533175138f3f7fd06c3",
-    "openrouter:gemini-31-pro": "742ca287bb54c09d89d9efed3d10aae964138bcc650f5e66007652fe2dab970f",
-    "openrouter:gemini-35-flash": "45026ebc0702662b297628f53db9ee6357946648ff5e81e47c19d5f6e248ce6c",
-    "openrouter:gemma-4-26b": "de28094c36aa0c26205c3e3c3cf72b1c723260eba4f5b673996f2be02de03bbe",
-    "openrouter:gemma-4-31b": "7febb771d90e2d0881f0c3481e3dad7c1f2b3b7db71098ffb0edfc10534fb1b7",
-    "openrouter:glm-51": "efd5345562846b920a8b3bee19834d4e9c86215d74d1cfde31c20452ddba02fc",
-    "openrouter:gpt-5-mini": "7857276d6e57fe7880248c0bdeab53e8b0d923de8bf15549d911230fb47babe3",
-    "openrouter:gpt-5-nano": "6a3af5523b108c6efaacb34c8910b9045e8dcf8b02442f8185aae13f1f7bedc8",
-    "openrouter:gpt-5": "616d59691eddbc1ee731e693d9e7d9c7931e9fd70a8a210e8df0f2897801f052",
-    "openrouter:gpt-51": "94ff67a9760ab0e572532a156f1619dcd1672872157732b291df90ffa23b4536",
-    "openrouter:gpt-52": "533f7f76152fce057bdaaa5d0c5cee8655e55efba0f2d0bbc88796e11314239e",
-    "openrouter:gpt-54-mini": "74e2a750e92513821a7bee645eb045828b96547eb6c7cc5d0434822fdab3f3a2",
-    "openrouter:gpt-54-nano": "df454c219993021401a4653ebd4a3a49e8b972ef710740ae606dd90275d28e0a",
-    "openrouter:gpt-54": "a15f734721e2a57bb8f67875457c392562bc9d53c649055acb48e8a27486eaf0",
-    "openrouter:gpt-55": "8c7594d27e7d71ac0da2d32af859a07b4292801a1b416d866525988ce817b8ae",
-    "openrouter:kimi-k26": "9999039e4e7ed152e97c2b0d1c75e751a2f9f40582cd416625220aac3a804ed9",
-    "openrouter:openai-compatible": "56bf578acbc147b68d8fc91d9b077cb75ae8ce6ede385f5e7062dc7ce3f0c2c1",
+    "openrouter:claude-opus-46": "43612b19fa5071bba2bda7494376ffb58a0ef871a617ebe8f0e631d7f88f3a7a",
+    "openrouter:claude-opus-47": "848b9218e017b40ea643a5c451423f7f6b665333b2178c19d86ecb52acd3e86b",
+    "openrouter:claude-opus-48": "d93b668ccc33cd19a642e7ece00195678058442626224bf72e2c2f6de1c56f17",
+    "openrouter:claude-sonnet-46": "b1a82cffc679991a2584a23940d1781b5071fd8bc28ee045e6949014aa9551f7",
+    "openrouter:deepseek-v4-flash": "cd4192adccfc4d0cfe4844b9fc59ad926c2ae6ca443ffdc72c4d1b98540a210b",
+    "openrouter:deepseek-v4-pro": "2b092e857f4b534ff40f437517bf18ce0ff4a316df98df68a9aa51f1209642d6",
+    "openrouter:gemini-3-flash": "b0968f443c287159f5f57a34d15dfd2ede290e3c49443701d0fb9de4147336bc",
+    "openrouter:gemini-31-flash-lite": "ab19cdce856c4c5f8f75f80b49888e04800d15002cb7d4975c6110dc7e214d42",
+    "openrouter:gemini-31-pro": "293b3d16c17139c31266825e1b0a1ebb8563a57b23f54bea3dce288b91dffa8c",
+    "openrouter:gemini-35-flash": "0417de658693431ecd2a3ac2d25556bcef6790bfe136f9209b518bc6617780e3",
+    "openrouter:gemma-4-26b": "d38a43dfc9ca909ee7fa0bc8ef2412ae88b6d69f72f5e66bf56508a4d80a0dac",
+    "openrouter:gemma-4-31b": "6e605dd610ada885bc4776b1fff71674f133a53655809ec18507001fe954dfb3",
+    "openrouter:glm-51": "48a6e7558451aeb4e1e50e3b000e0d17ba9eff29c5ecd014bf02f505e84c8ab1",
+    "openrouter:gpt-5-mini": "6cb7da94610fbfee14767e8f2788754a5db4abfe1f68ab37dfa03aaba69f0d46",
+    "openrouter:gpt-5-nano": "09eef2becbe76fe481dc7b3968a3b106fd40418e66bf0ccd2fa82b53f5651658",
+    "openrouter:gpt-5": "cb6d7f92666f2d2d3796188317344d0ea25d2f426661452940e263d8d22ec5ef",
+    "openrouter:gpt-51": "dbc9508027599070982539f9ea05ceb861884482dbca76ce65d0e0e6cca9a92c",
+    "openrouter:gpt-52": "7b56b1ac5fa0661b935e1431aa522f6d8f8ee7c8323d32928d158ebd135563e2",
+    "openrouter:gpt-54-mini": "b6575d6fe5b64033b69119cd6367be8f2668423472bffbc1e9cf10cb017deba7",
+    "openrouter:gpt-54-nano": "d7453c3f104497e3944dee07648bd8c79990a1bc9fa710f34cced01e6a82b3be",
+    "openrouter:gpt-54": "9b6fa690acc7bae20020aec878ba091919a5637244696f53b6db4227884cddd1",
+    "openrouter:gpt-55": "ad0ed48763c9df799872ca1a0887ec5b96f6d3ff423aba73f6f11520c336ceac",
+    "openrouter:kimi-k26": "aa03b7e5e09bad620554c5b610e63df3c6c15012635aceda5048445b98da1803",
+    "openrouter:openai-compatible": "a5bdf5e1b46700305fa7a013e8dfe1456e94b498f7a88bec20f7989d724563ce",
     "vercel:claude-opus-46": "3a7f3a8493349e7cbc06cd703179837975d84afc6938281e474401cf9a23f650",
     "vercel:claude-opus-47": "63fdfa54a8d0bdb252f1b1c54d9b8b956a744ea2c1f5b11d2d65c4f90a5fa43a",
     "vercel:claude-opus-48": "22ffe6beb37c6b1d051b095f1a0fd7675e7f231d6069693725bb7f53472373c8",

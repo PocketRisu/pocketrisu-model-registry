@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "a41491cc4b716926ff8f9a9eacc413bc17b1553355642543daadacd2eb79645e",
+  "hash": "785ab5af2cf018fc348ecf5c9314ad280bb8a3927556dd4ec6d7cb01673f9737",
   "baseProviders": [
     {
       "id": "anthropic",
@@ -55,7 +55,7 @@
     {
       "id": "openrouter",
       "url": "base-providers/openrouter.json",
-      "hash": "7bd14ec7888a6765cfdea05007b5382a19e57f41a1bc48301a3cd762071d4074"
+      "hash": "4024dd6e789bae10edd06daf997bfe78f596111b8e16aa44a509bd49d8873742"
     },
     {
       "id": "vercel",
@@ -97,12 +97,12 @@
     {
       "id": "anthropic:opus-47",
       "url": "profiles/anthropic/opus-47.json",
-      "hash": "2a3e13e5ff3522c4b7a3e72526467d890faa08c37e220238037b0a85109123ee"
+      "hash": "582476366d25b70060f4b7e332b830c485ee03837ab85b4529ccad5186cc1b5e"
     },
     {
       "id": "anthropic:opus-48",
       "url": "profiles/anthropic/opus-48.json",
-      "hash": "b33a7432adfa2e5612cfea28316e555eac70f0c49fff204d812d2b13b15bc35e"
+      "hash": "d68949028518b236fab1974c05a079f46514ef951149536f9003c5cefb67082e"
     },
     {
       "id": "anthropic:sonnet-4",
@@ -357,122 +357,122 @@
     {
       "id": "openrouter:claude-opus-46",
       "url": "profiles/openrouter/claude-opus-46.json",
-      "hash": "045d267c689585eb3cc481f70f31b02d7884f546795dc36e566a43d5e0f15f7e"
+      "hash": "43612b19fa5071bba2bda7494376ffb58a0ef871a617ebe8f0e631d7f88f3a7a"
     },
     {
       "id": "openrouter:claude-opus-47",
       "url": "profiles/openrouter/claude-opus-47.json",
-      "hash": "af2af6e9656ac08553b3483603682f2ccab809a08d18176e15293b32361719b7"
+      "hash": "848b9218e017b40ea643a5c451423f7f6b665333b2178c19d86ecb52acd3e86b"
     },
     {
       "id": "openrouter:claude-opus-48",
       "url": "profiles/openrouter/claude-opus-48.json",
-      "hash": "2d297d74cccc2e45969aeeb03b54b7a500ef02ffa8adaf47facd43659598aaa8"
+      "hash": "d93b668ccc33cd19a642e7ece00195678058442626224bf72e2c2f6de1c56f17"
     },
     {
       "id": "openrouter:claude-sonnet-46",
       "url": "profiles/openrouter/claude-sonnet-46.json",
-      "hash": "a6698944f6d941f8d998522dd59f08cd09c89455af6f163222d065546f7315f1"
+      "hash": "b1a82cffc679991a2584a23940d1781b5071fd8bc28ee045e6949014aa9551f7"
     },
     {
       "id": "openrouter:deepseek-v4-flash",
       "url": "profiles/openrouter/deepseek-v4-flash.json",
-      "hash": "6a234c48ec4c42f6f297a19173aed2c6f7f75b675beb3cda8e5b5b81a7a62120"
+      "hash": "cd4192adccfc4d0cfe4844b9fc59ad926c2ae6ca443ffdc72c4d1b98540a210b"
     },
     {
       "id": "openrouter:deepseek-v4-pro",
       "url": "profiles/openrouter/deepseek-v4-pro.json",
-      "hash": "094e32fbeb129cc1c646fe5237eb5f76ba944beaa22d5d755346362ec7442089"
+      "hash": "2b092e857f4b534ff40f437517bf18ce0ff4a316df98df68a9aa51f1209642d6"
     },
     {
       "id": "openrouter:gemini-3-flash",
       "url": "profiles/openrouter/gemini-3-flash.json",
-      "hash": "5664f2a1c69cc99344fd80a0de27df289c5c9100fbbd5c735bcb2b4073c5510d"
+      "hash": "b0968f443c287159f5f57a34d15dfd2ede290e3c49443701d0fb9de4147336bc"
     },
     {
       "id": "openrouter:gemini-31-flash-lite",
       "url": "profiles/openrouter/gemini-31-flash-lite.json",
-      "hash": "be13f1997863a7611fd37cc7e4a8b910cac9ef2925a0f533175138f3f7fd06c3"
+      "hash": "ab19cdce856c4c5f8f75f80b49888e04800d15002cb7d4975c6110dc7e214d42"
     },
     {
       "id": "openrouter:gemini-31-pro",
       "url": "profiles/openrouter/gemini-31-pro.json",
-      "hash": "742ca287bb54c09d89d9efed3d10aae964138bcc650f5e66007652fe2dab970f"
+      "hash": "293b3d16c17139c31266825e1b0a1ebb8563a57b23f54bea3dce288b91dffa8c"
     },
     {
       "id": "openrouter:gemini-35-flash",
       "url": "profiles/openrouter/gemini-35-flash.json",
-      "hash": "45026ebc0702662b297628f53db9ee6357946648ff5e81e47c19d5f6e248ce6c"
+      "hash": "0417de658693431ecd2a3ac2d25556bcef6790bfe136f9209b518bc6617780e3"
     },
     {
       "id": "openrouter:gemma-4-26b",
       "url": "profiles/openrouter/gemma-4-26b.json",
-      "hash": "de28094c36aa0c26205c3e3c3cf72b1c723260eba4f5b673996f2be02de03bbe"
+      "hash": "d38a43dfc9ca909ee7fa0bc8ef2412ae88b6d69f72f5e66bf56508a4d80a0dac"
     },
     {
       "id": "openrouter:gemma-4-31b",
       "url": "profiles/openrouter/gemma-4-31b.json",
-      "hash": "7febb771d90e2d0881f0c3481e3dad7c1f2b3b7db71098ffb0edfc10534fb1b7"
+      "hash": "6e605dd610ada885bc4776b1fff71674f133a53655809ec18507001fe954dfb3"
     },
     {
       "id": "openrouter:glm-51",
       "url": "profiles/openrouter/glm-51.json",
-      "hash": "efd5345562846b920a8b3bee19834d4e9c86215d74d1cfde31c20452ddba02fc"
+      "hash": "48a6e7558451aeb4e1e50e3b000e0d17ba9eff29c5ecd014bf02f505e84c8ab1"
     },
     {
       "id": "openrouter:gpt-5-mini",
       "url": "profiles/openrouter/gpt-5-mini.json",
-      "hash": "7857276d6e57fe7880248c0bdeab53e8b0d923de8bf15549d911230fb47babe3"
+      "hash": "6cb7da94610fbfee14767e8f2788754a5db4abfe1f68ab37dfa03aaba69f0d46"
     },
     {
       "id": "openrouter:gpt-5-nano",
       "url": "profiles/openrouter/gpt-5-nano.json",
-      "hash": "6a3af5523b108c6efaacb34c8910b9045e8dcf8b02442f8185aae13f1f7bedc8"
+      "hash": "09eef2becbe76fe481dc7b3968a3b106fd40418e66bf0ccd2fa82b53f5651658"
     },
     {
       "id": "openrouter:gpt-5",
       "url": "profiles/openrouter/gpt-5.json",
-      "hash": "616d59691eddbc1ee731e693d9e7d9c7931e9fd70a8a210e8df0f2897801f052"
+      "hash": "cb6d7f92666f2d2d3796188317344d0ea25d2f426661452940e263d8d22ec5ef"
     },
     {
       "id": "openrouter:gpt-51",
       "url": "profiles/openrouter/gpt-51.json",
-      "hash": "94ff67a9760ab0e572532a156f1619dcd1672872157732b291df90ffa23b4536"
+      "hash": "dbc9508027599070982539f9ea05ceb861884482dbca76ce65d0e0e6cca9a92c"
     },
     {
       "id": "openrouter:gpt-52",
       "url": "profiles/openrouter/gpt-52.json",
-      "hash": "533f7f76152fce057bdaaa5d0c5cee8655e55efba0f2d0bbc88796e11314239e"
+      "hash": "7b56b1ac5fa0661b935e1431aa522f6d8f8ee7c8323d32928d158ebd135563e2"
     },
     {
       "id": "openrouter:gpt-54-mini",
       "url": "profiles/openrouter/gpt-54-mini.json",
-      "hash": "74e2a750e92513821a7bee645eb045828b96547eb6c7cc5d0434822fdab3f3a2"
+      "hash": "b6575d6fe5b64033b69119cd6367be8f2668423472bffbc1e9cf10cb017deba7"
     },
     {
       "id": "openrouter:gpt-54-nano",
       "url": "profiles/openrouter/gpt-54-nano.json",
-      "hash": "df454c219993021401a4653ebd4a3a49e8b972ef710740ae606dd90275d28e0a"
+      "hash": "d7453c3f104497e3944dee07648bd8c79990a1bc9fa710f34cced01e6a82b3be"
     },
     {
       "id": "openrouter:gpt-54",
       "url": "profiles/openrouter/gpt-54.json",
-      "hash": "a15f734721e2a57bb8f67875457c392562bc9d53c649055acb48e8a27486eaf0"
+      "hash": "9b6fa690acc7bae20020aec878ba091919a5637244696f53b6db4227884cddd1"
     },
     {
       "id": "openrouter:gpt-55",
       "url": "profiles/openrouter/gpt-55.json",
-      "hash": "8c7594d27e7d71ac0da2d32af859a07b4292801a1b416d866525988ce817b8ae"
+      "hash": "ad0ed48763c9df799872ca1a0887ec5b96f6d3ff423aba73f6f11520c336ceac"
     },
     {
       "id": "openrouter:kimi-k26",
       "url": "profiles/openrouter/kimi-k26.json",
-      "hash": "9999039e4e7ed152e97c2b0d1c75e751a2f9f40582cd416625220aac3a804ed9"
+      "hash": "aa03b7e5e09bad620554c5b610e63df3c6c15012635aceda5048445b98da1803"
     },
     {
       "id": "openrouter:openai-compatible",
       "url": "profiles/openrouter/openai-compatible.json",
-      "hash": "56bf578acbc147b68d8fc91d9b077cb75ae8ce6ede385f5e7062dc7ce3f0c2c1"
+      "hash": "a5bdf5e1b46700305fa7a013e8dfe1456e94b498f7a88bec20f7989d724563ce"
     },
     {
       "id": "vercel:claude-opus-46",
