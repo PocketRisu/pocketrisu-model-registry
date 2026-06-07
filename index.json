@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "0489811a7f68aadc72844c63a85a03eb328dba3d355809e094562dbe58c08aa5",
+  "hash": "052c783eeab6edf7a07495c61a38f9c14ea4fe5d6ff9694c290c9263efea3da3",
   "baseProviders": [
     {
       "id": "anthropic",
@@ -30,12 +30,12 @@
     {
       "id": "nanogpt",
       "url": "base-providers/nanogpt.json",
-      "hash": "1b21ff1b63737570b28afe0ebee66749cf9dd85998f8ace80082e1873c7b5d72"
+      "hash": "5fa2dd0de66a1eda9dc81f4348975280ff2b33341dfa43a0740ba50f23338567"
     },
     {
       "id": "ollama-cloud",
       "url": "base-providers/ollama-cloud.json",
-      "hash": "d4cac642435469f3000d097c2ad38d7d23c5a205d00b818a5d6684898f7c8e50"
+      "hash": "f27062706ed03d90b8b5e88c3f8a8f36bb2d4b23da9bd2415d3afe9055214cd9"
     },
     {
       "id": "ollama",
@@ -65,7 +65,7 @@
     {
       "id": "vertex-openai",
       "url": "base-providers/vertex-openai.json",
-      "hash": "f53835855aae6c9d4ce1c5f3103c06fc3fb4e05700b8f5fb1fca4b55e0c2c565"
+      "hash": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
     }
   ],
   "profiles": [

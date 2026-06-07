@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "0489811a7f68aadc72844c63a85a03eb328dba3d355809e094562dbe58c08aa5",
+  "hash": "052c783eeab6edf7a07495c61a38f9c14ea4fe5d6ff9694c290c9263efea3da3",
   "baseProviders": {
     "anthropic": {
       "id": "anthropic",
@@ -852,6 +852,45 @@
             "target": "body",
             "path": "seed"
           }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "minimal",
+              "label": "Minimal"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+          }
         }
       ],
       "uiSchema": {
@@ -878,6 +917,14 @@
             "order": 3,
             "labelI18n": {
               "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
             }
           }
         ],
@@ -944,6 +991,13 @@
             "visibility": "advanced",
             "group": "generation",
             "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
           }
         ]
       },
@@ -1111,6 +1165,37 @@
             "target": "body",
             "path": "seed"
           }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models (gpt-oss, etc.). 'none' disables thinking.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. gpt-oss 등 thinking 모델에 적용 (none은 비활성)."
+          }
         }
       ],
       "uiSchema": {
@@ -1137,6 +1222,14 @@
             "order": 3,
             "labelI18n": {
               "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
             }
           }
         ],
@@ -1197,6 +1290,13 @@
             "visibility": "advanced",
             "group": "generation",
             "order": 6
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
           }
         ]
       },
@@ -2988,6 +3088,37 @@
             "target": "body",
             "path": "seed"
           }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. Maps to Gemini thinking_budget (2.5) / thinking_level (3.x).",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. Gemini thinking_budget(2.5)/thinking_level(3.x)로 매핑."
+          }
         }
       ],
       "uiSchema": {
@@ -3022,6 +3153,14 @@
             "order": 4,
             "labelI18n": {
               "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 5,
+            "labelI18n": {
+              "ko": "추론"
             }
           }
         ],
@@ -3103,6 +3242,13 @@
             "visibility": "advanced",
             "group": "generation",
             "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
           }
         ]
       },
@@ -20939,14 +21085,14 @@
     "deepinfra": "c75425c339fe1b390df34aad812b776a8199729821038a03ba1b8f8ecbda5b3e",
     "deepseek": "341b4b400a121296c2c1772ac435e8456b13c722728c0b8734aba16e32599af2",
     "google": "3e0403b7c9a559939a948c461b45240fb42a6411bcf3af59ec33be249f7385b1",
-    "nanogpt": "1b21ff1b63737570b28afe0ebee66749cf9dd85998f8ace80082e1873c7b5d72",
-    "ollama-cloud": "d4cac642435469f3000d097c2ad38d7d23c5a205d00b818a5d6684898f7c8e50",
+    "nanogpt": "5fa2dd0de66a1eda9dc81f4348975280ff2b33341dfa43a0740ba50f23338567",
+    "ollama-cloud": "f27062706ed03d90b8b5e88c3f8a8f36bb2d4b23da9bd2415d3afe9055214cd9",
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "7bd14ec7888a6765cfdea05007b5382a19e57f41a1bc48301a3cd762071d4074",
     "vercel": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea",
-    "vertex-openai": "f53835855aae6c9d4ce1c5f3103c06fc3fb4e05700b8f5fb1fca4b55e0c2c565"
+    "vertex-openai": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
   },
   "profileHashes": {
     "anthropic:haiku-45": "235d37e91f1b7ae6cad183946a013d27ef9843d035560ff2f996d21bb0593d65",

@@ -178,6 +178,37 @@
         "target": "body",
         "path": "seed"
       }
+    },
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "Reasoning depth. Maps to Gemini thinking_budget (2.5) / thinking_level (3.x).",
+      "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      },
+      "descriptionI18n": {
+        "ko": "추론(사고) 강도. Gemini thinking_budget(2.5)/thinking_level(3.x)로 매핑."
+      }
     }
   ],
   "uiSchema": {
@@ -212,6 +243,14 @@
         "order": 4,
         "labelI18n": {
           "ko": "생성"
+        }
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 5,
+        "labelI18n": {
+          "ko": "추론"
         }
       }
     ],
@@ -293,6 +332,13 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 7
+      },
+      {
+        "key": "reasoning_effort",
+        "widget": "select",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
       }
     ]
   },

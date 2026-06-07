@@ -119,6 +119,45 @@
         "target": "body",
         "path": "seed"
       }
+    },
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "Reasoning depth for thinking models. 'none' disables thinking.",
+      "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "minimal",
+          "label": "Minimal"
+        },
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra High"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      },
+      "descriptionI18n": {
+        "ko": "추론(사고) 강도. thinking 모델에 적용 (none은 비활성)."
+      }
     }
   ],
   "uiSchema": {
@@ -145,6 +184,14 @@
         "order": 3,
         "labelI18n": {
           "ko": "생성"
+        }
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 4,
+        "labelI18n": {
+          "ko": "추론"
         }
       }
     ],
@@ -211,6 +258,13 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 7
+      },
+      {
+        "key": "reasoning_effort",
+        "widget": "select",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
       }
     ]
   },
