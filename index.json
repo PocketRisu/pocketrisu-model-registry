@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "259b0f99a135e636f62dfe7a91ff97fc3eb340c7c8cfd1fb183ac5c470cff1ad",
+  "hash": "5118c482b47594819a5b66308832f66f398155c732fef968c2d9d4d99c1f029e",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -76,6 +76,11 @@
       "id": "vercel",
       "url": "base-providers/vercel.json",
       "hash": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea"
+    },
+    {
+      "id": "vertex-gemini-native",
+      "url": "base-providers/vertex-gemini-native.json",
+      "hash": "ce94a66cc1aa590f3794c8de95b451bafe50e8f1648b2eedab1c0b19bf3e354e"
     },
     {
       "id": "vertex-openai",
@@ -743,6 +748,16 @@
       "id": "vercel:openai-compatible",
       "url": "profiles/vercel/openai-compatible.json",
       "hash": "54f89e147fb80159af10752790e4e0e68b0f43b2a02994a39c592b0450cb7350"
+    },
+    {
+      "id": "vertex-gemini-native:flash",
+      "url": "profiles/vertex-gemini-native/flash.json",
+      "hash": "e067db358930051a91da498f69c9daae8969b498909d5f2dc2011ab1f483f3bd"
+    },
+    {
+      "id": "vertex-gemini-native:pro",
+      "url": "profiles/vertex-gemini-native/pro.json",
+      "hash": "cba642ba10c1baa91a62e2570d7a05c276737779a3249e59fa63c72ef837ecf8"
     },
     {
       "id": "vertex-openai:standard",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "259b0f99a135e636f62dfe7a91ff97fc3eb340c7c8cfd1fb183ac5c470cff1ad",
+  "hash": "5118c482b47594819a5b66308832f66f398155c732fef968c2d9d4d99c1f029e",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -3685,6 +3685,366 @@
         ],
         "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
       }
+    },
+    "vertex-gemini-native": {
+      "id": "vertex-gemini-native",
+      "version": 1,
+      "displayName": "Vertex AI (Gemini Native)",
+      "adapterKind": "google-gemini",
+      "authKinds": [
+        "google-service-account"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json",
+        "Vertex-AI-LLM-Request-Type": "shared",
+        "X-Vertex-AI-LLM-Shared-Request-Type": "flex"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "endpointUrl",
+          "type": "string",
+          "label": "Endpoint URL",
+          "description": "Replace PROJECT_ID in 'projects/PROJECT_ID' with your own GCP project ID (or number). Find it on the Google Cloud Console dashboard. Keep the rest of the URL as-is; the model name is appended automatically.",
+          "required": true,
+          "default": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models",
+          "mapsTo": {
+            "target": "custom",
+            "path": "endpointUrl"
+          },
+          "descriptionI18n": {
+            "ko": "'projects/PROJECT_ID' 부분의 PROJECT_ID를 본인 GCP 프로젝트 ID(또는 번호)로 바꾸세요. Google Cloud 콘솔 대시보드에서 확인할 수 있어요. 나머지 URL은 그대로 두면 되고, 모델 이름은 자동으로 붙습니다."
+          }
+        },
+        {
+          "key": "serviceAccountJson",
+          "type": "string",
+          "label": "Service Account JSON",
+          "description": "Full Service Account JSON for OAuth token exchange. Needs the Vertex AI User role on the project.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "OAuth 토큰 교환용 Service Account 전체 JSON. 해당 프로젝트에 Vertex AI 사용자 역할이 필요해요."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.temperature"
+          }
+        },
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "default": 8192,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "minimal",
+              "label": "Minimal"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        },
+        {
+          "key": "topP",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topP"
+          }
+        },
+        {
+          "key": "topK",
+          "type": "integer",
+          "label": "Top K",
+          "min": 1,
+          "max": 1000,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topK"
+          }
+        },
+        {
+          "key": "includeThoughts",
+          "type": "boolean",
+          "label": "Include Thoughts",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.includeThoughts"
+          }
+        },
+        {
+          "key": "presencePenalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.presencePenalty"
+          }
+        },
+        {
+          "key": "frequencyPenalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.frequencyPenalty"
+          }
+        },
+        {
+          "key": "stopSequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.stopSequences"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.seed"
+          }
+        },
+        {
+          "key": "responseMimeType",
+          "type": "string",
+          "label": "Response Mime Type",
+          "enum": [
+            {
+              "value": "text/plain",
+              "label": "Text"
+            },
+            {
+              "value": "application/json",
+              "label": "JSON"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseMimeType"
+          }
+        },
+        {
+          "key": "safetySettings",
+          "type": "json",
+          "label": "Safety Settings",
+          "mapsTo": {
+            "target": "body",
+            "path": "safetySettings"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "endpoint",
+            "label": "Endpoint",
+            "order": 1,
+            "labelI18n": {
+              "ko": "엔드포인트"
+            }
+          },
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 2,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "endpointUrl",
+            "widget": "text",
+            "visibility": "basic",
+            "group": "endpoint",
+            "order": 1,
+            "placeholder": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models"
+          },
+          {
+            "key": "serviceAccountJson",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "maxOutputTokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "topP",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "topK",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presencePenalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "frequencyPenalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "stopSequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 8
+          },
+          {
+            "key": "thinkingLevel",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "includeThoughts",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "responseMimeType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "safetySettings",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ]
     },
     "vertex-openai": {
       "id": "vertex-openai",
@@ -23930,6 +24290,108 @@
       "profileStatus": "current",
       "updatedAt": 1780830394470
     },
+    "vertex-gemini-native:flash": {
+      "id": "vertex-gemini-native:flash",
+      "version": 1,
+      "updatedAt": 1781026569481,
+      "displayName": "Vertex AI - Gemini 3 Flash",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-3-flash-preview",
+      "endpoint": {
+        "kind": "static",
+        "url": ""
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 830,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3 Flash"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3 Flash. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "vertex-gemini-native:pro": {
+      "id": "vertex-gemini-native:pro",
+      "version": 1,
+      "updatedAt": 1781026569481,
+      "displayName": "Vertex AI - Gemini 3.1 Pro",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-3.1-pro-preview",
+      "endpoint": {
+        "kind": "static",
+        "url": ""
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 831,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.1 Pro"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "vertex-openai:standard": {
       "id": "vertex-openai:standard",
       "version": 1,
@@ -23992,6 +24454,7 @@
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "4024dd6e789bae10edd06daf997bfe78f596111b8e16aa44a509bd49d8873742",
     "vercel": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea",
+    "vertex-gemini-native": "ce94a66cc1aa590f3794c8de95b451bafe50e8f1648b2eedab1c0b19bf3e354e",
     "vertex-openai": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
   },
   "profileHashes": {
@@ -24127,6 +24590,8 @@
     "vercel:gpt-55": "8491128e244b04ea138774852992f0f58398cf8f0da5f44ccdc9b549b538d3ff",
     "vercel:kimi-k26": "50c00f93ebce363564968e48c3952c1af842aac0bd46709fdd2339549e8db87f",
     "vercel:openai-compatible": "54f89e147fb80159af10752790e4e0e68b0f43b2a02994a39c592b0450cb7350",
+    "vertex-gemini-native:flash": "e067db358930051a91da498f69c9daae8969b498909d5f2dc2011ab1f483f3bd",
+    "vertex-gemini-native:pro": "cba642ba10c1baa91a62e2570d7a05c276737779a3249e59fa63c72ef837ecf8",
     "vertex-openai:standard": "64cee4878321d32a6cb465b7599827e380c30caa9653b0450483f8447d9120df"
   }
 }
