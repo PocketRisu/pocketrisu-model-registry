@@ -36,6 +36,22 @@ Deploy order when the client fetch format changes: **registry first, client afte
 
 PocketRisu v4 consumes this layout via a bundled snapshot inside `Risuai-NodeOnly/src/ts/preset/registry/bundled/`. Bundled copy mirrors the same `base-providers/` and `profiles/<baseId>/` paths; sync at release time.
 
+### Deploy procedure for profile / base-provider additions (develop-first)
+
+**Adding or changing a profile or base provider MUST go through `develop` before `main`.** The client's official channel is `main` (`OFFICIAL_BASE = …/pocketrisu-model-registry/main/`); `develop` is a staging channel reached only by users who manually enable the custom registry URL, so it never affects live users.
+
+```
+1. commit + push to `develop`           ← never commit a new profile straight to main
+2. verify live in the app via custom registry URL:
+   Settings → Model Preset → 커스텀 레지스트리 ON,
+   레지스트리 URL = https://raw.githubusercontent.com/PocketRisu/pocketrisu-model-registry/develop/
+   → sync, create a preset, send a REAL request (confirm the actual model call works)
+3. request user confirmation                ← report the verification result and ask before going live
+4. only after approval: merge develop → main, push main   ← now live to all users
+```
+
+Rationale: a broken profile on `main` reaches every user on their next menu entry and cannot be un-shipped, only re-fixed. `develop` lets the change be exercised against a real provider first. The "update available" banner is scoped to the official (`main`/bundled) registry on purpose, so custom-registry test profiles never nag users.
+
 ---
 
 ## Tier 0 — Provider model-listing APIs (enumeration + live spec)
