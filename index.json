@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "ac5c617b2cc76fce5e532dcc1e7634e778f44ce1e7faf8544c48a7603a84a463",
+  "hash": "259b0f99a135e636f62dfe7a91ff97fc3eb340c7c8cfd1fb183ac5c470cff1ad",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -36,6 +36,11 @@
       "id": "google",
       "url": "base-providers/google.json",
       "hash": "3e0403b7c9a559939a948c461b45240fb42a6411bcf3af59ec33be249f7385b1"
+    },
+    {
+      "id": "lightning-ai",
+      "url": "base-providers/lightning-ai.json",
+      "hash": "ed256dce3fa5179109cf50ff0ab6ccb1548e3096f6cf9acedfdb06e4047974a9"
     },
     {
       "id": "nanogpt",
@@ -223,6 +228,106 @@
       "id": "google:gemma-4-31b",
       "url": "profiles/google/gemma-4-31b.json",
       "hash": "928240029cceef0560f4474ef20d7ca8a2c06a9084acdfb5ce4fcd8bb5371379"
+    },
+    {
+      "id": "lightning-ai:claude-haiku-45",
+      "url": "profiles/lightning-ai/claude-haiku-45.json",
+      "hash": "b8a2f6f99bcc3f4643596ebe594464f88c4bd175feeb775a1ffec38d8a2613f8"
+    },
+    {
+      "id": "lightning-ai:claude-opus-47",
+      "url": "profiles/lightning-ai/claude-opus-47.json",
+      "hash": "f91af2de1b1a8ce3aa0d823bd409fb950355c22e11e60010deff7a28f5928fea"
+    },
+    {
+      "id": "lightning-ai:claude-opus-48",
+      "url": "profiles/lightning-ai/claude-opus-48.json",
+      "hash": "08644176d3968dbcab3f9f504280078cbfc8d716fd0dfa62ab5c0a2714d6414f"
+    },
+    {
+      "id": "lightning-ai:claude-sonnet-46",
+      "url": "profiles/lightning-ai/claude-sonnet-46.json",
+      "hash": "061dc91f4bd110d8fe171ee4d0091a3090c82b77733bc4e3c79d367220dd8f29"
+    },
+    {
+      "id": "lightning-ai:deepseek-v4-pro",
+      "url": "profiles/lightning-ai/deepseek-v4-pro.json",
+      "hash": "eb7e51141700f822b49be606dec165cfd904cf64bf96f389113b02c6bdfba225"
+    },
+    {
+      "id": "lightning-ai:gemini-3-flash",
+      "url": "profiles/lightning-ai/gemini-3-flash.json",
+      "hash": "7fe1ad8ad6ce01f24ca28d629f487333af39ba062e76ffa7cbb471385317bd61"
+    },
+    {
+      "id": "lightning-ai:gemini-31-pro",
+      "url": "profiles/lightning-ai/gemini-31-pro.json",
+      "hash": "c9f715c3498774bfb123806195f75420c7994bf208b6a5d74c948e19135c0142"
+    },
+    {
+      "id": "lightning-ai:gemini-35-flash",
+      "url": "profiles/lightning-ai/gemini-35-flash.json",
+      "hash": "eeb45841fe2ec055a26d0488c32b5bf2cfdaa3f60c7ad2ea1fe18b5301bc207a"
+    },
+    {
+      "id": "lightning-ai:glm-5",
+      "url": "profiles/lightning-ai/glm-5.json",
+      "hash": "a1f57a1d7ec6c1cd8f063b4f19fa48e34c57cb57c1d39e5ff4f942b3ef7b8e62"
+    },
+    {
+      "id": "lightning-ai:gpt-5-mini",
+      "url": "profiles/lightning-ai/gpt-5-mini.json",
+      "hash": "4d86b29ae43ba43734d088e8d2cca26c87d792fa559113728db274c9ead0fa91"
+    },
+    {
+      "id": "lightning-ai:gpt-5-nano",
+      "url": "profiles/lightning-ai/gpt-5-nano.json",
+      "hash": "6064b618b778540df74bb139fa3f3f1aadd79ad47985392a10ad014057c0f88c"
+    },
+    {
+      "id": "lightning-ai:gpt-5",
+      "url": "profiles/lightning-ai/gpt-5.json",
+      "hash": "50f7a074e8c79b137039aecada9722c68650e080605c4eb7c9fd8e9776f13d72"
+    },
+    {
+      "id": "lightning-ai:gpt-54-mini",
+      "url": "profiles/lightning-ai/gpt-54-mini.json",
+      "hash": "b4dd8172aed37140ce0efc5060dde7ecffbe91268e75288a0bf5035a80146a72"
+    },
+    {
+      "id": "lightning-ai:gpt-54-nano",
+      "url": "profiles/lightning-ai/gpt-54-nano.json",
+      "hash": "4b13363331b3be793fbb0b2143ad8b16f7133c202f3b9aed05ba458cf7608b72"
+    },
+    {
+      "id": "lightning-ai:gpt-54",
+      "url": "profiles/lightning-ai/gpt-54.json",
+      "hash": "29e05102b918949bbed17bceb50fd18dfaf69beeb9ad87a8c9d3892e3f1d8164"
+    },
+    {
+      "id": "lightning-ai:gpt-55",
+      "url": "profiles/lightning-ai/gpt-55.json",
+      "hash": "ffd7b4cdbf3a5f6a924ac455f58e6093870470a7097afba01f61d7d3bd09f070"
+    },
+    {
+      "id": "lightning-ai:gpt-oss-120b",
+      "url": "profiles/lightning-ai/gpt-oss-120b.json",
+      "hash": "f5b26f178f0b1f2d4e7b1f43325c8057a96fdf3e164cc65f211a3ab3ce650f2b"
+    },
+    {
+      "id": "lightning-ai:kimi-k25",
+      "url": "profiles/lightning-ai/kimi-k25.json",
+      "hash": "1e125bf820cd8a2013b6f2384e3e8c4ce9e579d1cfc11eb4e0293e1064eae1f2"
+    },
+    {
+      "id": "lightning-ai:nemotron-3-ultra",
+      "url": "profiles/lightning-ai/nemotron-3-ultra.json",
+      "hash": "46a812f82339605cbcf3f1115d38f4759942fae04cbffeac0301a375ec9f5a53"
+    },
+    {
+      "id": "lightning-ai:openai-compatible",
+      "url": "profiles/lightning-ai/openai-compatible.json",
+      "hash": "0a7a221a61aba5b362a970591bd9616a9684402b92ab68f8603eb780e81b35c3"
     },
     {
       "id": "nanogpt:deepseek-v4-flash",

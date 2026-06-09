@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "ac5c617b2cc76fce5e532dcc1e7634e778f44ce1e7faf8544c48a7603a84a463",
+  "hash": "259b0f99a135e636f62dfe7a91ff97fc3eb340c7c8cfd1fb183ac5c470cff1ad",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -1250,6 +1250,260 @@
         "https://ai.google.dev/gemini-api/docs/models",
         "https://ai.google.dev/api/generate-content"
       ]
+    },
+    "lightning-ai": {
+      "id": "lightning-ai",
+      "version": 1,
+      "displayName": "Lightning AI",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "Lightning AI API key.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "Lightning AI API 키."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Provider/model identifier (e.g. openai/gpt-5.4-2026-03-05).",
+          "required": true,
+          "enum": [
+            {
+              "value": "openai/gpt-5.4-2026-03-05",
+              "label": "OpenAI / GPT-5.4"
+            },
+            {
+              "value": "anthropic/claude-opus-4-8",
+              "label": "Anthropic / Claude Opus 4.8"
+            },
+            {
+              "value": "google/gemini-3.5-flash",
+              "label": "Google / Gemini 3.5 Flash"
+            },
+            {
+              "value": "lightning-ai/glm-5",
+              "label": "Lightning AI / GLM-5"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "공급자/모델 ID (예: openai/gpt-5.4-2026-03-05)."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "vision",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/docs/overview/model-apis",
+        "https://lightning.ai/api/v1/models"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "notes": "Model-dependent gateway. Context and output token limits vary by selected model, so PocketRisu uses a number input instead of a fixed-limit slider.",
+        "notesI18n": {
+          "ko": "모델별 게이트웨이. 컨텍스트·출력 토큰 한도가 선택 모델에 따라 달라, 고정 한도 슬라이더 대신 숫자 입력을 사용합니다."
+        }
+      }
     },
     "nanogpt": {
       "id": "nanogpt",
@@ -12300,6 +12554,1587 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "lightning-ai:claude-haiku-45": {
+      "id": "lightning-ai:claude-haiku-45",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Claude Haiku 4.5",
+      "displayNameI18n": {
+        "ko": "Claude Haiku 4.5"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Claude Haiku 4.5 via Lightning AI (anthropic/claude-haiku-4-5-20251001).",
+      "descriptionI18n": {
+        "ko": "Claude Haiku 4.5 (Lightning AI, anthropic/claude-haiku-4-5-20251001)."
+      },
+      "tags": [
+        "lightning-ai",
+        "anthropic",
+        "claude"
+      ],
+      "sortOrder": 713,
+      "modelId": "anthropic/claude-haiku-4-5-20251001",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 200000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 64000
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "lightning-ai:claude-opus-47": {
+      "id": "lightning-ai:claude-opus-47",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Claude Opus 4.7",
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.7"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Claude Opus 4.7 via Lightning AI (anthropic/claude-opus-4-7).",
+      "descriptionI18n": {
+        "ko": "Claude Opus 4.7 (Lightning AI, anthropic/claude-opus-4-7)."
+      },
+      "tags": [
+        "lightning-ai",
+        "anthropic",
+        "claude"
+      ],
+      "sortOrder": 711,
+      "modelId": "anthropic/claude-opus-4-7",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "lightning-ai:claude-opus-48": {
+      "id": "lightning-ai:claude-opus-48",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Claude Opus 4.8",
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.8"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Claude Opus 4.8 via Lightning AI (anthropic/claude-opus-4-8).",
+      "descriptionI18n": {
+        "ko": "Claude Opus 4.8 (Lightning AI, anthropic/claude-opus-4-8)."
+      },
+      "tags": [
+        "lightning-ai",
+        "anthropic",
+        "claude"
+      ],
+      "sortOrder": 710,
+      "modelId": "anthropic/claude-opus-4-8",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "lightning-ai:claude-sonnet-46": {
+      "id": "lightning-ai:claude-sonnet-46",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Claude Sonnet 4.6",
+      "displayNameI18n": {
+        "ko": "Claude Sonnet 4.6"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Claude Sonnet 4.6 via Lightning AI (anthropic/claude-sonnet-4-6).",
+      "descriptionI18n": {
+        "ko": "Claude Sonnet 4.6 (Lightning AI, anthropic/claude-sonnet-4-6)."
+      },
+      "tags": [
+        "lightning-ai",
+        "anthropic",
+        "claude"
+      ],
+      "sortOrder": 712,
+      "modelId": "anthropic/claude-sonnet-4-6",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 200000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "lightning-ai:deepseek-v4-pro": {
+      "id": "lightning-ai:deepseek-v4-pro",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "DeepSeek V4 Pro",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "DeepSeek V4 Pro via Lightning AI (lightning-ai/deepseek-v4-pro).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4 Pro (Lightning AI, lightning-ai/deepseek-v4-pro)."
+      },
+      "tags": [
+        "lightning-ai",
+        "deepseek"
+      ],
+      "sortOrder": 732,
+      "modelId": "lightning-ai/deepseek-v4-pro",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gemini-3-flash": {
+      "id": "lightning-ai:gemini-3-flash",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Gemini 3 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3 Flash"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Gemini 3 Flash via Lightning AI (google/gemini-3-flash-preview).",
+      "descriptionI18n": {
+        "ko": "Gemini 3 Flash (Lightning AI, google/gemini-3-flash-preview)."
+      },
+      "tags": [
+        "lightning-ai",
+        "google",
+        "gemini"
+      ],
+      "sortOrder": 722,
+      "modelId": "google/gemini-3-flash-preview",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gemini-31-pro": {
+      "id": "lightning-ai:gemini-31-pro",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Gemini 3.1 Pro",
+      "displayNameI18n": {
+        "ko": "Gemini 3.1 Pro"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Gemini 3.1 Pro via Lightning AI (google/gemini-3.1-pro-preview).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.1 Pro (Lightning AI, google/gemini-3.1-pro-preview)."
+      },
+      "tags": [
+        "lightning-ai",
+        "google",
+        "gemini"
+      ],
+      "sortOrder": 721,
+      "modelId": "google/gemini-3.1-pro-preview",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gemini-35-flash": {
+      "id": "lightning-ai:gemini-35-flash",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Gemini 3.5 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Gemini 3.5 Flash via Lightning AI (google/gemini-3.5-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash (Lightning AI, google/gemini-3.5-flash)."
+      },
+      "tags": [
+        "lightning-ai",
+        "google",
+        "gemini"
+      ],
+      "sortOrder": 720,
+      "modelId": "google/gemini-3.5-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "lightning-ai:glm-5": {
+      "id": "lightning-ai:glm-5",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GLM-5",
+      "displayNameI18n": {
+        "ko": "GLM-5"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GLM-5 via Lightning AI (lightning-ai/glm-5).",
+      "descriptionI18n": {
+        "ko": "GLM-5 (Lightning AI, lightning-ai/glm-5)."
+      },
+      "tags": [
+        "lightning-ai",
+        "glm"
+      ],
+      "sortOrder": 730,
+      "modelId": "lightning-ai/glm-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 200000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-5-mini": {
+      "id": "lightning-ai:gpt-5-mini",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5 mini",
+      "displayNameI18n": {
+        "ko": "GPT-5 mini"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5 mini via Lightning AI (openai/gpt-5-mini).",
+      "descriptionI18n": {
+        "ko": "GPT-5 mini (Lightning AI, openai/gpt-5-mini)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 706,
+      "modelId": "openai/gpt-5-mini",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 400000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-5-nano": {
+      "id": "lightning-ai:gpt-5-nano",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5 nano",
+      "displayNameI18n": {
+        "ko": "GPT-5 nano"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5 nano via Lightning AI (openai/gpt-5-nano).",
+      "descriptionI18n": {
+        "ko": "GPT-5 nano (Lightning AI, openai/gpt-5-nano)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 707,
+      "modelId": "openai/gpt-5-nano",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 400000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-5": {
+      "id": "lightning-ai:gpt-5",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5",
+      "displayNameI18n": {
+        "ko": "GPT-5"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5 via Lightning AI (openai/gpt-5).",
+      "descriptionI18n": {
+        "ko": "GPT-5 (Lightning AI, openai/gpt-5)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 705,
+      "modelId": "openai/gpt-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 400000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-54-mini": {
+      "id": "lightning-ai:gpt-54-mini",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5.4 mini",
+      "displayNameI18n": {
+        "ko": "GPT-5.4 mini"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.4 mini via Lightning AI (openai/gpt-5.4-mini-2026-03-17).",
+      "descriptionI18n": {
+        "ko": "GPT-5.4 mini (Lightning AI, openai/gpt-5.4-mini-2026-03-17)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 703,
+      "modelId": "openai/gpt-5.4-mini-2026-03-17",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 400000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-54-nano": {
+      "id": "lightning-ai:gpt-54-nano",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5.4 nano",
+      "displayNameI18n": {
+        "ko": "GPT-5.4 nano"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.4 nano via Lightning AI (openai/gpt-5.4-nano-2026-03-17).",
+      "descriptionI18n": {
+        "ko": "GPT-5.4 nano (Lightning AI, openai/gpt-5.4-nano-2026-03-17)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 704,
+      "modelId": "openai/gpt-5.4-nano-2026-03-17",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 400000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-54": {
+      "id": "lightning-ai:gpt-54",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5.4",
+      "displayNameI18n": {
+        "ko": "GPT-5.4"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.4 via Lightning AI (openai/gpt-5.4-2026-03-05).",
+      "descriptionI18n": {
+        "ko": "GPT-5.4 (Lightning AI, openai/gpt-5.4-2026-03-05)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 702,
+      "modelId": "openai/gpt-5.4-2026-03-05",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-55": {
+      "id": "lightning-ai:gpt-55",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-5.5",
+      "displayNameI18n": {
+        "ko": "GPT-5.5"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.5 via Lightning AI (openai/gpt-5.5-2026-04-23).",
+      "descriptionI18n": {
+        "ko": "GPT-5.5 (Lightning AI, openai/gpt-5.5-2026-04-23)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 701,
+      "modelId": "openai/gpt-5.5-2026-04-23",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-oss-120b": {
+      "id": "lightning-ai:gpt-oss-120b",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "GPT-OSS 120B",
+      "displayNameI18n": {
+        "ko": "GPT-OSS 120B"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-OSS 120B via Lightning AI (lightning-ai/gpt-oss-120b).",
+      "descriptionI18n": {
+        "ko": "GPT-OSS 120B (Lightning AI, lightning-ai/gpt-oss-120b)."
+      },
+      "tags": [
+        "lightning-ai",
+        "gpt-oss"
+      ],
+      "sortOrder": 733,
+      "modelId": "lightning-ai/gpt-oss-120b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 128000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:kimi-k25": {
+      "id": "lightning-ai:kimi-k25",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Kimi K2.5",
+      "displayNameI18n": {
+        "ko": "Kimi K2.5"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Kimi K2.5 via Lightning AI (lightning-ai/kimi-k2.5).",
+      "descriptionI18n": {
+        "ko": "Kimi K2.5 (Lightning AI, lightning-ai/kimi-k2.5)."
+      },
+      "tags": [
+        "lightning-ai",
+        "kimi"
+      ],
+      "sortOrder": 731,
+      "modelId": "lightning-ai/kimi-k2.5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 256000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:nemotron-3-ultra": {
+      "id": "lightning-ai:nemotron-3-ultra",
+      "version": 1,
+      "updatedAt": 1780830394470,
+      "displayName": "Nemotron 3 Ultra",
+      "displayNameI18n": {
+        "ko": "Nemotron 3 Ultra"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Nemotron 3 Ultra via Lightning AI (lightning-ai/nvidia-nemotron-3-ultra-550b-a55b).",
+      "descriptionI18n": {
+        "ko": "Nemotron 3 Ultra (Lightning AI, lightning-ai/nvidia-nemotron-3-ultra-550b-a55b)."
+      },
+      "tags": [
+        "lightning-ai",
+        "nemotron"
+      ],
+      "sortOrder": 734,
+      "modelId": "lightning-ai/nvidia-nemotron-3-ultra-550b-a55b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262144,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:openai-compatible": {
+      "id": "lightning-ai:openai-compatible",
+      "version": 1,
+      "displayName": "Lightning AI",
+      "providerBaseId": "lightning-ai",
+      "description": "Lightning AI gateway via OpenAI-compatible API. Enter any model ID; for gpt-5 family models use the dedicated profiles (they require max_completion_tokens).",
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "vision",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "tags": [
+        "lightning-ai",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 700,
+      "displayNameI18n": {
+        "ko": "Lightning AI"
+      },
+      "descriptionI18n": {
+        "ko": "Lightning AI 게이트웨이 (OpenAI 호환 API). 임의 모델 ID 입력 가능. gpt-5 계열은 max_completion_tokens가 필요하므로 전용 프로파일을 사용하세요."
+      },
+      "profileStatus": "current",
+      "updatedAt": 1780830394470
+    },
     "nanogpt:deepseek-v4-flash": {
       "id": "nanogpt:deepseek-v4-flash",
       "version": 1,
@@ -22149,6 +23984,7 @@
     "deepinfra": "c75425c339fe1b390df34aad812b776a8199729821038a03ba1b8f8ecbda5b3e",
     "deepseek": "341b4b400a121296c2c1772ac435e8456b13c722728c0b8734aba16e32599af2",
     "google": "3e0403b7c9a559939a948c461b45240fb42a6411bcf3af59ec33be249f7385b1",
+    "lightning-ai": "ed256dce3fa5179109cf50ff0ab6ccb1548e3096f6cf9acedfdb06e4047974a9",
     "nanogpt": "5fa2dd0de66a1eda9dc81f4348975280ff2b33341dfa43a0740ba50f23338567",
     "ollama-cloud": "f27062706ed03d90b8b5e88c3f8a8f36bb2d4b23da9bd2415d3afe9055214cd9",
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
@@ -22188,6 +24024,26 @@
     "google:gemini-35-flash": "ea27cfc03c58a20ffde1c853a9afd88d8304b0fe9f4e970ea36a12353d410d6e",
     "google:gemma-4-26b": "d7a3be619fbca63459dc5af2e77fed2d51f9a2ee3a5e4c13c9de34478d53e08a",
     "google:gemma-4-31b": "928240029cceef0560f4474ef20d7ca8a2c06a9084acdfb5ce4fcd8bb5371379",
+    "lightning-ai:claude-haiku-45": "b8a2f6f99bcc3f4643596ebe594464f88c4bd175feeb775a1ffec38d8a2613f8",
+    "lightning-ai:claude-opus-47": "f91af2de1b1a8ce3aa0d823bd409fb950355c22e11e60010deff7a28f5928fea",
+    "lightning-ai:claude-opus-48": "08644176d3968dbcab3f9f504280078cbfc8d716fd0dfa62ab5c0a2714d6414f",
+    "lightning-ai:claude-sonnet-46": "061dc91f4bd110d8fe171ee4d0091a3090c82b77733bc4e3c79d367220dd8f29",
+    "lightning-ai:deepseek-v4-pro": "eb7e51141700f822b49be606dec165cfd904cf64bf96f389113b02c6bdfba225",
+    "lightning-ai:gemini-3-flash": "7fe1ad8ad6ce01f24ca28d629f487333af39ba062e76ffa7cbb471385317bd61",
+    "lightning-ai:gemini-31-pro": "c9f715c3498774bfb123806195f75420c7994bf208b6a5d74c948e19135c0142",
+    "lightning-ai:gemini-35-flash": "eeb45841fe2ec055a26d0488c32b5bf2cfdaa3f60c7ad2ea1fe18b5301bc207a",
+    "lightning-ai:glm-5": "a1f57a1d7ec6c1cd8f063b4f19fa48e34c57cb57c1d39e5ff4f942b3ef7b8e62",
+    "lightning-ai:gpt-5-mini": "4d86b29ae43ba43734d088e8d2cca26c87d792fa559113728db274c9ead0fa91",
+    "lightning-ai:gpt-5-nano": "6064b618b778540df74bb139fa3f3f1aadd79ad47985392a10ad014057c0f88c",
+    "lightning-ai:gpt-5": "50f7a074e8c79b137039aecada9722c68650e080605c4eb7c9fd8e9776f13d72",
+    "lightning-ai:gpt-54-mini": "b4dd8172aed37140ce0efc5060dde7ecffbe91268e75288a0bf5035a80146a72",
+    "lightning-ai:gpt-54-nano": "4b13363331b3be793fbb0b2143ad8b16f7133c202f3b9aed05ba458cf7608b72",
+    "lightning-ai:gpt-54": "29e05102b918949bbed17bceb50fd18dfaf69beeb9ad87a8c9d3892e3f1d8164",
+    "lightning-ai:gpt-55": "ffd7b4cdbf3a5f6a924ac455f58e6093870470a7097afba01f61d7d3bd09f070",
+    "lightning-ai:gpt-oss-120b": "f5b26f178f0b1f2d4e7b1f43325c8057a96fdf3e164cc65f211a3ab3ce650f2b",
+    "lightning-ai:kimi-k25": "1e125bf820cd8a2013b6f2384e3e8c4ce9e579d1cfc11eb4e0293e1064eae1f2",
+    "lightning-ai:nemotron-3-ultra": "46a812f82339605cbcf3f1115d38f4759942fae04cbffeac0301a375ec9f5a53",
+    "lightning-ai:openai-compatible": "0a7a221a61aba5b362a970591bd9616a9684402b92ab68f8603eb780e81b35c3",
     "nanogpt:deepseek-v4-flash": "5b5014ff4b295a85dc3fd11f470c100cea8076152489143328db815e2f468b3e",
     "nanogpt:deepseek-v4-pro": "90e51555d009581698e41bcd02593717f2d885dfe4ed54f9871640a73295d8a8",
     "nanogpt:gemma-4-31b": "c70a1cb1df6d88d3c904f0905e77213315f71dcc3c46bf3745adfd0c159787a1",
