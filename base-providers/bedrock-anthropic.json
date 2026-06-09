@@ -1,11 +1,10 @@
 {
-  "id": "anthropic-compatible",
-  "version": 2,
-  "displayName": "Anthropic Compatible (Custom)",
+  "id": "bedrock-anthropic",
+  "version": 1,
+  "displayName": "AWS Bedrock (Anthropic Messages)",
   "adapterKind": "anthropic-messages",
   "authKinds": [
-    "x-api-key",
-    "none"
+    "x-api-key"
   ],
   "endpointKinds": [
     "static"
@@ -22,51 +21,52 @@
       "key": "endpointUrl",
       "type": "string",
       "label": "Endpoint URL",
-      "description": "Full Anthropic Messages URL (e.g. http://localhost:4141/v1/messages). Use for proxies that speak the Anthropic Messages wire format (GitHub Copilot bridges, LiteLLM Anthropic passthrough, etc.).",
+      "description": "Bedrock mantle Anthropic Messages URL (region-specific). Pattern: https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages",
       "required": true,
       "mapsTo": {
         "target": "custom",
         "path": "endpointUrl"
       },
       "descriptionI18n": {
-        "ko": "전체 Anthropic Messages URL (예: http://localhost:4141/v1/messages). Anthropic Messages 포맷을 따르는 프록시용 (GitHub Copilot 브릿지, LiteLLM Anthropic 패스스루 등)."
+        "ko": "Bedrock mantle Anthropic Messages URL (리전별). 형식: https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages"
       }
     },
     {
       "key": "apiKey",
       "type": "string",
-      "label": "API Key",
-      "description": "Sent as the x-api-key header. Leave empty only when using the no-auth profile.",
+      "label": "API Key (Bedrock bearer token)",
+      "description": "Bedrock bearer token, sent as the x-api-key header. This path supports bearer-token auth only (SigV4 requires the dedicated AWS SDK client).",
+      "required": true,
       "secret": true,
       "mapsTo": {
         "target": "auth",
         "path": "apiKey"
       },
       "descriptionI18n": {
-        "ko": "x-api-key 헤더로 전송됩니다. 인증 없는 프로파일을 쓸 때만 비워두세요."
+        "ko": "Bedrock bearer 토큰 (x-api-key 헤더로 전송). 이 경로는 bearer 인증만 지원합니다 (SigV4는 전용 AWS SDK 클라이언트 필요)."
       }
     },
     {
       "key": "modelId",
       "type": "string",
       "label": "Model ID",
-      "description": "Model identifier accepted by the upstream endpoint (e.g. claude-fable-5). Suggestions are first-party Claude IDs; any value the upstream accepts can be typed.",
+      "description": "Bedrock model identifier (carries the anthropic. provider prefix).",
       "required": true,
       "enum": [
         {
-          "value": "claude-fable-5",
+          "value": "anthropic.claude-fable-5",
           "label": "Claude Fable 5"
         },
         {
-          "value": "claude-opus-4-8",
+          "value": "anthropic.claude-opus-4-8",
           "label": "Claude Opus 4.8"
         },
         {
-          "value": "claude-sonnet-4-6",
-          "label": "Claude Sonnet 4.6"
+          "value": "anthropic.claude-opus-4-7",
+          "label": "Claude Opus 4.7"
         },
         {
-          "value": "claude-haiku-4-5",
+          "value": "anthropic.claude-haiku-4-5",
           "label": "Claude Haiku 4.5"
         }
       ],
@@ -75,7 +75,7 @@
         "path": "model"
       },
       "descriptionI18n": {
-        "ko": "상위 엔드포인트가 허용하는 모델 ID (예: claude-fable-5). 제안 목록은 first-party Claude ID이며, 상위 엔드포인트가 허용하는 값이면 자유 입력 가능합니다."
+        "ko": "Bedrock 모델 ID (anthropic. 프로바이더 접두사 포함)."
       }
     },
     {
@@ -94,38 +94,54 @@
       }
     },
     {
-      "key": "temperature",
-      "type": "number",
-      "label": "Temperature",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
+      "key": "thinking_type",
+      "type": "string",
+      "label": "Thinking Mode",
+      "description": "Adaptive thinking. Always on (cannot be disabled) on Claude Fable 5; available on Opus 4.6 and later.",
+      "enum": [
+        {
+          "value": "adaptive",
+          "label": "Adaptive"
+        }
+      ],
       "mapsTo": {
         "target": "body",
-        "path": "temperature"
+        "path": "thinking.type"
+      },
+      "descriptionI18n": {
+        "ko": "적응형 thinking. Claude Fable 5에서는 상시 활성(비활성화 불가), Opus 4.6 이상에서 지원."
       }
     },
     {
-      "key": "top_p",
-      "type": "number",
-      "label": "Top P",
-      "min": 0,
-      "max": 1,
-      "step": 0.01,
+      "key": "effort",
+      "type": "string",
+      "label": "Thinking Effort",
+      "description": "Supported on Claude Fable 5, Opus 4.8/4.7/4.6, Sonnet 4.6. xhigh/max are Fable/Opus-tier only.",
+      "enum": [
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra High"
+        },
+        {
+          "value": "max",
+          "label": "Max"
+        }
+      ],
       "mapsTo": {
         "target": "body",
-        "path": "top_p"
-      }
-    },
-    {
-      "key": "top_k",
-      "type": "integer",
-      "label": "Top K",
-      "min": 0,
-      "max": 500,
-      "mapsTo": {
-        "target": "body",
-        "path": "top_k"
+        "path": "output_config.effort"
       }
     },
     {
@@ -171,6 +187,14 @@
         "labelI18n": {
           "ko": "생성"
         }
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 5,
+        "labelI18n": {
+          "ko": "추론"
+        }
       }
     ],
     "fields": [
@@ -180,7 +204,7 @@
         "visibility": "basic",
         "group": "endpoint",
         "order": 1,
-        "placeholder": "http://localhost:4141/v1/messages"
+        "placeholder": "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"
       },
       {
         "key": "apiKey",
@@ -204,46 +228,44 @@
         "order": 1
       },
       {
-        "key": "temperature",
-        "widget": "slider",
-        "visibility": "basic",
-        "group": "generation",
+        "key": "thinking_type",
+        "widget": "select",
+        "visibility": "advanced",
+        "group": "reasoning",
+        "order": 1
+      },
+      {
+        "key": "effort",
+        "widget": "select",
+        "visibility": "advanced",
+        "group": "reasoning",
         "order": 2
-      },
-      {
-        "key": "top_p",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 3
-      },
-      {
-        "key": "top_k",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 4
       },
       {
         "key": "stop_sequences",
         "widget": "string-array",
         "visibility": "advanced",
         "group": "generation",
-        "order": 5
+        "order": 2
       }
     ]
   },
   "capabilities": [
-    "streaming"
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
   ],
   "sourceUrls": [
+    "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock",
     "https://platform.claude.com/docs/en/api/messages"
   ],
   "limits": {
     "known": false,
     "sourceUrls": [
-      "https://platform.claude.com/docs/en/api/messages"
+      "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock"
     ],
-    "notes": "Model-dependent provider. Context and output token limits vary by the upstream endpoint and selected model, so PocketRisu uses a number input instead of a fixed-limit slider."
+    "notes": "Model-dependent provider. Context and output token limits vary by the selected Bedrock model, so PocketRisu uses a number input instead of a fixed-limit slider."
   }
 }

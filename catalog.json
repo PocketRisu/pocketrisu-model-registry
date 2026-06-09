@@ -1,10 +1,10 @@
 {
   "schemaVersion": 4,
-  "hash": "133b0834d3bc714ae6c97f2b84058eaf95b2576ed51a06f00234798281daa38c",
+  "hash": "ac5c617b2cc76fce5e532dcc1e7634e778f44ce1e7faf8544c48a7603a84a463",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
-      "version": 1,
+      "version": 2,
       "displayName": "Anthropic Compatible (Custom)",
       "adapterKind": "anthropic-messages",
       "authKinds": [
@@ -54,14 +54,32 @@
           "key": "modelId",
           "type": "string",
           "label": "Model ID",
-          "description": "Model identifier accepted by the upstream endpoint (e.g. claude-sonnet-4-5).",
+          "description": "Model identifier accepted by the upstream endpoint (e.g. claude-fable-5). Suggestions are first-party Claude IDs; any value the upstream accepts can be typed.",
           "required": true,
+          "enum": [
+            {
+              "value": "claude-fable-5",
+              "label": "Claude Fable 5"
+            },
+            {
+              "value": "claude-opus-4-8",
+              "label": "Claude Opus 4.8"
+            },
+            {
+              "value": "claude-sonnet-4-6",
+              "label": "Claude Sonnet 4.6"
+            },
+            {
+              "value": "claude-haiku-4-5",
+              "label": "Claude Haiku 4.5"
+            }
+          ],
           "mapsTo": {
             "target": "body",
             "path": "model"
           },
           "descriptionI18n": {
-            "ko": "상위 엔드포인트가 허용하는 모델 ID (예: claude-sonnet-4-5)."
+            "ko": "상위 엔드포인트가 허용하는 모델 ID (예: claude-fable-5). 제안 목록은 first-party Claude ID이며, 상위 엔드포인트가 허용하는 값이면 자유 입력 가능합니다."
           }
         },
         {
@@ -177,7 +195,7 @@
           },
           {
             "key": "modelId",
-            "widget": "text",
+            "widget": "combobox",
             "visibility": "basic",
             "group": "model",
             "order": 1
@@ -299,6 +317,277 @@
         "https://platform.claude.com/docs/en/about-claude/models/model-ids-and-versions",
         "https://platform.claude.com/docs/en/build-with-claude/extended-thinking"
       ]
+    },
+    "bedrock-anthropic": {
+      "id": "bedrock-anthropic",
+      "version": 1,
+      "displayName": "AWS Bedrock (Anthropic Messages)",
+      "adapterKind": "anthropic-messages",
+      "authKinds": [
+        "x-api-key"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json",
+        "anthropic-version": "2023-06-01"
+      },
+      "defaultBody": {
+        "max_tokens": 4096
+      },
+      "requestSchema": [
+        {
+          "key": "endpointUrl",
+          "type": "string",
+          "label": "Endpoint URL",
+          "description": "Bedrock mantle Anthropic Messages URL (region-specific). Pattern: https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages",
+          "required": true,
+          "mapsTo": {
+            "target": "custom",
+            "path": "endpointUrl"
+          },
+          "descriptionI18n": {
+            "ko": "Bedrock mantle Anthropic Messages URL (리전별). 형식: https://bedrock-mantle.{region}.api.aws/anthropic/v1/messages"
+          }
+        },
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key (Bedrock bearer token)",
+          "description": "Bedrock bearer token, sent as the x-api-key header. This path supports bearer-token auth only (SigV4 requires the dedicated AWS SDK client).",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "Bedrock bearer 토큰 (x-api-key 헤더로 전송). 이 경로는 bearer 인증만 지원합니다 (SigV4는 전용 AWS SDK 클라이언트 필요)."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Bedrock model identifier (carries the anthropic. provider prefix).",
+          "required": true,
+          "enum": [
+            {
+              "value": "anthropic.claude-fable-5",
+              "label": "Claude Fable 5"
+            },
+            {
+              "value": "anthropic.claude-opus-4-8",
+              "label": "Claude Opus 4.8"
+            },
+            {
+              "value": "anthropic.claude-opus-4-7",
+              "label": "Claude Opus 4.7"
+            },
+            {
+              "value": "anthropic.claude-haiku-4-5",
+              "label": "Claude Haiku 4.5"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Bedrock 모델 ID (anthropic. 프로바이더 접두사 포함)."
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "description": "Anthropic Messages requires max_tokens on every request.",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096,
+          "descriptionI18n": {
+            "ko": "Anthropic Messages는 모든 요청에 max_tokens가 필요합니다."
+          }
+        },
+        {
+          "key": "thinking_type",
+          "type": "string",
+          "label": "Thinking Mode",
+          "description": "Adaptive thinking. Always on (cannot be disabled) on Claude Fable 5; available on Opus 4.6 and later.",
+          "enum": [
+            {
+              "value": "adaptive",
+              "label": "Adaptive"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "thinking.type"
+          },
+          "descriptionI18n": {
+            "ko": "적응형 thinking. Claude Fable 5에서는 상시 활성(비활성화 불가), Opus 4.6 이상에서 지원."
+          }
+        },
+        {
+          "key": "effort",
+          "type": "string",
+          "label": "Thinking Effort",
+          "description": "Supported on Claude Fable 5, Opus 4.8/4.7/4.6, Sonnet 4.6. xhigh/max are Fable/Opus-tier only.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "output_config.effort"
+          }
+        },
+        {
+          "key": "stop_sequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop_sequences"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "endpoint",
+            "label": "Endpoint",
+            "order": 1,
+            "labelI18n": {
+              "ko": "엔드포인트"
+            }
+          },
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 2,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 3,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 4,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 5,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "endpointUrl",
+            "widget": "text",
+            "visibility": "basic",
+            "group": "endpoint",
+            "order": 1,
+            "placeholder": "https://bedrock-mantle.us-east-1.api.aws/anthropic/v1/messages"
+          },
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "thinking_type",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "effort",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "stop_sequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 2
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock",
+        "https://platform.claude.com/docs/en/api/messages"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock"
+        ],
+        "notes": "Model-dependent provider. Context and output token limits vary by the selected Bedrock model, so PocketRisu uses a number input instead of a fixed-limit slider."
+      }
     },
     "bedrock": {
       "id": "bedrock",
@@ -3508,6 +3797,273 @@
     }
   },
   "profiles": {
+    "anthropic:fable-5": {
+      "id": "anthropic:fable-5",
+      "version": 1,
+      "updatedAt": 1781025739404,
+      "displayName": "Claude Fable 5",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5"
+      },
+      "providerBaseId": "anthropic",
+      "description": "Claude Fable 5 via the Anthropic Messages API. Adaptive thinking is always on (thinking cannot be disabled); control depth with effort.",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5 (Anthropic Messages API). 적응형 thinking 상시 활성(비활성화 불가), effort로 추론 강도 조절."
+      },
+      "tags": [
+        "anthropic",
+        "claude",
+        "fable",
+        "flagship",
+        "reasoning",
+        "long-context"
+      ],
+      "sortOrder": 199,
+      "modelId": "claude-fable-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.anthropic.com/v1/messages"
+      },
+      "auth": {
+        "kind": "x-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {
+        "max_tokens": 4096
+      },
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Claude model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "claude-fable-5",
+              "label": "Claude Fable 5"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Claude 모델 ID."
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "thinking_type",
+          "type": "string",
+          "label": "Thinking Mode",
+          "description": "Adaptive thinking is always on for Claude Fable 5; it cannot be disabled.",
+          "enum": [
+            {
+              "value": "adaptive",
+              "label": "Adaptive"
+            }
+          ],
+          "default": "adaptive",
+          "mapsTo": {
+            "target": "body",
+            "path": "thinking.type"
+          },
+          "descriptionI18n": {
+            "ko": "Claude Fable 5는 적응형 thinking이 상시 활성이며 비활성화할 수 없습니다."
+          }
+        },
+        {
+          "key": "effort",
+          "type": "string",
+          "label": "Thinking Effort",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "output_config.effort"
+          }
+        },
+        {
+          "key": "service_tier",
+          "type": "string",
+          "label": "Service Tier",
+          "enum": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "standard_only",
+              "label": "Standard only"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "service_tier"
+          }
+        },
+        {
+          "key": "user_id",
+          "type": "string",
+          "label": "User ID (metadata)",
+          "mapsTo": {
+            "target": "body",
+            "path": "metadata.user_id"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "control",
+            "label": "Control",
+            "order": 5,
+            "labelI18n": {
+              "ko": "요청 제어"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "thinking_type",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "service_tier",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 1
+          },
+          {
+            "key": "user_id",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 2
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/about-claude/models/introducing-claude-fable-5-and-claude-mythos-5",
+        "https://platform.claude.com/docs/en/about-claude/models/overview",
+        "https://platform.claude.com/docs/en/build-with-claude/effort"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "maxOutputTokens": 128000,
+        "sourceUrls": [
+          "https://platform.claude.com/docs/en/about-claude/models/overview"
+        ]
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
     "anthropic:haiku-45": {
       "id": "anthropic:haiku-45",
       "version": 1,
@@ -6416,6 +6972,7 @@
     "anthropic-compatible:custom-noauth": {
       "id": "anthropic-compatible:custom-noauth",
       "version": 1,
+      "updatedAt": 1781025869643,
       "displayName": "Anthropic Compatible (Custom, no auth)",
       "providerBaseId": "anthropic-compatible",
       "description": "Generic Anthropic Messages endpoint without authentication. Use for local bridges (e.g. a GitHub Copilot proxy on localhost) or any gateway that does not require an API key.",
@@ -6462,6 +7019,7 @@
     "anthropic-compatible:custom": {
       "id": "anthropic-compatible:custom",
       "version": 1,
+      "updatedAt": 1781025869643,
       "displayName": "Anthropic Compatible (Custom)",
       "providerBaseId": "anthropic-compatible",
       "description": "Generic Anthropic Messages endpoint. Provide your own URL, key, and model id. Use for proxies that speak the Anthropic wire format (e.g. a GitHub Copilot bridge).",
@@ -6546,6 +7104,57 @@
       "descriptionI18n": {
         "ko": "AWS Bedrock OpenAI 호환 Chat Completions 엔드포인트 (리전별 URL)."
       },
+      "profileStatus": "current"
+    },
+    "bedrock-anthropic:custom": {
+      "id": "bedrock-anthropic:custom",
+      "version": 1,
+      "updatedAt": 1781025739404,
+      "displayName": "AWS Bedrock (Anthropic Messages)",
+      "displayNameI18n": {
+        "ko": "AWS Bedrock (Anthropic Messages)"
+      },
+      "providerBaseId": "bedrock-anthropic",
+      "description": "Claude on Amazon Bedrock via the native Anthropic Messages endpoint (bedrock-mantle, bearer token). Pick a model (e.g. Claude Fable 5) and provide your region URL and bearer token.",
+      "descriptionI18n": {
+        "ko": "Amazon Bedrock의 네이티브 Anthropic Messages 엔드포인트 (bedrock-mantle, bearer 토큰)로 Claude 사용. 모델(예: Claude Fable 5)을 고르고 리전 URL과 bearer 토큰을 입력하세요."
+      },
+      "tags": [
+        "aws",
+        "bedrock",
+        "anthropic",
+        "claude",
+        "custom"
+      ],
+      "sortOrder": 801,
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": ""
+      },
+      "auth": {
+        "kind": "x-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock"
+      ],
+      "recommendedTokenizer": "claude",
       "profileStatus": "current"
     },
     "deepinfra:openai-compatible": {
@@ -18606,6 +19215,64 @@
       },
       "profileStatus": "current"
     },
+    "openrouter:claude-fable-5": {
+      "id": "openrouter:claude-fable-5",
+      "version": 1,
+      "updatedAt": 1781025739404,
+      "displayName": "Claude Fable 5",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Claude Fable 5 via OpenRouter (anthropic/claude-fable-5).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5 (OpenRouter, anthropic/claude-fable-5)."
+      },
+      "tags": [
+        "openrouter",
+        "claude",
+        "fable"
+      ],
+      "sortOrder": 518,
+      "modelId": "anthropic/claude-fable-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
     "openrouter:claude-opus-46": {
       "id": "openrouter:claude-opus-46",
       "version": 1,
@@ -19956,6 +20623,64 @@
       "descriptionI18n": {
         "ko": "OpenRouter 다중 공급자 라우터 (OpenAI 호환 API)."
       },
+      "profileStatus": "current"
+    },
+    "vercel:claude-fable-5": {
+      "id": "vercel:claude-fable-5",
+      "version": 1,
+      "updatedAt": 1781025739404,
+      "displayName": "Claude Fable 5",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5"
+      },
+      "providerBaseId": "vercel",
+      "description": "Claude Fable 5 via Vercel AI Gateway (anthropic/claude-fable-5).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5 (Vercel AI Gateway, anthropic/claude-fable-5)."
+      },
+      "tags": [
+        "vercel",
+        "claude",
+        "fable"
+      ],
+      "sortOrder": 557,
+      "modelId": "anthropic/claude-fable-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "claude",
       "profileStatus": "current"
     },
     "vercel:claude-opus-46": {
@@ -21417,8 +22142,9 @@
     }
   },
   "baseProviderHashes": {
-    "anthropic-compatible": "a551813a000d025607590d06952cd530d73223a2ef3546c061a74edbe35c75ec",
+    "anthropic-compatible": "5b3411980241df9e6bccaf8b6c1455a6e4524ff97229198cebfce8fe609835a9",
     "anthropic": "52268f92498a8d181d78098077eb1f34ca38e47457515bfeeac25963a60d77c2",
+    "bedrock-anthropic": "0826795caa6bc49f5f5627c286741916b050ea0208e083ca6c27971bdf48abe5",
     "bedrock": "30d85601a597e964b00f09c8972b4a7654e28afe32891a49039830b1f1bc4b2a",
     "deepinfra": "c75425c339fe1b390df34aad812b776a8199729821038a03ba1b8f8ecbda5b3e",
     "deepseek": "341b4b400a121296c2c1772ac435e8456b13c722728c0b8734aba16e32599af2",
@@ -21433,6 +22159,7 @@
     "vertex-openai": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
   },
   "profileHashes": {
+    "anthropic:fable-5": "a7ce6977aaec9dcc34332b1274ea1d30aad7e6cd2c76f8fb614b569245235f76",
     "anthropic:haiku-45": "235d37e91f1b7ae6cad183946a013d27ef9843d035560ff2f996d21bb0593d65",
     "anthropic:opus-4": "9d507298c931bed0e624a9f46564787741dfdd176c618e147e7b710d854a3dee",
     "anthropic:opus-41": "a7a68ca2240f421dc55ea743e76e6c2faa972beae61df60073f19a8db3f53273",
@@ -21443,9 +22170,10 @@
     "anthropic:sonnet-4": "02e291c45b9dcd443e764c3df396c0b6ee1994a1dc9a63f64df8c41d84e55b34",
     "anthropic:sonnet-45": "14d18d63f3aa94f01b888d6c1b2fe3390f909653581e28a1f9505dc8f1d1b449",
     "anthropic:sonnet-46": "619d57b44a4144274c892436461f8de3441ea33b622c1caac9fce7d797bb3c65",
-    "anthropic-compatible:custom-noauth": "0733ab30b5e607cadae59a94f2714cd033efa1a225a2d990b8a92481354c50ec",
-    "anthropic-compatible:custom": "974516690e49db6f15e5bd744fd08ba9d3855685d74e55437cf7fe4209578481",
+    "anthropic-compatible:custom-noauth": "0ee287bb68d8f1f1c22c167c6ac3f13645e0681f1e55d90f96a945cd47fd087f",
+    "anthropic-compatible:custom": "435a340b16c350035921832e92d61f464a9f731c9344dbc39dcc9bcdec70fffd",
     "bedrock:openai-compatible": "e4317519ab87ec59c35173a7d4c242f0753ac9ffaf0ed54aad626cb6bb57fed1",
+    "bedrock-anthropic:custom": "c9f5d0063a08b6e947cd83b830815423c988280e1e99a3febb36462940545c27",
     "deepinfra:openai-compatible": "73bc47c91611be1ada29339572ed1beb4bd4f05692b5230774cc0a0bd77fd394",
     "deepseek:v4-flash-thinking": "ddadbc7b3f8fc710892ca7f16720bd04ea5891c9cfce09c479f75751a31866b2",
     "deepseek:v4-flash": "a0c7ebc1848a5add33ac6fc69f94d44e3ac103320c0dfb36a5340272d4d770a2",
@@ -21492,6 +22220,7 @@
     "openai:o3": "4f4766b2e890712d3bf734bc9b64c186ef1366ab0928501e36a2c40c91f341e4",
     "openai-compatible:custom-noauth": "7048ecedbb15d1f851a38077305a2a78093277e81eb8e829f13f9b5f3f7ac696",
     "openai-compatible:custom": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b",
+    "openrouter:claude-fable-5": "d29673bb9c6064383b738389bb1a1770a84c63bc5b4448e989808ef5d62983e3",
     "openrouter:claude-opus-46": "43612b19fa5071bba2bda7494376ffb58a0ef871a617ebe8f0e631d7f88f3a7a",
     "openrouter:claude-opus-47": "848b9218e017b40ea643a5c451423f7f6b665333b2178c19d86ecb52acd3e86b",
     "openrouter:claude-opus-48": "d93b668ccc33cd19a642e7ece00195678058442626224bf72e2c2f6de1c56f17",
@@ -21516,6 +22245,7 @@
     "openrouter:gpt-55": "ad0ed48763c9df799872ca1a0887ec5b96f6d3ff423aba73f6f11520c336ceac",
     "openrouter:kimi-k26": "aa03b7e5e09bad620554c5b610e63df3c6c15012635aceda5048445b98da1803",
     "openrouter:openai-compatible": "a5bdf5e1b46700305fa7a013e8dfe1456e94b498f7a88bec20f7989d724563ce",
+    "vercel:claude-fable-5": "a649f804056f87560b7782e12e32e751d5e1ced5f60573fb02efd99a7abb5e48",
     "vercel:claude-opus-46": "3a7f3a8493349e7cbc06cd703179837975d84afc6938281e474401cf9a23f650",
     "vercel:claude-opus-47": "63fdfa54a8d0bdb252f1b1c54d9b8b956a744ea2c1f5b11d2d65c4f90a5fa43a",
     "vercel:claude-opus-48": "22ffe6beb37c6b1d051b095f1a0fd7675e7f231d6069693725bb7f53472373c8",

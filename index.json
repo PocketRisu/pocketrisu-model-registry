@@ -1,16 +1,21 @@
 {
   "schemaVersion": 4,
-  "hash": "133b0834d3bc714ae6c97f2b84058eaf95b2576ed51a06f00234798281daa38c",
+  "hash": "ac5c617b2cc76fce5e532dcc1e7634e778f44ce1e7faf8544c48a7603a84a463",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
       "url": "base-providers/anthropic-compatible.json",
-      "hash": "a551813a000d025607590d06952cd530d73223a2ef3546c061a74edbe35c75ec"
+      "hash": "5b3411980241df9e6bccaf8b6c1455a6e4524ff97229198cebfce8fe609835a9"
     },
     {
       "id": "anthropic",
       "url": "base-providers/anthropic.json",
       "hash": "52268f92498a8d181d78098077eb1f34ca38e47457515bfeeac25963a60d77c2"
+    },
+    {
+      "id": "bedrock-anthropic",
+      "url": "base-providers/bedrock-anthropic.json",
+      "hash": "0826795caa6bc49f5f5627c286741916b050ea0208e083ca6c27971bdf48abe5"
     },
     {
       "id": "bedrock",
@@ -75,6 +80,11 @@
   ],
   "profiles": [
     {
+      "id": "anthropic:fable-5",
+      "url": "profiles/anthropic/fable-5.json",
+      "hash": "a7ce6977aaec9dcc34332b1274ea1d30aad7e6cd2c76f8fb614b569245235f76"
+    },
+    {
       "id": "anthropic:haiku-45",
       "url": "profiles/anthropic/haiku-45.json",
       "hash": "235d37e91f1b7ae6cad183946a013d27ef9843d035560ff2f996d21bb0593d65"
@@ -127,17 +137,22 @@
     {
       "id": "anthropic-compatible:custom-noauth",
       "url": "profiles/anthropic-compatible/custom-noauth.json",
-      "hash": "0733ab30b5e607cadae59a94f2714cd033efa1a225a2d990b8a92481354c50ec"
+      "hash": "0ee287bb68d8f1f1c22c167c6ac3f13645e0681f1e55d90f96a945cd47fd087f"
     },
     {
       "id": "anthropic-compatible:custom",
       "url": "profiles/anthropic-compatible/custom.json",
-      "hash": "974516690e49db6f15e5bd744fd08ba9d3855685d74e55437cf7fe4209578481"
+      "hash": "435a340b16c350035921832e92d61f464a9f731c9344dbc39dcc9bcdec70fffd"
     },
     {
       "id": "bedrock:openai-compatible",
       "url": "profiles/bedrock/openai-compatible.json",
       "hash": "e4317519ab87ec59c35173a7d4c242f0753ac9ffaf0ed54aad626cb6bb57fed1"
+    },
+    {
+      "id": "bedrock-anthropic:custom",
+      "url": "profiles/bedrock-anthropic/custom.json",
+      "hash": "c9f5d0063a08b6e947cd83b830815423c988280e1e99a3febb36462940545c27"
     },
     {
       "id": "deepinfra:openai-compatible",
@@ -370,6 +385,11 @@
       "hash": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b"
     },
     {
+      "id": "openrouter:claude-fable-5",
+      "url": "profiles/openrouter/claude-fable-5.json",
+      "hash": "d29673bb9c6064383b738389bb1a1770a84c63bc5b4448e989808ef5d62983e3"
+    },
+    {
       "id": "openrouter:claude-opus-46",
       "url": "profiles/openrouter/claude-opus-46.json",
       "hash": "43612b19fa5071bba2bda7494376ffb58a0ef871a617ebe8f0e631d7f88f3a7a"
@@ -488,6 +508,11 @@
       "id": "openrouter:openai-compatible",
       "url": "profiles/openrouter/openai-compatible.json",
       "hash": "a5bdf5e1b46700305fa7a013e8dfe1456e94b498f7a88bec20f7989d724563ce"
+    },
+    {
+      "id": "vercel:claude-fable-5",
+      "url": "profiles/vercel/claude-fable-5.json",
+      "hash": "a649f804056f87560b7782e12e32e751d5e1ced5f60573fb02efd99a7abb5e48"
     },
     {
       "id": "vercel:claude-opus-46",
