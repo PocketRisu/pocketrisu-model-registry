@@ -1,7 +1,7 @@
 {
   "id": "lightning-ai:gpt-54-mini",
   "version": 1,
-  "updatedAt": 1780830394470,
+  "updatedAt": 1781103554581,
   "displayName": "GPT-5.4 mini",
   "displayNameI18n": {
     "ko": "GPT-5.4 mini"
@@ -92,7 +92,7 @@
     "fields": [
       {
         "key": "reasoning_effort",
-        "widget": "select",
+        "widget": "combobox",
         "visibility": "basic",
         "group": "reasoning",
         "order": 1
