@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "5118c482b47594819a5b66308832f66f398155c732fef968c2d9d4d99c1f029e",
+  "hash": "813ba6cccd4033777f30302e816b218afddac821c22336f269763dc8b929cbcb",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -86,6 +86,11 @@
       "id": "vertex-openai",
       "url": "base-providers/vertex-openai.json",
       "hash": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
+    },
+    {
+      "id": "wellspring",
+      "url": "base-providers/wellspring.json",
+      "hash": "af42c50074f78a0284daefdbbb16179ffc090ff51c7a03c3de71c56c86bff6e8"
     }
   ],
   "profiles": [
@@ -763,6 +768,36 @@
       "id": "vertex-openai:standard",
       "url": "profiles/vertex-openai/standard.json",
       "hash": "64cee4878321d32a6cb465b7599827e380c30caa9653b0450483f8447d9120df"
+    },
+    {
+      "id": "wellspring:deepseek-v32-marp",
+      "url": "profiles/wellspring/deepseek-v32-marp.json",
+      "hash": "88f9df638a1e5ab5ae1b929e543084cefe2dd9b09c43d1b10dfde41fee8a9d46"
+    },
+    {
+      "id": "wellspring:deepseek-v4-flash",
+      "url": "profiles/wellspring/deepseek-v4-flash.json",
+      "hash": "38bce37e0581ae53f8a89bd907ba0b421f407992d5ac02462fc1260dcc16e2cb"
+    },
+    {
+      "id": "wellspring:deepseek-v4-pro",
+      "url": "profiles/wellspring/deepseek-v4-pro.json",
+      "hash": "8b437d332273fb25fa1a2c39b463b619e5e273532307cb34e66f6642f91260a0"
+    },
+    {
+      "id": "wellspring:gemma-4-31b",
+      "url": "profiles/wellspring/gemma-4-31b.json",
+      "hash": "05e742f772500fce6369b1b73255f0b6d0b8a0d9d31c350816c8de5e3dcbb5ad"
+    },
+    {
+      "id": "wellspring:glm-51-code",
+      "url": "profiles/wellspring/glm-51-code.json",
+      "hash": "89dfb9e1000d8bf48f5f1474fe7f36438ffed2da9110f9c203e5658b6d2de2df"
+    },
+    {
+      "id": "wellspring:glm-51-marp",
+      "url": "profiles/wellspring/glm-51-marp.json",
+      "hash": "594808f27fb0f14f28842a1ac70ea25b2589ce15bd521068eebafa3898e324bc"
     }
   ]
 }

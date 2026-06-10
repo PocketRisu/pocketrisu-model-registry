@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "5118c482b47594819a5b66308832f66f398155c732fef968c2d9d4d99c1f029e",
+  "hash": "813ba6cccd4033777f30302e816b218afddac821c22336f269763dc8b929cbcb",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -4407,6 +4407,278 @@
           "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.endpoints.chat/completions"
         ],
         "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+      }
+    },
+    "wellspring": {
+      "id": "wellspring",
+      "version": 1,
+      "displayName": "Wellspring",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "Wellspring API key (ws-...). Bound to your arca.live account.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "Wellspring(챈섭) API 키 (ws-...). arca.live 계정에 연동됩니다."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Model identifier accepted by Wellspring.",
+          "required": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Wellspring(챈섭)이 허용하는 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. Ignored by models without reasoning support.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. thinking 모델에 적용 (미지원 모델은 무시)."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ],
+        "notes": "Community-run arca.live API. Wellspring enforces a per-request input cap (max_input_tokens) and per-model output/RPM limits exposed via /v1/models/{id}; per-profile limits below reflect those host-enforced caps, not native model context windows."
       }
     }
   },
@@ -24436,6 +24708,353 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
       "updatedAt": 1780830394470
+    },
+    "wellspring:deepseek-v32-marp": {
+      "id": "wellspring:deepseek-v32-marp",
+      "version": 1,
+      "updatedAt": 1781102353439,
+      "displayName": "DeepSeek V3.2 Marp",
+      "displayNameI18n": {
+        "ko": "DeepSeek V3.2 Marp"
+      },
+      "providerBaseId": "wellspring",
+      "description": "DeepSeek V3.2 Marp via Wellspring (deepseek-v3.2-marp).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V3.2 Marp (챈섭, deepseek-v3.2-marp)."
+      },
+      "tags": [
+        "wellspring",
+        "deepseek"
+      ],
+      "sortOrder": 602,
+      "modelId": "deepseek-v3.2-marp",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 12288,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 8 RPM.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 8 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "wellspring:deepseek-v4-flash": {
+      "id": "wellspring:deepseek-v4-flash",
+      "version": 1,
+      "updatedAt": 1781102353439,
+      "displayName": "DeepSeek V4 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "providerBaseId": "wellspring",
+      "description": "DeepSeek V4 Flash via Wellspring (deepseek-v4-flash).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4 Flash (챈섭, deepseek-v4-flash)."
+      },
+      "tags": [
+        "wellspring",
+        "deepseek"
+      ],
+      "sortOrder": 601,
+      "modelId": "deepseek-v4-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 16384,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 10 RPM.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "wellspring:deepseek-v4-pro": {
+      "id": "wellspring:deepseek-v4-pro",
+      "version": 1,
+      "updatedAt": 1781102353439,
+      "displayName": "DeepSeek V4 Pro",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "providerBaseId": "wellspring",
+      "description": "DeepSeek V4 Pro via Wellspring (deepseek-v4-pro).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4 Pro (챈섭, deepseek-v4-pro)."
+      },
+      "tags": [
+        "wellspring",
+        "deepseek"
+      ],
+      "sortOrder": 600,
+      "modelId": "deepseek-v4-pro",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 16384,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 3 RPM.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 3 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "wellspring:gemma-4-31b": {
+      "id": "wellspring:gemma-4-31b",
+      "version": 1,
+      "updatedAt": 1781102353439,
+      "displayName": "Gemma 4 31B",
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "providerBaseId": "wellspring",
+      "description": "Gemma 4 31B via Wellspring (gemma-4-31b).",
+      "descriptionI18n": {
+        "ko": "Gemma 4 31B (챈섭, gemma-4-31b)."
+      },
+      "tags": [
+        "wellspring",
+        "gemma"
+      ],
+      "sortOrder": 605,
+      "modelId": "gemma-4-31b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 16384,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 5 RPM.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 5 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "wellspring:glm-51-code": {
+      "id": "wellspring:glm-51-code",
+      "version": 1,
+      "updatedAt": 1781102353439,
+      "displayName": "GLM 5.1 Code",
+      "displayNameI18n": {
+        "ko": "GLM 5.1 Code"
+      },
+      "providerBaseId": "wellspring",
+      "description": "GLM 5.1 Code via Wellspring (glm-5.1-code).",
+      "descriptionI18n": {
+        "ko": "GLM 5.1 Code (챈섭, glm-5.1-code)."
+      },
+      "tags": [
+        "wellspring",
+        "glm"
+      ],
+      "sortOrder": 603,
+      "modelId": "glm-5.1-code",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 16384,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 30 RPM.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 30 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "wellspring:glm-51-marp": {
+      "id": "wellspring:glm-51-marp",
+      "version": 1,
+      "updatedAt": 1781102353439,
+      "displayName": "GLM 5.1 Marp",
+      "displayNameI18n": {
+        "ko": "GLM 5.1 Marp"
+      },
+      "providerBaseId": "wellspring",
+      "description": "GLM 5.1 Marp via Wellspring (glm-5.1-marp).",
+      "descriptionI18n": {
+        "ko": "GLM 5.1 Marp (챈섭, glm-5.1-marp)."
+      },
+      "tags": [
+        "wellspring",
+        "glm"
+      ],
+      "sortOrder": 604,
+      "modelId": "glm-5.1-marp",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 16384,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 8 RPM.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 8 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
     }
   },
   "baseProviderHashes": {
@@ -24455,7 +25074,8 @@
     "openrouter": "4024dd6e789bae10edd06daf997bfe78f596111b8e16aa44a509bd49d8873742",
     "vercel": "1a60de64d1c3fa5021280a79c3f448ceeba4c24546fa0eca84cc5cd1e2fc2aea",
     "vertex-gemini-native": "ce94a66cc1aa590f3794c8de95b451bafe50e8f1648b2eedab1c0b19bf3e354e",
-    "vertex-openai": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1"
+    "vertex-openai": "0027a3dfcc74106c4f820749ff912a82aeb87086ee52e9ba17fc0a5d18f1bfc1",
+    "wellspring": "af42c50074f78a0284daefdbbb16179ffc090ff51c7a03c3de71c56c86bff6e8"
   },
   "profileHashes": {
     "anthropic:fable-5": "a7ce6977aaec9dcc34332b1274ea1d30aad7e6cd2c76f8fb614b569245235f76",
@@ -24592,6 +25212,12 @@
     "vercel:openai-compatible": "54f89e147fb80159af10752790e4e0e68b0f43b2a02994a39c592b0450cb7350",
     "vertex-gemini-native:flash": "e067db358930051a91da498f69c9daae8969b498909d5f2dc2011ab1f483f3bd",
     "vertex-gemini-native:pro": "cba642ba10c1baa91a62e2570d7a05c276737779a3249e59fa63c72ef837ecf8",
-    "vertex-openai:standard": "64cee4878321d32a6cb465b7599827e380c30caa9653b0450483f8447d9120df"
+    "vertex-openai:standard": "64cee4878321d32a6cb465b7599827e380c30caa9653b0450483f8447d9120df",
+    "wellspring:deepseek-v32-marp": "88f9df638a1e5ab5ae1b929e543084cefe2dd9b09c43d1b10dfde41fee8a9d46",
+    "wellspring:deepseek-v4-flash": "38bce37e0581ae53f8a89bd907ba0b421f407992d5ac02462fc1260dcc16e2cb",
+    "wellspring:deepseek-v4-pro": "8b437d332273fb25fa1a2c39b463b619e5e273532307cb34e66f6642f91260a0",
+    "wellspring:gemma-4-31b": "05e742f772500fce6369b1b73255f0b6d0b8a0d9d31c350816c8de5e3dcbb5ad",
+    "wellspring:glm-51-code": "89dfb9e1000d8bf48f5f1474fe7f36438ffed2da9110f9c203e5658b6d2de2df",
+    "wellspring:glm-51-marp": "594808f27fb0f14f28842a1ac70ea25b2589ce15bd521068eebafa3898e324bc"
   }
 }
