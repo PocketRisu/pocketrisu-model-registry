@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "88c2cb88991671f5f83d6768381be265d8028159ee8be4e55de68bb7eac819f6",
+  "hash": "04ecd076de64b7bb33a4d095a2312ede4bfb390ea5728036b7b180adf21b170a",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -50,7 +50,7 @@
     {
       "id": "ollama-cloud",
       "url": "base-providers/ollama-cloud.json",
-      "hash": "78378673b0993c15851ae909d9e5eacce589fa39bc266155c04882d1efb80205"
+      "hash": "4f7a2adf95e7c6dccb941f48b3731b456f32ea7988eba892b836b757a5165078"
     },
     {
       "id": "ollama",
@@ -382,37 +382,42 @@
     {
       "id": "ollama-cloud:deepseek-v4-flash",
       "url": "profiles/ollama-cloud/deepseek-v4-flash.json",
-      "hash": "cbf0f5b682c69157acae2c78f1c8bcf8e33af2b51f6e9eeecc99d4629d719ea0"
+      "hash": "42a2eaf091ffd7ba4d9b7b3ed510d0526171a66e3028db51bf29b9388254425e"
     },
     {
       "id": "ollama-cloud:deepseek-v4-pro",
       "url": "profiles/ollama-cloud/deepseek-v4-pro.json",
-      "hash": "6d640e8ee4219ab636f2a6d723dca0955c370c404e571e2ace644ca3da4fa23e"
+      "hash": "97e08d532f33e3a63cb6ef80ccd1c31f677bb5bd42258e872b167c49f01ecab7"
+    },
+    {
+      "id": "ollama-cloud:gemini-3-flash",
+      "url": "profiles/ollama-cloud/gemini-3-flash.json",
+      "hash": "3f031a92a8fbcecc1827c8ab4599ae42d9ec95113c7750cc08c996869fd5e957"
     },
     {
       "id": "ollama-cloud:gemma-4-31b",
       "url": "profiles/ollama-cloud/gemma-4-31b.json",
-      "hash": "0d3d9eb9e82e218a6a355bb78d71eff316677e7d9fee8717b96077cd3dbb978a"
+      "hash": "c4dea5669a9ccccde8a412325ddf6db8be9f8eddedbe38c0d2dcedfb03f5a3e6"
     },
     {
       "id": "ollama-cloud:glm-51",
       "url": "profiles/ollama-cloud/glm-51.json",
-      "hash": "ac1bcfe6bce27ab16a8d4109016ed65847201ee7f76ab2b4f53163b208380b35"
+      "hash": "9af08f6aff379fcc6c8d0ea91487936c0b651b523495ed8c1836a39ca61dca87"
     },
     {
       "id": "ollama-cloud:gpt-oss-120b",
       "url": "profiles/ollama-cloud/gpt-oss-120b.json",
-      "hash": "2c91035d462ca7be37f43ecf52882a79cc08d435b60262910b4d5e975f32cc8a"
+      "hash": "7b348d7588318e7fbc6e7d26bb71efdf3b5ade0a98d79c98daabe970351caa90"
     },
     {
       "id": "ollama-cloud:kimi-k26",
       "url": "profiles/ollama-cloud/kimi-k26.json",
-      "hash": "024389e7a6d059580c9188e399e071e4d93f2b428f7236bfd5f61b49efbc9cce"
+      "hash": "29f9315a6be976eb161cd8de7a7fbacca315312dd715310d5c5ef4bf77ca5d31"
     },
     {
       "id": "ollama-cloud:standard",
       "url": "profiles/ollama-cloud/standard.json",
-      "hash": "f95459aadec4455860e6846039e44f9a287d4e155d9115254b9396f42d9624c7"
+      "hash": "4f40c13ed974a7c08307f5d708f6cb3e4cc6289d9c8abf491236d1a002e9d6a5"
     },
     {
       "id": "openai:gpt-4",
