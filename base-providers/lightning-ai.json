@@ -137,6 +137,41 @@
         "target": "body",
         "path": "seed"
       }
+    },
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "Reasoning depth for thinking models. Suggestions follow the gpt-5 family; type a custom value if your model uses a different scale. Only applies to reasoning-capable models.",
+      "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "low",
+          "label": "Low"
+        },
+        {
+          "value": "medium",
+          "label": "Medium"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra high"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      },
+      "descriptionI18n": {
+        "ko": "추론(사고) 강도. 제안값은 gpt-5 계열 기준이며, 다른 스케일을 쓰는 모델은 값을 직접 입력하세요. reasoning 지원 모델에만 적용."
+      }
     }
   ],
   "uiSchema": {
@@ -163,6 +198,14 @@
         "order": 3,
         "labelI18n": {
           "ko": "생성"
+        }
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 4,
+        "labelI18n": {
+          "ko": "추론"
         }
       }
     ],
@@ -229,6 +272,13 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 7
+      },
+      {
+        "key": "reasoning_effort",
+        "widget": "combobox",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
       }
     ]
   },

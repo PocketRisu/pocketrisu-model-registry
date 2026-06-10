@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "30e5be3b7c2422b7bb7ec32984bf83c0db3e2c258a298296aa090f21c711484b",
+  "hash": "88c2cb88991671f5f83d6768381be265d8028159ee8be4e55de68bb7eac819f6",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -1390,6 +1390,41 @@
             "target": "body",
             "path": "seed"
           }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. Suggestions follow the gpt-5 family; type a custom value if your model uses a different scale. Only applies to reasoning-capable models.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 제안값은 gpt-5 계열 기준이며, 다른 스케일을 쓰는 모델은 값을 직접 입력하세요. reasoning 지원 모델에만 적용."
+          }
         }
       ],
       "uiSchema": {
@@ -1416,6 +1451,14 @@
             "order": 3,
             "labelI18n": {
               "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
             }
           }
         ],
@@ -1482,6 +1525,13 @@
             "visibility": "advanced",
             "group": "generation",
             "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
           }
         ]
       },
@@ -13193,7 +13243,7 @@
     "lightning-ai:claude-haiku-45": {
       "id": "lightning-ai:claude-haiku-45",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Claude Haiku 4.5",
       "displayNameI18n": {
         "ko": "Claude Haiku 4.5"
@@ -13251,7 +13301,7 @@
     "lightning-ai:claude-opus-47": {
       "id": "lightning-ai:claude-opus-47",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Claude Opus 4.7",
       "displayNameI18n": {
         "ko": "Claude Opus 4.7"
@@ -13308,7 +13358,7 @@
     "lightning-ai:claude-opus-48": {
       "id": "lightning-ai:claude-opus-48",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Claude Opus 4.8",
       "displayNameI18n": {
         "ko": "Claude Opus 4.8"
@@ -13365,7 +13415,7 @@
     "lightning-ai:claude-sonnet-46": {
       "id": "lightning-ai:claude-sonnet-46",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Claude Sonnet 4.6",
       "displayNameI18n": {
         "ko": "Claude Sonnet 4.6"
@@ -13422,7 +13472,7 @@
     "lightning-ai:deepseek-v4-pro": {
       "id": "lightning-ai:deepseek-v4-pro",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -13477,7 +13527,7 @@
     "lightning-ai:gemini-3-flash": {
       "id": "lightning-ai:gemini-3-flash",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Gemini 3 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3 Flash"
@@ -13534,7 +13584,7 @@
     "lightning-ai:gemini-31-pro": {
       "id": "lightning-ai:gemini-31-pro",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Gemini 3.1 Pro",
       "displayNameI18n": {
         "ko": "Gemini 3.1 Pro"
@@ -13591,7 +13641,7 @@
     "lightning-ai:gemini-35-flash": {
       "id": "lightning-ai:gemini-35-flash",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Gemini 3.5 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3.5 Flash"
@@ -13647,7 +13697,7 @@
     "lightning-ai:glm-5": {
       "id": "lightning-ai:glm-5",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "GLM-5",
       "displayNameI18n": {
         "ko": "GLM-5"
@@ -13703,7 +13753,7 @@
     "lightning-ai:gpt-5-mini": {
       "id": "lightning-ai:gpt-5-mini",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5 mini",
       "displayNameI18n": {
         "ko": "GPT-5 mini"
@@ -13747,59 +13797,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -13825,7 +13827,7 @@
     "lightning-ai:gpt-5-nano": {
       "id": "lightning-ai:gpt-5-nano",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5 nano",
       "displayNameI18n": {
         "ko": "GPT-5 nano"
@@ -13869,59 +13871,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -13947,7 +13901,7 @@
     "lightning-ai:gpt-5": {
       "id": "lightning-ai:gpt-5",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5",
       "displayNameI18n": {
         "ko": "GPT-5"
@@ -13991,59 +13945,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -14069,7 +13975,7 @@
     "lightning-ai:gpt-54-mini": {
       "id": "lightning-ai:gpt-54-mini",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5.4 mini",
       "displayNameI18n": {
         "ko": "GPT-5.4 mini"
@@ -14113,59 +14019,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -14192,7 +14050,7 @@
     "lightning-ai:gpt-54-nano": {
       "id": "lightning-ai:gpt-54-nano",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5.4 nano",
       "displayNameI18n": {
         "ko": "GPT-5.4 nano"
@@ -14236,59 +14094,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -14315,7 +14125,7 @@
     "lightning-ai:gpt-54": {
       "id": "lightning-ai:gpt-54",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5.4",
       "displayNameI18n": {
         "ko": "GPT-5.4"
@@ -14359,59 +14169,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -14438,7 +14200,7 @@
     "lightning-ai:gpt-55": {
       "id": "lightning-ai:gpt-55",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-5.5",
       "displayNameI18n": {
         "ko": "GPT-5.5"
@@ -14482,59 +14244,11 @@
           "descriptionI18n": {
             "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
           }
-        },
-        {
-          "key": "reasoning_effort",
-          "type": "string",
-          "label": "Reasoning Effort",
-          "enum": [
-            {
-              "value": "none",
-              "label": "None"
-            },
-            {
-              "value": "low",
-              "label": "Low"
-            },
-            {
-              "value": "medium",
-              "label": "Medium"
-            },
-            {
-              "value": "high",
-              "label": "High"
-            },
-            {
-              "value": "xhigh",
-              "label": "Extra high"
-            }
-          ],
-          "mapsTo": {
-            "target": "body",
-            "path": "reasoning_effort"
-          }
         }
       ],
       "uiSchema": {
-        "groups": [
-          {
-            "id": "reasoning",
-            "label": "Reasoning",
-            "order": 4,
-            "labelI18n": {
-              "ko": "추론"
-            }
-          }
-        ],
-        "fields": [
-          {
-            "key": "reasoning_effort",
-            "widget": "combobox",
-            "visibility": "basic",
-            "group": "reasoning",
-            "order": 1
-          }
-        ]
+        "groups": [],
+        "fields": []
       },
       "capabilities": [
         "streaming",
@@ -14561,7 +14275,7 @@
     "lightning-ai:gpt-oss-120b": {
       "id": "lightning-ai:gpt-oss-120b",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "GPT-OSS 120B",
       "displayNameI18n": {
         "ko": "GPT-OSS 120B"
@@ -14617,7 +14331,7 @@
     "lightning-ai:kimi-k25": {
       "id": "lightning-ai:kimi-k25",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Kimi K2.5",
       "displayNameI18n": {
         "ko": "Kimi K2.5"
@@ -14673,7 +14387,7 @@
     "lightning-ai:nemotron-3-ultra": {
       "id": "lightning-ai:nemotron-3-ultra",
       "version": 1,
-      "updatedAt": 1780830394470,
+      "updatedAt": 1781104476429,
       "displayName": "Nemotron 3 Ultra",
       "displayNameI18n": {
         "ko": "Nemotron 3 Ultra"
@@ -14769,7 +14483,7 @@
         "ko": "Lightning AI 게이트웨이 (OpenAI 호환 API). 임의 모델 ID 입력 가능. gpt-5 계열은 max_completion_tokens가 필요하므로 전용 프로파일을 사용하세요."
       },
       "profileStatus": "current",
-      "updatedAt": 1780830394470
+      "updatedAt": 1781104476429
     },
     "nanogpt:deepseek-v4-flash": {
       "id": "nanogpt:deepseek-v4-flash",
@@ -25069,7 +24783,7 @@
     "deepinfra": "c75425c339fe1b390df34aad812b776a8199729821038a03ba1b8f8ecbda5b3e",
     "deepseek": "341b4b400a121296c2c1772ac435e8456b13c722728c0b8734aba16e32599af2",
     "google": "3e0403b7c9a559939a948c461b45240fb42a6411bcf3af59ec33be249f7385b1",
-    "lightning-ai": "ed256dce3fa5179109cf50ff0ab6ccb1548e3096f6cf9acedfdb06e4047974a9",
+    "lightning-ai": "2ba7a1bf0148e6af231c8043dbe96704916dc54c5232b4fd138ae8416f019459",
     "nanogpt": "6b98399abd6e081460fed6b80cd71734ae57ce07480b6446186c7e04a19fcab2",
     "ollama-cloud": "78378673b0993c15851ae909d9e5eacce589fa39bc266155c04882d1efb80205",
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
@@ -25111,26 +24825,26 @@
     "google:gemini-35-flash": "ea27cfc03c58a20ffde1c853a9afd88d8304b0fe9f4e970ea36a12353d410d6e",
     "google:gemma-4-26b": "d7a3be619fbca63459dc5af2e77fed2d51f9a2ee3a5e4c13c9de34478d53e08a",
     "google:gemma-4-31b": "928240029cceef0560f4474ef20d7ca8a2c06a9084acdfb5ce4fcd8bb5371379",
-    "lightning-ai:claude-haiku-45": "b8a2f6f99bcc3f4643596ebe594464f88c4bd175feeb775a1ffec38d8a2613f8",
-    "lightning-ai:claude-opus-47": "f91af2de1b1a8ce3aa0d823bd409fb950355c22e11e60010deff7a28f5928fea",
-    "lightning-ai:claude-opus-48": "08644176d3968dbcab3f9f504280078cbfc8d716fd0dfa62ab5c0a2714d6414f",
-    "lightning-ai:claude-sonnet-46": "061dc91f4bd110d8fe171ee4d0091a3090c82b77733bc4e3c79d367220dd8f29",
-    "lightning-ai:deepseek-v4-pro": "eb7e51141700f822b49be606dec165cfd904cf64bf96f389113b02c6bdfba225",
-    "lightning-ai:gemini-3-flash": "7fe1ad8ad6ce01f24ca28d629f487333af39ba062e76ffa7cbb471385317bd61",
-    "lightning-ai:gemini-31-pro": "c9f715c3498774bfb123806195f75420c7994bf208b6a5d74c948e19135c0142",
-    "lightning-ai:gemini-35-flash": "eeb45841fe2ec055a26d0488c32b5bf2cfdaa3f60c7ad2ea1fe18b5301bc207a",
-    "lightning-ai:glm-5": "a1f57a1d7ec6c1cd8f063b4f19fa48e34c57cb57c1d39e5ff4f942b3ef7b8e62",
-    "lightning-ai:gpt-5-mini": "75b775afeab9ccf82c4525562dec0db39f28eff5d045ced67fff9fb9fa329dfb",
-    "lightning-ai:gpt-5-nano": "9cbe05ee441abb1772d959476b6c6513849456a71e1575202b33cf683d2a4a7b",
-    "lightning-ai:gpt-5": "67b6fa637acac0504581cb7a3c46732a768901bd60fbcca6552c88b225de53f8",
-    "lightning-ai:gpt-54-mini": "f14d61a1cde9239c439c18ed4265bb33c9d78efa5aaaa06f56b03bad7ba032d1",
-    "lightning-ai:gpt-54-nano": "09b5cb4feccf68b4718cc1d746b4585304865479bc8007feb78fe781c3f520bd",
-    "lightning-ai:gpt-54": "a74311f54b89f3970cc2d480621d1604e3c97e8ab3bdbe2188db38219982aa45",
-    "lightning-ai:gpt-55": "4317a3c2ad963b32442eb7b1b69a08bc0302e9ea92abe4a134f633690bea5715",
-    "lightning-ai:gpt-oss-120b": "f5b26f178f0b1f2d4e7b1f43325c8057a96fdf3e164cc65f211a3ab3ce650f2b",
-    "lightning-ai:kimi-k25": "1e125bf820cd8a2013b6f2384e3e8c4ce9e579d1cfc11eb4e0293e1064eae1f2",
-    "lightning-ai:nemotron-3-ultra": "46a812f82339605cbcf3f1115d38f4759942fae04cbffeac0301a375ec9f5a53",
-    "lightning-ai:openai-compatible": "0a7a221a61aba5b362a970591bd9616a9684402b92ab68f8603eb780e81b35c3",
+    "lightning-ai:claude-haiku-45": "12cb2db1aefd345a1512acb5a205fc0286c5cfba31232728a0f879165c2e788d",
+    "lightning-ai:claude-opus-47": "8b989c1e2b0748fa95c09d51a06dd47b02ea7c597401ad8ebb7331d7a125e958",
+    "lightning-ai:claude-opus-48": "27f74838853d684b349d99d98ef71c3a15d742c432b591eebc87a723ec229f3c",
+    "lightning-ai:claude-sonnet-46": "02b18c75e6eda2ce64da6e39aa83536112299275b47ea2845ff112f6d39edd91",
+    "lightning-ai:deepseek-v4-pro": "ed6d1e6e71c2d81e19b89fac43208b2d20cb25c995951163f68e38b2cc25f746",
+    "lightning-ai:gemini-3-flash": "0a643b142c645c7293af619ce126756c86b3a280665961ebb6699ff452611835",
+    "lightning-ai:gemini-31-pro": "c7253291f4a87b516258141ca6b40d906bee10bcefa62b029441e4e2e227b616",
+    "lightning-ai:gemini-35-flash": "7ba893da32d55eba751acf79156c8e257409fad36ec0ca5a205db1e5ec7502f2",
+    "lightning-ai:glm-5": "dafafc049348adb463207e4963bcf46d570ea6ec5e3e8c691c0ba4d55de3a0a0",
+    "lightning-ai:gpt-5-mini": "9c9846135c252747842a3e84e43b6236e55886dd7f4caac7b7a304f856ad02e3",
+    "lightning-ai:gpt-5-nano": "0e33c4ff0db4bc7e0bbb3f27be349ec2c3d334894bf8c52ab7d8fd1d9a1737ff",
+    "lightning-ai:gpt-5": "b04062848dbab36a91ad423e3c28f02733e28d4984c75822fb1170c99343e8f1",
+    "lightning-ai:gpt-54-mini": "ef1a3d00aec8f3ed2a1456ea548881622c3735d9a255d4f47f12b4ec4efc9d04",
+    "lightning-ai:gpt-54-nano": "2b5f65824abfc6f234f0f0274b3ad58bfe31d12136f3c80d1532c4b12eb07e16",
+    "lightning-ai:gpt-54": "e6755a691c01d021388e01033b8958521861a5e1a1036611eacbea3b44067406",
+    "lightning-ai:gpt-55": "cb7145f0db0031fb03f905863fd641f080da3b1bb5a56384f699b4455f35889d",
+    "lightning-ai:gpt-oss-120b": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3",
+    "lightning-ai:kimi-k25": "a0674a3cf268123c6d8bcbee385c1f1e3879f1f9ec9bbc8de2586ed382ec20de",
+    "lightning-ai:nemotron-3-ultra": "e0f21f2ccb8bb915fb4685e866976103266d4774ba5e8b3281ce5b44c20b1b6f",
+    "lightning-ai:openai-compatible": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20",
     "nanogpt:deepseek-v4-flash": "362aaf28e8b73dac9c06753fa1bb0f74569ad50c2d8592801e37f54c7d3948be",
     "nanogpt:deepseek-v4-pro": "4a65d765792f354e79fe1b2a99fac4b492a870d37da14b53edbec800b3a0555e",
     "nanogpt:gemma-4-31b": "08c06f40983b929d426b99f637e8315119bb91ae2d2622f3793a097d563d860b",

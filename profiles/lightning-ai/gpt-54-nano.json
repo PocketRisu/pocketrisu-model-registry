@@ -1,7 +1,7 @@
 {
   "id": "lightning-ai:gpt-54-nano",
   "version": 1,
-  "updatedAt": 1781103554581,
+  "updatedAt": 1781104476429,
   "displayName": "GPT-5.4 nano",
   "displayNameI18n": {
     "ko": "GPT-5.4 nano"
@@ -45,59 +45,11 @@
       "descriptionI18n": {
         "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
       }
-    },
-    {
-      "key": "reasoning_effort",
-      "type": "string",
-      "label": "Reasoning Effort",
-      "enum": [
-        {
-          "value": "none",
-          "label": "None"
-        },
-        {
-          "value": "low",
-          "label": "Low"
-        },
-        {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
-          "value": "high",
-          "label": "High"
-        },
-        {
-          "value": "xhigh",
-          "label": "Extra high"
-        }
-      ],
-      "mapsTo": {
-        "target": "body",
-        "path": "reasoning_effort"
-      }
     }
   ],
   "uiSchema": {
-    "groups": [
-      {
-        "id": "reasoning",
-        "label": "Reasoning",
-        "order": 4,
-        "labelI18n": {
-          "ko": "추론"
-        }
-      }
-    ],
-    "fields": [
-      {
-        "key": "reasoning_effort",
-        "widget": "combobox",
-        "visibility": "basic",
-        "group": "reasoning",
-        "order": 1
-      }
-    ]
+    "groups": [],
+    "fields": []
   },
   "capabilities": [
     "streaming",
