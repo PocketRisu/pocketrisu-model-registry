@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "813ba6cccd4033777f30302e816b218afddac821c22336f269763dc8b929cbcb",
+  "hash": "3293de29ef1f6436a5f198f8b7dd2aedab968994553108e64ffc13fbe17de2b3",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -90,7 +90,7 @@
     {
       "id": "wellspring",
       "url": "base-providers/wellspring.json",
-      "hash": "af42c50074f78a0284daefdbbb16179ffc090ff51c7a03c3de71c56c86bff6e8"
+      "hash": "fc2b7f264971cccf19655643d3b98fadb492fa3d672aed4245a4e9a09120956f"
     }
   ],
   "profiles": [
@@ -772,32 +772,32 @@
     {
       "id": "wellspring:deepseek-v32-marp",
       "url": "profiles/wellspring/deepseek-v32-marp.json",
-      "hash": "88f9df638a1e5ab5ae1b929e543084cefe2dd9b09c43d1b10dfde41fee8a9d46"
+      "hash": "34b58aa78f036a3ee145a8e56cb543dbc1f32c5dfc73ba6ff56e5abff3cc4cb7"
     },
     {
       "id": "wellspring:deepseek-v4-flash",
       "url": "profiles/wellspring/deepseek-v4-flash.json",
-      "hash": "38bce37e0581ae53f8a89bd907ba0b421f407992d5ac02462fc1260dcc16e2cb"
+      "hash": "82779f58d25bb8c69840dcc34695f537eeaffe6e2804cf2848a3e2c2110f887b"
     },
     {
       "id": "wellspring:deepseek-v4-pro",
       "url": "profiles/wellspring/deepseek-v4-pro.json",
-      "hash": "8b437d332273fb25fa1a2c39b463b619e5e273532307cb34e66f6642f91260a0"
+      "hash": "99a1e08b8fd4d59d6ccc7fec457d64b2e5f839ea9ee1c49b46ae3fcd8459a800"
     },
     {
       "id": "wellspring:gemma-4-31b",
       "url": "profiles/wellspring/gemma-4-31b.json",
-      "hash": "05e742f772500fce6369b1b73255f0b6d0b8a0d9d31c350816c8de5e3dcbb5ad"
+      "hash": "9c6894503c0a693d72c351e50d47d413a4ec21ab8715ed8056faf4d7ad60749b"
     },
     {
       "id": "wellspring:glm-51-code",
       "url": "profiles/wellspring/glm-51-code.json",
-      "hash": "89dfb9e1000d8bf48f5f1474fe7f36438ffed2da9110f9c203e5658b6d2de2df"
+      "hash": "70d4bce7d902c56f26760966a2cf512b3bfb2a71be302b6eb2fe8ab718489eac"
     },
     {
       "id": "wellspring:glm-51-marp",
       "url": "profiles/wellspring/glm-51-marp.json",
-      "hash": "594808f27fb0f14f28842a1ac70ea25b2589ce15bd521068eebafa3898e324bc"
+      "hash": "4b7654704989501c2f137a7f2701bde9ec83c6d8fb7ac83e2515dfa9e57730cc"
     }
   ]
 }

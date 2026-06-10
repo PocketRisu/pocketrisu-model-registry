@@ -124,19 +124,23 @@
       "key": "reasoning_effort",
       "type": "string",
       "label": "Reasoning Effort",
-      "description": "Reasoning depth for thinking models. Ignored by models without reasoning support.",
+      "description": "Unified reasoning depth knob (Wellspring gateway). 'none' disables thinking; 'max' is the deepest. Only applies to reasoning-capable models.",
       "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
         {
           "value": "low",
           "label": "Low"
         },
         {
-          "value": "medium",
-          "label": "Medium"
-        },
-        {
           "value": "high",
           "label": "High"
+        },
+        {
+          "value": "max",
+          "label": "Max"
         }
       ],
       "mapsTo": {
@@ -144,7 +148,7 @@
         "path": "reasoning_effort"
       },
       "descriptionI18n": {
-        "ko": "추론(사고) 강도. thinking 모델에 적용 (미지원 모델은 무시)."
+        "ko": "통합 추론 강도 (Wellspring 게이트웨이). none은 thinking 끄기, max가 가장 깊음. reasoning 지원 모델에만 적용."
       }
     }
   ],
