@@ -84,7 +84,7 @@
     },
     "capabilities": {
       "type": "array",
-      "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning"] }
+      "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning", "cache"] }
     },
     "recommendedTokenizer": {
       "enum": ["tik", "mistral", "novelai", "claude", "llama", "llama3", "novellist", "gemma", "cohere", "deepseek"],

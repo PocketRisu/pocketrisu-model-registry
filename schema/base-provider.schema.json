@@ -41,7 +41,7 @@
     "uiSchema": { "$ref": "#/$defs/uiSchema" },
     "capabilities": {
       "type": "array",
-      "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning"] }
+      "items": { "enum": ["streaming", "vision", "tools", "json", "reasoning", "cache"] }
     },
     "limits": { "$ref": "#/$defs/modelLimits" },
     "sourceUrls": {

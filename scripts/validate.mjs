@@ -60,7 +60,7 @@ const ALLOWED_WIDGET = new Set([
 ])
 const ALLOWED_VISIBILITY = new Set(['basic', 'advanced', 'hidden'])
 const ALLOWED_MAPS_TO_TARGET = new Set(['body', 'header', 'query', 'auth', 'custom'])
-const ALLOWED_CAPABILITY = new Set(['streaming', 'vision', 'tools', 'json', 'reasoning'])
+const ALLOWED_CAPABILITY = new Set(['streaming', 'vision', 'tools', 'json', 'reasoning', 'cache'])
 const ALLOWED_PROFILE_STATUS = new Set(['current', 'outdated', 'deprecated'])
 const DISALLOWED_TEMPORAL_TAG = new Set(['latest', 'current', 'recommended', 'experimental', 'legacy', 'deprecated', 'outdated', 'popular'])
 const ALLOWED_TOKENIZER = new Set(['tik', 'mistral', 'novelai', 'claude', 'llama', 'llama3', 'novellist', 'gemma', 'cohere', 'deepseek'])

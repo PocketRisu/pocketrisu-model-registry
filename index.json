@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "04ecd076de64b7bb33a4d095a2312ede4bfb390ea5728036b7b180adf21b170a",
+  "hash": "9e1025ee38e6505c20d24419f9a763ac74367d1f986ee3052a27d74f5d36f67e",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -35,7 +35,7 @@
     {
       "id": "google",
       "url": "base-providers/google.json",
-      "hash": "3e0403b7c9a559939a948c461b45240fb42a6411bcf3af59ec33be249f7385b1"
+      "hash": "13add38af1fe4199d60645032a4e3727875e9243c5de7337875fe62672a011ae"
     },
     {
       "id": "lightning-ai",
@@ -197,47 +197,47 @@
     {
       "id": "google:gemini-25-flash-lite",
       "url": "profiles/google/gemini-25-flash-lite.json",
-      "hash": "fe8ccc407a4f613bc4f87273a73bc02abce5346ab3c69dfb50e76b52e3cca216"
+      "hash": "0adc067b305a6b137491bbb9659961a1f559643604c3b909120827dc3a731a03"
     },
     {
       "id": "google:gemini-25-flash",
       "url": "profiles/google/gemini-25-flash.json",
-      "hash": "ea3af703179a15dc666cf475fef460a7d17bf004f5aede891be7463fe8c4265a"
+      "hash": "cbf9a339e531583c6263579f1f752444c98a3a0a01d0fe7d3821e24e143bdc3b"
     },
     {
       "id": "google:gemini-25-pro",
       "url": "profiles/google/gemini-25-pro.json",
-      "hash": "c01416bbfd5b40fae7038946d393eb047c0834d87a09d2319ba97fce14a25dcc"
+      "hash": "aae71489341e77c7e0e8d5582659c533003031ca1a69d45edba571f5a3e13f45"
     },
     {
       "id": "google:gemini-3-flash",
       "url": "profiles/google/gemini-3-flash.json",
-      "hash": "0da8c9e8140ef9dc7c50048f8bdeab0e670df5156918de3e99110183d4972324"
+      "hash": "0bcd85b7e77d0db902db0ac542d5338aab31cdb6019b63e6fea3eff53c4887e8"
     },
     {
       "id": "google:gemini-31-flash-lite",
       "url": "profiles/google/gemini-31-flash-lite.json",
-      "hash": "3dccae5b686459d6ce6b7ff3ec39a02cad57fe3a139f528229f171cd92f7f3ac"
+      "hash": "7eb0c74ae8c8ed1782399896e8296180bd94fc66cce3e1da9769e082ca035075"
     },
     {
       "id": "google:gemini-31-pro",
       "url": "profiles/google/gemini-31-pro.json",
-      "hash": "f60514084ae8f4db23f672bd9beb00ddf1a3cbc5ae132f2fac3ddaf9f7136d06"
+      "hash": "38b4df87bf4fd2d0eaaf8c9043292186e04cba2cb8d0f1edece7ceece3e217e0"
     },
     {
       "id": "google:gemini-35-flash",
       "url": "profiles/google/gemini-35-flash.json",
-      "hash": "ea27cfc03c58a20ffde1c853a9afd88d8304b0fe9f4e970ea36a12353d410d6e"
+      "hash": "197da7fccc72a25834263cef1501c59d7be39229d9dfad5e84b1b8ea167f5374"
     },
     {
       "id": "google:gemma-4-26b",
       "url": "profiles/google/gemma-4-26b.json",
-      "hash": "d7a3be619fbca63459dc5af2e77fed2d51f9a2ee3a5e4c13c9de34478d53e08a"
+      "hash": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33"
     },
     {
       "id": "google:gemma-4-31b",
       "url": "profiles/google/gemma-4-31b.json",
-      "hash": "928240029cceef0560f4474ef20d7ca8a2c06a9084acdfb5ce4fcd8bb5371379"
+      "hash": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13"
     },
     {
       "id": "lightning-ai:claude-haiku-45",
