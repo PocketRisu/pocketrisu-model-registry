@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:gemini-25-pro",
   "version": 1,
-  "updatedAt": 1781319440357,
+  "updatedAt": 1781359729999,
   "displayName": "Vertex AI - Gemini 2.5 Pro",
   "providerBaseId": "vertex-gemini-native",
   "description": "Vertex AI native Gemini 2.5 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",

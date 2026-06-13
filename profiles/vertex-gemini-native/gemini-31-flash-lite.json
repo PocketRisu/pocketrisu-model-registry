@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:gemini-31-flash-lite",
   "version": 1,
-  "updatedAt": 1781319440357,
+  "updatedAt": 1781359729999,
   "displayName": "Vertex AI - Gemini 3.1 Flash-Lite",
   "providerBaseId": "vertex-gemini-native",
   "description": "Vertex AI native Gemini 3.1 Flash-Lite via streamGenerateContent, routed through the Flex (shared) processing tier.",

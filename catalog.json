@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "8289bed677fe09d7f6c6bbe5af5c9f603dac865e716ebad3eb564f73e45f4e63",
+  "hash": "42b6c6bffe35c5d6ed2447cf48b33db0960713b1b4c9f1d14af7b9467d0f65b9",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -3754,8 +3754,7 @@
       ],
       "defaultHeaders": {
         "Content-Type": "application/json",
-        "Vertex-AI-LLM-Request-Type": "shared",
-        "X-Vertex-AI-LLM-Shared-Request-Type": "flex"
+        "X-Vertex-AI-LLM-Request-Type": "shared"
       },
       "defaultBody": {},
       "requestSchema": [
@@ -4019,11 +4018,11 @@
           "key": "sharedRequestType",
           "type": "string",
           "label": "Shared Request Type",
-          "description": "Vertex shared-quota processing tier. Flex is ~50% cheaper but higher-latency; Priority is premium pricing with consistent low latency. Only works on the global endpoint and select Gemini models. Provider default keeps Flex (no header override).",
+          "description": "Vertex shared-quota processing tier. Flex is ~50% cheaper but higher-latency; Priority is premium pricing with consistent low latency. Both work only on the global endpoint and select Gemini models (Gemini 2.5 is not supported). Default is standard pay-as-you-go — pick Flex/Priority to opt in.",
           "enum": [
             {
               "value": "",
-              "label": "Provider default (Flex)"
+              "label": "Standard (no Flex/Priority)"
             },
             {
               "value": "flex",
@@ -4039,7 +4038,7 @@
             "path": "X-Vertex-AI-LLM-Shared-Request-Type"
           },
           "descriptionI18n": {
-            "ko": "Vertex 공유 할당량 처리 등급. Flex는 약 50% 저렴하지만 지연이 높고, Priority는 프리미엄 과금에 일관된 저지연이에요. 글로벌 엔드포인트와 일부 Gemini 모델에서만 동작해요. 제공자 기본값은 Flex예요(헤더 override 없음)."
+            "ko": "Vertex 공유 할당량 처리 등급. Flex는 약 50% 저렴하지만 지연이 높고, Priority는 프리미엄 과금에 일관된 저지연이에요. 둘 다 글로벌 엔드포인트와 일부 Gemini 모델에서만 동작해요(Gemini 2.5는 미지원). 기본값은 standard 종량제 — Flex/Priority는 선택 시에만 적용돼요."
           }
         }
       ],
@@ -24545,7 +24544,7 @@
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
       "version": 4,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24597,7 +24596,7 @@
     "vertex-gemini-native:gemini-25-flash-lite": {
       "id": "vertex-gemini-native:gemini-25-flash-lite",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 2.5 Flash-Lite",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 2.5 Flash-Lite via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24649,7 +24648,7 @@
     "vertex-gemini-native:gemini-25-flash": {
       "id": "vertex-gemini-native:gemini-25-flash",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 2.5 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 2.5 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24701,7 +24700,7 @@
     "vertex-gemini-native:gemini-25-pro": {
       "id": "vertex-gemini-native:gemini-25-pro",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 2.5 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 2.5 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24753,7 +24752,7 @@
     "vertex-gemini-native:gemini-3-flash": {
       "id": "vertex-gemini-native:gemini-3-flash",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24804,7 +24803,7 @@
     "vertex-gemini-native:gemini-31-flash-lite": {
       "id": "vertex-gemini-native:gemini-31-flash-lite",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 3.1 Flash-Lite",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Flash-Lite via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24855,7 +24854,7 @@
     "vertex-gemini-native:gemini-31-pro": {
       "id": "vertex-gemini-native:gemini-31-pro",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24906,7 +24905,7 @@
     "vertex-gemini-native:gemini-35-flash": {
       "id": "vertex-gemini-native:gemini-35-flash",
       "version": 1,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 3.5 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.5 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24957,7 +24956,7 @@
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
       "version": 4,
-      "updatedAt": 1781319440357,
+      "updatedAt": 1781359729999,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -25415,7 +25414,7 @@
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
-    "vertex-gemini-native": "b868fab47ca53416f3ffb2b0092d190958f05b593dcc8ff826dc3abe969f6c83",
+    "vertex-gemini-native": "d2001d39df3e95f06b9b53608336417455f6b30fa3d4295d1055c3fe5cc02224",
     "vertex-openai": "ccf3183081a3b339949882e01c49c33449d262bd9995aea7ffaa38414085cc9c",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
@@ -25553,15 +25552,15 @@
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
-    "vertex-gemini-native:flash": "7fd61ea1a3cc6b1b80172de8bc061a3018221c94a1e5e254ba447c5b889d5cb4",
-    "vertex-gemini-native:gemini-25-flash-lite": "edad240e3b85648568c27727416cd054c8a2dd71b6b3c2785146fed03cd45950",
-    "vertex-gemini-native:gemini-25-flash": "81606cf8e9d1c7a286ae707b446d4deab7f9429064f03feabd6a6e1dabf32876",
-    "vertex-gemini-native:gemini-25-pro": "f7aaf41c236f5849d964ea647f5058fc5212605d320b7f5b19bdf107bd3828a2",
-    "vertex-gemini-native:gemini-3-flash": "b2be212173a58f4edee14145798fd4455d2a71b75cece76f32b46106ffff0b5e",
-    "vertex-gemini-native:gemini-31-flash-lite": "9fae0153d90c06daa430ddc650b3e02fc31ce8a04f2957d62e45abca060b89a9",
-    "vertex-gemini-native:gemini-31-pro": "4127349118630c8e9efd0b84b0c4b9b19deda28ff69a2c19f4051ad4b9e78d58",
-    "vertex-gemini-native:gemini-35-flash": "fdb702da34444ba75069a8e57636600e0d1108a36ce135e423e8a766afb9da31",
-    "vertex-gemini-native:pro": "813bc51a40c75733a4638749b005c1c1b4863294cb74cd3ca8d5acbfd8d27095",
+    "vertex-gemini-native:flash": "9f94f742500315e3e895bd42d6ad31d149d0dd08d031e07ecf0a5cf9883606b6",
+    "vertex-gemini-native:gemini-25-flash-lite": "117728637c24734226080062579250cbb83c8e1d014145d74fa3d2d69bb6b700",
+    "vertex-gemini-native:gemini-25-flash": "ec73e1b6ace6f4c6058000cc15f7420ef8065983e1b5c14c555a83d69961797b",
+    "vertex-gemini-native:gemini-25-pro": "2e68c4f7bd2433f80d7a7e6fc522a04d542b67133a03587fd6d5fe2453c6eead",
+    "vertex-gemini-native:gemini-3-flash": "ffafb384016e07c823efb08b6046dfd99c8717b1e3ca626c3f2e330a4d7abaa7",
+    "vertex-gemini-native:gemini-31-flash-lite": "ccd4561489e21dbd5e111ae5726c7717f366a929a6c0e908ca3b3720bae6e607",
+    "vertex-gemini-native:gemini-31-pro": "bd0e48990042975186bf8153f2f93c1ce15658ec493d25c520e45473dc25ad00",
+    "vertex-gemini-native:gemini-35-flash": "fd09fdbe712e642e41c6dc2e9a9f03d4ede7fcac0809bdd9863df5faef5c3f16",
+    "vertex-gemini-native:pro": "d441e4597be61e24cfc2989ab124b0cfb9e4802ddbe00ac5a90cd8a331244982",
     "vertex-openai:standard": "cbaa84b63d7abb9b1296338b048c70822281487edfc292097f66efd4820b913a",
     "wellspring:deepseek-v32-marp": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8",
     "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",
