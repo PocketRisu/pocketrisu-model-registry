@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:flash",
-  "version": 3,
-  "updatedAt": 1781316156572,
+  "version": 4,
+  "updatedAt": 1781319440357,
   "displayName": "Vertex AI - Gemini 3 Flash",
   "providerBaseId": "vertex-gemini-native",
   "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -47,5 +47,6 @@
     "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3 Flash. Flex(공유) 처리 등급으로 요청합니다."
   },
   "recommendedTokenizer": "gemma",
-  "profileStatus": "current"
+  "profileStatus": "outdated",
+  "statusReason": "Superseded by the vertex-gemini-native:gemini-3-flash profile, which carries the same model under the shared Gemini naming."
 }

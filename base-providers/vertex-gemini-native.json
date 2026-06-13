@@ -1,6 +1,6 @@
 {
   "id": "vertex-gemini-native",
-  "version": 4,
+  "version": 5,
   "displayName": "Vertex AI (Gemini Native)",
   "adapterKind": "google-gemini",
   "authKinds": [
@@ -72,6 +72,29 @@
       },
       "descriptionI18n": {
         "ko": "고급: '.../publishers/google/models'까지의 전체 base URL. 비워두면 Location·Project ID로 자동 조립해요. 입력하면 그 둘보다 우선합니다. 모델 이름은 자동으로 붙어요."
+      }
+    },
+    {
+      "key": "modelId",
+      "type": "string",
+      "label": "Model ID",
+      "description": "Gemini model id used on the Vertex URL path (publishers/google/models/{id}). Use the bare Gemini id without the 'google/' prefix. Leave blank to use the profile's model.",
+      "required": false,
+      "enum": [
+        { "value": "gemini-3.5-flash", "label": "Gemini 3.5 Flash" },
+        { "value": "gemini-3.1-pro-preview", "label": "Gemini 3.1 Pro" },
+        { "value": "gemini-3.1-flash-lite", "label": "Gemini 3.1 Flash-Lite" },
+        { "value": "gemini-3-flash-preview", "label": "Gemini 3 Flash" },
+        { "value": "gemini-2.5-pro", "label": "Gemini 2.5 Pro" },
+        { "value": "gemini-2.5-flash", "label": "Gemini 2.5 Flash" },
+        { "value": "gemini-2.5-flash-lite", "label": "Gemini 2.5 Flash-Lite" }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "model"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex URL 경로(publishers/google/models/{id})에 쓰이는 Gemini 모델 ID. 'google/' 접두사 없는 bare ID를 입력하세요. 비워두면 프로필의 모델을 사용합니다."
       }
     },
     {
@@ -214,18 +237,18 @@
       "key": "sharedRequestType",
       "type": "string",
       "label": "Shared Request Type",
-      "description": "Vertex shared-quota processing mode. Flex is best-effort at a lower price but may be delayed under load; On-demand uses standard priority and pricing. Provider default keeps Flex (no header override).",
+      "description": "Vertex shared-quota processing tier. Flex is ~50% cheaper but higher-latency; Priority is premium pricing with consistent low latency. Only works on the global endpoint and select Gemini models. Provider default keeps Flex (no header override).",
       "enum": [
         { "value": "", "label": "Provider default (Flex)" },
         { "value": "flex", "label": "Flex" },
-        { "value": "on-demand", "label": "On-demand" }
+        { "value": "priority", "label": "Priority" }
       ],
       "mapsTo": {
         "target": "header",
         "path": "X-Vertex-AI-LLM-Shared-Request-Type"
       },
       "descriptionI18n": {
-        "ko": "Vertex 공유 할당량 처리 모드. Flex는 저렴한 best-effort 처리지만 트래픽이 몰리면 지연될 수 있고, On-demand는 표준 우선순위·표준 과금이에요. 제공자 기본값은 Flex예요(헤더 override 없음)."
+        "ko": "Vertex 공유 할당량 처리 등급. Flex는 약 50% 저렴하지만 지연이 높고, Priority는 프리미엄 과금에 일관된 저지연이에요. 글로벌 엔드포인트와 일부 Gemini 모델에서만 동작해요. 제공자 기본값은 Flex예요(헤더 override 없음)."
       }
     }
   ],
@@ -233,10 +256,11 @@
     "groups": [
       { "id": "credentials", "label": "Credentials", "order": 1, "labelI18n": { "ko": "인증 정보" } },
       { "id": "project", "label": "Project", "order": 2, "labelI18n": { "ko": "프로젝트" } },
-      { "id": "generation", "label": "Generation", "order": 3, "labelI18n": { "ko": "생성" } },
-      { "id": "reasoning", "label": "Reasoning", "order": 4, "labelI18n": { "ko": "추론" } },
-      { "id": "output", "label": "Output", "order": 5, "labelI18n": { "ko": "출력" } },
-      { "id": "quota", "label": "Quota", "order": 6, "labelI18n": { "ko": "할당량" } }
+      { "id": "model", "label": "Model", "order": 3, "labelI18n": { "ko": "모델" } },
+      { "id": "generation", "label": "Generation", "order": 4, "labelI18n": { "ko": "생성" } },
+      { "id": "reasoning", "label": "Reasoning", "order": 5, "labelI18n": { "ko": "추론" } },
+      { "id": "output", "label": "Output", "order": 6, "labelI18n": { "ko": "출력" } },
+      { "id": "quota", "label": "Quota", "order": 7, "labelI18n": { "ko": "할당량" } }
     ],
     "fields": [
       { "key": "serviceAccountJson", "widget": "secret", "visibility": "basic", "group": "credentials", "order": 1 },
@@ -250,6 +274,7 @@
         "order": 3,
         "placeholder": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models"
       },
+      { "key": "modelId", "widget": "combobox", "visibility": "basic", "group": "model", "order": 1, "placeholder": "gemini-3-flash-preview" },
       { "key": "temperature", "widget": "slider", "visibility": "basic", "group": "generation", "order": 1 },
       { "key": "maxOutputTokens", "widget": "number-input", "visibility": "basic", "group": "generation", "order": 2 },
       { "key": "topP", "widget": "slider", "visibility": "advanced", "group": "generation", "order": 3 },

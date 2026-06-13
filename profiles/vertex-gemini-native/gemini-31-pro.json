@@ -1,6 +1,6 @@
 {
-  "id": "vertex-gemini-native:pro",
-  "version": 4,
+  "id": "vertex-gemini-native:gemini-31-pro",
+  "version": 1,
   "updatedAt": 1781319440357,
   "displayName": "Vertex AI - Gemini 3.1 Pro",
   "providerBaseId": "vertex-gemini-native",
@@ -39,7 +39,7 @@
     "gemini",
     "flex"
   ],
-  "sortOrder": 831,
+  "sortOrder": 833,
   "displayNameI18n": {
     "ko": "Vertex AI - Gemini 3.1 Pro"
   },
@@ -47,6 +47,5 @@
     "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro. Flex(공유) 처리 등급으로 요청합니다."
   },
   "recommendedTokenizer": "gemma",
-  "profileStatus": "outdated",
-  "statusReason": "Superseded by the vertex-gemini-native:gemini-31-pro profile, which carries the same model under the shared Gemini naming."
+  "profileStatus": "current"
 }

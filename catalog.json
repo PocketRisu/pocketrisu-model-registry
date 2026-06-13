@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "09c1b0a0a2fc1b6709b54bcc869acdb9e22e98750a442c6eea8bf409cda7dba0",
+  "hash": "8289bed677fe09d7f6c6bbe5af5c9f603dac865e716ebad3eb564f73e45f4e63",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -3743,7 +3743,7 @@
     },
     "vertex-gemini-native": {
       "id": "vertex-gemini-native",
-      "version": 4,
+      "version": 5,
       "displayName": "Vertex AI (Gemini Native)",
       "adapterKind": "google-gemini",
       "authKinds": [
@@ -3815,6 +3815,50 @@
           },
           "descriptionI18n": {
             "ko": "고급: '.../publishers/google/models'까지의 전체 base URL. 비워두면 Location·Project ID로 자동 조립해요. 입력하면 그 둘보다 우선합니다. 모델 이름은 자동으로 붙어요."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Gemini model id used on the Vertex URL path (publishers/google/models/{id}). Use the bare Gemini id without the 'google/' prefix. Leave blank to use the profile's model.",
+          "required": false,
+          "enum": [
+            {
+              "value": "gemini-3.5-flash",
+              "label": "Gemini 3.5 Flash"
+            },
+            {
+              "value": "gemini-3.1-pro-preview",
+              "label": "Gemini 3.1 Pro"
+            },
+            {
+              "value": "gemini-3.1-flash-lite",
+              "label": "Gemini 3.1 Flash-Lite"
+            },
+            {
+              "value": "gemini-3-flash-preview",
+              "label": "Gemini 3 Flash"
+            },
+            {
+              "value": "gemini-2.5-pro",
+              "label": "Gemini 2.5 Pro"
+            },
+            {
+              "value": "gemini-2.5-flash",
+              "label": "Gemini 2.5 Flash"
+            },
+            {
+              "value": "gemini-2.5-flash-lite",
+              "label": "Gemini 2.5 Flash-Lite"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Vertex URL 경로(publishers/google/models/{id})에 쓰이는 Gemini 모델 ID. 'google/' 접두사 없는 bare ID를 입력하세요. 비워두면 프로필의 모델을 사용합니다."
           }
         },
         {
@@ -3975,7 +4019,7 @@
           "key": "sharedRequestType",
           "type": "string",
           "label": "Shared Request Type",
-          "description": "Vertex shared-quota processing mode. Flex is best-effort at a lower price but may be delayed under load; On-demand uses standard priority and pricing. Provider default keeps Flex (no header override).",
+          "description": "Vertex shared-quota processing tier. Flex is ~50% cheaper but higher-latency; Priority is premium pricing with consistent low latency. Only works on the global endpoint and select Gemini models. Provider default keeps Flex (no header override).",
           "enum": [
             {
               "value": "",
@@ -3986,8 +4030,8 @@
               "label": "Flex"
             },
             {
-              "value": "on-demand",
-              "label": "On-demand"
+              "value": "priority",
+              "label": "Priority"
             }
           ],
           "mapsTo": {
@@ -3995,7 +4039,7 @@
             "path": "X-Vertex-AI-LLM-Shared-Request-Type"
           },
           "descriptionI18n": {
-            "ko": "Vertex 공유 할당량 처리 모드. Flex는 저렴한 best-effort 처리지만 트래픽이 몰리면 지연될 수 있고, On-demand는 표준 우선순위·표준 과금이에요. 제공자 기본값은 Flex예요(헤더 override 없음)."
+            "ko": "Vertex 공유 할당량 처리 등급. Flex는 약 50% 저렴하지만 지연이 높고, Priority는 프리미엄 과금에 일관된 저지연이에요. 글로벌 엔드포인트와 일부 Gemini 모델에서만 동작해요. 제공자 기본값은 Flex예요(헤더 override 없음)."
           }
         }
       ],
@@ -4018,9 +4062,17 @@
             }
           },
           {
+            "id": "model",
+            "label": "Model",
+            "order": 3,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
             "id": "generation",
             "label": "Generation",
-            "order": 3,
+            "order": 4,
             "labelI18n": {
               "ko": "생성"
             }
@@ -4028,7 +4080,7 @@
           {
             "id": "reasoning",
             "label": "Reasoning",
-            "order": 4,
+            "order": 5,
             "labelI18n": {
               "ko": "추론"
             }
@@ -4036,7 +4088,7 @@
           {
             "id": "output",
             "label": "Output",
-            "order": 5,
+            "order": 6,
             "labelI18n": {
               "ko": "출력"
             }
@@ -4044,7 +4096,7 @@
           {
             "id": "quota",
             "label": "Quota",
-            "order": 6,
+            "order": 7,
             "labelI18n": {
               "ko": "할당량"
             }
@@ -4079,6 +4131,14 @@
             "group": "project",
             "order": 3,
             "placeholder": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models"
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1,
+            "placeholder": "gemini-3-flash-preview"
           },
           {
             "key": "temperature",
@@ -4188,7 +4248,7 @@
     },
     "vertex-openai": {
       "id": "vertex-openai",
-      "version": 4,
+      "version": 5,
       "displayName": "Vertex AI (OpenAI-compatible)",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -4402,7 +4462,7 @@
           "key": "sharedRequestType",
           "type": "string",
           "label": "Shared Request Type",
-          "description": "Vertex shared-quota processing mode. Flex is best-effort at a lower price but may be delayed under load; On-demand uses standard priority and pricing. Provider default sends no header (Vertex standard).",
+          "description": "Vertex shared-quota processing tier. Flex is ~50% cheaper but higher-latency; Priority is premium pricing with consistent low latency. Only works on the global endpoint and select Gemini models. Provider default sends no header (Vertex standard).",
           "enum": [
             {
               "value": "",
@@ -4413,8 +4473,8 @@
               "label": "Flex"
             },
             {
-              "value": "on-demand",
-              "label": "On-demand"
+              "value": "priority",
+              "label": "Priority"
             }
           ],
           "mapsTo": {
@@ -4422,7 +4482,7 @@
             "path": "X-Vertex-AI-LLM-Shared-Request-Type"
           },
           "descriptionI18n": {
-            "ko": "Vertex 공유 할당량 처리 모드. Flex는 저렴한 best-effort 처리지만 트래픽이 몰리면 지연될 수 있고, On-demand는 표준 우선순위·표준 과금이에요. 제공자 기본값은 헤더를 보내지 않아요(Vertex 표준)."
+            "ko": "Vertex 공유 할당량 처리 등급. Flex는 약 50% 저렴하지만 지연이 높고, Priority는 프리미엄 과금에 일관된 저지연이에요. 글로벌 엔드포인트와 일부 Gemini 모델에서만 동작해요. 제공자 기본값은 헤더를 보내지 않아요(Vertex 표준)."
           }
         }
       ],
@@ -24484,8 +24544,8 @@
     },
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
-      "version": 3,
-      "updatedAt": 1781316156572,
+      "version": 4,
+      "updatedAt": 1781319440357,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24531,12 +24591,373 @@
         "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3 Flash. Flex(공유) 처리 등급으로 요청합니다."
       },
       "recommendedTokenizer": "gemma",
+      "profileStatus": "outdated",
+      "statusReason": "Superseded by the vertex-gemini-native:gemini-3-flash profile, which carries the same model under the shared Gemini naming."
+    },
+    "vertex-gemini-native:gemini-25-flash-lite": {
+      "id": "vertex-gemini-native:gemini-25-flash-lite",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 2.5 Flash-Lite",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 2.5 Flash-Lite via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-2.5-flash-lite",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 838,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 2.5 Flash-Lite"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 2.5 Flash-Lite. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "outdated",
+      "statusReason": "Previous-generation model, one major version below the current Gemini 3 lineup."
+    },
+    "vertex-gemini-native:gemini-25-flash": {
+      "id": "vertex-gemini-native:gemini-25-flash",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 2.5 Flash",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 2.5 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-2.5-flash",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 837,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 2.5 Flash"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 2.5 Flash. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "outdated",
+      "statusReason": "Previous-generation model, one major version below the current Gemini 3 lineup."
+    },
+    "vertex-gemini-native:gemini-25-pro": {
+      "id": "vertex-gemini-native:gemini-25-pro",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 2.5 Pro",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 2.5 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-2.5-pro",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 836,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 2.5 Pro"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 2.5 Pro. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "outdated",
+      "statusReason": "Previous-generation model, one major version below the current Gemini 3 lineup."
+    },
+    "vertex-gemini-native:gemini-3-flash": {
+      "id": "vertex-gemini-native:gemini-3-flash",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 3 Flash",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-3-flash-preview",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 835,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3 Flash"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3 Flash. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "vertex-gemini-native:gemini-31-flash-lite": {
+      "id": "vertex-gemini-native:gemini-31-flash-lite",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 3.1 Flash-Lite",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 3.1 Flash-Lite via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-3.1-flash-lite",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 834,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.1 Flash-Lite"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Flash-Lite. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "vertex-gemini-native:gemini-31-pro": {
+      "id": "vertex-gemini-native:gemini-31-pro",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 3.1 Pro",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-3.1-pro-preview",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 833,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.1 Pro"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "vertex-gemini-native:gemini-35-flash": {
+      "id": "vertex-gemini-native:gemini-35-flash",
+      "version": 1,
+      "updatedAt": 1781319440357,
+      "displayName": "Vertex AI - Gemini 3.5 Flash",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Vertex AI native Gemini 3.5 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
+      "modelId": "gemini-3.5-flash",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "google",
+        "vertex",
+        "gemini",
+        "flex"
+      ],
+      "sortOrder": 832,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.5 Flash"
+      },
+      "descriptionI18n": {
+        "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.5 Flash. Flex(공유) 처리 등급으로 요청합니다."
+      },
+      "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
-      "version": 3,
-      "updatedAt": 1781316156572,
+      "version": 4,
+      "updatedAt": 1781319440357,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24582,7 +25003,8 @@
         "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro. Flex(공유) 처리 등급으로 요청합니다."
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "current"
+      "profileStatus": "outdated",
+      "statusReason": "Superseded by the vertex-gemini-native:gemini-31-pro profile, which carries the same model under the shared Gemini naming."
     },
     "vertex-openai:standard": {
       "id": "vertex-openai:standard",
@@ -24627,7 +25049,7 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
-      "updatedAt": 1781316156572
+      "updatedAt": 1781319440357
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
@@ -24993,8 +25415,8 @@
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
-    "vertex-gemini-native": "a551ebd8c12e154444cdbbac588589e5cf3a47aa07be4d91d70f9df94f7fb8d9",
-    "vertex-openai": "cfcb27c07c085abd91d9dc96bc5face84c9e6d3f894cfbafffff17293d7ac466",
+    "vertex-gemini-native": "b868fab47ca53416f3ffb2b0092d190958f05b593dcc8ff826dc3abe969f6c83",
+    "vertex-openai": "ccf3183081a3b339949882e01c49c33449d262bd9995aea7ffaa38414085cc9c",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
   "profileHashes": {
@@ -25131,9 +25553,16 @@
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
-    "vertex-gemini-native:flash": "7fd9529aef3d8f692cacc3aba6c7efea216ebd8f4af761b37cb9ca7dbab37c1e",
-    "vertex-gemini-native:pro": "b2a44fb0463ac83424a9a30fce1596812cbe5d34f1738c05addec2fed594f966",
-    "vertex-openai:standard": "da889aae11befe5050d60fbf83b0da9f0aa463b6ff23cf451e74a96192090a6f",
+    "vertex-gemini-native:flash": "7fd61ea1a3cc6b1b80172de8bc061a3018221c94a1e5e254ba447c5b889d5cb4",
+    "vertex-gemini-native:gemini-25-flash-lite": "edad240e3b85648568c27727416cd054c8a2dd71b6b3c2785146fed03cd45950",
+    "vertex-gemini-native:gemini-25-flash": "81606cf8e9d1c7a286ae707b446d4deab7f9429064f03feabd6a6e1dabf32876",
+    "vertex-gemini-native:gemini-25-pro": "f7aaf41c236f5849d964ea647f5058fc5212605d320b7f5b19bdf107bd3828a2",
+    "vertex-gemini-native:gemini-3-flash": "b2be212173a58f4edee14145798fd4455d2a71b75cece76f32b46106ffff0b5e",
+    "vertex-gemini-native:gemini-31-flash-lite": "9fae0153d90c06daa430ddc650b3e02fc31ce8a04f2957d62e45abca060b89a9",
+    "vertex-gemini-native:gemini-31-pro": "4127349118630c8e9efd0b84b0c4b9b19deda28ff69a2c19f4051ad4b9e78d58",
+    "vertex-gemini-native:gemini-35-flash": "fdb702da34444ba75069a8e57636600e0d1108a36ce135e423e8a766afb9da31",
+    "vertex-gemini-native:pro": "813bc51a40c75733a4638749b005c1c1b4863294cb74cd3ca8d5acbfd8d27095",
+    "vertex-openai:standard": "cbaa84b63d7abb9b1296338b048c70822281487edfc292097f66efd4820b913a",
     "wellspring:deepseek-v32-marp": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8",
     "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",
     "wellspring:deepseek-v4-pro": "aec50b4f9fd2c098ab03e66f34a75ab8216223d196aa5faf1c9d3e67da8bf432",

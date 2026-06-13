@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "09c1b0a0a2fc1b6709b54bcc869acdb9e22e98750a442c6eea8bf409cda7dba0",
+  "hash": "8289bed677fe09d7f6c6bbe5af5c9f603dac865e716ebad3eb564f73e45f4e63",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -80,12 +80,12 @@
     {
       "id": "vertex-gemini-native",
       "url": "base-providers/vertex-gemini-native.json",
-      "hash": "a551ebd8c12e154444cdbbac588589e5cf3a47aa07be4d91d70f9df94f7fb8d9"
+      "hash": "b868fab47ca53416f3ffb2b0092d190958f05b593dcc8ff826dc3abe969f6c83"
     },
     {
       "id": "vertex-openai",
       "url": "base-providers/vertex-openai.json",
-      "hash": "cfcb27c07c085abd91d9dc96bc5face84c9e6d3f894cfbafffff17293d7ac466"
+      "hash": "ccf3183081a3b339949882e01c49c33449d262bd9995aea7ffaa38414085cc9c"
     },
     {
       "id": "wellspring",
@@ -762,17 +762,52 @@
     {
       "id": "vertex-gemini-native:flash",
       "url": "profiles/vertex-gemini-native/flash.json",
-      "hash": "7fd9529aef3d8f692cacc3aba6c7efea216ebd8f4af761b37cb9ca7dbab37c1e"
+      "hash": "7fd61ea1a3cc6b1b80172de8bc061a3018221c94a1e5e254ba447c5b889d5cb4"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-25-flash-lite",
+      "url": "profiles/vertex-gemini-native/gemini-25-flash-lite.json",
+      "hash": "edad240e3b85648568c27727416cd054c8a2dd71b6b3c2785146fed03cd45950"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-25-flash",
+      "url": "profiles/vertex-gemini-native/gemini-25-flash.json",
+      "hash": "81606cf8e9d1c7a286ae707b446d4deab7f9429064f03feabd6a6e1dabf32876"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-25-pro",
+      "url": "profiles/vertex-gemini-native/gemini-25-pro.json",
+      "hash": "f7aaf41c236f5849d964ea647f5058fc5212605d320b7f5b19bdf107bd3828a2"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-3-flash",
+      "url": "profiles/vertex-gemini-native/gemini-3-flash.json",
+      "hash": "b2be212173a58f4edee14145798fd4455d2a71b75cece76f32b46106ffff0b5e"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-31-flash-lite",
+      "url": "profiles/vertex-gemini-native/gemini-31-flash-lite.json",
+      "hash": "9fae0153d90c06daa430ddc650b3e02fc31ce8a04f2957d62e45abca060b89a9"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-31-pro",
+      "url": "profiles/vertex-gemini-native/gemini-31-pro.json",
+      "hash": "4127349118630c8e9efd0b84b0c4b9b19deda28ff69a2c19f4051ad4b9e78d58"
+    },
+    {
+      "id": "vertex-gemini-native:gemini-35-flash",
+      "url": "profiles/vertex-gemini-native/gemini-35-flash.json",
+      "hash": "fdb702da34444ba75069a8e57636600e0d1108a36ce135e423e8a766afb9da31"
     },
     {
       "id": "vertex-gemini-native:pro",
       "url": "profiles/vertex-gemini-native/pro.json",
-      "hash": "b2a44fb0463ac83424a9a30fce1596812cbe5d34f1738c05addec2fed594f966"
+      "hash": "813bc51a40c75733a4638749b005c1c1b4863294cb74cd3ca8d5acbfd8d27095"
     },
     {
       "id": "vertex-openai:standard",
       "url": "profiles/vertex-openai/standard.json",
-      "hash": "da889aae11befe5050d60fbf83b0da9f0aa463b6ff23cf451e74a96192090a6f"
+      "hash": "cbaa84b63d7abb9b1296338b048c70822281487edfc292097f66efd4820b913a"
     },
     {
       "id": "wellspring:deepseek-v32-marp",
