@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:flash",
-  "version": 1,
-  "updatedAt": 1781026569481,
+  "version": 2,
+  "updatedAt": 1781313140233,
   "displayName": "Vertex AI - Gemini 3 Flash",
   "providerBaseId": "vertex-gemini-native",
   "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -27,7 +27,8 @@
     "reasoning",
     "vision",
     "tools",
-    "json"
+    "json",
+    "cache"
   ],
   "sourceUrls": [
     "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",

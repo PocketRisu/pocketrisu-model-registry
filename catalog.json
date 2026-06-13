@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "9e1025ee38e6505c20d24419f9a763ac74367d1f986ee3052a27d74f5d36f67e",
+  "hash": "7f0752aa96eb47b1e74f1374097d9f43212979cfa58a16544290cdea5f0e3893",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -3743,7 +3743,7 @@
     },
     "vertex-gemini-native": {
       "id": "vertex-gemini-native",
-      "version": 1,
+      "version": 2,
       "displayName": "Vertex AI (Gemini Native)",
       "adapterKind": "google-gemini",
       "authKinds": [
@@ -4094,7 +4094,8 @@
         "reasoning",
         "vision",
         "tools",
-        "json"
+        "json",
+        "cache"
       ],
       "sourceUrls": [
         "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
@@ -24357,8 +24358,8 @@
     },
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
-      "version": 1,
-      "updatedAt": 1781026569481,
+      "version": 2,
+      "updatedAt": 1781313140233,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24384,7 +24385,8 @@
         "reasoning",
         "vision",
         "tools",
-        "json"
+        "json",
+        "cache"
       ],
       "sourceUrls": [
         "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
@@ -24408,8 +24410,8 @@
     },
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
-      "version": 1,
-      "updatedAt": 1781026569481,
+      "version": 2,
+      "updatedAt": 1781313140233,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24435,7 +24437,8 @@
         "reasoning",
         "vision",
         "tools",
-        "json"
+        "json",
+        "cache"
       ],
       "sourceUrls": [
         "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
@@ -24866,7 +24869,7 @@
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
-    "vertex-gemini-native": "ce94a66cc1aa590f3794c8de95b451bafe50e8f1648b2eedab1c0b19bf3e354e",
+    "vertex-gemini-native": "c482b64854b1cb4f7a7ef746a598b6a6dae3e2d3365869ef0f1af007aae2ad44",
     "vertex-openai": "8fccfd83e2f003dd293657f79956a61b9cc0e3dc1881ad59fe7eedb2bda022d6",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
@@ -25004,8 +25007,8 @@
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
-    "vertex-gemini-native:flash": "e067db358930051a91da498f69c9daae8969b498909d5f2dc2011ab1f483f3bd",
-    "vertex-gemini-native:pro": "cba642ba10c1baa91a62e2570d7a05c276737779a3249e59fa63c72ef837ecf8",
+    "vertex-gemini-native:flash": "ed0468e24594a5d665e83060282a3bd4a4cebdc7e77c426d0c4b4f2ef9bcc40b",
+    "vertex-gemini-native:pro": "846d3ad2e874bb81d06547c4aa183b9a9d48fc760160461362d0750c2d4454f3",
     "vertex-openai:standard": "38e242d09b5e02fa9a93867ca924f183bbc8ecde6ffb08f7c57cac0d12a6a17e",
     "wellspring:deepseek-v32-marp": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8",
     "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",

@@ -1,6 +1,6 @@
 {
   "id": "vertex-gemini-native",
-  "version": 1,
+  "version": 2,
   "displayName": "Vertex AI (Gemini Native)",
   "adapterKind": "google-gemini",
   "authKinds": [
@@ -220,7 +220,8 @@
     "reasoning",
     "vision",
     "tools",
-    "json"
+    "json",
+    "cache"
   ],
   "sourceUrls": [
     "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
