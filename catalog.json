@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "7f0752aa96eb47b1e74f1374097d9f43212979cfa58a16544290cdea5f0e3893",
+  "hash": "c78203b6ba94f6d7f450fb8b4ce6f78d0dae6d51e46748787b80b9fa72174dba",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -3743,7 +3743,7 @@
     },
     "vertex-gemini-native": {
       "id": "vertex-gemini-native",
-      "version": 2,
+      "version": 3,
       "displayName": "Vertex AI (Gemini Native)",
       "adapterKind": "google-gemini",
       "authKinds": [
@@ -3942,6 +3942,29 @@
             "target": "body",
             "path": "safetySettings"
           }
+        },
+        {
+          "key": "sharedRequestType",
+          "type": "string",
+          "label": "Shared Request Type",
+          "description": "Vertex shared-quota processing mode. Flex is best-effort at a lower price but may be delayed under load; On-demand uses standard priority and pricing. Leave unset to use the provider default (Flex).",
+          "enum": [
+            {
+              "value": "flex",
+              "label": "Flex"
+            },
+            {
+              "value": "on-demand",
+              "label": "On-demand"
+            }
+          ],
+          "mapsTo": {
+            "target": "header",
+            "path": "X-Vertex-AI-LLM-Shared-Request-Type"
+          },
+          "descriptionI18n": {
+            "ko": "Vertex 공유 할당량 처리 모드. Flex는 저렴한 best-effort 처리지만 트래픽이 몰리면 지연될 수 있고, On-demand는 표준 우선순위·표준 과금이에요. 비워두면 제공자 기본값(Flex)으로 동작합니다."
+          }
         }
       ],
       "uiSchema": {
@@ -3984,6 +4007,14 @@
             "order": 5,
             "labelI18n": {
               "ko": "출력"
+            }
+          },
+          {
+            "id": "quota",
+            "label": "Quota",
+            "order": 6,
+            "labelI18n": {
+              "ko": "할당량"
             }
           }
         ],
@@ -4086,6 +4117,13 @@
             "visibility": "advanced",
             "group": "output",
             "order": 2
+          },
+          {
+            "key": "sharedRequestType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "quota",
+            "order": 1
           }
         ]
       },
@@ -4104,7 +4142,7 @@
     },
     "vertex-openai": {
       "id": "vertex-openai",
-      "version": 2,
+      "version": 3,
       "displayName": "Vertex AI (OpenAI-compatible)",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -4313,6 +4351,29 @@
           "descriptionI18n": {
             "ko": "추론(사고) 강도. Gemini thinking_budget(2.5)/thinking_level(3.x)로 매핑."
           }
+        },
+        {
+          "key": "sharedRequestType",
+          "type": "string",
+          "label": "Shared Request Type",
+          "description": "Vertex shared-quota processing mode. Flex is best-effort at a lower price but may be delayed under load; On-demand uses standard priority and pricing. Leave unset to send no override (Vertex standard).",
+          "enum": [
+            {
+              "value": "flex",
+              "label": "Flex"
+            },
+            {
+              "value": "on-demand",
+              "label": "On-demand"
+            }
+          ],
+          "mapsTo": {
+            "target": "header",
+            "path": "X-Vertex-AI-LLM-Shared-Request-Type"
+          },
+          "descriptionI18n": {
+            "ko": "Vertex 공유 할당량 처리 모드. Flex는 저렴한 best-effort 처리지만 트래픽이 몰리면 지연될 수 있고, On-demand는 표준 우선순위·표준 과금이에요. 비워두면 별도 설정 없이(Vertex 표준) 동작합니다."
+          }
         }
       ],
       "uiSchema": {
@@ -4355,6 +4416,14 @@
             "order": 5,
             "labelI18n": {
               "ko": "추론"
+            }
+          },
+          {
+            "id": "quota",
+            "label": "Quota",
+            "order": 6,
+            "labelI18n": {
+              "ko": "할당량"
             }
           }
         ],
@@ -4442,6 +4511,13 @@
             "widget": "combobox",
             "visibility": "basic",
             "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "sharedRequestType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "quota",
             "order": 1
           }
         ]
@@ -24359,7 +24435,7 @@
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
       "version": 2,
-      "updatedAt": 1781313140233,
+      "updatedAt": 1781313912257,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24411,7 +24487,7 @@
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
       "version": 2,
-      "updatedAt": 1781313140233,
+      "updatedAt": 1781313912257,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
@@ -24503,7 +24579,7 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
-      "updatedAt": 1781103554581
+      "updatedAt": 1781313912257
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
@@ -24869,8 +24945,8 @@
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
-    "vertex-gemini-native": "c482b64854b1cb4f7a7ef746a598b6a6dae3e2d3365869ef0f1af007aae2ad44",
-    "vertex-openai": "8fccfd83e2f003dd293657f79956a61b9cc0e3dc1881ad59fe7eedb2bda022d6",
+    "vertex-gemini-native": "0490512ebb5a1b6a5802e8bb665d290fea66bb9b14d34b419b63bd5fd4b38683",
+    "vertex-openai": "0d08ef5874019f1b85b17d47854c3b9a579dc53149498730dd3f60f3455998f6",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
   "profileHashes": {
@@ -25007,9 +25083,9 @@
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
-    "vertex-gemini-native:flash": "ed0468e24594a5d665e83060282a3bd4a4cebdc7e77c426d0c4b4f2ef9bcc40b",
-    "vertex-gemini-native:pro": "846d3ad2e874bb81d06547c4aa183b9a9d48fc760160461362d0750c2d4454f3",
-    "vertex-openai:standard": "38e242d09b5e02fa9a93867ca924f183bbc8ecde6ffb08f7c57cac0d12a6a17e",
+    "vertex-gemini-native:flash": "f19ad435a0d4f521f88c1f0272b90a53a6c0e0e46cdc8befdf524d76797f33e0",
+    "vertex-gemini-native:pro": "4248ecb838260cc7d4d213b7646eb3c47200993e145c29a704566c896ae636f7",
+    "vertex-openai:standard": "f1e1d49a5f06b4826d6f96a10dc4be4553d95c0a859d81848467b4daa3e1a2ac",
     "wellspring:deepseek-v32-marp": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8",
     "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",
     "wellspring:deepseek-v4-pro": "aec50b4f9fd2c098ab03e66f34a75ab8216223d196aa5faf1c9d3e67da8bf432",
