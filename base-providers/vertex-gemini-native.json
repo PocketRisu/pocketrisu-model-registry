@@ -1,6 +1,6 @@
 {
   "id": "vertex-gemini-native",
-  "version": 5,
+  "version": 6,
   "displayName": "Vertex AI (Gemini Native)",
   "adapterKind": "google-gemini",
   "authKinds": [

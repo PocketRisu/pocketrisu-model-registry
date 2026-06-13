@@ -1,10 +1,10 @@
 {
   "id": "vertex-gemini-native:pro",
   "version": 4,
-  "updatedAt": 1781359729999,
+  "updatedAt": 1781367598539,
   "displayName": "Vertex AI - Gemini 3.1 Pro",
   "providerBaseId": "vertex-gemini-native",
-  "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
+  "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent.",
   "modelId": "gemini-3.1-pro-preview",
   "endpoint": {
     "kind": "vertex-gemini"
@@ -36,15 +36,14 @@
   "tags": [
     "google",
     "vertex",
-    "gemini",
-    "flex"
+    "gemini"
   ],
   "sortOrder": 831,
   "displayNameI18n": {
     "ko": "Vertex AI - Gemini 3.1 Pro"
   },
   "descriptionI18n": {
-    "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro. Flex(공유) 처리 등급으로 요청합니다."
+    "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro."
   },
   "recommendedTokenizer": "gemma",
   "profileStatus": "outdated",
