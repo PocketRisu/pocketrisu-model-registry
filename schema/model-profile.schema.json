@@ -50,7 +50,7 @@
       "type": "object",
       "required": ["kind"],
       "properties": {
-        "kind": { "enum": ["static", "vertex-openai"] },
+        "kind": { "enum": ["static", "vertex-openai", "vertex-gemini"] },
         "url": { "type": "string" }
       },
       "additionalProperties": false

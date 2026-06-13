@@ -42,7 +42,7 @@ function hashOf(value) {
 
 const ALLOWED_ADAPTER_KIND = new Set(['openai-compatible', 'anthropic-messages', 'google-gemini'])
 const ALLOWED_AUTH_KIND = new Set(['none', 'bearer', 'x-api-key', 'x-goog-api-key', 'query', 'google-service-account'])
-const ALLOWED_ENDPOINT_KIND = new Set(['static', 'vertex-openai'])
+const ALLOWED_ENDPOINT_KIND = new Set(['static', 'vertex-openai', 'vertex-gemini'])
 const ALLOWED_FIELD_TYPE = new Set(['string', 'number', 'integer', 'boolean', 'json', 'stringArray', 'keyValue'])
 const ALLOWED_WIDGET = new Set([
     'text',

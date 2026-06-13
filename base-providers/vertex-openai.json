@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 3,
+  "version": 4,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -30,32 +30,32 @@
       }
     },
     {
-      "key": "projectId",
-      "type": "string",
-      "label": "Project ID",
-      "description": "Google Cloud project id.",
-      "required": true,
-      "mapsTo": {
-        "target": "custom",
-        "path": "project"
-      },
-      "descriptionI18n": {
-        "ko": "Google Cloud 프로젝트 ID."
-      }
-    },
-    {
       "key": "location",
       "type": "string",
       "label": "Location",
-      "description": "Vertex AI region (e.g. us-central1, global).",
-      "required": true,
-      "default": "us-central1",
+      "description": "Vertex AI region (e.g. us-central1, global). Defaults to global when left blank.",
+      "required": false,
+      "default": "global",
       "mapsTo": {
         "target": "custom",
         "path": "location"
       },
       "descriptionI18n": {
-        "ko": "Vertex AI 리전 (예: us-central1, global)."
+        "ko": "Vertex AI 리전 (예: us-central1, global). 비워두면 global이 됩니다."
+      }
+    },
+    {
+      "key": "projectId",
+      "type": "string",
+      "label": "Project ID",
+      "description": "Google Cloud project id. Leave blank to use the project_id from the Service Account JSON.",
+      "required": false,
+      "mapsTo": {
+        "target": "custom",
+        "path": "project"
+      },
+      "descriptionI18n": {
+        "ko": "Google Cloud 프로젝트 ID. 비워두면 Service Account JSON의 project_id를 사용합니다."
       }
     },
     {
@@ -289,16 +289,16 @@
         "order": 1
       },
       {
-        "key": "projectId",
+        "key": "location",
         "widget": "text",
         "visibility": "basic",
         "group": "project",
         "order": 1
       },
       {
-        "key": "location",
+        "key": "projectId",
         "widget": "text",
-        "visibility": "basic",
+        "visibility": "advanced",
         "group": "project",
         "order": 2
       },

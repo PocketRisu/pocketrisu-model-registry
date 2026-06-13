@@ -27,7 +27,7 @@
     "endpointKinds": {
       "type": "array",
       "minItems": 1,
-      "items": { "enum": ["static", "vertex-openai"] }
+      "items": { "enum": ["static", "vertex-openai", "vertex-gemini"] }
     },
     "defaultHeaders": {
       "type": "object",

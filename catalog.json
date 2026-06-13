@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "b92e889f219e328177d1533f5b117aabfff84f94e23ac672c8bf936e3cb4373d",
+  "hash": "09c1b0a0a2fc1b6709b54bcc869acdb9e22e98750a442c6eea8bf409cda7dba0",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -3743,14 +3743,14 @@
     },
     "vertex-gemini-native": {
       "id": "vertex-gemini-native",
-      "version": 3,
+      "version": 4,
       "displayName": "Vertex AI (Gemini Native)",
       "adapterKind": "google-gemini",
       "authKinds": [
         "google-service-account"
       ],
       "endpointKinds": [
-        "static"
+        "vertex-gemini"
       ],
       "defaultHeaders": {
         "Content-Type": "application/json",
@@ -3759,21 +3759,6 @@
       },
       "defaultBody": {},
       "requestSchema": [
-        {
-          "key": "endpointUrl",
-          "type": "string",
-          "label": "Endpoint URL",
-          "description": "Replace PROJECT_ID in 'projects/PROJECT_ID' with your own GCP project ID (or number). Find it on the Google Cloud Console dashboard. Keep the rest of the URL as-is; the model name is appended automatically.",
-          "required": true,
-          "default": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models",
-          "mapsTo": {
-            "target": "custom",
-            "path": "endpointUrl"
-          },
-          "descriptionI18n": {
-            "ko": "'projects/PROJECT_ID' 부분의 PROJECT_ID를 본인 GCP 프로젝트 ID(또는 번호)로 바꾸세요. Google Cloud 콘솔 대시보드에서 확인할 수 있어요. 나머지 URL은 그대로 두면 되고, 모델 이름은 자동으로 붙습니다."
-          }
-        },
         {
           "key": "serviceAccountJson",
           "type": "string",
@@ -3787,6 +3772,49 @@
           },
           "descriptionI18n": {
             "ko": "OAuth 토큰 교환용 Service Account 전체 JSON. 해당 프로젝트에 Vertex AI 사용자 역할이 필요해요."
+          }
+        },
+        {
+          "key": "location",
+          "type": "string",
+          "label": "Location",
+          "description": "Vertex AI region (e.g. us-central1, global). Defaults to global when left blank.",
+          "required": false,
+          "default": "global",
+          "mapsTo": {
+            "target": "custom",
+            "path": "location"
+          },
+          "descriptionI18n": {
+            "ko": "Vertex AI 리전 (예: us-central1, global). 비워두면 global이 됩니다."
+          }
+        },
+        {
+          "key": "projectId",
+          "type": "string",
+          "label": "Project ID",
+          "description": "Google Cloud project id. Leave blank to use the project_id from the Service Account JSON.",
+          "required": false,
+          "mapsTo": {
+            "target": "custom",
+            "path": "project"
+          },
+          "descriptionI18n": {
+            "ko": "Google Cloud 프로젝트 ID. 비워두면 Service Account JSON의 project_id를 사용합니다."
+          }
+        },
+        {
+          "key": "endpointUrl",
+          "type": "string",
+          "label": "Endpoint URL (override)",
+          "description": "Advanced: full base URL up to '.../publishers/google/models'. Leave blank to assemble it from Location and Project ID. When set, this overrides both. The model name is appended automatically.",
+          "required": false,
+          "mapsTo": {
+            "target": "custom",
+            "path": "endpointUrl"
+          },
+          "descriptionI18n": {
+            "ko": "고급: '.../publishers/google/models'까지의 전체 base URL. 비워두면 Location·Project ID로 자동 조립해요. 입력하면 그 둘보다 우선합니다. 모델 이름은 자동으로 붙어요."
           }
         },
         {
@@ -3974,19 +4002,19 @@
       "uiSchema": {
         "groups": [
           {
-            "id": "endpoint",
-            "label": "Endpoint",
+            "id": "credentials",
+            "label": "Credentials",
             "order": 1,
             "labelI18n": {
-              "ko": "엔드포인트"
+              "ko": "인증 정보"
             }
           },
           {
-            "id": "credentials",
-            "label": "Credentials",
+            "id": "project",
+            "label": "Project",
             "order": 2,
             "labelI18n": {
-              "ko": "인증 정보"
+              "ko": "프로젝트"
             }
           },
           {
@@ -4024,19 +4052,33 @@
         ],
         "fields": [
           {
-            "key": "endpointUrl",
-            "widget": "text",
-            "visibility": "basic",
-            "group": "endpoint",
-            "order": 1,
-            "placeholder": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models"
-          },
-          {
             "key": "serviceAccountJson",
             "widget": "secret",
             "visibility": "basic",
             "group": "credentials",
             "order": 1
+          },
+          {
+            "key": "location",
+            "widget": "text",
+            "visibility": "basic",
+            "group": "project",
+            "order": 1
+          },
+          {
+            "key": "projectId",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "project",
+            "order": 2
+          },
+          {
+            "key": "endpointUrl",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "project",
+            "order": 3,
+            "placeholder": "https://aiplatform.googleapis.com/v1/projects/PROJECT_ID/locations/global/publishers/google/models"
           },
           {
             "key": "temperature",
@@ -4146,7 +4188,7 @@
     },
     "vertex-openai": {
       "id": "vertex-openai",
-      "version": 3,
+      "version": 4,
       "displayName": "Vertex AI (OpenAI-compatible)",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -4176,32 +4218,32 @@
           }
         },
         {
-          "key": "projectId",
-          "type": "string",
-          "label": "Project ID",
-          "description": "Google Cloud project id.",
-          "required": true,
-          "mapsTo": {
-            "target": "custom",
-            "path": "project"
-          },
-          "descriptionI18n": {
-            "ko": "Google Cloud 프로젝트 ID."
-          }
-        },
-        {
           "key": "location",
           "type": "string",
           "label": "Location",
-          "description": "Vertex AI region (e.g. us-central1, global).",
-          "required": true,
-          "default": "us-central1",
+          "description": "Vertex AI region (e.g. us-central1, global). Defaults to global when left blank.",
+          "required": false,
+          "default": "global",
           "mapsTo": {
             "target": "custom",
             "path": "location"
           },
           "descriptionI18n": {
-            "ko": "Vertex AI 리전 (예: us-central1, global)."
+            "ko": "Vertex AI 리전 (예: us-central1, global). 비워두면 global이 됩니다."
+          }
+        },
+        {
+          "key": "projectId",
+          "type": "string",
+          "label": "Project ID",
+          "description": "Google Cloud project id. Leave blank to use the project_id from the Service Account JSON.",
+          "required": false,
+          "mapsTo": {
+            "target": "custom",
+            "path": "project"
+          },
+          "descriptionI18n": {
+            "ko": "Google Cloud 프로젝트 ID. 비워두면 Service Account JSON의 project_id를 사용합니다."
           }
         },
         {
@@ -4444,16 +4486,16 @@
             "order": 1
           },
           {
-            "key": "projectId",
+            "key": "location",
             "widget": "text",
             "visibility": "basic",
             "group": "project",
             "order": 1
           },
           {
-            "key": "location",
+            "key": "projectId",
             "widget": "text",
-            "visibility": "basic",
+            "visibility": "advanced",
             "group": "project",
             "order": 2
           },
@@ -24442,15 +24484,14 @@
     },
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
-      "version": 2,
-      "updatedAt": 1781314701586,
+      "version": 3,
+      "updatedAt": 1781316156572,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent, routed through the Flex (shared) processing tier.",
       "modelId": "gemini-3-flash-preview",
       "endpoint": {
-        "kind": "static",
-        "url": ""
+        "kind": "vertex-gemini"
       },
       "auth": {
         "kind": "google-service-account",
@@ -24494,15 +24535,14 @@
     },
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
-      "version": 2,
-      "updatedAt": 1781314701586,
+      "version": 3,
+      "updatedAt": 1781316156572,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent, routed through the Flex (shared) processing tier.",
       "modelId": "gemini-3.1-pro-preview",
       "endpoint": {
-        "kind": "static",
-        "url": ""
+        "kind": "vertex-gemini"
       },
       "auth": {
         "kind": "google-service-account",
@@ -24587,7 +24627,7 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
-      "updatedAt": 1781314701586
+      "updatedAt": 1781316156572
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
@@ -24953,8 +24993,8 @@
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
-    "vertex-gemini-native": "0b537438c47cabc51fe6fb350170827934c15fe8f1b202ae28e8d952ad37cd7b",
-    "vertex-openai": "edb8186a4f057c8229213a2e151af0a83516bb3987bc871dc90a45f2f999134d",
+    "vertex-gemini-native": "a551ebd8c12e154444cdbbac588589e5cf3a47aa07be4d91d70f9df94f7fb8d9",
+    "vertex-openai": "cfcb27c07c085abd91d9dc96bc5face84c9e6d3f894cfbafffff17293d7ac466",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
   "profileHashes": {
@@ -25091,9 +25131,9 @@
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
-    "vertex-gemini-native:flash": "f7faab7c0dc367f82915ec4399f3f0110abed46379e8348dc062fd3dbead60d3",
-    "vertex-gemini-native:pro": "45a8382f4920ab711094806a37932b14fa92fcf727ac02f13c41d558b642f01e",
-    "vertex-openai:standard": "551ffc5ea9333e18dc327a7c9f18a1768c5d657a005bf8375b67f0de1930a43f",
+    "vertex-gemini-native:flash": "7fd9529aef3d8f692cacc3aba6c7efea216ebd8f4af761b37cb9ca7dbab37c1e",
+    "vertex-gemini-native:pro": "b2a44fb0463ac83424a9a30fce1596812cbe5d34f1738c05addec2fed594f966",
+    "vertex-openai:standard": "da889aae11befe5050d60fbf83b0da9f0aa463b6ff23cf451e74a96192090a6f",
     "wellspring:deepseek-v32-marp": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8",
     "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",
     "wellspring:deepseek-v4-pro": "aec50b4f9fd2c098ab03e66f34a75ab8216223d196aa5faf1c9d3e67da8bf432",
