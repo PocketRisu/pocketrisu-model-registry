@@ -1,10 +1,10 @@
 {
   "id": "vertex-gemini-native:gemini-31-pro",
   "version": 1,
-  "updatedAt": 1781367598539,
+  "updatedAt": 1781399379992,
   "displayName": "Vertex AI - Gemini 3.1 Pro",
   "providerBaseId": "vertex-gemini-native",
-  "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent.",
+  "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent. Requires PocketRisu 1.8.0+.",
   "modelId": "gemini-3.1-pro-preview",
   "endpoint": {
     "kind": "vertex-gemini"
@@ -43,7 +43,7 @@
     "ko": "Vertex AI - Gemini 3.1 Pro"
   },
   "descriptionI18n": {
-    "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro."
+    "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 3.1 Pro. PocketRisu 1.8.0 이상 필요."
   },
   "recommendedTokenizer": "gemma",
   "profileStatus": "current"

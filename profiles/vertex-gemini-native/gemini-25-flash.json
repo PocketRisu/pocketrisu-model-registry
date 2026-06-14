@@ -1,10 +1,10 @@
 {
   "id": "vertex-gemini-native:gemini-25-flash",
   "version": 1,
-  "updatedAt": 1781367598539,
+  "updatedAt": 1781399379992,
   "displayName": "Vertex AI - Gemini 2.5 Flash",
   "providerBaseId": "vertex-gemini-native",
-  "description": "Vertex AI native Gemini 2.5 Flash via streamGenerateContent.",
+  "description": "Vertex AI native Gemini 2.5 Flash via streamGenerateContent. Requires PocketRisu 1.8.0+.",
   "modelId": "gemini-2.5-flash",
   "endpoint": {
     "kind": "vertex-gemini"
@@ -43,7 +43,7 @@
     "ko": "Vertex AI - Gemini 2.5 Flash"
   },
   "descriptionI18n": {
-    "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 2.5 Flash."
+    "ko": "streamGenerateContent를 쓰는 Vertex AI 네이티브 Gemini 2.5 Flash. PocketRisu 1.8.0 이상 필요."
   },
   "recommendedTokenizer": "gemma",
   "profileStatus": "outdated",

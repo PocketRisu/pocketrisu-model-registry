@@ -1,13 +1,14 @@
 {
   "id": "vertex-gemini-native:pro",
-  "version": 4,
-  "updatedAt": 1781367598539,
+  "version": 5,
+  "updatedAt": 1781399379992,
   "displayName": "Vertex AI - Gemini 3.1 Pro",
   "providerBaseId": "vertex-gemini-native",
   "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent.",
   "modelId": "gemini-3.1-pro-preview",
   "endpoint": {
-    "kind": "vertex-gemini"
+    "kind": "static",
+    "url": ""
   },
   "auth": {
     "kind": "google-service-account",

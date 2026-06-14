@@ -1,12 +1,13 @@
 {
   "id": "vertex-gemini-native",
-  "version": 6,
+  "version": 7,
   "displayName": "Vertex AI (Gemini Native)",
   "adapterKind": "google-gemini",
   "authKinds": [
     "google-service-account"
   ],
   "endpointKinds": [
+    "static",
     "vertex-gemini"
   ],
   "defaultHeaders": {
