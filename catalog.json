@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "0d92683bd6ebfda3f79569721cdbbdb59a4fee8861a9d2f1e3b35a01dae16095",
+  "hash": "47b687eb4520b09c027d1be88bac110e59e9710397c83e0280d9395870746b20",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -25278,7 +25278,7 @@
     "wellspring:glm-51-code": {
       "id": "wellspring:glm-51-code",
       "version": 1,
-      "updatedAt": 1781103554581,
+      "updatedAt": 1781618719154,
       "displayName": "GLM 5.1 Code",
       "displayNameI18n": {
         "ko": "GLM 5.1 Code"
@@ -25332,7 +25332,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "outdated",
+      "statusReason": "No longer listed by Wellspring /v1/models — host removed this model.",
+      "statusSourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ]
     },
     "wellspring:glm-51-marp": {
       "id": "wellspring:glm-51-marp",
@@ -25383,6 +25387,62 @@
         "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 8 RPM.",
         "notesI18n": {
           "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 8 RPM."
+        },
+        "sourceUrls": [
+          "https://wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "wellspring:gpt-51": {
+      "id": "wellspring:gpt-51",
+      "version": 1,
+      "updatedAt": 1781618719154,
+      "displayName": "GPT-5.1",
+      "displayNameI18n": {
+        "ko": "GPT-5.1"
+      },
+      "providerBaseId": "wellspring",
+      "description": "GPT-5.1 via Wellspring (gpt-5.1).",
+      "descriptionI18n": {
+        "ko": "GPT-5.1 (챈섭, gpt-5.1)."
+      },
+      "tags": [
+        "wellspring",
+        "openai"
+      ],
+      "sortOrder": 599,
+      "modelId": "gpt-5.1",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://wellspring.encrypt.gay/v1/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 32000,
+        "notes": "Wellspring host-enforced per-request caps (max_input_tokens / max_output_tokens), not native model context window. Per-user rate limit 2 RPM, concurrency 5, deduction weight 5.1, global quota 10M. No tools or reasoning support. Host /v1/models advertises 120000 input; effective input cap recorded as 61440.",
+        "notesI18n": {
+          "ko": "Wellspring(챈섭) 호스트가 거는 요청당 캡(입력/출력)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 2 RPM, 동시 처리량 5, 차감 가중치 5.1, 글로벌 할당량 10M. tools·reasoning 미지원. 호스트 /v1/models는 입력 120000을 광고하나 실효 입력 캡은 61440으로 기록."
         },
         "sourceUrls": [
           "https://wellspring.encrypt.gay/v1/models"
@@ -25560,7 +25620,8 @@
     "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",
     "wellspring:deepseek-v4-pro": "aec50b4f9fd2c098ab03e66f34a75ab8216223d196aa5faf1c9d3e67da8bf432",
     "wellspring:gemma-4-31b": "4c3693ebaf510bda9d90dfe2c7a4f6257c425f2e68fa9804141f854d60f246f1",
-    "wellspring:glm-51-code": "caeb2e8e74bd235337b002be5c230140cff3822e09cac50e63d86fadc3e894aa",
-    "wellspring:glm-51-marp": "0d635881cbfa72c2a0536786f066ff9c7bec9ce8131fd1204f1087dbe92513b3"
+    "wellspring:glm-51-code": "6f419bfb0077ea62c3efe95c254877c15f86cf6a046083d4314c7a1acea462cc",
+    "wellspring:glm-51-marp": "0d635881cbfa72c2a0536786f066ff9c7bec9ce8131fd1204f1087dbe92513b3",
+    "wellspring:gpt-51": "d541ddb8a495d29c4f66d782c2b97b3786f353545ca75fbb1333a6114afa039e"
   }
 }

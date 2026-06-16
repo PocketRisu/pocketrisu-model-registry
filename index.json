@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "0d92683bd6ebfda3f79569721cdbbdb59a4fee8861a9d2f1e3b35a01dae16095",
+  "hash": "47b687eb4520b09c027d1be88bac110e59e9710397c83e0280d9395870746b20",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -832,12 +832,17 @@
     {
       "id": "wellspring:glm-51-code",
       "url": "profiles/wellspring/glm-51-code.json",
-      "hash": "caeb2e8e74bd235337b002be5c230140cff3822e09cac50e63d86fadc3e894aa"
+      "hash": "6f419bfb0077ea62c3efe95c254877c15f86cf6a046083d4314c7a1acea462cc"
     },
     {
       "id": "wellspring:glm-51-marp",
       "url": "profiles/wellspring/glm-51-marp.json",
       "hash": "0d635881cbfa72c2a0536786f066ff9c7bec9ce8131fd1204f1087dbe92513b3"
+    },
+    {
+      "id": "wellspring:gpt-51",
+      "url": "profiles/wellspring/gpt-51.json",
+      "hash": "d541ddb8a495d29c4f66d782c2b97b3786f353545ca75fbb1333a6114afa039e"
     }
   ]
 }
