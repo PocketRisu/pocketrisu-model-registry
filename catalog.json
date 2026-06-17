@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "47b687eb4520b09c027d1be88bac110e59e9710397c83e0280d9395870746b20",
+  "hash": "850b1714e419a84ef98ed19d996fd4c5dc500f8e0b0faa07ea7e4861057c10b7",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -1842,7 +1842,7 @@
     },
     "ollama-cloud": {
       "id": "ollama-cloud",
-      "version": 2,
+      "version": 3,
       "displayName": "Ollama Cloud",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -1878,6 +1878,10 @@
           "description": "Cloud-hosted model. Local Ollama cloud models commonly use the :cloud suffix (e.g. gpt-oss:120b-cloud), while direct ollama.com API examples may use the bare model name (e.g. gpt-oss:120b). See https://ollama.com/search?c=cloud for the current list.",
           "required": true,
           "enum": [
+            {
+              "value": "glm-5.2:cloud",
+              "label": "GLM 5.2"
+            },
             {
               "value": "glm-5.1:cloud",
               "label": "GLM 5.1"
@@ -15130,7 +15134,7 @@
     "ollama-cloud:deepseek-v4-flash": {
       "id": "ollama-cloud:deepseek-v4-flash",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -15192,7 +15196,7 @@
     "ollama-cloud:deepseek-v4-pro": {
       "id": "ollama-cloud:deepseek-v4-pro",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -15254,7 +15258,7 @@
     "ollama-cloud:gemini-3-flash": {
       "id": "ollama-cloud:gemini-3-flash",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "Gemini 3 Flash",
       "displayNameI18n": {
         "ko": "Gemini 3 Flash"
@@ -15317,7 +15321,7 @@
     "ollama-cloud:gemma-4-31b": {
       "id": "ollama-cloud:gemma-4-31b",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
@@ -15380,7 +15384,7 @@
     "ollama-cloud:glm-51": {
       "id": "ollama-cloud:glm-51",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "GLM 5.1",
       "displayNameI18n": {
         "ko": "GLM 5.1"
@@ -15438,10 +15442,73 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "ollama-cloud:glm-52": {
+      "id": "ollama-cloud:glm-52",
+      "version": 1,
+      "updatedAt": 1781683560445,
+      "displayName": "GLM 5.2",
+      "displayNameI18n": {
+        "ko": "GLM 5.2"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "GLM 5.2 hosted on Ollama Cloud (glm-5.2:cloud).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 (Ollama Cloud 호스팅, glm-5.2:cloud)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "glm"
+      ],
+      "sortOrder": 619,
+      "modelId": "glm-5.2:cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://ollama.com/library/glm-5.2",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native 1M-token context (Ollama Cloud model page reports a 976K served window). Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "네이티브 1M 토큰 컨텍스트 (Ollama Cloud 모델 페이지 기준 976K 서빙). Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/library/glm-5.2",
+          "https://ollama.com/search?c=cloud"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "ollama-cloud:gpt-oss-120b": {
       "id": "ollama-cloud:gpt-oss-120b",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "gpt-oss 120B",
       "displayNameI18n": {
         "ko": "gpt-oss 120B"
@@ -15502,7 +15569,7 @@
     "ollama-cloud:kimi-k26": {
       "id": "ollama-cloud:kimi-k26",
       "version": 1,
-      "updatedAt": 1781106547056,
+      "updatedAt": 1781683560445,
       "displayName": "Kimi K2.6",
       "displayNameI18n": {
         "ko": "Kimi K2.6"
@@ -15604,7 +15671,7 @@
         "ko": "Ollama 호스팅 클라우드 추론. OpenAI 호환 chat completions, ollama.com API 키로 Bearer 인증."
       },
       "profileStatus": "current",
-      "updatedAt": 1781106547056
+      "updatedAt": 1781683560445
     },
     "openai:gpt-4": {
       "id": "openai:gpt-4",
@@ -25462,7 +25529,7 @@
     "google": "13add38af1fe4199d60645032a4e3727875e9243c5de7337875fe62672a011ae",
     "lightning-ai": "2ba7a1bf0148e6af231c8043dbe96704916dc54c5232b4fd138ae8416f019459",
     "nanogpt": "6b98399abd6e081460fed6b80cd71734ae57ce07480b6446186c7e04a19fcab2",
-    "ollama-cloud": "4f7a2adf95e7c6dccb941f48b3731b456f32ea7988eba892b836b757a5165078",
+    "ollama-cloud": "77e72d0d4387400f33f99f581e1a46963e5f597770d6c10e1db1abc6b254aa7d",
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
@@ -25530,14 +25597,15 @@
     "nanogpt:kimi-k26": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314",
     "nanogpt:openai-compatible": "b5f441f1116067cd045c28549e9c22ea0baa952bb1ce288916f3743430a1de38",
     "ollama:openai-compatible-local": "626020e05a68a54259f794002ab4672b4c2258f9bb934f7c3fd8e4ab3438983f",
-    "ollama-cloud:deepseek-v4-flash": "42a2eaf091ffd7ba4d9b7b3ed510d0526171a66e3028db51bf29b9388254425e",
-    "ollama-cloud:deepseek-v4-pro": "97e08d532f33e3a63cb6ef80ccd1c31f677bb5bd42258e872b167c49f01ecab7",
-    "ollama-cloud:gemini-3-flash": "3f031a92a8fbcecc1827c8ab4599ae42d9ec95113c7750cc08c996869fd5e957",
-    "ollama-cloud:gemma-4-31b": "c4dea5669a9ccccde8a412325ddf6db8be9f8eddedbe38c0d2dcedfb03f5a3e6",
-    "ollama-cloud:glm-51": "9af08f6aff379fcc6c8d0ea91487936c0b651b523495ed8c1836a39ca61dca87",
-    "ollama-cloud:gpt-oss-120b": "7b348d7588318e7fbc6e7d26bb71efdf3b5ade0a98d79c98daabe970351caa90",
-    "ollama-cloud:kimi-k26": "29f9315a6be976eb161cd8de7a7fbacca315312dd715310d5c5ef4bf77ca5d31",
-    "ollama-cloud:standard": "4f40c13ed974a7c08307f5d708f6cb3e4cc6289d9c8abf491236d1a002e9d6a5",
+    "ollama-cloud:deepseek-v4-flash": "c53c9d5957cab802ade4d7b03ef2e61c6ff46b4c9e1f339bb724b94fc6a6062a",
+    "ollama-cloud:deepseek-v4-pro": "6ab15fddbd4caa57daf12e76203588142b141e54f297f66d18b58e7a9d39bf38",
+    "ollama-cloud:gemini-3-flash": "e3b9707f25fca7bc0a3b3d6e0a1150f0726dd017c1628d320defc8b82074a8e8",
+    "ollama-cloud:gemma-4-31b": "bb87fbd92f48613e7c518c349eae08a4b6db8531c687fc3dd50a6b7cd68794bf",
+    "ollama-cloud:glm-51": "7b3dd6fe5f131a29302e523c3e6ec608ba1fdc591ba0e2e20535453e19e1a98a",
+    "ollama-cloud:glm-52": "fcce797ef4993782e24b6281e359acd62aa2832e50762e33e065688c591e048d",
+    "ollama-cloud:gpt-oss-120b": "6a58e05bf74d2d518ae070663199d16f94dc7c9a145020f6472139eb0b84f52a",
+    "ollama-cloud:kimi-k26": "1e6520ff339f371993d6b2c31941e77c78ccacf9098ae145b9a23779de6a968a",
+    "ollama-cloud:standard": "d9c60f9d9eef45851f4e3a2c9c0a0fed116ac204c3ba7bab488c37949b6b27e0",
     "openai:gpt-4": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299",
     "openai:gpt-41-mini": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4",
     "openai:gpt-41": "c997a8c6d6c59b2413146ec3904b13e7e3ad58a30d0fcef544135679600f01ed",
