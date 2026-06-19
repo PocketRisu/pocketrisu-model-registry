@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "4226b307f89b78e038d527c8769814afdec20e867f867bcbfae9fbf7596f3db9",
+  "hash": "d71ab37d4d88434f85091ebf8e8bda69b04d84a97d09bb1ef10cddc786e4d336",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -25850,8 +25850,8 @@
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "DeepSeek V3.2 Marp",
       "displayNameI18n": {
         "ko": "DeepSeek V3.2 Marp"
@@ -25902,12 +25902,13 @@
         ]
       },
       "recommendedTokenizer": "deepseek",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
     },
     "wellspring:deepseek-v4-flash": {
       "id": "wellspring:deepseek-v4-flash",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -25961,12 +25962,13 @@
         ]
       },
       "recommendedTokenizer": "deepseek",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
     },
     "wellspring:deepseek-v4-pro": {
       "id": "wellspring:deepseek-v4-pro",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "DeepSeek V4 Pro",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Pro"
@@ -26020,12 +26022,13 @@
         ]
       },
       "recommendedTokenizer": "deepseek",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
     },
     "wellspring:gemma-4-31b": {
       "id": "wellspring:gemma-4-31b",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
@@ -26077,12 +26080,13 @@
         ]
       },
       "recommendedTokenizer": "gemma",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
     },
     "wellspring:glm-51-code": {
       "id": "wellspring:glm-51-code",
-      "version": 1,
-      "updatedAt": 1781618719154,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "GLM 5.1 Code",
       "displayNameI18n": {
         "ko": "GLM 5.1 Code"
@@ -26136,16 +26140,16 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "outdated",
-      "statusReason": "No longer listed by Wellspring /v1/models — host removed this model.",
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated.",
       "statusSourceUrls": [
         "https://wellspring.encrypt.gay/v1/models"
       ]
     },
     "wellspring:glm-51-marp": {
       "id": "wellspring:glm-51-marp",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "GLM 5.1 Marp",
       "displayNameI18n": {
         "ko": "GLM 5.1 Marp"
@@ -26197,12 +26201,13 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
     },
     "wellspring:gpt-51": {
       "id": "wellspring:gpt-51",
-      "version": 1,
-      "updatedAt": 1781618719154,
+      "version": 2,
+      "updatedAt": 1781836101943,
       "displayName": "GPT-5.1",
       "displayNameI18n": {
         "ko": "GPT-5.1"
@@ -26253,7 +26258,8 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
     }
   },
   "baseProviderHashes": {
@@ -26430,12 +26436,12 @@
     "vertex-gemini-native:gemini-35-flash": "2ccfb3a9c9cfb6cdb390e183061093cdf2e481b0d90700ae3c811030a2b0a1fa",
     "vertex-gemini-native:pro": "1ed1cb71d120cd587c561603e24b513184ec7c19fc507ff71b5f1d1a30bf206f",
     "vertex-openai:standard": "cbaa84b63d7abb9b1296338b048c70822281487edfc292097f66efd4820b913a",
-    "wellspring:deepseek-v32-marp": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8",
-    "wellspring:deepseek-v4-flash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571",
-    "wellspring:deepseek-v4-pro": "aec50b4f9fd2c098ab03e66f34a75ab8216223d196aa5faf1c9d3e67da8bf432",
-    "wellspring:gemma-4-31b": "4c3693ebaf510bda9d90dfe2c7a4f6257c425f2e68fa9804141f854d60f246f1",
-    "wellspring:glm-51-code": "6f419bfb0077ea62c3efe95c254877c15f86cf6a046083d4314c7a1acea462cc",
-    "wellspring:glm-51-marp": "0d635881cbfa72c2a0536786f066ff9c7bec9ce8131fd1204f1087dbe92513b3",
-    "wellspring:gpt-51": "d541ddb8a495d29c4f66d782c2b97b3786f353545ca75fbb1333a6114afa039e"
+    "wellspring:deepseek-v32-marp": "642af5c20e8d563d6c60fe275de6b8b82a1575a7e14957215a979e831695b821",
+    "wellspring:deepseek-v4-flash": "7e73c7b794e3143c8ae0b8b221196dba81336483f0807a2489e49298f11f0ade",
+    "wellspring:deepseek-v4-pro": "ebefb49df3d0d27ff8b1e5bbd7f56df5a3ae18b65378b616b2235206af342789",
+    "wellspring:gemma-4-31b": "d1c460fe1f8f5aba8fa9a1bfd82ccb8fc4ec8b6579bfd2626ed13ffeffe2b9d7",
+    "wellspring:glm-51-code": "45ba5e6bbc640a19be0fa908aa3283aba99631c0c8e7296e45f55f818c96a8ae",
+    "wellspring:glm-51-marp": "bc984532618048d46b8f463dcb560df676f3d3840d5aefbeb4fa1ba1abf8b576",
+    "wellspring:gpt-51": "359efccba6eb71c9f197e2df9173709d3e5a0469a46d7120f0407168c134ada3"
   }
 }

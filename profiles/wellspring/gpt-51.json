@@ -1,7 +1,7 @@
 {
   "id": "wellspring:gpt-51",
-  "version": 1,
-  "updatedAt": 1781618719154,
+  "version": 2,
+  "updatedAt": 1781836101943,
   "displayName": "GPT-5.1",
   "displayNameI18n": {
     "ko": "GPT-5.1"
@@ -52,5 +52,6 @@
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "deprecated",
+  "statusReason": "Wellspring (arca.live community API) shut down; service terminated."
 }

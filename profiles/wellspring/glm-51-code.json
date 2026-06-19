@@ -1,7 +1,7 @@
 {
   "id": "wellspring:glm-51-code",
-  "version": 1,
-  "updatedAt": 1781618719154,
+  "version": 2,
+  "updatedAt": 1781836101943,
   "displayName": "GLM 5.1 Code",
   "displayNameI18n": {
     "ko": "GLM 5.1 Code"
@@ -55,8 +55,8 @@
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "outdated",
-  "statusReason": "No longer listed by Wellspring /v1/models — host removed this model.",
+  "profileStatus": "deprecated",
+  "statusReason": "Wellspring (arca.live community API) shut down; service terminated.",
   "statusSourceUrls": [
     "https://wellspring.encrypt.gay/v1/models"
   ]

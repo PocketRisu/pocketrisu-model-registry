@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "4226b307f89b78e038d527c8769814afdec20e867f867bcbfae9fbf7596f3db9",
+  "hash": "d71ab37d4d88434f85091ebf8e8bda69b04d84a97d09bb1ef10cddc786e4d336",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -862,37 +862,37 @@
     {
       "id": "wellspring:deepseek-v32-marp",
       "url": "profiles/wellspring/deepseek-v32-marp.json",
-      "hash": "9662e69cc6643af424f9ce25cd68a32cc6788a4246a43ab73404b35879ecbfa8"
+      "hash": "642af5c20e8d563d6c60fe275de6b8b82a1575a7e14957215a979e831695b821"
     },
     {
       "id": "wellspring:deepseek-v4-flash",
       "url": "profiles/wellspring/deepseek-v4-flash.json",
-      "hash": "a4f1c1f9ed02d0fdfb4d90a88a4a457c37533626508acb342b50181e04868571"
+      "hash": "7e73c7b794e3143c8ae0b8b221196dba81336483f0807a2489e49298f11f0ade"
     },
     {
       "id": "wellspring:deepseek-v4-pro",
       "url": "profiles/wellspring/deepseek-v4-pro.json",
-      "hash": "aec50b4f9fd2c098ab03e66f34a75ab8216223d196aa5faf1c9d3e67da8bf432"
+      "hash": "ebefb49df3d0d27ff8b1e5bbd7f56df5a3ae18b65378b616b2235206af342789"
     },
     {
       "id": "wellspring:gemma-4-31b",
       "url": "profiles/wellspring/gemma-4-31b.json",
-      "hash": "4c3693ebaf510bda9d90dfe2c7a4f6257c425f2e68fa9804141f854d60f246f1"
+      "hash": "d1c460fe1f8f5aba8fa9a1bfd82ccb8fc4ec8b6579bfd2626ed13ffeffe2b9d7"
     },
     {
       "id": "wellspring:glm-51-code",
       "url": "profiles/wellspring/glm-51-code.json",
-      "hash": "6f419bfb0077ea62c3efe95c254877c15f86cf6a046083d4314c7a1acea462cc"
+      "hash": "45ba5e6bbc640a19be0fa908aa3283aba99631c0c8e7296e45f55f818c96a8ae"
     },
     {
       "id": "wellspring:glm-51-marp",
       "url": "profiles/wellspring/glm-51-marp.json",
-      "hash": "0d635881cbfa72c2a0536786f066ff9c7bec9ce8131fd1204f1087dbe92513b3"
+      "hash": "bc984532618048d46b8f463dcb560df676f3d3840d5aefbeb4fa1ba1abf8b576"
     },
     {
       "id": "wellspring:gpt-51",
       "url": "profiles/wellspring/gpt-51.json",
-      "hash": "d541ddb8a495d29c4f66d782c2b97b3786f353545ca75fbb1333a6114afa039e"
+      "hash": "359efccba6eb71c9f197e2df9173709d3e5a0469a46d7120f0407168c134ada3"
     }
   ]
 }
