@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "850b1714e419a84ef98ed19d996fd4c5dc500f8e0b0faa07ea7e4861057c10b7",
+  "hash": "4226b307f89b78e038d527c8769814afdec20e867f867bcbfae9fbf7596f3db9",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -1838,6 +1838,283 @@
           "https://nano-gpt.com/docs"
         ],
         "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+      }
+    },
+    "neuralwatt": {
+      "id": "neuralwatt",
+      "version": 1,
+      "displayName": "NeuralWatt",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "NeuralWatt API key (created under API Keys & Allowances).",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "NeuralWatt API 키 (API Keys & Allowances에서 발급)."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Model identifier accepted by NeuralWatt.",
+          "required": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "NeuralWatt가 허용하는 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. Applies to GLM thinking models on NeuralWatt; 'none' disables thinking. Kimi/Qwen expose thinking on/off via separate '-fast' model IDs instead of this knob.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. NeuralWatt의 GLM thinking 모델에 적용 (none은 비활성). Kimi/Qwen은 이 노브 대신 '-fast' 모델 ID로 thinking on/off를 구분."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ],
+        "notes": "Model-dependent provider. NeuralWatt's /v1/models exposes per-model context length but reports max_output_tokens as null, so PocketRisu uses a number input for Max Tokens instead of a fixed-limit slider."
       }
     },
     "ollama-cloud": {
@@ -15090,6 +15367,466 @@
       "profileStatus": "current",
       "updatedAt": 1781103554581
     },
+    "neuralwatt:glm-51": {
+      "id": "neuralwatt:glm-51",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "GLM-5.1",
+      "displayNameI18n": {
+        "ko": "GLM-5.1"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "GLM-5.1 via NeuralWatt (glm-5.1). Use reasoning_effort=none for the non-thinking tier.",
+      "descriptionI18n": {
+        "ko": "GLM-5.1 (NeuralWatt, glm-5.1). non-thinking은 reasoning_effort=none 사용."
+      },
+      "tags": [
+        "neuralwatt",
+        "glm"
+      ],
+      "sortOrder": 542,
+      "modelId": "glm-5.1",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048560,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:glm-52": {
+      "id": "neuralwatt:glm-52",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "GLM-5.2",
+      "displayNameI18n": {
+        "ko": "GLM-5.2"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "GLM-5.2 via NeuralWatt (glm-5.2). Use reasoning_effort=none for the non-thinking tier.",
+      "descriptionI18n": {
+        "ko": "GLM-5.2 (NeuralWatt, glm-5.2). non-thinking은 reasoning_effort=none 사용."
+      },
+      "tags": [
+        "neuralwatt",
+        "glm"
+      ],
+      "sortOrder": 541,
+      "modelId": "glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048560,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:kimi-k25": {
+      "id": "neuralwatt:kimi-k25",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "Kimi K2.5",
+      "displayNameI18n": {
+        "ko": "Kimi K2.5"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "Kimi K2.5 flagship via NeuralWatt (moonshotai/Kimi-K2.5). Use kimi-k2.5-fast for the non-thinking tier.",
+      "descriptionI18n": {
+        "ko": "Kimi K2.5 flagship (NeuralWatt, moonshotai/Kimi-K2.5). non-thinking은 kimi-k2.5-fast 사용."
+      },
+      "tags": [
+        "neuralwatt",
+        "kimi"
+      ],
+      "sortOrder": 544,
+      "modelId": "moonshotai/Kimi-K2.5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262128,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:kimi-k26": {
+      "id": "neuralwatt:kimi-k26",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "Kimi K2.6",
+      "displayNameI18n": {
+        "ko": "Kimi K2.6"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "Kimi K2.6 via NeuralWatt (kimi-k2.6). Use kimi-k2.6-fast for the non-thinking tier.",
+      "descriptionI18n": {
+        "ko": "Kimi K2.6 (NeuralWatt, kimi-k2.6). non-thinking은 kimi-k2.6-fast 사용."
+      },
+      "tags": [
+        "neuralwatt",
+        "kimi"
+      ],
+      "sortOrder": 543,
+      "modelId": "kimi-k2.6",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262128,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:kimi-k27-code": {
+      "id": "neuralwatt:kimi-k27-code",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "Kimi K2.7 Code",
+      "displayNameI18n": {
+        "ko": "Kimi K2.7 Code"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "Kimi K2.7 Code via NeuralWatt (kimi-k2.7-code).",
+      "descriptionI18n": {
+        "ko": "Kimi K2.7 Code (NeuralWatt, kimi-k2.7-code)."
+      },
+      "tags": [
+        "neuralwatt",
+        "kimi"
+      ],
+      "sortOrder": 545,
+      "modelId": "kimi-k2.7-code",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262128,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:openai-compatible": {
+      "id": "neuralwatt:openai-compatible",
+      "version": 1,
+      "displayName": "NeuralWatt",
+      "providerBaseId": "neuralwatt",
+      "description": "NeuralWatt energy-metered gateway via OpenAI-compatible API. Enter any model ID listed at portal.neuralwatt.com/models.",
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "tags": [
+        "neuralwatt",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 540,
+      "displayNameI18n": {
+        "ko": "NeuralWatt"
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current",
+      "updatedAt": 1781835416168
+    },
+    "neuralwatt:qwen35-397b": {
+      "id": "neuralwatt:qwen35-397b",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "Qwen3.5 397B",
+      "displayNameI18n": {
+        "ko": "Qwen3.5 397B"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "Qwen3.5 397B-A17B via NeuralWatt (qwen3.5-397b). Use qwen3.5-397b-fast for the non-thinking tier.",
+      "descriptionI18n": {
+        "ko": "Qwen3.5 397B-A17B (NeuralWatt, qwen3.5-397b). non-thinking은 qwen3.5-397b-fast 사용."
+      },
+      "tags": [
+        "neuralwatt",
+        "qwen"
+      ],
+      "sortOrder": 546,
+      "modelId": "qwen3.5-397b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262128,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:qwen36-35b": {
+      "id": "neuralwatt:qwen36-35b",
+      "version": 1,
+      "updatedAt": 1781835416168,
+      "displayName": "Qwen3.6 35B",
+      "displayNameI18n": {
+        "ko": "Qwen3.6 35B"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "Qwen3.6 35B-A3B via NeuralWatt (qwen3.6-35b). Use qwen3.6-35b-fast for the non-thinking tier.",
+      "descriptionI18n": {
+        "ko": "Qwen3.6 35B-A3B (NeuralWatt, qwen3.6-35b). non-thinking은 qwen3.6-35b-fast 사용."
+      },
+      "tags": [
+        "neuralwatt",
+        "qwen"
+      ],
+      "sortOrder": 547,
+      "modelId": "qwen3.6-35b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 131056,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "ollama:openai-compatible-local": {
       "id": "ollama:openai-compatible-local",
       "version": 1,
@@ -25529,6 +26266,7 @@
     "google": "13add38af1fe4199d60645032a4e3727875e9243c5de7337875fe62672a011ae",
     "lightning-ai": "2ba7a1bf0148e6af231c8043dbe96704916dc54c5232b4fd138ae8416f019459",
     "nanogpt": "6b98399abd6e081460fed6b80cd71734ae57ce07480b6446186c7e04a19fcab2",
+    "neuralwatt": "97201fc832fde4ca694c1c86730ffc0bd14c24446fd2dbd344f6949f07af298b",
     "ollama-cloud": "77e72d0d4387400f33f99f581e1a46963e5f597770d6c10e1db1abc6b254aa7d",
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
@@ -25596,6 +26334,14 @@
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
     "nanogpt:kimi-k26": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314",
     "nanogpt:openai-compatible": "b5f441f1116067cd045c28549e9c22ea0baa952bb1ce288916f3743430a1de38",
+    "neuralwatt:glm-51": "770e62305151fbb50101fb00f6e4c296a7512fb8927bcbb638df6c31969f31eb",
+    "neuralwatt:glm-52": "af1997b666e6c76117b35b3fd1ef0f17bf4d134742ef144d93cfe9a4c3e4baab",
+    "neuralwatt:kimi-k25": "1821b5e1658fec6eb8b95f65cdbbed1f54383fc3c7eba3a205c4f8eda53b129f",
+    "neuralwatt:kimi-k26": "560c1a14da071af375163b62006221846ff1b2b7af50ed208408dbe89f2dd3b0",
+    "neuralwatt:kimi-k27-code": "6aec8f01f0c2f8c23b56e58d35bec0e4ea631e982a34b685b5420ae44daf80a9",
+    "neuralwatt:openai-compatible": "54f4863da2cb63d76cd1ea3a646c38e4e2e3970d475dc2498d92ef6a92eafd93",
+    "neuralwatt:qwen35-397b": "4e6f364b48fc08ea20933ae6608c0fe2dc7f7a1f3f321954a15d9703632e64e4",
+    "neuralwatt:qwen36-35b": "14359a100860889882bca101e578b8f91e29cb961b9165f9879f9074b3363a34",
     "ollama:openai-compatible-local": "626020e05a68a54259f794002ab4672b4c2258f9bb934f7c3fd8e4ab3438983f",
     "ollama-cloud:deepseek-v4-flash": "c53c9d5957cab802ade4d7b03ef2e61c6ff46b4c9e1f339bb724b94fc6a6062a",
     "ollama-cloud:deepseek-v4-pro": "6ab15fddbd4caa57daf12e76203588142b141e54f297f66d18b58e7a9d39bf38",
