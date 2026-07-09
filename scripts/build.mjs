@@ -110,6 +110,7 @@ const profileIndex = []
 let bumpedCount = 0
 for (const provider of readdirSync(profilesDir).filter((d) => statSync(join(profilesDir, d)).isDirectory()).sort()) {
     const providerDir = join(profilesDir, provider)
+    const providerEntries = []
     for (const file of readdirSync(providerDir).filter((f) => f.endsWith('.json')).sort()) {
         let data = readJson(join(providerDir, file))
         if (!data || typeof data.id !== 'string') throw new Error(`profiles/${provider}/${file}: missing id`)
@@ -120,6 +121,15 @@ for (const provider of readdirSync(profilesDir).filter((d) => statSync(join(prof
             bumpedCount++
         }
         const hash = hashOf(data)
+        providerEntries.push({ file, data, hash })
+    }
+    providerEntries.sort((a, b) => {
+        const aOrder = Number.isInteger(a.data.sortOrder) ? a.data.sortOrder : Number.MAX_SAFE_INTEGER
+        const bOrder = Number.isInteger(b.data.sortOrder) ? b.data.sortOrder : Number.MAX_SAFE_INTEGER
+        if (aOrder !== bOrder) return aOrder - bOrder
+        return a.file.localeCompare(b.file)
+    })
+    for (const { file, data, hash } of providerEntries) {
         profiles[data.id] = data
         profileHashes[data.id] = hash
         profileIndex.push({ id: data.id, url: `profiles/${provider}/${file}`, hash })
