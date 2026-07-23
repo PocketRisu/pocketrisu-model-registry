@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "d71ab37d4d88434f85091ebf8e8bda69b04d84a97d09bb1ef10cddc786e4d336",
+  "hash": "3fcb6d3eb6381d896b046edf0455316d91889ba0575bea88ddd975e9e0b14e00",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -538,6 +538,21 @@
       "id": "openai:gpt-55",
       "url": "profiles/openai/gpt-55.json",
       "hash": "a129ae82e2446d82796a4d74e57b9ac45bda44337e38ede19e5d53e3a0b718ea"
+    },
+    {
+      "id": "openai:gpt-56-luna",
+      "url": "profiles/openai/gpt-56-luna.json",
+      "hash": "9c1e4918e1b4d01976fd7df429101d01e7dbb322ba439da9f861e37bdee2654f"
+    },
+    {
+      "id": "openai:gpt-56-sol",
+      "url": "profiles/openai/gpt-56-sol.json",
+      "hash": "153dfd24805eb727143b29d38d0a4761a27d44107812de2cc2b3d128e3bb8b4d"
+    },
+    {
+      "id": "openai:gpt-56-terra",
+      "url": "profiles/openai/gpt-56-terra.json",
+      "hash": "54c0a1d63755a5937efdb6f706bec7099c217d95077b07a490a5ccfe682c930c"
     },
     {
       "id": "openai:o3",
