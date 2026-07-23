@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "d71ab37d4d88434f85091ebf8e8bda69b04d84a97d09bb1ef10cddc786e4d336",
+  "hash": "99a28af6b96bbd77eba66f2db932e3fd98f2d6b51b3b06b62723d2085e2232fa",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -21,6 +21,11 @@
       "id": "bedrock",
       "url": "base-providers/bedrock.json",
       "hash": "30d85601a597e964b00f09c8972b4a7654e28afe32891a49039830b1f1bc4b2a"
+    },
+    {
+      "id": "cerebras",
+      "url": "base-providers/cerebras.json",
+      "hash": "263c0f9ec5724fff3ef5d5cdb162d7a16bda28f7b7c82cc4f7939b27ff4a4741"
     },
     {
       "id": "deepinfra",
@@ -173,6 +178,21 @@
       "id": "bedrock-anthropic:custom",
       "url": "profiles/bedrock-anthropic/custom.json",
       "hash": "c9f5d0063a08b6e947cd83b830815423c988280e1e99a3febb36462940545c27"
+    },
+    {
+      "id": "cerebras:gemma-4-31b",
+      "url": "profiles/cerebras/gemma-4-31b.json",
+      "hash": "35953bcf0dd25c16c191367f94fd385f7540d9a40a9cfb1e5c4a651519a5d4df"
+    },
+    {
+      "id": "cerebras:gpt-oss-120b",
+      "url": "profiles/cerebras/gpt-oss-120b.json",
+      "hash": "cfaccfda49d818b88fb5d214d216368ade477ac18a3cb29f720f969eac544db6"
+    },
+    {
+      "id": "cerebras:zai-glm-47",
+      "url": "profiles/cerebras/zai-glm-47.json",
+      "hash": "758e526fddbe61e2aafe4b452aea3219443395481ef44118944510d8fe9eae66"
     },
     {
       "id": "deepinfra:openai-compatible",

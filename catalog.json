@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "d71ab37d4d88434f85091ebf8e8bda69b04d84a97d09bb1ef10cddc786e4d336",
+  "hash": "99a28af6b96bbd77eba66f2db932e3fd98f2d6b51b3b06b62723d2085e2232fa",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -835,6 +835,69 @@
         ],
         "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
       }
+    },
+    "cerebras": {
+      "id": "cerebras",
+      "version": 1,
+      "displayName": "Cerebras",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "Cerebras API key.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "Cerebras API 키."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://inference-docs.cerebras.ai/api-reference/authentication",
+        "https://inference-docs.cerebras.ai/api-reference/chat-completions",
+        "https://inference-docs.cerebras.ai/resources/openai",
+        "https://inference-docs.cerebras.ai/api-reference/models/public-models"
+      ]
     },
     "deepinfra": {
       "id": "deepinfra",
@@ -8568,6 +8631,880 @@
         "https://platform.claude.com/docs/en/build-with-claude/claude-in-amazon-bedrock"
       ],
       "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "cerebras:gemma-4-31b": {
+      "id": "cerebras:gemma-4-31b",
+      "version": 1,
+      "updatedAt": 1783010768533,
+      "displayName": "Gemma 4 31B",
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "providerBaseId": "cerebras",
+      "description": "Gemma 4 31B via Cerebras Inference.",
+      "descriptionI18n": {
+        "ko": "Cerebras Inference의 Gemma 4 31B."
+      },
+      "tags": [
+        "cerebras",
+        "gemma"
+      ],
+      "sortOrder": 562,
+      "modelId": "gemma-4-31b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.cerebras.ai/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Cerebras model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gemma-4-31b",
+              "label": "Gemma 4 31B"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Cerebras 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 4096,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 8192,
+        "maxOutputTokens": 4096,
+        "sourceUrls": [
+          "https://api.cerebras.ai/public/v1/models/gemma-4-31b"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "sourceUrls": [
+        "https://inference-docs.cerebras.ai/api-reference/chat-completions",
+        "https://inference-docs.cerebras.ai/api-reference/models/public-models",
+        "https://api.cerebras.ai/public/v1/models/gemma-4-31b"
+      ],
+      "profileStatus": "current"
+    },
+    "cerebras:gpt-oss-120b": {
+      "id": "cerebras:gpt-oss-120b",
+      "version": 1,
+      "updatedAt": 1783010768533,
+      "displayName": "OpenAI GPT OSS 120B",
+      "displayNameI18n": {
+        "ko": "OpenAI GPT OSS 120B"
+      },
+      "providerBaseId": "cerebras",
+      "description": "OpenAI GPT OSS 120B via Cerebras Inference.",
+      "descriptionI18n": {
+        "ko": "Cerebras Inference의 OpenAI GPT OSS 120B."
+      },
+      "tags": [
+        "cerebras",
+        "gpt-oss",
+        "reasoning"
+      ],
+      "sortOrder": 560,
+      "modelId": "gpt-oss-120b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.cerebras.ai/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Cerebras model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gpt-oss-120b",
+              "label": "GPT OSS 120B"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Cerebras 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 40960,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          }
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 131072,
+        "maxOutputTokens": 40960,
+        "sourceUrls": [
+          "https://api.cerebras.ai/public/v1/models/gpt-oss-120b"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "sourceUrls": [
+        "https://inference-docs.cerebras.ai/api-reference/chat-completions",
+        "https://inference-docs.cerebras.ai/api-reference/models/public-models",
+        "https://api.cerebras.ai/public/v1/models/gpt-oss-120b"
+      ],
+      "profileStatus": "current"
+    },
+    "cerebras:zai-glm-47": {
+      "id": "cerebras:zai-glm-47",
+      "version": 1,
+      "updatedAt": 1783010768533,
+      "displayName": "Z.ai GLM 4.7",
+      "displayNameI18n": {
+        "ko": "Z.ai GLM 4.7"
+      },
+      "providerBaseId": "cerebras",
+      "description": "Z.ai GLM 4.7 via Cerebras Inference.",
+      "descriptionI18n": {
+        "ko": "Cerebras Inference의 Z.ai GLM 4.7."
+      },
+      "tags": [
+        "cerebras",
+        "glm",
+        "reasoning"
+      ],
+      "sortOrder": 561,
+      "modelId": "zai-glm-4.7",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.cerebras.ai/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Cerebras model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "zai-glm-4.7",
+              "label": "Z.ai GLM 4.7"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Cerebras 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 40960,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Set to none to disable reasoning for Z.ai GLM 4.7.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "Z.ai GLM 4.7의 reasoning을 끄려면 none으로 설정하세요."
+          }
+        },
+        {
+          "key": "clear_thinking",
+          "type": "boolean",
+          "label": "Clear Thinking",
+          "description": "Exclude thinking from previous turns. Cerebras defaults to true when omitted.",
+          "default": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "clear_thinking"
+          },
+          "descriptionI18n": {
+            "ko": "이전 턴의 thinking 내용을 제외합니다. 생략 시 Cerebras 기본값은 true입니다."
+          }
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "parallel_tool_calls",
+          "type": "boolean",
+          "label": "Parallel Tool Calls",
+          "default": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "parallel_tool_calls"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "clear_thinking",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "parallel_tool_calls",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 131072,
+        "maxOutputTokens": 40960,
+        "sourceUrls": [
+          "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
+        ]
+      },
+      "sourceUrls": [
+        "https://inference-docs.cerebras.ai/api-reference/chat-completions",
+        "https://inference-docs.cerebras.ai/api-reference/models/public-models",
+        "https://inference-docs.cerebras.ai/resources/glm-47-migration",
+        "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
+      ],
       "profileStatus": "current"
     },
     "deepinfra:openai-compatible": {
@@ -26267,6 +27204,7 @@
     "anthropic": "52268f92498a8d181d78098077eb1f34ca38e47457515bfeeac25963a60d77c2",
     "bedrock-anthropic": "0826795caa6bc49f5f5627c286741916b050ea0208e083ca6c27971bdf48abe5",
     "bedrock": "30d85601a597e964b00f09c8972b4a7654e28afe32891a49039830b1f1bc4b2a",
+    "cerebras": "263c0f9ec5724fff3ef5d5cdb162d7a16bda28f7b7c82cc4f7939b27ff4a4741",
     "deepinfra": "c75425c339fe1b390df34aad812b776a8199729821038a03ba1b8f8ecbda5b3e",
     "deepseek": "341b4b400a121296c2c1772ac435e8456b13c722728c0b8734aba16e32599af2",
     "google": "13add38af1fe4199d60645032a4e3727875e9243c5de7337875fe62672a011ae",
@@ -26299,6 +27237,9 @@
     "anthropic-compatible:custom": "435a340b16c350035921832e92d61f464a9f731c9344dbc39dcc9bcdec70fffd",
     "bedrock:openai-compatible": "e4317519ab87ec59c35173a7d4c242f0753ac9ffaf0ed54aad626cb6bb57fed1",
     "bedrock-anthropic:custom": "c9f5d0063a08b6e947cd83b830815423c988280e1e99a3febb36462940545c27",
+    "cerebras:gemma-4-31b": "35953bcf0dd25c16c191367f94fd385f7540d9a40a9cfb1e5c4a651519a5d4df",
+    "cerebras:gpt-oss-120b": "cfaccfda49d818b88fb5d214d216368ade477ac18a3cb29f720f969eac544db6",
+    "cerebras:zai-glm-47": "758e526fddbe61e2aafe4b452aea3219443395481ef44118944510d8fe9eae66",
     "deepinfra:openai-compatible": "73bc47c91611be1ada29339572ed1beb4bd4f05692b5230774cc0a0bd77fd394",
     "deepseek:v4-flash-thinking": "745827b3c4c2445ef2e6e89f228a7f33d34544de409b19fbeb5a85bb7af3cb82",
     "deepseek:v4-flash": "a0c7ebc1848a5add33ac6fc69f94d44e3ac103320c0dfb36a5340272d4d770a2",
