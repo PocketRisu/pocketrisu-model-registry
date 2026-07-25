@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "46ae853a26fbc82acc8b0a836318983b19964fd7343850e40bcb214aed3aa62f",
+  "hash": "18fb9d64a585a9c1eb362d11c111fe17fa2b647aa9c05a1e59a8b7dd65c18199",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -1625,6 +1625,268 @@
         "notesI18n": {
           "ko": "모델별 게이트웨이. 컨텍스트·출력 토큰 한도가 선택 모델에 따라 달라, 고정 한도 슬라이더 대신 숫자 입력을 사용합니다."
         }
+      }
+    },
+    "llmgateway": {
+      "id": "llmgateway",
+      "version": 1,
+      "displayName": "LLM Gateway",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "LLM Gateway API key.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "LLM Gateway API 키."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Model identifier. Bare IDs (claude-opus-5) and provider-prefixed IDs (anthropic/claude-opus-5) both work.",
+          "required": true,
+          "enum": [
+            {
+              "value": "claude-opus-5",
+              "label": "Anthropic / Claude Opus 5"
+            },
+            {
+              "value": "claude-sonnet-5",
+              "label": "Anthropic / Claude Sonnet 5"
+            },
+            {
+              "value": "gpt-5.6-sol",
+              "label": "OpenAI / GPT-5.6 Sol"
+            },
+            {
+              "value": "gemini-3.6-flash",
+              "label": "Google / Gemini 3.6 Flash"
+            },
+            {
+              "value": "kimi-k3",
+              "label": "Moonshot / Kimi K3"
+            },
+            {
+              "value": "glm-5.2",
+              "label": "Z.ai / GLM 5.2"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "모델 ID. 무접두(claude-opus-5)와 공급자 접두(anthropic/claude-opus-5) 모두 사용 가능합니다."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "vision",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://docs.llmgateway.io/",
+          "https://api.llmgateway.io/v1/models",
+          "https://github.com/theopenco/llmgateway"
+        ],
+        "notes": "Model-dependent aggregator. Context and output token limits vary by selected model and routed provider, so PocketRisu uses a number input instead of a fixed-limit slider."
       }
     },
     "nanogpt": {
@@ -18012,6 +18274,1089 @@
       "profileStatus": "current",
       "updatedAt": 1781104476429
     },
+    "llmgateway:claude-fable-5": {
+      "id": "llmgateway:claude-fable-5",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Claude Fable 5",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Claude Fable 5 via LLM Gateway (claude-fable-5).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5 (LLM Gateway, claude-fable-5)."
+      },
+      "tags": [
+        "llmgateway",
+        "claude"
+      ],
+      "sortOrder": 584,
+      "modelId": "claude-fable-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "llmgateway:claude-opus-48": {
+      "id": "llmgateway:claude-opus-48",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Claude Opus 4.8",
+      "displayNameI18n": {
+        "ko": "Claude Opus 4.8"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Claude Opus 4.8 via LLM Gateway (claude-opus-4-8).",
+      "descriptionI18n": {
+        "ko": "Claude Opus 4.8 (LLM Gateway, claude-opus-4-8)."
+      },
+      "tags": [
+        "llmgateway",
+        "claude"
+      ],
+      "sortOrder": 583,
+      "modelId": "claude-opus-4-8",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "llmgateway:claude-opus-5": {
+      "id": "llmgateway:claude-opus-5",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Claude Opus 5",
+      "displayNameI18n": {
+        "ko": "Claude Opus 5"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Claude Opus 5 via LLM Gateway (claude-opus-5).",
+      "descriptionI18n": {
+        "ko": "Claude Opus 5 (LLM Gateway, claude-opus-5)."
+      },
+      "tags": [
+        "llmgateway",
+        "claude"
+      ],
+      "sortOrder": 581,
+      "modelId": "claude-opus-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "llmgateway:claude-sonnet-5": {
+      "id": "llmgateway:claude-sonnet-5",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Claude Sonnet 5",
+      "displayNameI18n": {
+        "ko": "Claude Sonnet 5"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Claude Sonnet 5 via LLM Gateway (claude-sonnet-5).",
+      "descriptionI18n": {
+        "ko": "Claude Sonnet 5 (LLM Gateway, claude-sonnet-5)."
+      },
+      "tags": [
+        "llmgateway",
+        "claude"
+      ],
+      "sortOrder": 582,
+      "modelId": "claude-sonnet-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
+    "llmgateway:deepseek-v4-pro": {
+      "id": "llmgateway:deepseek-v4-pro",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "DeepSeek V4 Pro",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Pro"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "DeepSeek V4 Pro via LLM Gateway (deepseek-v4-pro).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4 Pro (LLM Gateway, deepseek-v4-pro)."
+      },
+      "tags": [
+        "llmgateway",
+        "deepseek"
+      ],
+      "sortOrder": 595,
+      "modelId": "deepseek-v4-pro",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gemini-35-flash-lite": {
+      "id": "llmgateway:gemini-35-flash-lite",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Gemini 3.5 Flash-Lite",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash-Lite"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Gemini 3.5 Flash-Lite via LLM Gateway (gemini-3.5-flash-lite).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash-Lite (LLM Gateway, gemini-3.5-flash-lite)."
+      },
+      "tags": [
+        "llmgateway",
+        "gemini"
+      ],
+      "sortOrder": 591,
+      "modelId": "gemini-3.5-flash-lite",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "llmgateway:gemini-35-flash": {
+      "id": "llmgateway:gemini-35-flash",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Gemini 3.5 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Gemini 3.5 Flash via LLM Gateway (gemini-3.5-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash (LLM Gateway, gemini-3.5-flash)."
+      },
+      "tags": [
+        "llmgateway",
+        "gemini"
+      ],
+      "sortOrder": 590,
+      "modelId": "gemini-3.5-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "llmgateway:gemini-36-flash": {
+      "id": "llmgateway:gemini-36-flash",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Gemini 3.6 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.6 Flash"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Gemini 3.6 Flash via LLM Gateway (gemini-3.6-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.6 Flash (LLM Gateway, gemini-3.6-flash)."
+      },
+      "tags": [
+        "llmgateway",
+        "gemini"
+      ],
+      "sortOrder": 589,
+      "modelId": "gemini-3.6-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "llmgateway:glm-52": {
+      "id": "llmgateway:glm-52",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "GLM 5.2",
+      "displayNameI18n": {
+        "ko": "GLM 5.2"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GLM 5.2 via LLM Gateway (glm-5.2).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 (LLM Gateway, glm-5.2)."
+      },
+      "tags": [
+        "llmgateway",
+        "glm"
+      ],
+      "sortOrder": 593,
+      "modelId": "glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gpt-55": {
+      "id": "llmgateway:gpt-55",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "GPT-5.5",
+      "displayNameI18n": {
+        "ko": "GPT-5.5"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-5.5 via LLM Gateway (gpt-5.5).",
+      "descriptionI18n": {
+        "ko": "GPT-5.5 (LLM Gateway, gpt-5.5)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 588,
+      "modelId": "gpt-5.5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gpt-56-luna": {
+      "id": "llmgateway:gpt-56-luna",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "GPT-5.6 Luna",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Luna"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-5.6 Luna via LLM Gateway (gpt-5.6-luna).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Luna (LLM Gateway, gpt-5.6-luna)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 587,
+      "modelId": "gpt-5.6-luna",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gpt-56-sol": {
+      "id": "llmgateway:gpt-56-sol",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "GPT-5.6 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Sol"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-5.6 Sol via LLM Gateway (gpt-5.6-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Sol (LLM Gateway, gpt-5.6-sol)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 585,
+      "modelId": "gpt-5.6-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:gpt-56-terra": {
+      "id": "llmgateway:gpt-56-terra",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "GPT-5.6 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Terra"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-5.6 Terra via LLM Gateway (gpt-5.6-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Terra (LLM Gateway, gpt-5.6-terra)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 586,
+      "modelId": "gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:grok-45": {
+      "id": "llmgateway:grok-45",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Grok 4.5",
+      "displayNameI18n": {
+        "ko": "Grok 4.5"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Grok 4.5 via LLM Gateway (grok-4-5).",
+      "descriptionI18n": {
+        "ko": "Grok 4.5 (LLM Gateway, grok-4-5)."
+      },
+      "tags": [
+        "llmgateway",
+        "grok"
+      ],
+      "sortOrder": 597,
+      "modelId": "grok-4-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:kimi-k3": {
+      "id": "llmgateway:kimi-k3",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Kimi K3",
+      "displayNameI18n": {
+        "ko": "Kimi K3"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Kimi K3 via LLM Gateway (kimi-k3).",
+      "descriptionI18n": {
+        "ko": "Kimi K3 (LLM Gateway, kimi-k3)."
+      },
+      "tags": [
+        "llmgateway",
+        "kimi"
+      ],
+      "sortOrder": 592,
+      "modelId": "kimi-k3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:minimax-m3": {
+      "id": "llmgateway:minimax-m3",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "MiniMax M3",
+      "displayNameI18n": {
+        "ko": "MiniMax M3"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "MiniMax M3 via LLM Gateway (minimax-m3).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3 (LLM Gateway, minimax-m3)."
+      },
+      "tags": [
+        "llmgateway",
+        "minimax"
+      ],
+      "sortOrder": 594,
+      "modelId": "minimax-m3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:openai-compatible": {
+      "id": "llmgateway:openai-compatible",
+      "version": 1,
+      "displayName": "LLM Gateway",
+      "providerBaseId": "llmgateway",
+      "description": "LLM Gateway multi-provider aggregator via OpenAI-compatible API. Enter any model ID listed at GET https://api.llmgateway.io/v1/models. Reasoning controls differ per model family (effort for Anthropic, reasoning_effort elsewhere), so set them through additional parameters.",
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "vision",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "tags": [
+        "llmgateway",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 580,
+      "displayNameI18n": {
+        "ko": "LLM Gateway"
+      },
+      "descriptionI18n": {
+        "ko": "OpenAI 호환 API를 통한 LLM Gateway 멀티 공급자 애그리게이터. https://api.llmgateway.io/v1/models 에 나열된 모델 ID를 입력하세요. 추론 제어 파라미터는 모델 계열마다 다르므로(Anthropic은 effort, 그 외는 reasoning_effort) 추가 파라미터로 설정하세요."
+      },
+      "profileStatus": "current",
+      "updatedAt": 1784964953000,
+      "recommendedTokenizer": "tik"
+    },
+    "llmgateway:qwen37-max": {
+      "id": "llmgateway:qwen37-max",
+      "version": 1,
+      "updatedAt": 1784964953000,
+      "displayName": "Qwen3.7 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Max"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Qwen3.7 Max via LLM Gateway (qwen3.7-max).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Max (LLM Gateway, qwen3.7-max)."
+      },
+      "tags": [
+        "llmgateway",
+        "qwen"
+      ],
+      "sortOrder": 596,
+      "modelId": "qwen3.7-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "nanogpt:claude-sonnet-5": {
       "id": "nanogpt:claude-sonnet-5",
       "version": 1,
@@ -33266,6 +34611,7 @@
     "deepseek": "341b4b400a121296c2c1772ac435e8456b13c722728c0b8734aba16e32599af2",
     "google": "13add38af1fe4199d60645032a4e3727875e9243c5de7337875fe62672a011ae",
     "lightning-ai": "2ba7a1bf0148e6af231c8043dbe96704916dc54c5232b4fd138ae8416f019459",
+    "llmgateway": "6134edb79a18fe89715e146710ea182eed6168c295c6f04fad3a0fc1cf21eca6",
     "nanogpt": "6b98399abd6e081460fed6b80cd71734ae57ce07480b6446186c7e04a19fcab2",
     "neuralwatt": "97201fc832fde4ca694c1c86730ffc0bd14c24446fd2dbd344f6949f07af298b",
     "ollama-cloud": "77e72d0d4387400f33f99f581e1a46963e5f597770d6c10e1db1abc6b254aa7d",
@@ -33343,6 +34689,24 @@
     "lightning-ai:nemotron-3-nano-omni": "842f866c144fe389d93b45635e6eb2d7e1c9c80f0fc6e434ced8c6f8435c2492",
     "lightning-ai:nemotron-3-ultra": "e0f21f2ccb8bb915fb4685e866976103266d4774ba5e8b3281ce5b44c20b1b6f",
     "lightning-ai:openai-compatible": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20",
+    "llmgateway:claude-fable-5": "7868518b02891322cf0475a977146555e3b241e14ce9fee2cee3ca1f5e6beb19",
+    "llmgateway:claude-opus-48": "8e6b426849d9557d5a6fb4203a83ea7266dc7434a1de422ee663781a1842fc3d",
+    "llmgateway:claude-opus-5": "79b24f6cdc94e994ad7c373822ae6647fe6976b4b728d3a10280d7145070c803",
+    "llmgateway:claude-sonnet-5": "5908b6f92b07dc0874092a843d65c390a284f162e9f5387917f7d58907cc76a4",
+    "llmgateway:deepseek-v4-pro": "3424cae82e48f1dc4c3e11e3f2321cf1175598cbf0b155c0d76ac172e5d16561",
+    "llmgateway:gemini-35-flash-lite": "0a8d2fd2bd5381748e56a7baa8e16473c04bbc7ad57cb5f0f6708bc4166837fd",
+    "llmgateway:gemini-35-flash": "3b5c04a99f6f81eb0f56cd37e83eb1ce616a1add2a5f4ced618b863ac36fc829",
+    "llmgateway:gemini-36-flash": "74a482d8766e0b18e9f5c597cfc794281ac4eeaa42bbae9ded9b73e62dd4e808",
+    "llmgateway:glm-52": "76439d28e78513fdb1f9f26fb0bbebfedec6cfa9d5e134fd71d409c1eb283db4",
+    "llmgateway:gpt-55": "002471e49938830586116c7b2da9a8d0c52f03776a0c3590ff1505fb9741ad45",
+    "llmgateway:gpt-56-luna": "8282c611eecf0781f004810c3c6f955f7b61a96de9d307c849bfad29671c04cb",
+    "llmgateway:gpt-56-sol": "65a19a2ca61cfac82a3d74850a817901231a384987522e108ac653edc2d6f9c4",
+    "llmgateway:gpt-56-terra": "b503582587c9055c54e730aee209ee1ad42b61702020c06124759b8fac2cd5a3",
+    "llmgateway:grok-45": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d",
+    "llmgateway:kimi-k3": "fc9a6970fb1969f15d809100957985ac71302648812cded7343df53b8e2ce372",
+    "llmgateway:minimax-m3": "dcebb2f1b6957956b4de9f69628b7ad6e8863b47b28df6c1cb785a130abf8eae",
+    "llmgateway:openai-compatible": "95722e511ddb29657a2dee17868f7be7b0f3d896000946193c2bca5d0c65a82e",
+    "llmgateway:qwen37-max": "dcd7ee2882f6ae428377766382aa7920f9d8b217c1f075dc22feb4a60417b42e",
     "nanogpt:claude-sonnet-5": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3",
     "nanogpt:deepseek-v4-flash": "362aaf28e8b73dac9c06753fa1bb0f74569ad50c2d8592801e37f54c7d3948be",
     "nanogpt:deepseek-v4-pro": "4a65d765792f354e79fe1b2a99fac4b492a870d37da14b53edbec800b3a0555e",

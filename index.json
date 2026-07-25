@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "46ae853a26fbc82acc8b0a836318983b19964fd7343850e40bcb214aed3aa62f",
+  "hash": "18fb9d64a585a9c1eb362d11c111fe17fa2b647aa9c05a1e59a8b7dd65c18199",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -46,6 +46,11 @@
       "id": "lightning-ai",
       "url": "base-providers/lightning-ai.json",
       "hash": "2ba7a1bf0148e6af231c8043dbe96704916dc54c5232b4fd138ae8416f019459"
+    },
+    {
+      "id": "llmgateway",
+      "url": "base-providers/llmgateway.json",
+      "hash": "6134edb79a18fe89715e146710ea182eed6168c295c6f04fad3a0fc1cf21eca6"
     },
     {
       "id": "nanogpt",
@@ -423,6 +428,96 @@
       "id": "lightning-ai:openai-compatible",
       "url": "profiles/lightning-ai/openai-compatible.json",
       "hash": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20"
+    },
+    {
+      "id": "llmgateway:claude-fable-5",
+      "url": "profiles/llmgateway/claude-fable-5.json",
+      "hash": "7868518b02891322cf0475a977146555e3b241e14ce9fee2cee3ca1f5e6beb19"
+    },
+    {
+      "id": "llmgateway:claude-opus-48",
+      "url": "profiles/llmgateway/claude-opus-48.json",
+      "hash": "8e6b426849d9557d5a6fb4203a83ea7266dc7434a1de422ee663781a1842fc3d"
+    },
+    {
+      "id": "llmgateway:claude-opus-5",
+      "url": "profiles/llmgateway/claude-opus-5.json",
+      "hash": "79b24f6cdc94e994ad7c373822ae6647fe6976b4b728d3a10280d7145070c803"
+    },
+    {
+      "id": "llmgateway:claude-sonnet-5",
+      "url": "profiles/llmgateway/claude-sonnet-5.json",
+      "hash": "5908b6f92b07dc0874092a843d65c390a284f162e9f5387917f7d58907cc76a4"
+    },
+    {
+      "id": "llmgateway:deepseek-v4-pro",
+      "url": "profiles/llmgateway/deepseek-v4-pro.json",
+      "hash": "3424cae82e48f1dc4c3e11e3f2321cf1175598cbf0b155c0d76ac172e5d16561"
+    },
+    {
+      "id": "llmgateway:gemini-35-flash-lite",
+      "url": "profiles/llmgateway/gemini-35-flash-lite.json",
+      "hash": "0a8d2fd2bd5381748e56a7baa8e16473c04bbc7ad57cb5f0f6708bc4166837fd"
+    },
+    {
+      "id": "llmgateway:gemini-35-flash",
+      "url": "profiles/llmgateway/gemini-35-flash.json",
+      "hash": "3b5c04a99f6f81eb0f56cd37e83eb1ce616a1add2a5f4ced618b863ac36fc829"
+    },
+    {
+      "id": "llmgateway:gemini-36-flash",
+      "url": "profiles/llmgateway/gemini-36-flash.json",
+      "hash": "74a482d8766e0b18e9f5c597cfc794281ac4eeaa42bbae9ded9b73e62dd4e808"
+    },
+    {
+      "id": "llmgateway:glm-52",
+      "url": "profiles/llmgateway/glm-52.json",
+      "hash": "76439d28e78513fdb1f9f26fb0bbebfedec6cfa9d5e134fd71d409c1eb283db4"
+    },
+    {
+      "id": "llmgateway:gpt-55",
+      "url": "profiles/llmgateway/gpt-55.json",
+      "hash": "002471e49938830586116c7b2da9a8d0c52f03776a0c3590ff1505fb9741ad45"
+    },
+    {
+      "id": "llmgateway:gpt-56-luna",
+      "url": "profiles/llmgateway/gpt-56-luna.json",
+      "hash": "8282c611eecf0781f004810c3c6f955f7b61a96de9d307c849bfad29671c04cb"
+    },
+    {
+      "id": "llmgateway:gpt-56-sol",
+      "url": "profiles/llmgateway/gpt-56-sol.json",
+      "hash": "65a19a2ca61cfac82a3d74850a817901231a384987522e108ac653edc2d6f9c4"
+    },
+    {
+      "id": "llmgateway:gpt-56-terra",
+      "url": "profiles/llmgateway/gpt-56-terra.json",
+      "hash": "b503582587c9055c54e730aee209ee1ad42b61702020c06124759b8fac2cd5a3"
+    },
+    {
+      "id": "llmgateway:grok-45",
+      "url": "profiles/llmgateway/grok-45.json",
+      "hash": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d"
+    },
+    {
+      "id": "llmgateway:kimi-k3",
+      "url": "profiles/llmgateway/kimi-k3.json",
+      "hash": "fc9a6970fb1969f15d809100957985ac71302648812cded7343df53b8e2ce372"
+    },
+    {
+      "id": "llmgateway:minimax-m3",
+      "url": "profiles/llmgateway/minimax-m3.json",
+      "hash": "dcebb2f1b6957956b4de9f69628b7ad6e8863b47b28df6c1cb785a130abf8eae"
+    },
+    {
+      "id": "llmgateway:openai-compatible",
+      "url": "profiles/llmgateway/openai-compatible.json",
+      "hash": "95722e511ddb29657a2dee17868f7be7b0f3d896000946193c2bca5d0c65a82e"
+    },
+    {
+      "id": "llmgateway:qwen37-max",
+      "url": "profiles/llmgateway/qwen37-max.json",
+      "hash": "dcd7ee2882f6ae428377766382aa7920f9d8b217c1f075dc22feb4a60417b42e"
     },
     {
       "id": "nanogpt:claude-sonnet-5",
