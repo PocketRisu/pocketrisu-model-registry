@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "18fb9d64a585a9c1eb362d11c111fe17fa2b647aa9c05a1e59a8b7dd65c18199",
+  "hash": "890eeee40f975bd41340ad10e5d8935a618cf0c14356942cff30b2546cbd2dd2",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -16576,7 +16576,7 @@
     },
     "lightning-ai:claude-fable-5": {
       "id": "lightning-ai:claude-fable-5",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964865000,
       "displayName": "Claude Fable 5",
       "displayNameI18n": {
@@ -16591,7 +16591,7 @@
         "lightning-ai",
         "claude"
       ],
-      "sortOrder": 709,
+      "sortOrder": 715,
       "modelId": "anthropic/claude-fable-5",
       "endpoint": {
         "kind": "static",
@@ -16633,7 +16633,7 @@
     },
     "lightning-ai:claude-haiku-45": {
       "id": "lightning-ai:claude-haiku-45",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "Claude Haiku 4.5",
       "displayNameI18n": {
@@ -16649,7 +16649,7 @@
         "anthropic",
         "claude"
       ],
-      "sortOrder": 713,
+      "sortOrder": 719,
       "modelId": "anthropic/claude-haiku-4-5-20251001",
       "endpoint": {
         "kind": "static",
@@ -16691,7 +16691,7 @@
     },
     "lightning-ai:claude-opus-47": {
       "id": "lightning-ai:claude-opus-47",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "Claude Opus 4.7",
       "displayNameI18n": {
@@ -16707,7 +16707,7 @@
         "anthropic",
         "claude"
       ],
-      "sortOrder": 711,
+      "sortOrder": 717,
       "modelId": "anthropic/claude-opus-4-7",
       "endpoint": {
         "kind": "static",
@@ -16748,7 +16748,7 @@
     },
     "lightning-ai:claude-opus-48": {
       "id": "lightning-ai:claude-opus-48",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "Claude Opus 4.8",
       "displayNameI18n": {
@@ -16764,7 +16764,7 @@
         "anthropic",
         "claude"
       ],
-      "sortOrder": 710,
+      "sortOrder": 716,
       "modelId": "anthropic/claude-opus-4-8",
       "endpoint": {
         "kind": "static",
@@ -16805,7 +16805,7 @@
     },
     "lightning-ai:claude-sonnet-46": {
       "id": "lightning-ai:claude-sonnet-46",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "Claude Sonnet 4.6",
       "displayNameI18n": {
@@ -16821,7 +16821,7 @@
         "anthropic",
         "claude"
       ],
-      "sortOrder": 712,
+      "sortOrder": 718,
       "modelId": "anthropic/claude-sonnet-4-6",
       "endpoint": {
         "kind": "static",
@@ -17202,7 +17202,7 @@
     },
     "lightning-ai:gpt-5-mini": {
       "id": "lightning-ai:gpt-5-mini",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5 mini",
       "displayNameI18n": {
@@ -17219,7 +17219,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 706,
+      "sortOrder": 709,
       "modelId": "openai/gpt-5-mini",
       "endpoint": {
         "kind": "static",
@@ -17276,7 +17276,7 @@
     },
     "lightning-ai:gpt-5-nano": {
       "id": "lightning-ai:gpt-5-nano",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5 nano",
       "displayNameI18n": {
@@ -17293,7 +17293,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 707,
+      "sortOrder": 710,
       "modelId": "openai/gpt-5-nano",
       "endpoint": {
         "kind": "static",
@@ -17350,7 +17350,7 @@
     },
     "lightning-ai:gpt-5": {
       "id": "lightning-ai:gpt-5",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5",
       "displayNameI18n": {
@@ -17367,7 +17367,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 705,
+      "sortOrder": 708,
       "modelId": "openai/gpt-5",
       "endpoint": {
         "kind": "static",
@@ -17424,7 +17424,7 @@
     },
     "lightning-ai:gpt-54-mini": {
       "id": "lightning-ai:gpt-54-mini",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5.4 mini",
       "displayNameI18n": {
@@ -17441,7 +17441,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 703,
+      "sortOrder": 706,
       "modelId": "openai/gpt-5.4-mini-2026-03-17",
       "endpoint": {
         "kind": "static",
@@ -17499,7 +17499,7 @@
     },
     "lightning-ai:gpt-54-nano": {
       "id": "lightning-ai:gpt-54-nano",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5.4 nano",
       "displayNameI18n": {
@@ -17516,7 +17516,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 704,
+      "sortOrder": 707,
       "modelId": "openai/gpt-5.4-nano-2026-03-17",
       "endpoint": {
         "kind": "static",
@@ -17574,7 +17574,7 @@
     },
     "lightning-ai:gpt-54": {
       "id": "lightning-ai:gpt-54",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5.4",
       "displayNameI18n": {
@@ -17591,7 +17591,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 702,
+      "sortOrder": 705,
       "modelId": "openai/gpt-5.4-2026-03-05",
       "endpoint": {
         "kind": "static",
@@ -17649,7 +17649,7 @@
     },
     "lightning-ai:gpt-55": {
       "id": "lightning-ai:gpt-55",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1781104476429,
       "displayName": "GPT-5.5",
       "displayNameI18n": {
@@ -17666,7 +17666,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 701,
+      "sortOrder": 704,
       "modelId": "openai/gpt-5.5-2026-04-23",
       "endpoint": {
         "kind": "static",
@@ -17724,7 +17724,7 @@
     },
     "lightning-ai:gpt-56-luna": {
       "id": "lightning-ai:gpt-56-luna",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964781000,
       "displayName": "GPT-5.6 Luna",
       "displayNameI18n": {
@@ -17741,7 +17741,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 710,
+      "sortOrder": 703,
       "modelId": "openai/gpt-5.6-luna",
       "endpoint": {
         "kind": "static",
@@ -17799,7 +17799,7 @@
     },
     "lightning-ai:gpt-56-sol": {
       "id": "lightning-ai:gpt-56-sol",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964781000,
       "displayName": "GPT-5.6 Sol",
       "displayNameI18n": {
@@ -17816,7 +17816,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 708,
+      "sortOrder": 701,
       "modelId": "openai/gpt-5.6-sol",
       "endpoint": {
         "kind": "static",
@@ -17874,7 +17874,7 @@
     },
     "lightning-ai:gpt-56-terra": {
       "id": "lightning-ai:gpt-56-terra",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964781000,
       "displayName": "GPT-5.6 Terra",
       "displayNameI18n": {
@@ -17891,7 +17891,7 @@
         "gpt",
         "reasoning"
       ],
-      "sortOrder": 709,
+      "sortOrder": 702,
       "modelId": "openai/gpt-5.6-terra",
       "endpoint": {
         "kind": "static",
@@ -18175,23 +18175,23 @@
     },
     "lightning-ai:nemotron-3-ultra": {
       "id": "lightning-ai:nemotron-3-ultra",
-      "version": 1,
-      "updatedAt": 1781104476429,
+      "version": 2,
+      "updatedAt": 1784965102000,
       "displayName": "Nemotron 3 Ultra",
       "displayNameI18n": {
         "ko": "Nemotron 3 Ultra"
       },
       "providerBaseId": "lightning-ai",
-      "description": "Nemotron 3 Ultra via Lightning AI (lightning-ai/nvidia-nemotron-3-ultra-550b-a55b).",
+      "description": "Nemotron 3 Ultra 550B A55B via Lightning AI (lightning-ai/nemotron-3-ultra-550b-a55b).",
       "descriptionI18n": {
-        "ko": "Nemotron 3 Ultra (Lightning AI, lightning-ai/nvidia-nemotron-3-ultra-550b-a55b)."
+        "ko": "Nemotron 3 Ultra 550B A55B (Lightning AI, lightning-ai/nemotron-3-ultra-550b-a55b)."
       },
       "tags": [
         "lightning-ai",
         "nemotron"
       ],
       "sortOrder": 734,
-      "modelId": "lightning-ai/nvidia-nemotron-3-ultra-550b-a55b",
+      "modelId": "lightning-ai/nemotron-3-ultra-550b-a55b",
       "endpoint": {
         "kind": "static",
         "url": "https://lightning.ai/api/v1/chat/completions"
@@ -19662,23 +19662,23 @@
     },
     "nanogpt:gemma-4-31b": {
       "id": "nanogpt:gemma-4-31b",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1784965102000,
       "displayName": "Gemma 4 31B",
       "displayNameI18n": {
         "ko": "Gemma 4 31B"
       },
       "providerBaseId": "nanogpt",
-      "description": "Gemma 4 31B via NanoGPT (Gemma-4-31B-it).",
+      "description": "Gemma 4 31B via NanoGPT (google/gemma-4-31b-it).",
       "descriptionI18n": {
-        "ko": "Gemma 4 31B (NanoGPT, Gemma-4-31B-it)."
+        "ko": "Gemma 4 31B (NanoGPT, google/gemma-4-31b-it)."
       },
       "tags": [
         "nanogpt",
         "gemma"
       ],
       "sortOrder": 527,
-      "modelId": "Gemma-4-31B-it",
+      "modelId": "google/gemma-4-31b-it",
       "endpoint": {
         "kind": "static",
         "url": "https://nano-gpt.com/api/v1/chat/completions"
@@ -21498,7 +21498,7 @@
     },
     "ollama-cloud:gpt-oss-20b": {
       "id": "ollama-cloud:gpt-oss-20b",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964865000,
       "displayName": "gpt-oss 20B",
       "displayNameI18n": {
@@ -21514,7 +21514,7 @@
         "cloud",
         "gpt-oss"
       ],
-      "sortOrder": 624,
+      "sortOrder": 631,
       "modelId": "gpt-oss:20b-cloud",
       "endpoint": {
         "kind": "static",
@@ -21622,7 +21622,7 @@
     },
     "ollama-cloud:kimi-k27-code": {
       "id": "ollama-cloud:kimi-k27-code",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964865000,
       "displayName": "Kimi K2.7 Code",
       "displayNameI18n": {
@@ -21638,7 +21638,7 @@
         "cloud",
         "kimi"
       ],
-      "sortOrder": 621,
+      "sortOrder": 628,
       "modelId": "kimi-k2.7-code:cloud",
       "endpoint": {
         "kind": "static",
@@ -21685,7 +21685,7 @@
     },
     "ollama-cloud:minimax-m3": {
       "id": "ollama-cloud:minimax-m3",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964727000,
       "displayName": "MiniMax M3",
       "displayNameI18n": {
@@ -21701,7 +21701,7 @@
         "cloud",
         "minimax"
       ],
-      "sortOrder": 620,
+      "sortOrder": 627,
       "modelId": "minimax-m3:cloud",
       "endpoint": {
         "kind": "static",
@@ -21749,7 +21749,7 @@
     },
     "ollama-cloud:nemotron-3-ultra": {
       "id": "ollama-cloud:nemotron-3-ultra",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964865000,
       "displayName": "Nemotron 3 Ultra",
       "displayNameI18n": {
@@ -21765,7 +21765,7 @@
         "cloud",
         "nemotron"
       ],
-      "sortOrder": 623,
+      "sortOrder": 630,
       "modelId": "nemotron-3-ultra:cloud",
       "endpoint": {
         "kind": "static",
@@ -21812,7 +21812,7 @@
     },
     "ollama-cloud:qwen35-397b": {
       "id": "ollama-cloud:qwen35-397b",
-      "version": 1,
+      "version": 2,
       "updatedAt": 1784964865000,
       "displayName": "Qwen3.5 397B",
       "displayNameI18n": {
@@ -21828,7 +21828,7 @@
         "cloud",
         "qwen"
       ],
-      "sortOrder": 622,
+      "sortOrder": 629,
       "modelId": "qwen3.5:397b-cloud",
       "endpoint": {
         "kind": "static",
@@ -34662,32 +34662,32 @@
     "google:gemini-36-flash": "1b319f266ca20e48f066d6cafffb31f19e0266a4d7263c109a96cbeacaa70eda",
     "google:gemma-4-26b": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33",
     "google:gemma-4-31b": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13",
-    "lightning-ai:claude-fable-5": "a2244e87f90a02cdda6168972f8634af5e7941d834d7ba490c800db55f948b6b",
-    "lightning-ai:claude-haiku-45": "12cb2db1aefd345a1512acb5a205fc0286c5cfba31232728a0f879165c2e788d",
-    "lightning-ai:claude-opus-47": "8b989c1e2b0748fa95c09d51a06dd47b02ea7c597401ad8ebb7331d7a125e958",
-    "lightning-ai:claude-opus-48": "27f74838853d684b349d99d98ef71c3a15d742c432b591eebc87a723ec229f3c",
-    "lightning-ai:claude-sonnet-46": "02b18c75e6eda2ce64da6e39aa83536112299275b47ea2845ff112f6d39edd91",
+    "lightning-ai:claude-fable-5": "ee09d68bb04c0a5e448f6c2b5f6589ef50b98ed706207b079a7d6482bcd78285",
+    "lightning-ai:claude-haiku-45": "cadfa701e620d1df3d5e8f66380949d6176d7aeab3f5562635b0413b912bee88",
+    "lightning-ai:claude-opus-47": "3dbc5867d0685cd467bb09d15a8b2518a221f4eaf6cf343ca425dfcdd0b9f08a",
+    "lightning-ai:claude-opus-48": "7cea42d26782abf8f60a132f864eb7e9092e51389b6fcf88818f8e913c27ca03",
+    "lightning-ai:claude-sonnet-46": "ca3103c8f6deafde45a5f42d0277ae5674535c5a228c88fbdff6b48964d8c6b1",
     "lightning-ai:deepseek-v4-pro": "ed6d1e6e71c2d81e19b89fac43208b2d20cb25c995951163f68e38b2cc25f746",
     "lightning-ai:gemini-3-flash": "0a643b142c645c7293af619ce126756c86b3a280665961ebb6699ff452611835",
     "lightning-ai:gemini-31-pro": "c7253291f4a87b516258141ca6b40d906bee10bcefa62b029441e4e2e227b616",
     "lightning-ai:gemini-35-flash": "7ba893da32d55eba751acf79156c8e257409fad36ec0ca5a205db1e5ec7502f2",
     "lightning-ai:gemma-4-31b": "7f3da6fa1d692021ee3ca7ee8a553ee1714e5618a120f5b64002350f518ec4b4",
     "lightning-ai:glm-5": "32e440cbd00b96988e2a5c6d927aaca45a4b1384638d7d6cca5ef92e69fc356c",
-    "lightning-ai:gpt-5-mini": "9c9846135c252747842a3e84e43b6236e55886dd7f4caac7b7a304f856ad02e3",
-    "lightning-ai:gpt-5-nano": "0e33c4ff0db4bc7e0bbb3f27be349ec2c3d334894bf8c52ab7d8fd1d9a1737ff",
-    "lightning-ai:gpt-5": "b04062848dbab36a91ad423e3c28f02733e28d4984c75822fb1170c99343e8f1",
-    "lightning-ai:gpt-54-mini": "ef1a3d00aec8f3ed2a1456ea548881622c3735d9a255d4f47f12b4ec4efc9d04",
-    "lightning-ai:gpt-54-nano": "2b5f65824abfc6f234f0f0274b3ad58bfe31d12136f3c80d1532c4b12eb07e16",
-    "lightning-ai:gpt-54": "e6755a691c01d021388e01033b8958521861a5e1a1036611eacbea3b44067406",
-    "lightning-ai:gpt-55": "cb7145f0db0031fb03f905863fd641f080da3b1bb5a56384f699b4455f35889d",
-    "lightning-ai:gpt-56-luna": "ac96dd1625456ef267f23a66247aa8debe92d02230f0ae3f4af286c3d0458472",
-    "lightning-ai:gpt-56-sol": "7638896f13c7f495093e9b7bfee5e1972e8ba4baef8f969a45a5be3565366e48",
-    "lightning-ai:gpt-56-terra": "c5cc7c70cd9644b38fc0f8df69df76a59807c466e4a795c3fb9f3e9c1ceb311d",
+    "lightning-ai:gpt-5-mini": "a86f997c0f9d36224e64ea484798a3f57790400149c16422448109986583477a",
+    "lightning-ai:gpt-5-nano": "173e9e544ab5dc954f031fd2e3acbf7f32945a74c11521ad489579fcb1a6fbd7",
+    "lightning-ai:gpt-5": "94c69ada49c25c7690631355712fd6e7741cf7d51925f1226a9bff5f2085bbd4",
+    "lightning-ai:gpt-54-mini": "7431399d019aa5bd6909cb97b811b8f2001ab3595a185f2eb941e1c153366c17",
+    "lightning-ai:gpt-54-nano": "78b9dfc86ff7ff9f57cba2baabd9966c81812a3a04d3b392cf7bf2b9ae4452f5",
+    "lightning-ai:gpt-54": "ce58a0f86c106742f2afc68c9b8a9c690179430a5afa220d7c3c85251c38185e",
+    "lightning-ai:gpt-55": "3b9c32be4c67292f013585720210b51072fede963931f92aa1b23e5fe85296d6",
+    "lightning-ai:gpt-56-luna": "b346d0245498abf3dd959d2b132f1cd3e8f7dc017d568e4348f74b8eef10602f",
+    "lightning-ai:gpt-56-sol": "32db9a6dbb4f06b5a0a75029599750402af03217d59c02ab6726224420e4694b",
+    "lightning-ai:gpt-56-terra": "d1f2790d91a65bb15aea2111a8f600ec752fb16170baf826ca4ab508e4c49a9d",
     "lightning-ai:gpt-oss-120b": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3",
     "lightning-ai:gpt-oss-20b": "54247a7ddeaa32a13efc082efe1510d96bb5b48a92b771889b227481b08dbf08",
     "lightning-ai:kimi-k25": "6c4efdbd26d0dfb02b4aca20508392023feac5723021c3e6a61dc1629536397d",
     "lightning-ai:nemotron-3-nano-omni": "842f866c144fe389d93b45635e6eb2d7e1c9c80f0fc6e434ced8c6f8435c2492",
-    "lightning-ai:nemotron-3-ultra": "e0f21f2ccb8bb915fb4685e866976103266d4774ba5e8b3281ce5b44c20b1b6f",
+    "lightning-ai:nemotron-3-ultra": "7570926d5311b8a0bacb2965dba5a56d07a5f8d56b28834ce7378e6f166aaf30",
     "lightning-ai:openai-compatible": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20",
     "llmgateway:claude-fable-5": "7868518b02891322cf0475a977146555e3b241e14ce9fee2cee3ca1f5e6beb19",
     "llmgateway:claude-opus-48": "8e6b426849d9557d5a6fb4203a83ea7266dc7434a1de422ee663781a1842fc3d",
@@ -34712,7 +34712,7 @@
     "nanogpt:deepseek-v4-pro": "4a65d765792f354e79fe1b2a99fac4b492a870d37da14b53edbec800b3a0555e",
     "nanogpt:gemini-35-flash-lite": "034f79d4f27c5e999529d02c3078087c84038a387b1cacd9a6a16d9a521a6237",
     "nanogpt:gemini-36-flash": "fd36179e02423edc96fea034da2e69fe9671c6bcfa860a1bcf7eea1c291aa44d",
-    "nanogpt:gemma-4-31b": "08c06f40983b929d426b99f637e8315119bb91ae2d2622f3793a097d563d860b",
+    "nanogpt:gemma-4-31b": "bfed19636c85b0a4a3fde5ddeb25158fa2c9fb5b7ee5dbc55660e2ac663c7e2a",
     "nanogpt:glm-51": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb",
     "nanogpt:glm-52": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846",
     "nanogpt:gpt-56-luna": "2685a167f33198b6d5b75bf2b6b0a2f90234a6ab7fa60e2b92462b6be6f2e2dc",
@@ -34743,12 +34743,12 @@
     "ollama-cloud:glm-51": "7b3dd6fe5f131a29302e523c3e6ec608ba1fdc591ba0e2e20535453e19e1a98a",
     "ollama-cloud:glm-52": "fcce797ef4993782e24b6281e359acd62aa2832e50762e33e065688c591e048d",
     "ollama-cloud:gpt-oss-120b": "6a58e05bf74d2d518ae070663199d16f94dc7c9a145020f6472139eb0b84f52a",
-    "ollama-cloud:gpt-oss-20b": "4e4873bff2baa609319035c0ec66285738ef34e8819608fb35f2f504b54376be",
+    "ollama-cloud:gpt-oss-20b": "4c5e874c8b1f0b8af72047b66acfd4a4f680201680761ce0d0b4bf090918b7ef",
     "ollama-cloud:kimi-k26": "1e6520ff339f371993d6b2c31941e77c78ccacf9098ae145b9a23779de6a968a",
-    "ollama-cloud:kimi-k27-code": "ff41fcf5ed2cfcc638a5a9a80760a841ef51dbd721fd0210e3f1f7314d241b28",
-    "ollama-cloud:minimax-m3": "5bb1ab3c94bf6c2aa9513ec4be0cdbef60d99f98915a5b50f99f1d536ba9f7b7",
-    "ollama-cloud:nemotron-3-ultra": "05736b3aad62d6910c80928775382801eda214e390985a0eea6f98501b539f63",
-    "ollama-cloud:qwen35-397b": "3b4609f503cad30a60f0df9064aeed92032ce014e9573e1d6e6959975c48769c",
+    "ollama-cloud:kimi-k27-code": "e71bada1433ed225a427aad710c20b1ae87bd1b085cba36553a82554db0e9501",
+    "ollama-cloud:minimax-m3": "247305d2ff4d56f7067194cb637193cbf29db7dfa37a7f888fb1a408949e241d",
+    "ollama-cloud:nemotron-3-ultra": "2ea549b0dcb6fdf3447603b266dcdb40677efad3ee47a06c7f4be3c5c98f1ff8",
+    "ollama-cloud:qwen35-397b": "42c130f02fbf7d8f9837fc64eea8fd141a249b2c1b093d2e0076b10e530b055e",
     "ollama-cloud:standard": "d9c60f9d9eef45851f4e3a2c9c0a0fed116ac204c3ba7bab488c37949b6b27e0",
     "openai:gpt-4": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299",
     "openai:gpt-41-mini": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4",

@@ -1,6 +1,6 @@
 {
   "id": "ollama-cloud:gpt-oss-20b",
-  "version": 1,
+  "version": 2,
   "updatedAt": 1784964865000,
   "displayName": "gpt-oss 20B",
   "displayNameI18n": {
@@ -16,7 +16,7 @@
     "cloud",
     "gpt-oss"
   ],
-  "sortOrder": 624,
+  "sortOrder": 631,
   "modelId": "gpt-oss:20b-cloud",
   "endpoint": {
     "kind": "static",

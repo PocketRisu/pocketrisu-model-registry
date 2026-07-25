@@ -1,6 +1,6 @@
 {
   "id": "ollama-cloud:qwen35-397b",
-  "version": 1,
+  "version": 2,
   "updatedAt": 1784964865000,
   "displayName": "Qwen3.5 397B",
   "displayNameI18n": {
@@ -16,7 +16,7 @@
     "cloud",
     "qwen"
   ],
-  "sortOrder": 622,
+  "sortOrder": 629,
   "modelId": "qwen3.5:397b-cloud",
   "endpoint": {
     "kind": "static",

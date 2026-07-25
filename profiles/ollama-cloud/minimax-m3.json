@@ -1,6 +1,6 @@
 {
   "id": "ollama-cloud:minimax-m3",
-  "version": 1,
+  "version": 2,
   "updatedAt": 1784964727000,
   "displayName": "MiniMax M3",
   "displayNameI18n": {
@@ -16,7 +16,7 @@
     "cloud",
     "minimax"
   ],
-  "sortOrder": 620,
+  "sortOrder": 627,
   "modelId": "minimax-m3:cloud",
   "endpoint": {
     "kind": "static",

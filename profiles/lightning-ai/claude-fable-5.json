@@ -1,6 +1,6 @@
 {
   "id": "lightning-ai:claude-fable-5",
-  "version": 1,
+  "version": 2,
   "updatedAt": 1784964865000,
   "displayName": "Claude Fable 5",
   "displayNameI18n": {
@@ -15,7 +15,7 @@
     "lightning-ai",
     "claude"
   ],
-  "sortOrder": 709,
+  "sortOrder": 715,
   "modelId": "anthropic/claude-fable-5",
   "endpoint": {
     "kind": "static",

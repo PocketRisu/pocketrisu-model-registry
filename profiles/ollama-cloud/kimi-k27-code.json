@@ -1,6 +1,6 @@
 {
   "id": "ollama-cloud:kimi-k27-code",
-  "version": 1,
+  "version": 2,
   "updatedAt": 1784964865000,
   "displayName": "Kimi K2.7 Code",
   "displayNameI18n": {
@@ -16,7 +16,7 @@
     "cloud",
     "kimi"
   ],
-  "sortOrder": 621,
+  "sortOrder": 628,
   "modelId": "kimi-k2.7-code:cloud",
   "endpoint": {
     "kind": "static",
