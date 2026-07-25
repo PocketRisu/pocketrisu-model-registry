@@ -1,22 +1,22 @@
 {
-  "id": "lightning-ai:kimi-k25",
-  "version": 2,
-  "updatedAt": 1784964873000,
-  "displayName": "Kimi K2.5",
+  "id": "lightning-ai:nemotron-3-nano-omni",
+  "version": 1,
+  "updatedAt": 1784964865000,
+  "displayName": "Nemotron 3 Nano Omni",
   "displayNameI18n": {
-    "ko": "Kimi K2.5"
+    "ko": "Nemotron 3 Nano Omni"
   },
   "providerBaseId": "lightning-ai",
-  "description": "Kimi K2.5 via Lightning AI (lightning-ai/kimi-k2.5).",
+  "description": "Nemotron 3 Nano Omni 30B A3B (reasoning) via Lightning AI.",
   "descriptionI18n": {
-    "ko": "Kimi K2.5 (Lightning AI, lightning-ai/kimi-k2.5)."
+    "ko": "Nemotron 3 Nano Omni 30B A3B (reasoning) (Lightning AI)."
   },
   "tags": [
     "lightning-ai",
-    "kimi"
+    "nemotron"
   ],
-  "sortOrder": 731,
-  "modelId": "lightning-ai/kimi-k2.5",
+  "sortOrder": 736,
+  "modelId": "lightning-ai/nemotron-3-nano-omni-30b-a3b-reasoning",
   "endpoint": {
     "kind": "static",
     "url": "https://lightning.ai/api/v1/chat/completions"
@@ -36,7 +36,6 @@
   "capabilities": [
     "streaming",
     "reasoning",
-    "vision",
     "tools",
     "json"
   ],
@@ -52,9 +51,5 @@
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "deprecated",
-  "statusReason": "No longer served by Lightning AI; the model is absent from GET /api/v1/models.",
-  "statusSourceUrls": [
-    "https://lightning.ai/api/v1/models"
-  ]
+  "profileStatus": "current"
 }

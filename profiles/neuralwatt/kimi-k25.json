@@ -1,7 +1,7 @@
 {
   "id": "neuralwatt:kimi-k25",
-  "version": 1,
-  "updatedAt": 1781835416168,
+  "version": 2,
+  "updatedAt": 1784964873000,
   "displayName": "Kimi K2.5",
   "displayNameI18n": {
     "ko": "Kimi K2.5"
@@ -56,5 +56,9 @@
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "deprecated",
+  "statusReason": "No longer served by NeuralWatt; the model is absent from GET /v1/models (Kimi K2.6 and K2.7 Code remain).",
+  "statusSourceUrls": [
+    "https://api.neuralwatt.com/v1/models"
+  ]
 }

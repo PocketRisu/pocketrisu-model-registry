@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "1235f6d345296301e88c649e6184a9320d19ef065e80cab241139e3e5e72041e",
+  "hash": "46ae853a26fbc82acc8b0a836318983b19964fd7343850e40bcb214aed3aa62f",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -16312,6 +16312,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "lightning-ai:claude-fable-5": {
+      "id": "lightning-ai:claude-fable-5",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Claude Fable 5",
+      "displayNameI18n": {
+        "ko": "Claude Fable 5"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Claude Fable 5 via Lightning AI (anthropic/claude-fable-5).",
+      "descriptionI18n": {
+        "ko": "Claude Fable 5 (Lightning AI, anthropic/claude-fable-5)."
+      },
+      "tags": [
+        "lightning-ai",
+        "claude"
+      ],
+      "sortOrder": 709,
+      "modelId": "anthropic/claude-fable-5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "claude",
+      "profileStatus": "current"
+    },
     "lightning-ai:claude-haiku-45": {
       "id": "lightning-ai:claude-haiku-45",
       "version": 1,
@@ -16766,10 +16823,65 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "lightning-ai:gemma-4-31b": {
+      "id": "lightning-ai:gemma-4-31b",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Gemma 4 31B",
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Gemma 4 31B via Lightning AI (lightning-ai/gemma-4-31B-it).",
+      "descriptionI18n": {
+        "ko": "Gemma 4 31B (Lightning AI, lightning-ai/gemma-4-31B-it)."
+      },
+      "tags": [
+        "lightning-ai",
+        "gemma"
+      ],
+      "sortOrder": 737,
+      "modelId": "lightning-ai/gemma-4-31B-it",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 131072,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "lightning-ai:glm-5": {
       "id": "lightning-ai:glm-5",
-      "version": 1,
-      "updatedAt": 1781104476429,
+      "version": 2,
+      "updatedAt": 1784964873000,
       "displayName": "GLM-5",
       "displayNameI18n": {
         "ko": "GLM-5"
@@ -16820,7 +16932,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "No longer served by Lightning AI; the model is absent from GET /api/v1/models.",
+      "statusSourceUrls": [
+        "https://lightning.ai/api/v1/models"
+      ]
     },
     "lightning-ai:gpt-5-mini": {
       "id": "lightning-ai:gpt-5-mini",
@@ -17625,10 +17741,65 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "lightning-ai:gpt-oss-20b": {
+      "id": "lightning-ai:gpt-oss-20b",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "GPT-OSS 20B",
+      "displayNameI18n": {
+        "ko": "GPT-OSS 20B"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-OSS 20B via Lightning AI (lightning-ai/gpt-oss-20b).",
+      "descriptionI18n": {
+        "ko": "GPT-OSS 20B (Lightning AI, lightning-ai/gpt-oss-20b)."
+      },
+      "tags": [
+        "lightning-ai",
+        "gpt-oss"
+      ],
+      "sortOrder": 735,
+      "modelId": "lightning-ai/gpt-oss-20b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 128000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "lightning-ai:kimi-k25": {
       "id": "lightning-ai:kimi-k25",
-      "version": 1,
-      "updatedAt": 1781104476429,
+      "version": 2,
+      "updatedAt": 1784964873000,
       "displayName": "Kimi K2.5",
       "displayNameI18n": {
         "ko": "Kimi K2.5"
@@ -17664,6 +17835,65 @@
         "streaming",
         "reasoning",
         "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 256000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "deprecated",
+      "statusReason": "No longer served by Lightning AI; the model is absent from GET /api/v1/models.",
+      "statusSourceUrls": [
+        "https://lightning.ai/api/v1/models"
+      ]
+    },
+    "lightning-ai:nemotron-3-nano-omni": {
+      "id": "lightning-ai:nemotron-3-nano-omni",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Nemotron 3 Nano Omni",
+      "displayNameI18n": {
+        "ko": "Nemotron 3 Nano Omni"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "Nemotron 3 Nano Omni 30B A3B (reasoning) via Lightning AI.",
+      "descriptionI18n": {
+        "ko": "Nemotron 3 Nano Omni 30B A3B (reasoning) (Lightning AI)."
+      },
+      "tags": [
+        "lightning-ai",
+        "nemotron"
+      ],
+      "sortOrder": 736,
+      "modelId": "lightning-ai/nemotron-3-nano-omni-30b-a3b-reasoning",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
         "tools",
         "json"
       ],
@@ -18918,10 +19148,69 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "neuralwatt:gemma-4-31b": {
+      "id": "neuralwatt:gemma-4-31b",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Gemma 4 31B",
+      "displayNameI18n": {
+        "ko": "Gemma 4 31B"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "Gemma 4 31B via NeuralWatt (gemma-4-31b).",
+      "descriptionI18n": {
+        "ko": "Gemma 4 31B (NeuralWatt, gemma-4-31b)."
+      },
+      "tags": [
+        "neuralwatt",
+        "gemma"
+      ],
+      "sortOrder": 548,
+      "modelId": "gemma-4-31b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "vision",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262128,
+        "notes": "Context length and max output per NeuralWatt /v1/models metadata.limits.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이와 최대 출력은 NeuralWatt /v1/models의 metadata.limits 기준."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ],
+        "maxOutputTokens": 16384
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "neuralwatt:glm-51": {
       "id": "neuralwatt:glm-51",
-      "version": 1,
-      "updatedAt": 1781835416168,
+      "version": 2,
+      "updatedAt": 1784964873000,
       "displayName": "GLM-5.1",
       "displayNameI18n": {
         "ko": "GLM-5.1"
@@ -18975,7 +19264,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "No longer served by NeuralWatt; the model is absent from GET /v1/models (GLM 5.2 replaces it).",
+      "statusSourceUrls": [
+        "https://api.neuralwatt.com/v1/models"
+      ]
     },
     "neuralwatt:glm-52": {
       "id": "neuralwatt:glm-52",
@@ -19038,8 +19331,8 @@
     },
     "neuralwatt:kimi-k25": {
       "id": "neuralwatt:kimi-k25",
-      "version": 1,
-      "updatedAt": 1781835416168,
+      "version": 2,
+      "updatedAt": 1784964873000,
       "displayName": "Kimi K2.5",
       "displayNameI18n": {
         "ko": "Kimi K2.5"
@@ -19094,7 +19387,11 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated",
+      "statusReason": "No longer served by NeuralWatt; the model is absent from GET /v1/models (Kimi K2.6 and K2.7 Code remain).",
+      "statusSourceUrls": [
+        "https://api.neuralwatt.com/v1/models"
+      ]
     },
     "neuralwatt:kimi-k26": {
       "id": "neuralwatt:kimi-k26",
@@ -19854,6 +20151,67 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "ollama-cloud:gpt-oss-20b": {
+      "id": "ollama-cloud:gpt-oss-20b",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "gpt-oss 20B",
+      "displayNameI18n": {
+        "ko": "gpt-oss 20B"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "gpt-oss 20B via Ollama Cloud (gpt-oss:20b).",
+      "descriptionI18n": {
+        "ko": "gpt-oss 20B (Ollama Cloud, gpt-oss:20b)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "gpt-oss"
+      ],
+      "sortOrder": 624,
+      "modelId": "gpt-oss:20b-cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 131072,
+        "notes": "Native model spec. Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/search?c=cloud"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "ollama-cloud:kimi-k26": {
       "id": "ollama-cloud:kimi-k26",
       "version": 1,
@@ -19917,6 +20275,69 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "ollama-cloud:kimi-k27-code": {
+      "id": "ollama-cloud:kimi-k27-code",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Kimi K2.7 Code",
+      "displayNameI18n": {
+        "ko": "Kimi K2.7 Code"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "Kimi K2.7 Code via Ollama Cloud (kimi-k2.7-code).",
+      "descriptionI18n": {
+        "ko": "Kimi K2.7 Code (Ollama Cloud, kimi-k2.7-code)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "kimi"
+      ],
+      "sortOrder": 621,
+      "modelId": "kimi-k2.7-code:cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://ollama.com/library/glm-5.2",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262144,
+        "notes": "Native model spec. Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/library/glm-5.2",
+          "https://ollama.com/search?c=cloud"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "ollama-cloud:minimax-m3": {
       "id": "ollama-cloud:minimax-m3",
       "version": 1,
@@ -19971,6 +20392,132 @@
         "notes": "Native 1M-token context. Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
         "notesI18n": {
           "ko": "네이티브 1M 토큰 컨텍스트. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/library/glm-5.2",
+          "https://ollama.com/search?c=cloud"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "ollama-cloud:nemotron-3-ultra": {
+      "id": "ollama-cloud:nemotron-3-ultra",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Nemotron 3 Ultra",
+      "displayNameI18n": {
+        "ko": "Nemotron 3 Ultra"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "Nemotron 3 Ultra 550B via Ollama Cloud (nemotron-3-ultra).",
+      "descriptionI18n": {
+        "ko": "Nemotron 3 Ultra 550B (Ollama Cloud, nemotron-3-ultra)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "nemotron"
+      ],
+      "sortOrder": 623,
+      "modelId": "nemotron-3-ultra:cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://ollama.com/library/glm-5.2",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec. Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/library/glm-5.2",
+          "https://ollama.com/search?c=cloud"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "ollama-cloud:qwen35-397b": {
+      "id": "ollama-cloud:qwen35-397b",
+      "version": 1,
+      "updatedAt": 1784964865000,
+      "displayName": "Qwen3.5 397B",
+      "displayNameI18n": {
+        "ko": "Qwen3.5 397B"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "Qwen3.5 397B via Ollama Cloud (qwen3.5:397b).",
+      "descriptionI18n": {
+        "ko": "Qwen3.5 397B (Ollama Cloud, qwen3.5:397b)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "qwen"
+      ],
+      "sortOrder": 622,
+      "modelId": "qwen3.5:397b-cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://ollama.com/library/glm-5.2",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 262144,
+        "notes": "Native model spec. Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
         },
         "sourceUrls": [
           "https://ollama.com/v1/models",
@@ -32769,6 +33316,7 @@
     "google:gemini-36-flash": "1b319f266ca20e48f066d6cafffb31f19e0266a4d7263c109a96cbeacaa70eda",
     "google:gemma-4-26b": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33",
     "google:gemma-4-31b": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13",
+    "lightning-ai:claude-fable-5": "a2244e87f90a02cdda6168972f8634af5e7941d834d7ba490c800db55f948b6b",
     "lightning-ai:claude-haiku-45": "12cb2db1aefd345a1512acb5a205fc0286c5cfba31232728a0f879165c2e788d",
     "lightning-ai:claude-opus-47": "8b989c1e2b0748fa95c09d51a06dd47b02ea7c597401ad8ebb7331d7a125e958",
     "lightning-ai:claude-opus-48": "27f74838853d684b349d99d98ef71c3a15d742c432b591eebc87a723ec229f3c",
@@ -32777,7 +33325,8 @@
     "lightning-ai:gemini-3-flash": "0a643b142c645c7293af619ce126756c86b3a280665961ebb6699ff452611835",
     "lightning-ai:gemini-31-pro": "c7253291f4a87b516258141ca6b40d906bee10bcefa62b029441e4e2e227b616",
     "lightning-ai:gemini-35-flash": "7ba893da32d55eba751acf79156c8e257409fad36ec0ca5a205db1e5ec7502f2",
-    "lightning-ai:glm-5": "dafafc049348adb463207e4963bcf46d570ea6ec5e3e8c691c0ba4d55de3a0a0",
+    "lightning-ai:gemma-4-31b": "7f3da6fa1d692021ee3ca7ee8a553ee1714e5618a120f5b64002350f518ec4b4",
+    "lightning-ai:glm-5": "32e440cbd00b96988e2a5c6d927aaca45a4b1384638d7d6cca5ef92e69fc356c",
     "lightning-ai:gpt-5-mini": "9c9846135c252747842a3e84e43b6236e55886dd7f4caac7b7a304f856ad02e3",
     "lightning-ai:gpt-5-nano": "0e33c4ff0db4bc7e0bbb3f27be349ec2c3d334894bf8c52ab7d8fd1d9a1737ff",
     "lightning-ai:gpt-5": "b04062848dbab36a91ad423e3c28f02733e28d4984c75822fb1170c99343e8f1",
@@ -32789,7 +33338,9 @@
     "lightning-ai:gpt-56-sol": "7638896f13c7f495093e9b7bfee5e1972e8ba4baef8f969a45a5be3565366e48",
     "lightning-ai:gpt-56-terra": "c5cc7c70cd9644b38fc0f8df69df76a59807c466e4a795c3fb9f3e9c1ceb311d",
     "lightning-ai:gpt-oss-120b": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3",
-    "lightning-ai:kimi-k25": "a0674a3cf268123c6d8bcbee385c1f1e3879f1f9ec9bbc8de2586ed382ec20de",
+    "lightning-ai:gpt-oss-20b": "54247a7ddeaa32a13efc082efe1510d96bb5b48a92b771889b227481b08dbf08",
+    "lightning-ai:kimi-k25": "6c4efdbd26d0dfb02b4aca20508392023feac5723021c3e6a61dc1629536397d",
+    "lightning-ai:nemotron-3-nano-omni": "842f866c144fe389d93b45635e6eb2d7e1c9c80f0fc6e434ced8c6f8435c2492",
     "lightning-ai:nemotron-3-ultra": "e0f21f2ccb8bb915fb4685e866976103266d4774ba5e8b3281ce5b44c20b1b6f",
     "lightning-ai:openai-compatible": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20",
     "nanogpt:claude-sonnet-5": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3",
@@ -32811,9 +33362,10 @@
     "nanogpt:openai-compatible": "b5f441f1116067cd045c28549e9c22ea0baa952bb1ce288916f3743430a1de38",
     "nanogpt:qwen37-max": "2ddb56156b0771c708d97d9fe6a46e70bdeee43c3be4da889f9d77160f2fc8d3",
     "nanogpt:qwen37-plus": "a84d46bed5495dd6f8960228eef62264c3a487ffbb8d882ba343f59dc5089f10",
-    "neuralwatt:glm-51": "770e62305151fbb50101fb00f6e4c296a7512fb8927bcbb638df6c31969f31eb",
+    "neuralwatt:gemma-4-31b": "5c629e411773f3c5ccef947fda87ccecbf7c9a57e0f171354985abb37d4b0576",
+    "neuralwatt:glm-51": "fe38d1f1e902852d610ad504143223e8d52b31d2f9ce137548f71138b9572f0d",
     "neuralwatt:glm-52": "af1997b666e6c76117b35b3fd1ef0f17bf4d134742ef144d93cfe9a4c3e4baab",
-    "neuralwatt:kimi-k25": "1821b5e1658fec6eb8b95f65cdbbed1f54383fc3c7eba3a205c4f8eda53b129f",
+    "neuralwatt:kimi-k25": "be8a0a62f4278b54d7f5e0357592ce748394d1b4953250d7e427693f9c55a736",
     "neuralwatt:kimi-k26": "560c1a14da071af375163b62006221846ff1b2b7af50ed208408dbe89f2dd3b0",
     "neuralwatt:kimi-k27-code": "6aec8f01f0c2f8c23b56e58d35bec0e4ea631e982a34b685b5420ae44daf80a9",
     "neuralwatt:openai-compatible": "54f4863da2cb63d76cd1ea3a646c38e4e2e3970d475dc2498d92ef6a92eafd93",
@@ -32827,8 +33379,12 @@
     "ollama-cloud:glm-51": "7b3dd6fe5f131a29302e523c3e6ec608ba1fdc591ba0e2e20535453e19e1a98a",
     "ollama-cloud:glm-52": "fcce797ef4993782e24b6281e359acd62aa2832e50762e33e065688c591e048d",
     "ollama-cloud:gpt-oss-120b": "6a58e05bf74d2d518ae070663199d16f94dc7c9a145020f6472139eb0b84f52a",
+    "ollama-cloud:gpt-oss-20b": "4e4873bff2baa609319035c0ec66285738ef34e8819608fb35f2f504b54376be",
     "ollama-cloud:kimi-k26": "1e6520ff339f371993d6b2c31941e77c78ccacf9098ae145b9a23779de6a968a",
+    "ollama-cloud:kimi-k27-code": "ff41fcf5ed2cfcc638a5a9a80760a841ef51dbd721fd0210e3f1f7314d241b28",
     "ollama-cloud:minimax-m3": "5bb1ab3c94bf6c2aa9513ec4be0cdbef60d99f98915a5b50f99f1d536ba9f7b7",
+    "ollama-cloud:nemotron-3-ultra": "05736b3aad62d6910c80928775382801eda214e390985a0eea6f98501b539f63",
+    "ollama-cloud:qwen35-397b": "3b4609f503cad30a60f0df9064aeed92032ce014e9573e1d6e6959975c48769c",
     "ollama-cloud:standard": "d9c60f9d9eef45851f4e3a2c9c0a0fed116ac204c3ba7bab488c37949b6b27e0",
     "openai:gpt-4": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299",
     "openai:gpt-41-mini": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4",
