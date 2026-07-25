@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "70c3dde287acd70506bf1e08807edc634ecdc7dfae5b1b6b87f04df0fed127e8",
+  "hash": "1235f6d345296301e88c649e6184a9320d19ef065e80cab241139e3e5e72041e",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -370,6 +370,21 @@
       "hash": "cb7145f0db0031fb03f905863fd641f080da3b1bb5a56384f699b4455f35889d"
     },
     {
+      "id": "lightning-ai:gpt-56-luna",
+      "url": "profiles/lightning-ai/gpt-56-luna.json",
+      "hash": "ac96dd1625456ef267f23a66247aa8debe92d02230f0ae3f4af286c3d0458472"
+    },
+    {
+      "id": "lightning-ai:gpt-56-sol",
+      "url": "profiles/lightning-ai/gpt-56-sol.json",
+      "hash": "7638896f13c7f495093e9b7bfee5e1972e8ba4baef8f969a45a5be3565366e48"
+    },
+    {
+      "id": "lightning-ai:gpt-56-terra",
+      "url": "profiles/lightning-ai/gpt-56-terra.json",
+      "hash": "c5cc7c70cd9644b38fc0f8df69df76a59807c466e4a795c3fb9f3e9c1ceb311d"
+    },
+    {
       "id": "lightning-ai:gpt-oss-120b",
       "url": "profiles/lightning-ai/gpt-oss-120b.json",
       "hash": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3"
@@ -428,6 +443,21 @@
       "id": "nanogpt:glm-52",
       "url": "profiles/nanogpt/glm-52.json",
       "hash": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846"
+    },
+    {
+      "id": "nanogpt:gpt-56-luna",
+      "url": "profiles/nanogpt/gpt-56-luna.json",
+      "hash": "2685a167f33198b6d5b75bf2b6b0a2f90234a6ab7fa60e2b92462b6be6f2e2dc"
+    },
+    {
+      "id": "nanogpt:gpt-56-sol",
+      "url": "profiles/nanogpt/gpt-56-sol.json",
+      "hash": "e033d7a88a6bf4ef0b1a89e647a3f1d02338c5d13af600379390433962a2f344"
+    },
+    {
+      "id": "nanogpt:gpt-56-terra",
+      "url": "profiles/nanogpt/gpt-56-terra.json",
+      "hash": "e4aed1500d89d4e26393d7eaaee5a25c99036b0f27f22b6046cb84b6c2b7d674"
     },
     {
       "id": "nanogpt:gpt-oss-120b",
@@ -805,6 +835,21 @@
       "hash": "5ce34e0e07e4dcaf1572812c340c5244361d85f264fa116ceaa6f8f994c1e33f"
     },
     {
+      "id": "openrouter:gpt-56-luna",
+      "url": "profiles/openrouter/gpt-56-luna.json",
+      "hash": "3e9d6e43fa8b5e6b84f96799f75dd96cc36edc5637d683a9f5adc0fd42d89daf"
+    },
+    {
+      "id": "openrouter:gpt-56-sol",
+      "url": "profiles/openrouter/gpt-56-sol.json",
+      "hash": "d90639498eeaa98badff89eba446ef0dc52ed1b2262011dc0a39b0032a7dc35a"
+    },
+    {
+      "id": "openrouter:gpt-56-terra",
+      "url": "profiles/openrouter/gpt-56-terra.json",
+      "hash": "1b16fc9a271e37e2e4fbe30eaa5167206e72b60aa7a1774374e130d95ca42851"
+    },
+    {
       "id": "openrouter:grok-45",
       "url": "profiles/openrouter/grok-45.json",
       "hash": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540"
@@ -983,6 +1028,21 @@
       "id": "vercel:gpt-55",
       "url": "profiles/vercel/gpt-55.json",
       "hash": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6"
+    },
+    {
+      "id": "vercel:gpt-56-luna",
+      "url": "profiles/vercel/gpt-56-luna.json",
+      "hash": "8521a3a6af26b5950945d36df2eee203956a2b0039514cdcf49b217d968189da"
+    },
+    {
+      "id": "vercel:gpt-56-sol",
+      "url": "profiles/vercel/gpt-56-sol.json",
+      "hash": "8aff47d3efa69d490c8d65f5e1366110a72b5fc2cb7d20f27360e05756a54682"
+    },
+    {
+      "id": "vercel:gpt-56-terra",
+      "url": "profiles/vercel/gpt-56-terra.json",
+      "hash": "1c009a5fd9b9e4d14486ae09096c493b2cb018ec35822c5b2ed665e8de0fe195"
     },
     {
       "id": "vercel:grok-45",

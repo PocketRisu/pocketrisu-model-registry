@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "70c3dde287acd70506bf1e08807edc634ecdc7dfae5b1b6b87f04df0fed127e8",
+  "hash": "1235f6d345296301e88c649e6184a9320d19ef065e80cab241139e3e5e72041e",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -17344,6 +17344,231 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "lightning-ai:gpt-56-luna": {
+      "id": "lightning-ai:gpt-56-luna",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Luna",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Luna"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.6 Luna via Lightning AI (openai/gpt-5.6-luna).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Luna (Lightning AI, openai/gpt-5.6-luna)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 710,
+      "modelId": "openai/gpt-5.6-luna",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-56-sol": {
+      "id": "lightning-ai:gpt-56-sol",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Sol"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.6 Sol via Lightning AI (openai/gpt-5.6-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Sol (Lightning AI, openai/gpt-5.6-sol)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 708,
+      "modelId": "openai/gpt-5.6-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "lightning-ai:gpt-56-terra": {
+      "id": "lightning-ai:gpt-56-terra",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Terra"
+      },
+      "providerBaseId": "lightning-ai",
+      "description": "GPT-5.6 Terra via Lightning AI (openai/gpt-5.6-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Terra (Lightning AI, openai/gpt-5.6-terra)."
+      },
+      "tags": [
+        "lightning-ai",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 709,
+      "modelId": "openai/gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://lightning.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192,
+          "descriptionI18n": {
+            "ko": "최대 출력(completion) 토큰. gpt-5 계열은 max_completion_tokens로 전송됩니다."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://lightning.ai/api/v1/models",
+        "https://lightning.ai/docs/overview/model-apis"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://lightning.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "lightning-ai:gpt-oss-120b": {
       "id": "lightning-ai:gpt-oss-120b",
       "version": 1,
@@ -18036,6 +18261,195 @@
           "https://nano-gpt.com/api/v1/models"
         ],
         "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-56-luna": {
+      "id": "nanogpt:gpt-56-luna",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Luna",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Luna"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-5.6 Luna via NanoGPT (openai/gpt-5.6-luna).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Luna (NanoGPT, openai/gpt-5.6-luna)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 542,
+      "modelId": "openai/gpt-5.6-luna",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-56-sol": {
+      "id": "nanogpt:gpt-56-sol",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Sol"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-5.6 Sol via NanoGPT (openai/gpt-5.6-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Sol (NanoGPT, openai/gpt-5.6-sol)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 540,
+      "modelId": "openai/gpt-5.6-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-56-terra": {
+      "id": "nanogpt:gpt-56-terra",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Terra"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-5.6 Terra via NanoGPT (openai/gpt-5.6-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Terra (NanoGPT, openai/gpt-5.6-terra)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 541,
+      "modelId": "openai/gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -28487,6 +28901,183 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:gpt-56-luna": {
+      "id": "openrouter:gpt-56-luna",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Luna",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Luna"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-5.6 Luna via OpenRouter (openai/gpt-5.6-luna).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Luna (OpenRouter, openai/gpt-5.6-luna)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 545,
+      "modelId": "openai/gpt-5.6-luna",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:gpt-56-sol": {
+      "id": "openrouter:gpt-56-sol",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Sol"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-5.6 Sol via OpenRouter (openai/gpt-5.6-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Sol (OpenRouter, openai/gpt-5.6-sol)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 543,
+      "modelId": "openai/gpt-5.6-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:gpt-56-terra": {
+      "id": "openrouter:gpt-56-terra",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Terra"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-5.6 Terra via OpenRouter (openai/gpt-5.6-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Terra (OpenRouter, openai/gpt-5.6-terra)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 544,
+      "modelId": "openai/gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:grok-45": {
       "id": "openrouter:grok-45",
       "version": 1,
@@ -30524,6 +31115,183 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:gpt-56-luna": {
+      "id": "vercel:gpt-56-luna",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Luna",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Luna"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-5.6 Luna via Vercel AI Gateway (openai/gpt-5.6-luna).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Luna (Vercel AI Gateway, openai/gpt-5.6-luna)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 584,
+      "modelId": "openai/gpt-5.6-luna",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:gpt-56-sol": {
+      "id": "vercel:gpt-56-sol",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Sol",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Sol"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-5.6 Sol via Vercel AI Gateway (openai/gpt-5.6-sol).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Sol (Vercel AI Gateway, openai/gpt-5.6-sol)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 582,
+      "modelId": "openai/gpt-5.6-sol",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:gpt-56-terra": {
+      "id": "vercel:gpt-56-terra",
+      "version": 1,
+      "updatedAt": 1784964781000,
+      "displayName": "GPT-5.6 Terra",
+      "displayNameI18n": {
+        "ko": "GPT-5.6 Terra"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-5.6 Terra via Vercel AI Gateway (openai/gpt-5.6-terra).",
+      "descriptionI18n": {
+        "ko": "GPT-5.6 Terra (Vercel AI Gateway, openai/gpt-5.6-terra)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 583,
+      "modelId": "openai/gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:grok-45": {
       "id": "vercel:grok-45",
       "version": 1,
@@ -32017,6 +32785,9 @@
     "lightning-ai:gpt-54-nano": "2b5f65824abfc6f234f0f0274b3ad58bfe31d12136f3c80d1532c4b12eb07e16",
     "lightning-ai:gpt-54": "e6755a691c01d021388e01033b8958521861a5e1a1036611eacbea3b44067406",
     "lightning-ai:gpt-55": "cb7145f0db0031fb03f905863fd641f080da3b1bb5a56384f699b4455f35889d",
+    "lightning-ai:gpt-56-luna": "ac96dd1625456ef267f23a66247aa8debe92d02230f0ae3f4af286c3d0458472",
+    "lightning-ai:gpt-56-sol": "7638896f13c7f495093e9b7bfee5e1972e8ba4baef8f969a45a5be3565366e48",
+    "lightning-ai:gpt-56-terra": "c5cc7c70cd9644b38fc0f8df69df76a59807c466e4a795c3fb9f3e9c1ceb311d",
     "lightning-ai:gpt-oss-120b": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3",
     "lightning-ai:kimi-k25": "a0674a3cf268123c6d8bcbee385c1f1e3879f1f9ec9bbc8de2586ed382ec20de",
     "lightning-ai:nemotron-3-ultra": "e0f21f2ccb8bb915fb4685e866976103266d4774ba5e8b3281ce5b44c20b1b6f",
@@ -32029,6 +32800,9 @@
     "nanogpt:gemma-4-31b": "08c06f40983b929d426b99f637e8315119bb91ae2d2622f3793a097d563d860b",
     "nanogpt:glm-51": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb",
     "nanogpt:glm-52": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846",
+    "nanogpt:gpt-56-luna": "2685a167f33198b6d5b75bf2b6b0a2f90234a6ab7fa60e2b92462b6be6f2e2dc",
+    "nanogpt:gpt-56-sol": "e033d7a88a6bf4ef0b1a89e647a3f1d02338c5d13af600379390433962a2f344",
+    "nanogpt:gpt-56-terra": "e4aed1500d89d4e26393d7eaaee5a25c99036b0f27f22b6046cb84b6c2b7d674",
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
     "nanogpt:grok-45": "75052304082513093d01f32650911cc9900abf7bd2438ff7fa303d08e9186d06",
     "nanogpt:kimi-k26": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314",
@@ -32104,6 +32878,9 @@
     "openrouter:gpt-54-nano": "ae37a60057513d84312a210d81c06e08293eecf0fc2cc0702b1da6983e2e42dd",
     "openrouter:gpt-54": "8ecd67c044a1d22506a193ab03065e29322ee7c150aa9b8be87eac2cd5a8167e",
     "openrouter:gpt-55": "5ce34e0e07e4dcaf1572812c340c5244361d85f264fa116ceaa6f8f994c1e33f",
+    "openrouter:gpt-56-luna": "3e9d6e43fa8b5e6b84f96799f75dd96cc36edc5637d683a9f5adc0fd42d89daf",
+    "openrouter:gpt-56-sol": "d90639498eeaa98badff89eba446ef0dc52ed1b2262011dc0a39b0032a7dc35a",
+    "openrouter:gpt-56-terra": "1b16fc9a271e37e2e4fbe30eaa5167206e72b60aa7a1774374e130d95ca42851",
     "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
     "openrouter:kimi-k3": "2939b082383e2b7add2f7862e903cd52abff9bcd0b84b6ff76d2d31dfd15de9b",
@@ -32140,6 +32917,9 @@
     "vercel:gpt-54-nano": "5e216fd7a9aaae75f934e6bd87b801c45dfcc577b649bc82fab7eec5abb123c1",
     "vercel:gpt-54": "f7c5d22cd2431b5ccbce8ff1e9a6824f90b52fa1e9580e4ab74b948a95811fef",
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
+    "vercel:gpt-56-luna": "8521a3a6af26b5950945d36df2eee203956a2b0039514cdcf49b217d968189da",
+    "vercel:gpt-56-sol": "8aff47d3efa69d490c8d65f5e1366110a72b5fc2cb7d20f27360e05756a54682",
+    "vercel:gpt-56-terra": "1c009a5fd9b9e4d14486ae09096c493b2cb018ec35822c5b2ed665e8de0fe195",
     "vercel:grok-45": "9ca5aaf85bcedfa2896fee757310f26fe5445c6d7a5ff8eaafa70564cafc4350",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:kimi-k3": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc",
