@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "4ee8d803b430840e1da07e553f8729605635504e3d83d00fdc09c32dfb891024",
+  "hash": "40db5f1f74a696865433961e134627d03e4383ee6a92f42af979be1ef83c2728",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -4600,7 +4600,7 @@
     },
     "vertex-openai": {
       "id": "vertex-openai",
-      "version": 5,
+      "version": 6,
       "displayName": "Vertex AI (OpenAI-compatible)",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -4665,6 +4665,14 @@
           "description": "Vertex OpenAI-compatible model id.",
           "required": true,
           "enum": [
+            {
+              "value": "google/gemini-3.6-flash",
+              "label": "Gemini 3.6 Flash"
+            },
+            {
+              "value": "google/gemini-3.5-flash-lite",
+              "label": "Gemini 3.5 Flash-Lite"
+            },
             {
               "value": "google/gemini-3.5-flash",
               "label": "Google / Gemini 3.5 Flash"
@@ -14184,6 +14192,436 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "google:gemini-35-flash-lite": {
+      "id": "google:gemini-35-flash-lite",
+      "version": 1,
+      "displayName": "Gemini 3.5 Flash-Lite",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash-Lite"
+      },
+      "providerBaseId": "google",
+      "description": "Gemini 3.5 Flash-Lite via Google AI Studio (generateContent).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash-Lite (Google AI Studio, generateContent)."
+      },
+      "tags": [
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 299,
+      "modelId": "gemini-3.5-flash-lite",
+      "updatedAt": 1784964581000,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models"
+      },
+      "auth": {
+        "kind": "x-goog-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Gemini model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gemini-3.5-flash-lite",
+              "label": "Gemini 3.5 Flash-Lite"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Gemini 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.temperature"
+          }
+        },
+        {
+          "key": "topP",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topP"
+          }
+        },
+        {
+          "key": "topK",
+          "type": "integer",
+          "label": "Top K",
+          "min": 1,
+          "max": 1000,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topK"
+          }
+        },
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "stopSequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.stopSequences"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.seed"
+          }
+        },
+        {
+          "key": "presencePenalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.presencePenalty"
+          }
+        },
+        {
+          "key": "frequencyPenalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.frequencyPenalty"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "minimal",
+              "label": "Minimal"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        },
+        {
+          "key": "includeThoughts",
+          "type": "boolean",
+          "label": "Include Thoughts",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.includeThoughts"
+          }
+        },
+        {
+          "key": "responseMimeType",
+          "type": "string",
+          "label": "Response Mime Type",
+          "enum": [
+            {
+              "value": "text/plain",
+              "label": "Text"
+            },
+            {
+              "value": "application/json",
+              "label": "JSON"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseMimeType"
+          }
+        },
+        {
+          "key": "responseSchema",
+          "type": "json",
+          "label": "Response Schema",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseSchema"
+          }
+        },
+        {
+          "key": "responseLogprobs",
+          "type": "boolean",
+          "label": "Response Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseLogprobs"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 1,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.logprobs"
+          }
+        },
+        {
+          "key": "safetySettings",
+          "type": "json",
+          "label": "Safety Settings",
+          "mapsTo": {
+            "target": "body",
+            "path": "safetySettings"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "topP",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "topK",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "maxOutputTokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "stopSequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "presencePenalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "frequencyPenalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 8
+          },
+          {
+            "key": "thinkingLevel",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "includeThoughts",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "responseMimeType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "responseSchema",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "responseLogprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "responseLogprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "safetySettings",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 5
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://ai.google.dev/gemini-api/docs/models",
+        "https://ai.google.dev/api/generate-content"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536,
+        "sourceUrls": [
+          "https://generativelanguage.googleapis.com/v1beta/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "google:gemini-35-flash": {
       "id": "google:gemini-35-flash",
       "version": 2,
@@ -14227,6 +14665,436 @@
             {
               "value": "gemini-3.5-flash",
               "label": "Gemini 3.5 Flash"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Gemini 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.temperature"
+          }
+        },
+        {
+          "key": "topP",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topP"
+          }
+        },
+        {
+          "key": "topK",
+          "type": "integer",
+          "label": "Top K",
+          "min": 1,
+          "max": 1000,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topK"
+          }
+        },
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "stopSequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.stopSequences"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.seed"
+          }
+        },
+        {
+          "key": "presencePenalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.presencePenalty"
+          }
+        },
+        {
+          "key": "frequencyPenalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.frequencyPenalty"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "minimal",
+              "label": "Minimal"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        },
+        {
+          "key": "includeThoughts",
+          "type": "boolean",
+          "label": "Include Thoughts",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.includeThoughts"
+          }
+        },
+        {
+          "key": "responseMimeType",
+          "type": "string",
+          "label": "Response Mime Type",
+          "enum": [
+            {
+              "value": "text/plain",
+              "label": "Text"
+            },
+            {
+              "value": "application/json",
+              "label": "JSON"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseMimeType"
+          }
+        },
+        {
+          "key": "responseSchema",
+          "type": "json",
+          "label": "Response Schema",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseSchema"
+          }
+        },
+        {
+          "key": "responseLogprobs",
+          "type": "boolean",
+          "label": "Response Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseLogprobs"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 1,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.logprobs"
+          }
+        },
+        {
+          "key": "safetySettings",
+          "type": "json",
+          "label": "Safety Settings",
+          "mapsTo": {
+            "target": "body",
+            "path": "safetySettings"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "topP",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "topK",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "maxOutputTokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "stopSequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "presencePenalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "frequencyPenalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 8
+          },
+          {
+            "key": "thinkingLevel",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "includeThoughts",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "responseMimeType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "responseSchema",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "responseLogprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "responseLogprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "safetySettings",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 5
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://ai.google.dev/gemini-api/docs/models",
+        "https://ai.google.dev/api/generate-content"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536,
+        "sourceUrls": [
+          "https://generativelanguage.googleapis.com/v1beta/models"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "google:gemini-36-flash": {
+      "id": "google:gemini-36-flash",
+      "version": 1,
+      "displayName": "Gemini 3.6 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.6 Flash"
+      },
+      "providerBaseId": "google",
+      "description": "Gemini 3.6 Flash via Google AI Studio (generateContent).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.6 Flash (Google AI Studio, generateContent)."
+      },
+      "tags": [
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 298,
+      "modelId": "gemini-3.6-flash",
+      "updatedAt": 1784964581000,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models"
+      },
+      "auth": {
+        "kind": "x-goog-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Gemini model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gemini-3.6-flash",
+              "label": "Gemini 3.6 Flash"
             }
           ],
           "mapsTo": {
@@ -16868,6 +17736,128 @@
         "maxOutputTokens": 384000
       },
       "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "nanogpt:gemini-35-flash-lite": {
+      "id": "nanogpt:gemini-35-flash-lite",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Gemini 3.5 Flash-Lite",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash-Lite"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Gemini 3.5 Flash-Lite via NanoGPT (google/gemini-3.5-flash-lite).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash-Lite (NanoGPT, google/gemini-3.5-flash-lite)."
+      },
+      "tags": [
+        "nanogpt",
+        "gemini"
+      ],
+      "sortOrder": 533,
+      "modelId": "google/gemini-3.5-flash-lite",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "nanogpt:gemini-36-flash": {
+      "id": "nanogpt:gemini-36-flash",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Gemini 3.6 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.6 Flash"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Gemini 3.6 Flash via NanoGPT (google/gemini-3.6-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.6 Flash (NanoGPT, google/gemini-3.6-flash)."
+      },
+      "tags": [
+        "nanogpt",
+        "gemini"
+      ],
+      "sortOrder": 532,
+      "modelId": "google/gemini-3.6-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
     "nanogpt:gemma-4-31b": {
@@ -26164,6 +27154,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "openrouter:gemini-35-flash-lite": {
+      "id": "openrouter:gemini-35-flash-lite",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Gemini 3.5 Flash-Lite",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash-Lite"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Gemini 3.5 Flash-Lite via OpenRouter (google/gemini-3.5-flash-lite).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash-Lite (OpenRouter, google/gemini-3.5-flash-lite)."
+      },
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 536,
+      "modelId": "google/gemini-3.5-flash-lite",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "openrouter:gemini-35-flash": {
       "id": "openrouter:gemini-35-flash",
       "version": 1,
@@ -26183,6 +27230,63 @@
       ],
       "sortOrder": 523,
       "modelId": "google/gemini-3.5-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "openrouter:gemini-36-flash": {
+      "id": "openrouter:gemini-36-flash",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Gemini 3.6 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.6 Flash"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Gemini 3.6 Flash via OpenRouter (google/gemini-3.6-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.6 Flash (OpenRouter, google/gemini-3.6-flash)."
+      },
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 535,
+      "modelId": "google/gemini-3.6-flash",
       "endpoint": {
         "kind": "static",
         "url": "https://openrouter.ai/api/v1/chat/completions"
@@ -27689,6 +28793,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "vercel:gemini-35-flash-lite": {
+      "id": "vercel:gemini-35-flash-lite",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Gemini 3.5 Flash-Lite",
+      "displayNameI18n": {
+        "ko": "Gemini 3.5 Flash-Lite"
+      },
+      "providerBaseId": "vercel",
+      "description": "Gemini 3.5 Flash-Lite via Vercel AI Gateway (google/gemini-3.5-flash-lite).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.5 Flash-Lite (Vercel AI Gateway, google/gemini-3.5-flash-lite)."
+      },
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 575,
+      "modelId": "google/gemini-3.5-flash-lite",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "vercel:gemini-35-flash": {
       "id": "vercel:gemini-35-flash",
       "version": 1,
@@ -27742,6 +28903,63 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 64000
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "vercel:gemini-36-flash": {
+      "id": "vercel:gemini-36-flash",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Gemini 3.6 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.6 Flash"
+      },
+      "providerBaseId": "vercel",
+      "description": "Gemini 3.6 Flash via Vercel AI Gateway (google/gemini-3.6-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.6 Flash (Vercel AI Gateway, google/gemini-3.6-flash)."
+      },
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 574,
+      "modelId": "google/gemini-3.6-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 65536
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
@@ -28944,6 +30162,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "vertex-gemini-native:gemini-35-flash-lite": {
+      "id": "vertex-gemini-native:gemini-35-flash-lite",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Vertex AI - Gemini 3.5 Flash-Lite",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Gemini 3.5 Flash-Lite on Vertex AI (native generateContent).",
+      "modelId": "gemini-3.5-flash-lite",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "vertex",
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 840,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.5 Flash-Lite"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex AI의 Gemini 3.5 Flash-Lite (네이티브 generateContent)."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current",
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536
+      }
+    },
     "vertex-gemini-native:gemini-35-flash": {
       "id": "vertex-gemini-native:gemini-35-flash",
       "version": 1,
@@ -28993,6 +30268,63 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
+    },
+    "vertex-gemini-native:gemini-36-flash": {
+      "id": "vertex-gemini-native:gemini-36-flash",
+      "version": 1,
+      "updatedAt": 1784964633000,
+      "displayName": "Vertex AI - Gemini 3.6 Flash",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Gemini 3.6 Flash on Vertex AI (native generateContent).",
+      "modelId": "gemini-3.6-flash",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "vertex",
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 839,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.6 Flash"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex AI의 Gemini 3.6 Flash (네이티브 generateContent)."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current",
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536
+      }
     },
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
@@ -29089,7 +30421,7 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
-      "updatedAt": 1781319440357
+      "updatedAt": 1784964640039
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
@@ -29524,7 +30856,7 @@
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
     "vertex-gemini-native": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd",
-    "vertex-openai": "ccf3183081a3b339949882e01c49c33449d262bd9995aea7ffaa38414085cc9c",
+    "vertex-openai": "98e6f1aa0bd665bb66700a62ccfe72341b1b3f707f69e2d500e968ea39b5bad0",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
   "profileHashes": {
@@ -29560,7 +30892,9 @@
     "google:gemini-3-flash": "0bcd85b7e77d0db902db0ac542d5338aab31cdb6019b63e6fea3eff53c4887e8",
     "google:gemini-31-flash-lite": "7eb0c74ae8c8ed1782399896e8296180bd94fc66cce3e1da9769e082ca035075",
     "google:gemini-31-pro": "38b4df87bf4fd2d0eaaf8c9043292186e04cba2cb8d0f1edece7ceece3e217e0",
+    "google:gemini-35-flash-lite": "4c71da6c3455ddb662c7f92e4a30f02eb4011cce10649a632ecdb548e0157efb",
     "google:gemini-35-flash": "197da7fccc72a25834263cef1501c59d7be39229d9dfad5e84b1b8ea167f5374",
+    "google:gemini-36-flash": "1b319f266ca20e48f066d6cafffb31f19e0266a4d7263c109a96cbeacaa70eda",
     "google:gemma-4-26b": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33",
     "google:gemma-4-31b": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13",
     "lightning-ai:claude-haiku-45": "12cb2db1aefd345a1512acb5a205fc0286c5cfba31232728a0f879165c2e788d",
@@ -29586,6 +30920,8 @@
     "nanogpt:claude-sonnet-5": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3",
     "nanogpt:deepseek-v4-flash": "362aaf28e8b73dac9c06753fa1bb0f74569ad50c2d8592801e37f54c7d3948be",
     "nanogpt:deepseek-v4-pro": "4a65d765792f354e79fe1b2a99fac4b492a870d37da14b53edbec800b3a0555e",
+    "nanogpt:gemini-35-flash-lite": "034f79d4f27c5e999529d02c3078087c84038a387b1cacd9a6a16d9a521a6237",
+    "nanogpt:gemini-36-flash": "fd36179e02423edc96fea034da2e69fe9671c6bcfa860a1bcf7eea1c291aa44d",
     "nanogpt:gemma-4-31b": "08c06f40983b929d426b99f637e8315119bb91ae2d2622f3793a097d563d860b",
     "nanogpt:glm-51": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb",
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
@@ -29641,7 +30977,9 @@
     "openrouter:gemini-3-flash": "62eeb288987748300170d17474f7e709afacc85a2c2a34b9ff837f93a2046e07",
     "openrouter:gemini-31-flash-lite": "f4f72c1cead3db47c87e882d9f20e26ae0adf65a867f78c9fad346406b18f423",
     "openrouter:gemini-31-pro": "21aa979bb7f0e3c06cb99d055e3f1599652c2e23a0dbb062259568b0e78c9ac6",
+    "openrouter:gemini-35-flash-lite": "e032171e971559bb27616fa387c69ef4356614f9271eebfcc107a4b5d0b91add",
     "openrouter:gemini-35-flash": "ddd10e2285944a458e7e91e2da25791ba5b14f98aa307644609e0bd054f0b22f",
+    "openrouter:gemini-36-flash": "41a09b83575add772bd6a4bdcd292837ed1131a6eaa833247ffb889026ccd12b",
     "openrouter:gemma-4-26b": "782a24a45379c4b9a94e1e9d0043d41e550cc8297544da178c3aa24e0463ff92",
     "openrouter:gemma-4-31b": "189d5411dd94a5daf1eb3e4f59d11e579666bc22f087eba76bb92b405bcad59b",
     "openrouter:glm-51": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf",
@@ -29668,7 +31006,9 @@
     "vercel:gemini-3-flash": "4d40deb59800b670a48766b120a14af78ed2754ce8f230daedc8ab8ed21f48bd",
     "vercel:gemini-31-flash-lite": "95f3dc582a0c294872ffdbf88b823297dccfdc12b3fdc1096bd8e0196ed5d050",
     "vercel:gemini-31-pro": "dcb206eb0b0172661b209486ec417ee97bb42e1901a4447cd43cadcd75933d86",
+    "vercel:gemini-35-flash-lite": "735a387e54185aea9343c2a4afa2d19981781ac09ce4b5ffedee97b950d5e884",
     "vercel:gemini-35-flash": "ccd3c66336cf78283907b909855c57ab146f57a4fe43fa2574530a1c79c2b034",
+    "vercel:gemini-36-flash": "c625e9824741478f283df514a94ecdfd5fa129fdbfebeb48b59375c450eb6e3a",
     "vercel:gemma-4-26b": "26b10496d9d3de7dc5b02a3e05e9c062fdbc18cc29cd97b98eb22eacb4cc844a",
     "vercel:gemma-4-31b": "beda0439bad645a0a7ddc2d9c3b8c258523050338d2375f5bd5ab44eb95065eb",
     "vercel:glm-51": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859",
@@ -29691,9 +31031,11 @@
     "vertex-gemini-native:gemini-3-flash": "d899991a0cd756ec15a2081097f6c77992ddddc335d39878d82b567b3706985f",
     "vertex-gemini-native:gemini-31-flash-lite": "13fb52e0146b6586b283ec91a457f0bb9d98587467c1646b96e0f5d6651586d3",
     "vertex-gemini-native:gemini-31-pro": "aaf4739adf8ed03d8202c22ce7f1325a6405e417964bc43117b9e0355d8840e1",
+    "vertex-gemini-native:gemini-35-flash-lite": "c7b0b7629836ce4900535a4b1b127cb76e5ba15730df46e3e5dcaa14d0817d93",
     "vertex-gemini-native:gemini-35-flash": "2ccfb3a9c9cfb6cdb390e183061093cdf2e481b0d90700ae3c811030a2b0a1fa",
+    "vertex-gemini-native:gemini-36-flash": "e4885fcbb61f004f755c51150db18c58d9075d0879e13e519c47ac25ddeaa777",
     "vertex-gemini-native:pro": "1ed1cb71d120cd587c561603e24b513184ec7c19fc507ff71b5f1d1a30bf206f",
-    "vertex-openai:standard": "cbaa84b63d7abb9b1296338b048c70822281487edfc292097f66efd4820b913a",
+    "vertex-openai:standard": "4e32874ab0c289dc6fd77b912d45872aec73dcf19d7e71db3b1e7b9c2ef3d995",
     "wellspring:deepseek-v32-marp": "642af5c20e8d563d6c60fe275de6b8b82a1575a7e14957215a979e831695b821",
     "wellspring:deepseek-v4-flash": "7e73c7b794e3143c8ae0b8b221196dba81336483f0807a2489e49298f11f0ade",
     "wellspring:deepseek-v4-pro": "ebefb49df3d0d27ff8b1e5bbd7f56df5a3ae18b65378b616b2235206af342789",
