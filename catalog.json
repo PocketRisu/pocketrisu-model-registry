@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "40db5f1f74a696865433961e134627d03e4383ee6a92f42af979be1ef83c2728",
+  "hash": "70c3dde287acd70506bf1e08807edc634ecdc7dfae5b1b6b87f04df0fed127e8",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -17980,6 +17980,66 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "nanogpt:glm-52": {
+      "id": "nanogpt:glm-52",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "GLM 5.2",
+      "displayNameI18n": {
+        "ko": "GLM 5.2"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GLM 5.2 via NanoGPT (zai-org/glm-5.2).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 (NanoGPT, zai-org/glm-5.2)."
+      },
+      "tags": [
+        "nanogpt",
+        "glm"
+      ],
+      "sortOrder": 535,
+      "modelId": "zai-org/glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "nanogpt:gpt-oss-120b": {
       "id": "nanogpt:gpt-oss-120b",
       "version": 1,
@@ -18028,6 +18088,66 @@
       "limits": {
         "known": true,
         "contextWindowTokens": 131072,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:grok-45": {
+      "id": "nanogpt:grok-45",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Grok 4.5",
+      "displayNameI18n": {
+        "ko": "Grok 4.5"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Grok 4.5 via NanoGPT (x-ai/grok-4.5).",
+      "descriptionI18n": {
+        "ko": "Grok 4.5 (NanoGPT, x-ai/grok-4.5)."
+      },
+      "tags": [
+        "nanogpt",
+        "grok"
+      ],
+      "sortOrder": 537,
+      "modelId": "x-ai/grok-4.5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
         "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
         "notesI18n": {
           "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
@@ -18100,6 +18220,127 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "nanogpt:kimi-k3": {
+      "id": "nanogpt:kimi-k3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Kimi K3",
+      "displayNameI18n": {
+        "ko": "Kimi K3"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Kimi K3 via NanoGPT (moonshotai/kimi-k3).",
+      "descriptionI18n": {
+        "ko": "Kimi K3 (NanoGPT, moonshotai/kimi-k3)."
+      },
+      "tags": [
+        "nanogpt",
+        "kimi"
+      ],
+      "sortOrder": 534,
+      "modelId": "moonshotai/kimi-k3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:minimax-m3": {
+      "id": "nanogpt:minimax-m3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "MiniMax M3",
+      "displayNameI18n": {
+        "ko": "MiniMax M3"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "MiniMax M3 via NanoGPT (minimax/minimax-m3).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3 (NanoGPT, minimax/minimax-m3)."
+      },
+      "tags": [
+        "nanogpt",
+        "minimax"
+      ],
+      "sortOrder": 536,
+      "modelId": "minimax/minimax-m3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 512000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "nanogpt:openai-compatible": {
       "id": "nanogpt:openai-compatible",
       "version": 1,
@@ -18141,6 +18382,127 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current",
       "updatedAt": 1781103554581
+    },
+    "nanogpt:qwen37-max": {
+      "id": "nanogpt:qwen37-max",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Qwen3.7 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Max"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Qwen3.7 Max via NanoGPT (qwen3.7-max).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Max (NanoGPT, qwen3.7-max)."
+      },
+      "tags": [
+        "nanogpt",
+        "qwen"
+      ],
+      "sortOrder": 538,
+      "modelId": "qwen3.7-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:qwen37-plus": {
+      "id": "nanogpt:qwen37-plus",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Qwen3.7 Plus",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Plus"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Qwen3.7 Plus via NanoGPT (qwen3.7-plus).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Plus (NanoGPT, qwen3.7-plus)."
+      },
+      "tags": [
+        "nanogpt",
+        "qwen"
+      ],
+      "sortOrder": 539,
+      "modelId": "qwen3.7-plus",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
     },
     "neuralwatt:glm-51": {
       "id": "neuralwatt:glm-51",
@@ -19137,6 +19499,70 @@
           "https://ollama.com/search?c=cloud"
         ],
         "maxOutputTokens": 262144
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "ollama-cloud:minimax-m3": {
+      "id": "ollama-cloud:minimax-m3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "MiniMax M3",
+      "displayNameI18n": {
+        "ko": "MiniMax M3"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "MiniMax M3 via Ollama Cloud (minimax-m3).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3 (Ollama Cloud, minimax-m3)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "minimax"
+      ],
+      "sortOrder": 620,
+      "modelId": "minimax-m3:cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://ollama.com/library/glm-5.2",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native 1M-token context. Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "네이티브 1M 토큰 컨텍스트. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/library/glm-5.2",
+          "https://ollama.com/search?c=cloud"
+        ]
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -27493,6 +27919,62 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:glm-52": {
+      "id": "openrouter:glm-52",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "GLM 5.2",
+      "displayNameI18n": {
+        "ko": "GLM 5.2"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GLM 5.2 via OpenRouter (z-ai/glm-5.2).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 (OpenRouter, z-ai/glm-5.2)."
+      },
+      "tags": [
+        "openrouter",
+        "glm"
+      ],
+      "sortOrder": 538,
+      "modelId": "z-ai/glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:gpt-5-mini": {
       "id": "openrouter:gpt-5-mini",
       "version": 1,
@@ -28005,6 +28487,62 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:grok-45": {
+      "id": "openrouter:grok-45",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Grok 4.5",
+      "displayNameI18n": {
+        "ko": "Grok 4.5"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Grok 4.5 via OpenRouter (x-ai/grok-4.5).",
+      "descriptionI18n": {
+        "ko": "Grok 4.5 (OpenRouter, x-ai/grok-4.5)."
+      },
+      "tags": [
+        "openrouter",
+        "grok"
+      ],
+      "sortOrder": 540,
+      "modelId": "x-ai/grok-4.5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:kimi-k26": {
       "id": "openrouter:kimi-k26",
       "version": 1,
@@ -28062,6 +28600,119 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:kimi-k3": {
+      "id": "openrouter:kimi-k3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Kimi K3",
+      "displayNameI18n": {
+        "ko": "Kimi K3"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Kimi K3 via OpenRouter (moonshotai/kimi-k3).",
+      "descriptionI18n": {
+        "ko": "Kimi K3 (OpenRouter, moonshotai/kimi-k3)."
+      },
+      "tags": [
+        "openrouter",
+        "kimi"
+      ],
+      "sortOrder": 537,
+      "modelId": "moonshotai/kimi-k3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:minimax-m3": {
+      "id": "openrouter:minimax-m3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "MiniMax M3",
+      "displayNameI18n": {
+        "ko": "MiniMax M3"
+      },
+      "providerBaseId": "openrouter",
+      "description": "MiniMax M3 via OpenRouter (minimax/minimax-m3).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3 (OpenRouter, minimax/minimax-m3)."
+      },
+      "tags": [
+        "openrouter",
+        "minimax"
+      ],
+      "sortOrder": 539,
+      "modelId": "minimax/minimax-m3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 512000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:openai-compatible": {
       "id": "openrouter:openai-compatible",
       "version": 1,
@@ -28107,6 +28758,119 @@
       "descriptionI18n": {
         "ko": "OpenRouter 다중 공급자 라우터 (OpenAI 호환 API)."
       },
+      "profileStatus": "current"
+    },
+    "openrouter:qwen37-max": {
+      "id": "openrouter:qwen37-max",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Qwen3.7 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Max"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Qwen3.7 Max via OpenRouter (qwen/qwen3.7-max).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Max (OpenRouter, qwen/qwen3.7-max)."
+      },
+      "tags": [
+        "openrouter",
+        "qwen"
+      ],
+      "sortOrder": 541,
+      "modelId": "qwen/qwen3.7-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:qwen37-plus": {
+      "id": "openrouter:qwen37-plus",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Qwen3.7 Plus",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Plus"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Qwen3.7 Plus via OpenRouter (qwen/qwen3.7-plus).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Plus (OpenRouter, qwen/qwen3.7-plus)."
+      },
+      "tags": [
+        "openrouter",
+        "qwen"
+      ],
+      "sortOrder": 542,
+      "modelId": "qwen/qwen3.7-plus",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
     "vercel:claude-fable-5": {
@@ -28841,11 +29605,11 @@
       ],
       "limits": {
         "known": true,
-        "contextWindowTokens": 1048576,
+        "contextWindowTokens": 1000000,
         "sourceUrls": [
           "https://ai-gateway.vercel.sh/v1/models"
         ],
-        "maxOutputTokens": 65536
+        "maxOutputTokens": 65000
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
@@ -28955,11 +29719,11 @@
       ],
       "limits": {
         "known": true,
-        "contextWindowTokens": 1048576,
+        "contextWindowTokens": 1000000,
         "sourceUrls": [
           "https://ai-gateway.vercel.sh/v1/models"
         ],
-        "maxOutputTokens": 65536
+        "maxOutputTokens": 64000
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
@@ -29130,6 +29894,62 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 64000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:glm-52": {
+      "id": "vercel:glm-52",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "GLM 5.2",
+      "displayNameI18n": {
+        "ko": "GLM 5.2"
+      },
+      "providerBaseId": "vercel",
+      "description": "GLM 5.2 via Vercel AI Gateway (zai/glm-5.2).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 (Vercel AI Gateway, zai/glm-5.2)."
+      },
+      "tags": [
+        "vercel",
+        "glm"
+      ],
+      "sortOrder": 577,
+      "modelId": "zai/glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1040000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -29704,6 +30524,63 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:grok-45": {
+      "id": "vercel:grok-45",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Grok 4.5",
+      "displayNameI18n": {
+        "ko": "Grok 4.5"
+      },
+      "providerBaseId": "vercel",
+      "description": "Grok 4.5 via Vercel AI Gateway (xai/grok-4.5).",
+      "descriptionI18n": {
+        "ko": "Grok 4.5 (Vercel AI Gateway, xai/grok-4.5)."
+      },
+      "tags": [
+        "vercel",
+        "grok"
+      ],
+      "sortOrder": 579,
+      "modelId": "xai/grok-4.5",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 500000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:kimi-k26": {
       "id": "vercel:kimi-k26",
       "version": 1,
@@ -29761,6 +30638,120 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:kimi-k3": {
+      "id": "vercel:kimi-k3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Kimi K3",
+      "displayNameI18n": {
+        "ko": "Kimi K3"
+      },
+      "providerBaseId": "vercel",
+      "description": "Kimi K3 via Vercel AI Gateway (moonshotai/kimi-k3).",
+      "descriptionI18n": {
+        "ko": "Kimi K3 (Vercel AI Gateway, moonshotai/kimi-k3)."
+      },
+      "tags": [
+        "vercel",
+        "kimi"
+      ],
+      "sortOrder": 576,
+      "modelId": "moonshotai/kimi-k3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:minimax-m3": {
+      "id": "vercel:minimax-m3",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "MiniMax M3",
+      "displayNameI18n": {
+        "ko": "MiniMax M3"
+      },
+      "providerBaseId": "vercel",
+      "description": "MiniMax M3 via Vercel AI Gateway (minimax/minimax-m3).",
+      "descriptionI18n": {
+        "ko": "MiniMax M3 (Vercel AI Gateway, minimax/minimax-m3)."
+      },
+      "tags": [
+        "vercel",
+        "minimax"
+      ],
+      "sortOrder": 578,
+      "modelId": "minimax/minimax-m3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 1000000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:openai-compatible": {
       "id": "vercel:openai-compatible",
       "version": 1,
@@ -29806,6 +30797,119 @@
       },
       "profileStatus": "current",
       "updatedAt": 1781103554581
+    },
+    "vercel:qwen37-max": {
+      "id": "vercel:qwen37-max",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Qwen3.7 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Max"
+      },
+      "providerBaseId": "vercel",
+      "description": "Qwen3.7 Max via Vercel AI Gateway (alibaba/qwen3.7-max).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Max (Vercel AI Gateway, alibaba/qwen3.7-max)."
+      },
+      "tags": [
+        "vercel",
+        "qwen"
+      ],
+      "sortOrder": 580,
+      "modelId": "alibaba/qwen3.7-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 991000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 64000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:qwen37-plus": {
+      "id": "vercel:qwen37-plus",
+      "version": 1,
+      "updatedAt": 1784964727000,
+      "displayName": "Qwen3.7 Plus",
+      "displayNameI18n": {
+        "ko": "Qwen3.7 Plus"
+      },
+      "providerBaseId": "vercel",
+      "description": "Qwen3.7 Plus via Vercel AI Gateway (alibaba/qwen3.7-plus).",
+      "descriptionI18n": {
+        "ko": "Qwen3.7 Plus (Vercel AI Gateway, alibaba/qwen3.7-plus)."
+      },
+      "tags": [
+        "vercel",
+        "qwen"
+      ],
+      "sortOrder": 581,
+      "modelId": "alibaba/qwen3.7-plus",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 64000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
     },
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
@@ -30924,9 +32028,15 @@
     "nanogpt:gemini-36-flash": "fd36179e02423edc96fea034da2e69fe9671c6bcfa860a1bcf7eea1c291aa44d",
     "nanogpt:gemma-4-31b": "08c06f40983b929d426b99f637e8315119bb91ae2d2622f3793a097d563d860b",
     "nanogpt:glm-51": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb",
+    "nanogpt:glm-52": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846",
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
+    "nanogpt:grok-45": "75052304082513093d01f32650911cc9900abf7bd2438ff7fa303d08e9186d06",
     "nanogpt:kimi-k26": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314",
+    "nanogpt:kimi-k3": "31d166abd32c8fb20628a974c700ec639dea04f04220e30d4d50a3262353fe86",
+    "nanogpt:minimax-m3": "82a57c2f138feaf51d1ebbcd9911c034951c15c236218f18d7af2f86b83a7915",
     "nanogpt:openai-compatible": "b5f441f1116067cd045c28549e9c22ea0baa952bb1ce288916f3743430a1de38",
+    "nanogpt:qwen37-max": "2ddb56156b0771c708d97d9fe6a46e70bdeee43c3be4da889f9d77160f2fc8d3",
+    "nanogpt:qwen37-plus": "a84d46bed5495dd6f8960228eef62264c3a487ffbb8d882ba343f59dc5089f10",
     "neuralwatt:glm-51": "770e62305151fbb50101fb00f6e4c296a7512fb8927bcbb638df6c31969f31eb",
     "neuralwatt:glm-52": "af1997b666e6c76117b35b3fd1ef0f17bf4d134742ef144d93cfe9a4c3e4baab",
     "neuralwatt:kimi-k25": "1821b5e1658fec6eb8b95f65cdbbed1f54383fc3c7eba3a205c4f8eda53b129f",
@@ -30944,6 +32054,7 @@
     "ollama-cloud:glm-52": "fcce797ef4993782e24b6281e359acd62aa2832e50762e33e065688c591e048d",
     "ollama-cloud:gpt-oss-120b": "6a58e05bf74d2d518ae070663199d16f94dc7c9a145020f6472139eb0b84f52a",
     "ollama-cloud:kimi-k26": "1e6520ff339f371993d6b2c31941e77c78ccacf9098ae145b9a23779de6a968a",
+    "ollama-cloud:minimax-m3": "5bb1ab3c94bf6c2aa9513ec4be0cdbef60d99f98915a5b50f99f1d536ba9f7b7",
     "ollama-cloud:standard": "d9c60f9d9eef45851f4e3a2c9c0a0fed116ac204c3ba7bab488c37949b6b27e0",
     "openai:gpt-4": "1282895d83cfb1dc8f79faf2b0bbd9152679090eae33d799fc2bd1826c1fc299",
     "openai:gpt-41-mini": "a7990bd54406d0ddf77a6b633526769670defb3d69b2259bffb78a4a2d6b8ab4",
@@ -30983,6 +32094,7 @@
     "openrouter:gemma-4-26b": "782a24a45379c4b9a94e1e9d0043d41e550cc8297544da178c3aa24e0463ff92",
     "openrouter:gemma-4-31b": "189d5411dd94a5daf1eb3e4f59d11e579666bc22f087eba76bb92b405bcad59b",
     "openrouter:glm-51": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf",
+    "openrouter:glm-52": "806581f71e1369e77e9bc7f5e7e3b85aa6c732a6b4bf35a9e646b38c5a343943",
     "openrouter:gpt-5-mini": "8ad2c720ddc768db9570be630cccd5b3603f62766160b77a1ae74bd97650bfa7",
     "openrouter:gpt-5-nano": "13d00ac52b00bfcdfd6cf656632a021bd81395efda0af91dc6ace01f361be30a",
     "openrouter:gpt-5": "8b2901a09271a95cf0c1ed04de85da924106826f2350dd1f13b842ec960e0375",
@@ -30992,8 +32104,13 @@
     "openrouter:gpt-54-nano": "ae37a60057513d84312a210d81c06e08293eecf0fc2cc0702b1da6983e2e42dd",
     "openrouter:gpt-54": "8ecd67c044a1d22506a193ab03065e29322ee7c150aa9b8be87eac2cd5a8167e",
     "openrouter:gpt-55": "5ce34e0e07e4dcaf1572812c340c5244361d85f264fa116ceaa6f8f994c1e33f",
+    "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
+    "openrouter:kimi-k3": "2939b082383e2b7add2f7862e903cd52abff9bcd0b84b6ff76d2d31dfd15de9b",
+    "openrouter:minimax-m3": "931328b2e02ea4683ad542df533d6707b37d66c3b620cd72bdaf50eb96d970fb",
     "openrouter:openai-compatible": "3c99e08637648252f92143d8ce8477e481ba29ad7ecee9f0bc48a9ce55375363",
+    "openrouter:qwen37-max": "048b06fc5e04284cdc609bf88f8a60d276e86d1b8a87e203e0c691642350722b",
+    "openrouter:qwen37-plus": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5",
     "vercel:claude-fable-5": "d1af4a46d381bc525199e2e1e5206df1b609ae0af6fa64bd1c87cb86eb683058",
     "vercel:claude-opus-46": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8",
     "vercel:claude-opus-47": "70fd5b735f5ef218011e216e61bef6d4119dedbbdc65a9028c73f42962b077f1",
@@ -31006,12 +32123,13 @@
     "vercel:gemini-3-flash": "4d40deb59800b670a48766b120a14af78ed2754ce8f230daedc8ab8ed21f48bd",
     "vercel:gemini-31-flash-lite": "95f3dc582a0c294872ffdbf88b823297dccfdc12b3fdc1096bd8e0196ed5d050",
     "vercel:gemini-31-pro": "dcb206eb0b0172661b209486ec417ee97bb42e1901a4447cd43cadcd75933d86",
-    "vercel:gemini-35-flash-lite": "735a387e54185aea9343c2a4afa2d19981781ac09ce4b5ffedee97b950d5e884",
+    "vercel:gemini-35-flash-lite": "0458d25b876282f8eb705475945902bcc714956dee5523bf5973a76d2c750132",
     "vercel:gemini-35-flash": "ccd3c66336cf78283907b909855c57ab146f57a4fe43fa2574530a1c79c2b034",
-    "vercel:gemini-36-flash": "c625e9824741478f283df514a94ecdfd5fa129fdbfebeb48b59375c450eb6e3a",
+    "vercel:gemini-36-flash": "f7b0a0c6eb4efe70869246039fa7229e9e5a0eed0363e3763778828c52a6014a",
     "vercel:gemma-4-26b": "26b10496d9d3de7dc5b02a3e05e9c062fdbc18cc29cd97b98eb22eacb4cc844a",
     "vercel:gemma-4-31b": "beda0439bad645a0a7ddc2d9c3b8c258523050338d2375f5bd5ab44eb95065eb",
     "vercel:glm-51": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859",
+    "vercel:glm-52": "7674eb94c8d00fb8db0df5462443387e858f7070810318c4b576b3802c5491c4",
     "vercel:gpt-5-mini": "e8c014841c4fe99465be2fe57916623116d1503c04ed2ab29908551ab4d462ac",
     "vercel:gpt-5-nano": "4528010ff95c651ebcef774267a42ab3e9bee0eba71975b81641bd99d329b60f",
     "vercel:gpt-5": "6c03f29ed89e78a75cd64b3f0afab0a6db14ca3993fbeed2ef52af9140821e14",
@@ -31022,8 +32140,13 @@
     "vercel:gpt-54-nano": "5e216fd7a9aaae75f934e6bd87b801c45dfcc577b649bc82fab7eec5abb123c1",
     "vercel:gpt-54": "f7c5d22cd2431b5ccbce8ff1e9a6824f90b52fa1e9580e4ab74b948a95811fef",
     "vercel:gpt-55": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6",
+    "vercel:grok-45": "9ca5aaf85bcedfa2896fee757310f26fe5445c6d7a5ff8eaafa70564cafc4350",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
+    "vercel:kimi-k3": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc",
+    "vercel:minimax-m3": "44a2731faf35a94ddec6ad856b3b1077d2937915b5479e3737ca8e9e35f6b5b3",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
+    "vercel:qwen37-max": "7cb5bae51a325a77ff45b6ad817fed17f2dca8d9163472770d642db9c3c16879",
+    "vercel:qwen37-plus": "84492c6ac4dcb865a3902eaa0a2eb0ca622859590a3d30dbe3fd796cdc425ea6",
     "vertex-gemini-native:flash": "235b65f0236c77713cf0df35df3582fc0d301f40ed28e8ae6a416a7429da46e6",
     "vertex-gemini-native:gemini-25-flash-lite": "96ac62c58a6e6b693f32cfd7232f5897dd62f429fdbab8ab5885e63e62a3d80e",
     "vertex-gemini-native:gemini-25-flash": "b2a9cb56464cead22a13963cc9de886ddedb9f8765296930a735ffa95bc59a27",

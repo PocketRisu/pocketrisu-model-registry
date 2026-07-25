@@ -46,11 +46,11 @@
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1048576,
+    "contextWindowTokens": 1000000,
     "sourceUrls": [
       "https://ai-gateway.vercel.sh/v1/models"
     ],
-    "maxOutputTokens": 65536
+    "maxOutputTokens": 64000
   },
   "recommendedTokenizer": "gemma",
   "profileStatus": "current"

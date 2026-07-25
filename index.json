@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "40db5f1f74a696865433961e134627d03e4383ee6a92f42af979be1ef83c2728",
+  "hash": "70c3dde287acd70506bf1e08807edc634ecdc7dfae5b1b6b87f04df0fed127e8",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -425,9 +425,19 @@
       "hash": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb"
     },
     {
+      "id": "nanogpt:glm-52",
+      "url": "profiles/nanogpt/glm-52.json",
+      "hash": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846"
+    },
+    {
       "id": "nanogpt:gpt-oss-120b",
       "url": "profiles/nanogpt/gpt-oss-120b.json",
       "hash": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215"
+    },
+    {
+      "id": "nanogpt:grok-45",
+      "url": "profiles/nanogpt/grok-45.json",
+      "hash": "75052304082513093d01f32650911cc9900abf7bd2438ff7fa303d08e9186d06"
     },
     {
       "id": "nanogpt:kimi-k26",
@@ -435,9 +445,29 @@
       "hash": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314"
     },
     {
+      "id": "nanogpt:kimi-k3",
+      "url": "profiles/nanogpt/kimi-k3.json",
+      "hash": "31d166abd32c8fb20628a974c700ec639dea04f04220e30d4d50a3262353fe86"
+    },
+    {
+      "id": "nanogpt:minimax-m3",
+      "url": "profiles/nanogpt/minimax-m3.json",
+      "hash": "82a57c2f138feaf51d1ebbcd9911c034951c15c236218f18d7af2f86b83a7915"
+    },
+    {
       "id": "nanogpt:openai-compatible",
       "url": "profiles/nanogpt/openai-compatible.json",
       "hash": "b5f441f1116067cd045c28549e9c22ea0baa952bb1ce288916f3743430a1de38"
+    },
+    {
+      "id": "nanogpt:qwen37-max",
+      "url": "profiles/nanogpt/qwen37-max.json",
+      "hash": "2ddb56156b0771c708d97d9fe6a46e70bdeee43c3be4da889f9d77160f2fc8d3"
+    },
+    {
+      "id": "nanogpt:qwen37-plus",
+      "url": "profiles/nanogpt/qwen37-plus.json",
+      "hash": "a84d46bed5495dd6f8960228eef62264c3a487ffbb8d882ba343f59dc5089f10"
     },
     {
       "id": "neuralwatt:glm-51",
@@ -523,6 +553,11 @@
       "id": "ollama-cloud:kimi-k26",
       "url": "profiles/ollama-cloud/kimi-k26.json",
       "hash": "1e6520ff339f371993d6b2c31941e77c78ccacf9098ae145b9a23779de6a968a"
+    },
+    {
+      "id": "ollama-cloud:minimax-m3",
+      "url": "profiles/ollama-cloud/minimax-m3.json",
+      "hash": "5bb1ab3c94bf6c2aa9513ec4be0cdbef60d99f98915a5b50f99f1d536ba9f7b7"
     },
     {
       "id": "ollama-cloud:standard",
@@ -720,6 +755,11 @@
       "hash": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf"
     },
     {
+      "id": "openrouter:glm-52",
+      "url": "profiles/openrouter/glm-52.json",
+      "hash": "806581f71e1369e77e9bc7f5e7e3b85aa6c732a6b4bf35a9e646b38c5a343943"
+    },
+    {
       "id": "openrouter:gpt-5-mini",
       "url": "profiles/openrouter/gpt-5-mini.json",
       "hash": "8ad2c720ddc768db9570be630cccd5b3603f62766160b77a1ae74bd97650bfa7"
@@ -765,14 +805,39 @@
       "hash": "5ce34e0e07e4dcaf1572812c340c5244361d85f264fa116ceaa6f8f994c1e33f"
     },
     {
+      "id": "openrouter:grok-45",
+      "url": "profiles/openrouter/grok-45.json",
+      "hash": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540"
+    },
+    {
       "id": "openrouter:kimi-k26",
       "url": "profiles/openrouter/kimi-k26.json",
       "hash": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324"
     },
     {
+      "id": "openrouter:kimi-k3",
+      "url": "profiles/openrouter/kimi-k3.json",
+      "hash": "2939b082383e2b7add2f7862e903cd52abff9bcd0b84b6ff76d2d31dfd15de9b"
+    },
+    {
+      "id": "openrouter:minimax-m3",
+      "url": "profiles/openrouter/minimax-m3.json",
+      "hash": "931328b2e02ea4683ad542df533d6707b37d66c3b620cd72bdaf50eb96d970fb"
+    },
+    {
       "id": "openrouter:openai-compatible",
       "url": "profiles/openrouter/openai-compatible.json",
       "hash": "3c99e08637648252f92143d8ce8477e481ba29ad7ecee9f0bc48a9ce55375363"
+    },
+    {
+      "id": "openrouter:qwen37-max",
+      "url": "profiles/openrouter/qwen37-max.json",
+      "hash": "048b06fc5e04284cdc609bf88f8a60d276e86d1b8a87e203e0c691642350722b"
+    },
+    {
+      "id": "openrouter:qwen37-plus",
+      "url": "profiles/openrouter/qwen37-plus.json",
+      "hash": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5"
     },
     {
       "id": "vercel:claude-fable-5",
@@ -837,7 +902,7 @@
     {
       "id": "vercel:gemini-35-flash-lite",
       "url": "profiles/vercel/gemini-35-flash-lite.json",
-      "hash": "735a387e54185aea9343c2a4afa2d19981781ac09ce4b5ffedee97b950d5e884"
+      "hash": "0458d25b876282f8eb705475945902bcc714956dee5523bf5973a76d2c750132"
     },
     {
       "id": "vercel:gemini-35-flash",
@@ -847,7 +912,7 @@
     {
       "id": "vercel:gemini-36-flash",
       "url": "profiles/vercel/gemini-36-flash.json",
-      "hash": "c625e9824741478f283df514a94ecdfd5fa129fdbfebeb48b59375c450eb6e3a"
+      "hash": "f7b0a0c6eb4efe70869246039fa7229e9e5a0eed0363e3763778828c52a6014a"
     },
     {
       "id": "vercel:gemma-4-26b",
@@ -863,6 +928,11 @@
       "id": "vercel:glm-51",
       "url": "profiles/vercel/glm-51.json",
       "hash": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859"
+    },
+    {
+      "id": "vercel:glm-52",
+      "url": "profiles/vercel/glm-52.json",
+      "hash": "7674eb94c8d00fb8db0df5462443387e858f7070810318c4b576b3802c5491c4"
     },
     {
       "id": "vercel:gpt-5-mini",
@@ -915,14 +985,39 @@
       "hash": "ab08f39cc76eb7fcf39d2f37dbebd75c7be9a7f16b32913c119a385ca6f410a6"
     },
     {
+      "id": "vercel:grok-45",
+      "url": "profiles/vercel/grok-45.json",
+      "hash": "9ca5aaf85bcedfa2896fee757310f26fe5445c6d7a5ff8eaafa70564cafc4350"
+    },
+    {
       "id": "vercel:kimi-k26",
       "url": "profiles/vercel/kimi-k26.json",
       "hash": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea"
     },
     {
+      "id": "vercel:kimi-k3",
+      "url": "profiles/vercel/kimi-k3.json",
+      "hash": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc"
+    },
+    {
+      "id": "vercel:minimax-m3",
+      "url": "profiles/vercel/minimax-m3.json",
+      "hash": "44a2731faf35a94ddec6ad856b3b1077d2937915b5479e3737ca8e9e35f6b5b3"
+    },
+    {
       "id": "vercel:openai-compatible",
       "url": "profiles/vercel/openai-compatible.json",
       "hash": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd"
+    },
+    {
+      "id": "vercel:qwen37-max",
+      "url": "profiles/vercel/qwen37-max.json",
+      "hash": "7cb5bae51a325a77ff45b6ad817fed17f2dca8d9163472770d642db9c3c16879"
+    },
+    {
+      "id": "vercel:qwen37-plus",
+      "url": "profiles/vercel/qwen37-plus.json",
+      "hash": "84492c6ac4dcb865a3902eaa0a2eb0ca622859590a3d30dbe3fd796cdc425ea6"
     },
     {
       "id": "vertex-gemini-native:flash",

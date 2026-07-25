@@ -1,22 +1,22 @@
 {
-  "id": "vercel:gemini-35-flash-lite",
+  "id": "vercel:grok-45",
   "version": 1,
-  "updatedAt": 1784964633000,
-  "displayName": "Gemini 3.5 Flash-Lite",
+  "updatedAt": 1784964727000,
+  "displayName": "Grok 4.5",
   "displayNameI18n": {
-    "ko": "Gemini 3.5 Flash-Lite"
+    "ko": "Grok 4.5"
   },
   "providerBaseId": "vercel",
-  "description": "Gemini 3.5 Flash-Lite via Vercel AI Gateway (google/gemini-3.5-flash-lite).",
+  "description": "Grok 4.5 via Vercel AI Gateway (xai/grok-4.5).",
   "descriptionI18n": {
-    "ko": "Gemini 3.5 Flash-Lite (Vercel AI Gateway, google/gemini-3.5-flash-lite)."
+    "ko": "Grok 4.5 (Vercel AI Gateway, xai/grok-4.5)."
   },
   "tags": [
     "vercel",
-    "gemini"
+    "grok"
   ],
-  "sortOrder": 575,
-  "modelId": "google/gemini-3.5-flash-lite",
+  "sortOrder": 579,
+  "modelId": "xai/grok-4.5",
   "endpoint": {
     "kind": "static",
     "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
@@ -46,12 +46,12 @@
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1000000,
+    "contextWindowTokens": 500000,
     "sourceUrls": [
       "https://ai-gateway.vercel.sh/v1/models"
     ],
-    "maxOutputTokens": 65000
+    "maxOutputTokens": 500000
   },
-  "recommendedTokenizer": "gemma",
+  "recommendedTokenizer": "tik",
   "profileStatus": "current"
 }

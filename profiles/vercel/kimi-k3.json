@@ -1,22 +1,22 @@
 {
-  "id": "vercel:gemini-35-flash-lite",
+  "id": "vercel:kimi-k3",
   "version": 1,
-  "updatedAt": 1784964633000,
-  "displayName": "Gemini 3.5 Flash-Lite",
+  "updatedAt": 1784964727000,
+  "displayName": "Kimi K3",
   "displayNameI18n": {
-    "ko": "Gemini 3.5 Flash-Lite"
+    "ko": "Kimi K3"
   },
   "providerBaseId": "vercel",
-  "description": "Gemini 3.5 Flash-Lite via Vercel AI Gateway (google/gemini-3.5-flash-lite).",
+  "description": "Kimi K3 via Vercel AI Gateway (moonshotai/kimi-k3).",
   "descriptionI18n": {
-    "ko": "Gemini 3.5 Flash-Lite (Vercel AI Gateway, google/gemini-3.5-flash-lite)."
+    "ko": "Kimi K3 (Vercel AI Gateway, moonshotai/kimi-k3)."
   },
   "tags": [
     "vercel",
-    "gemini"
+    "kimi"
   ],
-  "sortOrder": 575,
-  "modelId": "google/gemini-3.5-flash-lite",
+  "sortOrder": 576,
+  "modelId": "moonshotai/kimi-k3",
   "endpoint": {
     "kind": "static",
     "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
@@ -50,8 +50,8 @@
     "sourceUrls": [
       "https://ai-gateway.vercel.sh/v1/models"
     ],
-    "maxOutputTokens": 65000
+    "maxOutputTokens": 131072
   },
-  "recommendedTokenizer": "gemma",
+  "recommendedTokenizer": "tik",
   "profileStatus": "current"
 }

@@ -1,22 +1,22 @@
 {
-  "id": "vercel:gemini-35-flash-lite",
+  "id": "vercel:glm-52",
   "version": 1,
-  "updatedAt": 1784964633000,
-  "displayName": "Gemini 3.5 Flash-Lite",
+  "updatedAt": 1784964727000,
+  "displayName": "GLM 5.2",
   "displayNameI18n": {
-    "ko": "Gemini 3.5 Flash-Lite"
+    "ko": "GLM 5.2"
   },
   "providerBaseId": "vercel",
-  "description": "Gemini 3.5 Flash-Lite via Vercel AI Gateway (google/gemini-3.5-flash-lite).",
+  "description": "GLM 5.2 via Vercel AI Gateway (zai/glm-5.2).",
   "descriptionI18n": {
-    "ko": "Gemini 3.5 Flash-Lite (Vercel AI Gateway, google/gemini-3.5-flash-lite)."
+    "ko": "GLM 5.2 (Vercel AI Gateway, zai/glm-5.2)."
   },
   "tags": [
     "vercel",
-    "gemini"
+    "glm"
   ],
-  "sortOrder": 575,
-  "modelId": "google/gemini-3.5-flash-lite",
+  "sortOrder": 577,
+  "modelId": "zai/glm-5.2",
   "endpoint": {
     "kind": "static",
     "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
@@ -36,7 +36,6 @@
   "capabilities": [
     "streaming",
     "reasoning",
-    "vision",
     "tools",
     "json"
   ],
@@ -46,12 +45,12 @@
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 1000000,
+    "contextWindowTokens": 1040000,
     "sourceUrls": [
       "https://ai-gateway.vercel.sh/v1/models"
     ],
-    "maxOutputTokens": 65000
+    "maxOutputTokens": 128000
   },
-  "recommendedTokenizer": "gemma",
+  "recommendedTokenizer": "tik",
   "profileStatus": "current"
 }
