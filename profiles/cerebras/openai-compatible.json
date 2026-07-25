@@ -1,23 +1,22 @@
 {
-  "id": "cerebras:zai-glm-47",
-  "version": 2,
+  "id": "cerebras:openai-compatible",
+  "version": 1,
   "updatedAt": 1784964211000,
-  "displayName": "Z.ai GLM 4.7",
+  "displayName": "Cerebras",
   "displayNameI18n": {
-    "ko": "Z.ai GLM 4.7"
+    "ko": "Cerebras"
   },
   "providerBaseId": "cerebras",
-  "description": "Z.ai GLM 4.7 via Cerebras Inference.",
+  "description": "Cerebras Inference via OpenAI-compatible API. Enter any model ID listed at GET https://api.cerebras.ai/public/v1/models.",
   "descriptionI18n": {
-    "ko": "Cerebras Inference의 Z.ai GLM 4.7."
+    "ko": "OpenAI 호환 API를 통한 Cerebras Inference. https://api.cerebras.ai/public/v1/models 에 나열된 모델 ID를 입력하세요."
   },
   "tags": [
     "cerebras",
-    "glm",
-    "reasoning"
+    "openai-compatible"
   ],
-  "sortOrder": 561,
-  "modelId": "zai-glm-4.7",
+  "sortOrder": 559,
+  "modelId": "",
   "endpoint": {
     "kind": "static",
     "url": "https://api.cerebras.ai/v1/chat/completions"
@@ -40,6 +39,14 @@
         {
           "value": "zai-glm-4.7",
           "label": "Z.ai GLM 4.7"
+        },
+        {
+          "value": "gpt-oss-120b",
+          "label": "OpenAI GPT OSS 120B"
+        },
+        {
+          "value": "gemma-4-31b",
+          "label": "Gemma 4 31B"
         }
       ],
       "mapsTo": {
@@ -87,39 +94,6 @@
       "default": 8192
     },
     {
-      "key": "reasoning_effort",
-      "type": "string",
-      "label": "Reasoning Effort",
-      "description": "Set to none to disable reasoning for Z.ai GLM 4.7.",
-      "enum": [
-        {
-          "value": "none",
-          "label": "None"
-        }
-      ],
-      "mapsTo": {
-        "target": "body",
-        "path": "reasoning_effort"
-      },
-      "descriptionI18n": {
-        "ko": "Z.ai GLM 4.7의 reasoning을 끄려면 none으로 설정하세요."
-      }
-    },
-    {
-      "key": "clear_thinking",
-      "type": "boolean",
-      "label": "Clear Thinking",
-      "description": "Exclude thinking from previous turns. Cerebras defaults to true when omitted.",
-      "default": true,
-      "mapsTo": {
-        "target": "body",
-        "path": "clear_thinking"
-      },
-      "descriptionI18n": {
-        "ko": "이전 턴의 thinking 내용을 제외합니다. 생략 시 Cerebras 기본값은 true입니다."
-      }
-    },
-    {
       "key": "frequency_penalty",
       "type": "number",
       "label": "Frequency Penalty",
@@ -160,35 +134,6 @@
         "target": "body",
         "path": "seed"
       }
-    },
-    {
-      "key": "response_format",
-      "type": "string",
-      "label": "Response Format",
-      "enum": [
-        {
-          "value": "text",
-          "label": "Text"
-        },
-        {
-          "value": "json_object",
-          "label": "JSON object"
-        }
-      ],
-      "mapsTo": {
-        "target": "body",
-        "path": "response_format.type"
-      }
-    },
-    {
-      "key": "parallel_tool_calls",
-      "type": "boolean",
-      "label": "Parallel Tool Calls",
-      "default": true,
-      "mapsTo": {
-        "target": "body",
-        "path": "parallel_tool_calls"
-      }
     }
   ],
   "uiSchema": {
@@ -215,22 +160,6 @@
         "order": 3,
         "labelI18n": {
           "ko": "생성"
-        }
-      },
-      {
-        "id": "reasoning",
-        "label": "Reasoning",
-        "order": 4,
-        "labelI18n": {
-          "ko": "추론"
-        }
-      },
-      {
-        "id": "output",
-        "label": "Output",
-        "order": 5,
-        "labelI18n": {
-          "ko": "출력"
         }
       }
     ],
@@ -261,20 +190,6 @@
         "widget": "slider",
         "visibility": "basic",
         "group": "generation",
-        "order": 2
-      },
-      {
-        "key": "reasoning_effort",
-        "widget": "combobox",
-        "visibility": "basic",
-        "group": "reasoning",
-        "order": 1
-      },
-      {
-        "key": "clear_thinking",
-        "widget": "toggle",
-        "visibility": "advanced",
-        "group": "reasoning",
         "order": 2
       },
       {
@@ -311,46 +226,17 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 7
-      },
-      {
-        "key": "response_format",
-        "widget": "select",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 1
-      },
-      {
-        "key": "parallel_tool_calls",
-        "widget": "toggle",
-        "visibility": "advanced",
-        "group": "output",
-        "order": 2
       }
     ]
   },
   "capabilities": [
-    "streaming",
-    "reasoning",
-    "tools",
-    "json"
+    "streaming"
   ],
-  "limits": {
-    "known": true,
-    "contextWindowTokens": 131072,
-    "maxOutputTokens": 40960,
-    "sourceUrls": [
-      "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
-    ]
-  },
+  "recommendedTokenizer": "tik",
   "sourceUrls": [
     "https://inference-docs.cerebras.ai/api-reference/chat-completions",
     "https://inference-docs.cerebras.ai/api-reference/models/public-models",
-    "https://inference-docs.cerebras.ai/resources/glm-47-migration",
-    "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
+    "https://api.cerebras.ai/public/v1/models"
   ],
-  "profileStatus": "current",
-  "statusReason": "Cerebras lists zai-glm-4.7 as a preview model (preview: true in GET /public/v1/models); availability and pricing may change.",
-  "statusSourceUrls": [
-    "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
-  ]
+  "profileStatus": "current"
 }

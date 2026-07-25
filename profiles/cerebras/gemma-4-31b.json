@@ -1,7 +1,7 @@
 {
   "id": "cerebras:gemma-4-31b",
-  "version": 1,
-  "updatedAt": 1783010768533,
+  "version": 2,
+  "updatedAt": 1784964211000,
   "displayName": "Gemma 4 31B",
   "displayNameI18n": {
     "ko": "Gemma 4 31B"
@@ -78,12 +78,12 @@
       "type": "integer",
       "label": "Max Completion Tokens",
       "min": 1,
-      "max": 4096,
+      "max": 40960,
       "mapsTo": {
         "target": "body",
         "path": "max_completion_tokens"
       },
-      "default": 4096
+      "default": 8192
     },
     {
       "key": "stop",
@@ -184,12 +184,16 @@
     ]
   },
   "capabilities": [
-    "streaming"
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 8192,
-    "maxOutputTokens": 4096,
+    "contextWindowTokens": 131072,
+    "maxOutputTokens": 40960,
     "sourceUrls": [
       "https://api.cerebras.ai/public/v1/models/gemma-4-31b"
     ]
