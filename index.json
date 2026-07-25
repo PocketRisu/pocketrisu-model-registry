@@ -1,11 +1,11 @@
 {
   "schemaVersion": 4,
-  "hash": "7f4ee061dad16d43b1fbc633ce4239c5e825101672e00d9ead8fca33c8f35c09",
+  "hash": "4ee8d803b430840e1da07e553f8729605635504e3d83d00fdc09c32dfb891024",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
       "url": "base-providers/anthropic-compatible.json",
-      "hash": "5b3411980241df9e6bccaf8b6c1455a6e4524ff97229198cebfce8fe609835a9"
+      "hash": "2cb1f0bdc5aab0d823a24cc42eb0bdfaa39b0c9d0f4ac5d01bd2a21a81db6c9e"
     },
     {
       "id": "anthropic",
@@ -122,7 +122,7 @@
     {
       "id": "anthropic:opus-41",
       "url": "profiles/anthropic/opus-41.json",
-      "hash": "a7a68ca2240f421dc55ea743e76e6c2faa972beae61df60073f19a8db3f53273"
+      "hash": "b0c3086804bcbd2b918d11641caed9f9ac02cbbac1248a46897ead68115a708c"
     },
     {
       "id": "anthropic:opus-45",
@@ -132,17 +132,22 @@
     {
       "id": "anthropic:opus-46",
       "url": "profiles/anthropic/opus-46.json",
-      "hash": "780591b9a74699ec67b1740d01ceea90dbaaad13dbb12115d4d2f9fb03b921c7"
+      "hash": "bc365f4691f8437253603d5d899bd8df859e692505449d1c19fa01f13e24e42b"
     },
     {
       "id": "anthropic:opus-47",
       "url": "profiles/anthropic/opus-47.json",
-      "hash": "582476366d25b70060f4b7e332b830c485ee03837ab85b4529ccad5186cc1b5e"
+      "hash": "e23472d98d1ca92acd50789deb809dd9e89655027a8d5f589640f7db56758e71"
     },
     {
       "id": "anthropic:opus-48",
       "url": "profiles/anthropic/opus-48.json",
       "hash": "d68949028518b236fab1974c05a079f46514ef951149536f9003c5cefb67082e"
+    },
+    {
+      "id": "anthropic:opus-5",
+      "url": "profiles/anthropic/opus-5.json",
+      "hash": "dd968dad6d09991f3745e82eebac7efbe6ff6c79a556c67f22cb29c0fdf0f135"
     },
     {
       "id": "anthropic:sonnet-4",
@@ -160,14 +165,19 @@
       "hash": "619d57b44a4144274c892436461f8de3441ea33b622c1caac9fce7d797bb3c65"
     },
     {
+      "id": "anthropic:sonnet-5",
+      "url": "profiles/anthropic/sonnet-5.json",
+      "hash": "afccde0f027967581c45b2d138922f8d8bd46e756dee0e9f07ff10ab2d6c6843"
+    },
+    {
       "id": "anthropic-compatible:custom-noauth",
       "url": "profiles/anthropic-compatible/custom-noauth.json",
-      "hash": "0ee287bb68d8f1f1c22c167c6ac3f13645e0681f1e55d90f96a945cd47fd087f"
+      "hash": "b8a18521ca140d4bb7a9e5339bfb7205ddf5367f69e2b9a0513b3b376b46f1e8"
     },
     {
       "id": "anthropic-compatible:custom",
       "url": "profiles/anthropic-compatible/custom.json",
-      "hash": "435a340b16c350035921832e92d61f464a9f731c9344dbc39dcc9bcdec70fffd"
+      "hash": "b4165f9c0520ac0716b6bdba13dc0ea69fd08f1f5e6b7b4d2ce527a1a0cf4f30"
     },
     {
       "id": "bedrock:openai-compatible",
@@ -368,6 +378,11 @@
       "id": "lightning-ai:openai-compatible",
       "url": "profiles/lightning-ai/openai-compatible.json",
       "hash": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20"
+    },
+    {
+      "id": "nanogpt:claude-sonnet-5",
+      "url": "profiles/nanogpt/claude-sonnet-5.json",
+      "hash": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3"
     },
     {
       "id": "nanogpt:deepseek-v4-flash",
@@ -602,12 +617,12 @@
     {
       "id": "openrouter:claude-opus-46",
       "url": "profiles/openrouter/claude-opus-46.json",
-      "hash": "b2159b499d6853fe6ea6f00f1316d0f7c9ec1bcc68580f70f5e28af09d35cead"
+      "hash": "192f76ad5e996fffe223e7c986f1ec17cb5a8504a6c0cf4582744d44480fe6ab"
     },
     {
       "id": "openrouter:claude-opus-47",
       "url": "profiles/openrouter/claude-opus-47.json",
-      "hash": "960ff7b11f07d3c046ea8e2a83db4116f334820a27575844bf6b6a57ed9ed6b5"
+      "hash": "1b286c74916ee02e11c7bf347e5d53c6bf9d92e46bd750d2719a3dcf933177fe"
     },
     {
       "id": "openrouter:claude-opus-48",
@@ -615,9 +630,19 @@
       "hash": "0c47f98b04fad721eae43528433bf2d46a960dbcdee7fd45f6fc8f186f192c03"
     },
     {
+      "id": "openrouter:claude-opus-5",
+      "url": "profiles/openrouter/claude-opus-5.json",
+      "hash": "495acf4501c42eb3445131d644daf0f17249bbef5de68efad7e4400a073ccf4e"
+    },
+    {
       "id": "openrouter:claude-sonnet-46",
       "url": "profiles/openrouter/claude-sonnet-46.json",
       "hash": "1f0ca08b48f85038ddb6c450603f824735262fd337ad9bbe9209fea57d249e4c"
+    },
+    {
+      "id": "openrouter:claude-sonnet-5",
+      "url": "profiles/openrouter/claude-sonnet-5.json",
+      "hash": "b9b450ba52ddc6ed5632d7e7d9473c87f236515978dd9900de6432c1a27d4eed"
     },
     {
       "id": "openrouter:deepseek-v4-flash",
@@ -727,12 +752,12 @@
     {
       "id": "vercel:claude-opus-46",
       "url": "profiles/vercel/claude-opus-46.json",
-      "hash": "eedc0c12cea9a1420e93c7193fb3839bfa7db5d4ef7abce2f98228f7ece1f1bb"
+      "hash": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8"
     },
     {
       "id": "vercel:claude-opus-47",
       "url": "profiles/vercel/claude-opus-47.json",
-      "hash": "1b196beb9674c9801fdcb50f57342c7988f89edeb34b46820d4cc7b573b5ed1b"
+      "hash": "70fd5b735f5ef218011e216e61bef6d4119dedbbdc65a9028c73f42962b077f1"
     },
     {
       "id": "vercel:claude-opus-48",
@@ -740,9 +765,19 @@
       "hash": "aca9e7b7d12a1806fa53812d5dfb11ba21cf4fd7d65a660119b7d28f294329f4"
     },
     {
+      "id": "vercel:claude-opus-5",
+      "url": "profiles/vercel/claude-opus-5.json",
+      "hash": "8804fbbdbc5a65fdf4c0e50a0600d0cdbc4ea1c67a6f6ebaaa8d5353486352b6"
+    },
+    {
       "id": "vercel:claude-sonnet-46",
       "url": "profiles/vercel/claude-sonnet-46.json",
       "hash": "b71bf8eb5567150bbeaa8d6d1eef23be8d8b3715ee097d3fb434738ee08918b3"
+    },
+    {
+      "id": "vercel:claude-sonnet-5",
+      "url": "profiles/vercel/claude-sonnet-5.json",
+      "hash": "4d6e95f1fa91cb1c87ec901078e0fdbe12bf63f62f8cff8eb8d16ef60f0e0bc7"
     },
     {
       "id": "vercel:deepseek-v4-flash",

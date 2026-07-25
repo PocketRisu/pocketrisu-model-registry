@@ -1,22 +1,22 @@
 {
-  "id": "vercel:claude-opus-46",
-  "version": 2,
-  "updatedAt": 1784964534000,
-  "displayName": "Claude Opus 4.6",
+  "id": "vercel:claude-opus-5",
+  "version": 1,
+  "updatedAt": 1784964519000,
+  "displayName": "Claude Opus 5",
   "displayNameI18n": {
-    "ko": "Claude Opus 4.6"
+    "ko": "Claude Opus 5"
   },
   "providerBaseId": "vercel",
-  "description": "Claude Opus 4.6 via Vercel AI Gateway (anthropic/claude-opus-4.6).",
+  "description": "Claude Opus 5 via Vercel AI Gateway (anthropic/claude-opus-5).",
   "descriptionI18n": {
-    "ko": "Claude Opus 4.6 (Vercel AI Gateway, anthropic/claude-opus-4.6)."
+    "ko": "Claude Opus 5 (Vercel AI Gateway, anthropic/claude-opus-5)."
   },
   "tags": [
     "vercel",
     "claude"
   ],
-  "sortOrder": 560,
-  "modelId": "anthropic/claude-opus-4.6",
+  "sortOrder": 572,
+  "modelId": "anthropic/claude-opus-5",
   "endpoint": {
     "kind": "static",
     "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
@@ -53,5 +53,5 @@
     "maxOutputTokens": 128000
   },
   "recommendedTokenizer": "claude",
-  "profileStatus": "outdated"
+  "profileStatus": "current"
 }

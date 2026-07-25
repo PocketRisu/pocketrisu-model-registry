@@ -1,22 +1,22 @@
 {
-  "id": "openrouter:claude-opus-46",
-  "version": 2,
-  "updatedAt": 1784964534000,
-  "displayName": "Claude Opus 4.6",
+  "id": "openrouter:claude-sonnet-5",
+  "version": 1,
+  "updatedAt": 1784964519000,
+  "displayName": "Claude Sonnet 5",
   "displayNameI18n": {
-    "ko": "Claude Opus 4.6"
+    "ko": "Claude Sonnet 5"
   },
   "providerBaseId": "openrouter",
-  "description": "Claude Opus 4.6 via OpenRouter (anthropic/claude-opus-4.6).",
+  "description": "Claude Sonnet 5 via OpenRouter (anthropic/claude-sonnet-5).",
   "descriptionI18n": {
-    "ko": "Claude Opus 4.6 (OpenRouter, anthropic/claude-opus-4.6)."
+    "ko": "Claude Sonnet 5 (OpenRouter, anthropic/claude-sonnet-5)."
   },
   "tags": [
     "openrouter",
     "claude"
   ],
-  "sortOrder": 521,
-  "modelId": "anthropic/claude-opus-4.6",
+  "sortOrder": 534,
+  "modelId": "anthropic/claude-sonnet-5",
   "endpoint": {
     "kind": "static",
     "url": "https://openrouter.ai/api/v1/chat/completions"
@@ -53,5 +53,5 @@
     "maxOutputTokens": 128000
   },
   "recommendedTokenizer": "claude",
-  "profileStatus": "outdated"
+  "profileStatus": "current"
 }
