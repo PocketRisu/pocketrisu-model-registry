@@ -1,6 +1,6 @@
 {
   "id": "google:gemini-35-flash-lite",
-  "version": 1,
+  "version": 2,
   "displayName": "Gemini 3.5 Flash-Lite",
   "displayNameI18n": {
     "ko": "Gemini 3.5 Flash-Lite"
@@ -18,7 +18,7 @@
   ],
   "sortOrder": 299,
   "modelId": "gemini-3.5-flash-lite",
-  "updatedAt": 1784964581000,
+  "updatedAt": 1786685377000,
   "endpoint": {
     "kind": "static",
     "url": "https://generativelanguage.googleapis.com/v1beta/models"
@@ -114,30 +114,6 @@
       "mapsTo": {
         "target": "body",
         "path": "generationConfig.seed"
-      }
-    },
-    {
-      "key": "presencePenalty",
-      "type": "number",
-      "label": "Presence Penalty",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": {
-        "target": "body",
-        "path": "generationConfig.presencePenalty"
-      }
-    },
-    {
-      "key": "frequencyPenalty",
-      "type": "number",
-      "label": "Frequency Penalty",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": {
-        "target": "body",
-        "path": "generationConfig.frequencyPenalty"
       }
     },
     {
@@ -335,20 +311,6 @@
         "visibility": "advanced",
         "group": "generation",
         "order": 6
-      },
-      {
-        "key": "presencePenalty",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 7
-      },
-      {
-        "key": "frequencyPenalty",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 8
       },
       {
         "key": "thinkingLevel",

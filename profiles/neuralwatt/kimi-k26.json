@@ -1,15 +1,15 @@
 {
   "id": "neuralwatt:kimi-k26",
-  "version": 1,
-  "updatedAt": 1781835416168,
+  "version": 2,
+  "updatedAt": 1786685377000,
   "displayName": "Kimi K2.6",
   "displayNameI18n": {
     "ko": "Kimi K2.6"
   },
   "providerBaseId": "neuralwatt",
-  "description": "Kimi K2.6 via NeuralWatt (kimi-k2.6). Use kimi-k2.6-fast for the non-thinking tier.",
+  "description": "Kimi K2.6 via NeuralWatt (kimi-k2.6). Use kimi-k2.6-fast for the non-thinking tier. No longer served by NeuralWatt.",
   "descriptionI18n": {
-    "ko": "Kimi K2.6 (NeuralWatt, kimi-k2.6). non-thinking은 kimi-k2.6-fast 사용."
+    "ko": "Kimi K2.6 (NeuralWatt, kimi-k2.6). non-thinking은 kimi-k2.6-fast 사용. NeuralWatt에서 더 이상 제공하지 않습니다."
   },
   "tags": [
     "neuralwatt",
@@ -56,5 +56,5 @@
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "deprecated"
 }

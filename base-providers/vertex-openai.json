@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 6,
+  "version": 7,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -65,6 +65,10 @@
       "description": "Vertex OpenAI-compatible model id.",
       "required": true,
       "enum": [
+        {
+          "value": "google/gemini-3.7-flash",
+          "label": "Gemini 3.7 Flash"
+        },
         {
           "value": "google/gemini-3.6-flash",
           "label": "Gemini 3.6 Flash"

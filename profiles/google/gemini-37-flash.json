@@ -1,14 +1,14 @@
 {
-  "id": "google:gemini-36-flash",
-  "version": 2,
-  "displayName": "Gemini 3.6 Flash",
+  "id": "google:gemini-37-flash",
+  "version": 1,
+  "displayName": "Gemini 3.7 Flash",
   "displayNameI18n": {
-    "ko": "Gemini 3.6 Flash"
+    "ko": "Gemini 3.7 Flash"
   },
   "providerBaseId": "google",
-  "description": "Gemini 3.6 Flash via Google AI Studio (generateContent).",
+  "description": "Gemini 3.7 Flash via Google AI Studio (generateContent).",
   "descriptionI18n": {
-    "ko": "Gemini 3.6 Flash (Google AI Studio, generateContent)."
+    "ko": "Gemini 3.7 Flash (Google AI Studio, generateContent)."
   },
   "tags": [
     "google",
@@ -16,8 +16,8 @@
     "reasoning",
     "vision"
   ],
-  "sortOrder": 298,
-  "modelId": "gemini-3.6-flash",
+  "sortOrder": 297,
+  "modelId": "gemini-3.7-flash",
   "updatedAt": 1786685377000,
   "endpoint": {
     "kind": "static",
@@ -39,8 +39,8 @@
       "required": true,
       "enum": [
         {
-          "value": "gemini-3.6-flash",
-          "label": "Gemini 3.6 Flash"
+          "value": "gemini-3.7-flash",
+          "label": "Gemini 3.7 Flash"
         }
       ],
       "mapsTo": {
@@ -121,10 +121,6 @@
       "type": "string",
       "label": "Thinking Level",
       "enum": [
-        {
-          "value": "minimal",
-          "label": "Minimal"
-        },
         {
           "value": "low",
           "label": "Low"
@@ -376,7 +372,8 @@
     "cache"
   ],
   "sourceUrls": [
-    "https://ai.google.dev/gemini-api/docs/models",
+    "https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash",
+    "https://ai.google.dev/gemini-api/docs/latest-model",
     "https://ai.google.dev/api/generate-content"
   ],
   "limits": {
@@ -384,7 +381,7 @@
     "contextWindowTokens": 1048576,
     "maxOutputTokens": 65536,
     "sourceUrls": [
-      "https://generativelanguage.googleapis.com/v1beta/models"
+      "https://ai.google.dev/gemini-api/docs/models/gemini-3.7-flash"
     ]
   },
   "recommendedTokenizer": "gemma",

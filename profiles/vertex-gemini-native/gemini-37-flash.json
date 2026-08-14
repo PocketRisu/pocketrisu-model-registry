@@ -1,11 +1,11 @@
 {
-  "id": "vertex-gemini-native:gemini-35-flash-lite",
-  "version": 2,
+  "id": "vertex-gemini-native:gemini-37-flash",
+  "version": 1,
   "updatedAt": 1786685377000,
-  "displayName": "Vertex AI - Gemini 3.5 Flash-Lite",
+  "displayName": "Vertex AI - Gemini 3.7 Flash",
   "providerBaseId": "vertex-gemini-native",
-  "description": "Gemini 3.5 Flash-Lite on Vertex AI (native generateContent).",
-  "modelId": "gemini-3.5-flash-lite",
+  "description": "Gemini 3.7 Flash on Vertex AI (native generateContent).",
+  "modelId": "gemini-3.7-flash",
   "endpoint": {
     "kind": "vertex-gemini"
   },
@@ -55,12 +55,12 @@
     "reasoning",
     "vision"
   ],
-  "sortOrder": 840,
+  "sortOrder": 841,
   "displayNameI18n": {
-    "ko": "Vertex AI - Gemini 3.5 Flash-Lite"
+    "ko": "Vertex AI - Gemini 3.7 Flash"
   },
   "descriptionI18n": {
-    "ko": "Vertex AI의 Gemini 3.5 Flash-Lite (네이티브 generateContent)."
+    "ko": "Vertex AI의 Gemini 3.7 Flash (네이티브 generateContent)."
   },
   "recommendedTokenizer": "gemma",
   "profileStatus": "current",
