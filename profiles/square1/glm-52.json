@@ -1,0 +1,58 @@
+{
+  "id": "square1:glm-52",
+  "version": 1,
+  "updatedAt": 1787895282968,
+  "displayName": "GLM 5.2",
+  "displayNameI18n": {
+    "ko": "GLM 5.2"
+  },
+  "providerBaseId": "square1",
+  "description": "GLM 5.2 via SQUARE1 (glm-5.2).",
+  "descriptionI18n": {
+    "ko": "GLM 5.2 (SQUARE1 챈섭, glm-5.2)."
+  },
+  "tags": [
+    "square1",
+    "zai"
+  ],
+  "sortOrder": 607,
+  "modelId": "glm-5.2",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://api.wellspring.encrypt.gay/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning"
+  ],
+  "sourceUrls": [
+    "https://api.wellspring.encrypt.gay/v1/models",
+    "https://dash.square1.dev/"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 49152,
+    "maxOutputTokens": 32768,
+    "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 5 RPM. /v1/models reports supports_tools false; response_format json_object is accepted but not enforced (model still fences the JSON), so tools and json are not declared.",
+    "notesI18n": {
+      "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 5 RPM. /v1/models가 supports_tools를 false로 보고하며, response_format json_object는 통과하지만 강제되지 않아(코드펜스로 감싸 출력) tools·json 능력은 선언하지 않았습니다."
+    },
+    "sourceUrls": [
+      "https://api.wellspring.encrypt.gay/v1/models"
+    ]
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

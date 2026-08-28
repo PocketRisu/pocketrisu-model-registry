@@ -1,0 +1,60 @@
+{
+  "id": "square1:deepseek-v4-flash-0731",
+  "version": 1,
+  "updatedAt": 1787895282968,
+  "displayName": "DeepSeek V4 Flash 0731",
+  "displayNameI18n": {
+    "ko": "DeepSeek V4 Flash 0731"
+  },
+  "providerBaseId": "square1",
+  "description": "DeepSeek V4 Flash 0731 via SQUARE1 (deepseek-v4-flash-0731).",
+  "descriptionI18n": {
+    "ko": "DeepSeek V4 Flash 0731 (SQUARE1 챈섭, deepseek-v4-flash-0731)."
+  },
+  "tags": [
+    "square1",
+    "deepseek"
+  ],
+  "sortOrder": 606,
+  "modelId": "deepseek-v4-flash-0731",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://api.wellspring.encrypt.gay/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://api.wellspring.encrypt.gay/v1/models",
+    "https://dash.square1.dev/"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 61440,
+    "maxOutputTokens": 16384,
+    "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+    "notesI18n": {
+      "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+    },
+    "sourceUrls": [
+      "https://api.wellspring.encrypt.gay/v1/models"
+    ]
+  },
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
+}

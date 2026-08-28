@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "f48cf978c23134b629266c3779ae037ec118d7db878e1d9a1926e99e4415d4db",
+  "hash": "2e3ce5574c5524f38f0760490ed245cf0459fb5a9ed9508c690be6ee81ba81b9",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -4043,6 +4043,283 @@
           "https://raw.githubusercontent.com/vercel/ai/main/packages/openrouter-provider/"
         ],
         "notes": "Model-dependent provider. Context and output token limits vary by selected model or deployment, so PocketRisu uses a number input instead of a fixed-limit slider."
+      }
+    },
+    "square1": {
+      "id": "square1",
+      "version": 1,
+      "displayName": "SQUARE1",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "SQUARE1 API key (sq-arca-...). Bound to your arca.live account.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "SQUARE1(챈섭) API 키 (sq-arca-...). arca.live 계정에 연동됩니다."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Model identifier accepted by SQUARE1.",
+          "required": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "SQUARE1(챈섭)이 허용하는 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Unified reasoning depth knob (SQUARE1 gateway). 'none' disables thinking; 'max' is the deepest. Only applies to reasoning-capable models. The gateway rejects any other value with invalid_reasoning_effort.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "통합 추론 강도 (SQUARE1 게이트웨이). none은 thinking 끄기, max가 가장 깊음. reasoning 지원 모델에만 적용. 그 외 값은 게이트웨이가 invalid_reasoning_effort로 거부합니다."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://api.wellspring.encrypt.gay/v1/models",
+        "https://dash.square1.dev/"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://api.wellspring.encrypt.gay/v1/models"
+        ],
+        "notes": "Community-run arca.live API (dashboard at dash.square1.dev, gateway host api.wellspring.encrypt.gay). SQUARE1 enforces per-request input/output caps and per-model RPM exposed via /v1/models; per-profile limits below reflect those host-enforced caps, not native model context windows. Successor to the retired Wellspring service — accounts and keys were reissued (ws-... → sq-arca-...)."
       }
     },
     "vercel": {
@@ -31816,6 +32093,124 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "square1:deepseek-v4-flash-0731": {
+      "id": "square1:deepseek-v4-flash-0731",
+      "version": 1,
+      "updatedAt": 1787895282968,
+      "displayName": "DeepSeek V4 Flash 0731",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash 0731"
+      },
+      "providerBaseId": "square1",
+      "description": "DeepSeek V4 Flash 0731 via SQUARE1 (deepseek-v4-flash-0731).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4 Flash 0731 (SQUARE1 챈섭, deepseek-v4-flash-0731)."
+      },
+      "tags": [
+        "square1",
+        "deepseek"
+      ],
+      "sortOrder": 606,
+      "modelId": "deepseek-v4-flash-0731",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.wellspring.encrypt.gay/v1/models",
+        "https://dash.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 61440,
+        "maxOutputTokens": 16384,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+        },
+        "sourceUrls": [
+          "https://api.wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "square1:glm-52": {
+      "id": "square1:glm-52",
+      "version": 1,
+      "updatedAt": 1787895282968,
+      "displayName": "GLM 5.2",
+      "displayNameI18n": {
+        "ko": "GLM 5.2"
+      },
+      "providerBaseId": "square1",
+      "description": "GLM 5.2 via SQUARE1 (glm-5.2).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 (SQUARE1 챈섭, glm-5.2)."
+      },
+      "tags": [
+        "square1",
+        "zai"
+      ],
+      "sortOrder": 607,
+      "modelId": "glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.wellspring.encrypt.gay/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning"
+      ],
+      "sourceUrls": [
+        "https://api.wellspring.encrypt.gay/v1/models",
+        "https://dash.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 49152,
+        "maxOutputTokens": 32768,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 5 RPM. /v1/models reports supports_tools false; response_format json_object is accepted but not enforced (model still fences the JSON), so tools and json are not declared.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 5 RPM. /v1/models가 supports_tools를 false로 보고하며, response_format json_object는 통과하지만 강제되지 않아(코드펜스로 감싸 출력) tools·json 능력은 선언하지 않았습니다."
+        },
+        "sourceUrls": [
+          "https://api.wellspring.encrypt.gay/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:claude-fable-5": {
       "id": "vercel:claude-fable-5",
       "version": 1,
@@ -35253,6 +35648,7 @@
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
+    "square1": "4d580c4d93720b38f69da2fb7c1c1bbf01f506faf07dc024725e4af4860a9a16",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
     "vertex-gemini-native": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd",
     "vertex-openai": "575d09b91b4a2bac15e243a14a4eb45120ce5ade8f590ea1137814757de09c43",
@@ -35446,6 +35842,8 @@
     "openrouter:openai-compatible": "3c99e08637648252f92143d8ce8477e481ba29ad7ecee9f0bc48a9ce55375363",
     "openrouter:qwen37-max": "048b06fc5e04284cdc609bf88f8a60d276e86d1b8a87e203e0c691642350722b",
     "openrouter:qwen37-plus": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5",
+    "square1:deepseek-v4-flash-0731": "ad87849fcf7510e3d37ac95f79fe628270db0d7b303b443905a77ead6836ddcb",
+    "square1:glm-52": "018771dcb6e06718d6c66da47ab54d47c4bf365443a55e1b5899f2e6c7c1eec7",
     "vercel:claude-fable-5": "d1af4a46d381bc525199e2e1e5206df1b609ae0af6fa64bd1c87cb86eb683058",
     "vercel:claude-opus-46": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8",
     "vercel:claude-opus-47": "70fd5b735f5ef218011e216e61bef6d4119dedbbdc65a9028c73f42962b077f1",

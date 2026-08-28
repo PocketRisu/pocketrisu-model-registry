@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "f48cf978c23134b629266c3779ae037ec118d7db878e1d9a1926e99e4415d4db",
+  "hash": "2e3ce5574c5524f38f0760490ed245cf0459fb5a9ed9508c690be6ee81ba81b9",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -86,6 +86,11 @@
       "id": "openrouter",
       "url": "base-providers/openrouter.json",
       "hash": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65"
+    },
+    {
+      "id": "square1",
+      "url": "base-providers/square1.json",
+      "hash": "4d580c4d93720b38f69da2fb7c1c1bbf01f506faf07dc024725e4af4860a9a16"
     },
     {
       "id": "vercel",
@@ -1043,6 +1048,16 @@
       "id": "openrouter:qwen37-plus",
       "url": "profiles/openrouter/qwen37-plus.json",
       "hash": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5"
+    },
+    {
+      "id": "square1:deepseek-v4-flash-0731",
+      "url": "profiles/square1/deepseek-v4-flash-0731.json",
+      "hash": "ad87849fcf7510e3d37ac95f79fe628270db0d7b303b443905a77ead6836ddcb"
+    },
+    {
+      "id": "square1:glm-52",
+      "url": "profiles/square1/glm-52.json",
+      "hash": "018771dcb6e06718d6c66da47ab54d47c4bf365443a55e1b5899f2e6c7c1eec7"
     },
     {
       "id": "vercel:claude-fable-5",

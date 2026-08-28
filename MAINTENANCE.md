@@ -74,6 +74,7 @@ Coverage varies a lot. Some APIs return a full spec; others only enumerate IDs. 
 | AWS Bedrock | `ListFoundationModels` | SigV4 | `modelId`, `providerName`, `inputModalities[]`/`outputModalities[]`, `responseStreamingSupported` |
 | OpenAI | `GET https://api.openai.com/v1/models` | Bearer key | `id`, `created`, `owned_by` — **enumeration + lifecycle only** (no limits/caps) |
 | Anthropic | `GET https://api.anthropic.com/v1/models` | `x-api-key` + `anthropic-version` | `id`, `display_name`, `created_at` — **enumeration + lifecycle only** |
+| SQUARE1 (arca.live) | `GET https://api.wellspring.encrypt.gay/v1/models` | Bearer `sq-arca-…` | Full spec — `owned_by`, `supports_{tools,reasoning,images,embeddings}`, `max_input_tokens`, `max_output_tokens`, `rate_limit_rpm`. **The gateway host is not the dashboard domain**: the dashboard is `dash.square1.dev` (whose `/api/*` is a separate account API), while the LLM gateway kept the legacy Wellspring host. `GET /v1/usage` and `/v1/me` report quota and account. Key-gated, so this listing needs a member key — the public `https://dash.square1.dev/api/stats/models` gives IDs + health without one, but lists internal models absent from `/v1/models`. |
 
 OpenAI and Anthropic direct APIs are thin (ID + date), but OpenRouter carries their models at **full** spec — so cross-reference OpenRouter for limits/capabilities and use the direct API only to confirm the canonical model ID and ship date.
 
