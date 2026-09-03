@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "2e3ce5574c5524f38f0760490ed245cf0459fb5a9ed9508c690be6ee81ba81b9",
+  "hash": "dd2cda79ca9cf8a4dd9c76e422d87f7bb46b3e3d18a97687f18a760eb6ea93bc",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -5139,7 +5139,7 @@
     },
     "vertex-openai": {
       "id": "vertex-openai",
-      "version": 7,
+      "version": 8,
       "displayName": "Vertex AI (OpenAI-compatible)",
       "adapterKind": "openai-compatible",
       "authKinds": [
@@ -5204,6 +5204,10 @@
           "description": "Vertex OpenAI-compatible model id.",
           "required": true,
           "enum": [
+            {
+              "value": "google/gemini-3.8-flash",
+              "label": "Gemini 3.8 Flash"
+            },
             {
               "value": "google/gemini-3.7-flash",
               "label": "Gemini 3.7 Flash"
@@ -16300,6 +16304,395 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "google:gemini-38-flash": {
+      "id": "google:gemini-38-flash",
+      "version": 1,
+      "displayName": "Gemini 3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.8 Flash"
+      },
+      "providerBaseId": "google",
+      "description": "Gemini 3.8 Flash via Google AI Studio (generateContent).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.8 Flash (Google AI Studio, generateContent)."
+      },
+      "tags": [
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 296,
+      "modelId": "gemini-3.8-flash",
+      "updatedAt": 1788406394000,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://generativelanguage.googleapis.com/v1beta/models"
+      },
+      "auth": {
+        "kind": "x-goog-api-key",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Gemini model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gemini-3.8-flash",
+              "label": "Gemini 3.8 Flash"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Gemini 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.temperature"
+          }
+        },
+        {
+          "key": "topP",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topP"
+          }
+        },
+        {
+          "key": "topK",
+          "type": "integer",
+          "label": "Top K",
+          "min": 1,
+          "max": 1000,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.topK"
+          }
+        },
+        {
+          "key": "maxOutputTokens",
+          "type": "integer",
+          "label": "Max Output Tokens",
+          "min": 1,
+          "max": 65536,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.maxOutputTokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "stopSequences",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.stopSequences"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.seed"
+          }
+        },
+        {
+          "key": "thinkingLevel",
+          "type": "string",
+          "label": "Thinking Level",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.thinkingLevel"
+          }
+        },
+        {
+          "key": "includeThoughts",
+          "type": "boolean",
+          "label": "Include Thoughts",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.thinkingConfig.includeThoughts"
+          }
+        },
+        {
+          "key": "responseMimeType",
+          "type": "string",
+          "label": "Response Mime Type",
+          "enum": [
+            {
+              "value": "text/plain",
+              "label": "Text"
+            },
+            {
+              "value": "application/json",
+              "label": "JSON"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseMimeType"
+          }
+        },
+        {
+          "key": "responseSchema",
+          "type": "json",
+          "label": "Response Schema",
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseSchema"
+          }
+        },
+        {
+          "key": "responseLogprobs",
+          "type": "boolean",
+          "label": "Response Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.responseLogprobs"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 1,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "generationConfig.logprobs"
+          }
+        },
+        {
+          "key": "safetySettings",
+          "type": "json",
+          "label": "Safety Settings",
+          "mapsTo": {
+            "target": "body",
+            "path": "safetySettings"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "topP",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "topK",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "maxOutputTokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "stopSequences",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "thinkingLevel",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "includeThoughts",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "responseMimeType",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "responseSchema",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "responseLogprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "responseLogprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "safetySettings",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 5
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash",
+        "https://ai.google.dev/gemini-api/docs/latest-model",
+        "https://ai.google.dev/api/generate-content"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536,
+        "sourceUrls": [
+          "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash"
+        ]
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "google:gemma-4-26b": {
       "id": "google:gemma-4-26b",
       "version": 1,
@@ -19380,6 +19773,69 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "llmgateway:gemini-38-flash": {
+      "id": "llmgateway:gemini-38-flash",
+      "version": 1,
+      "updatedAt": 1788406394000,
+      "displayName": "Gemini 3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.8 Flash"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Gemini 3.8 Flash via LLM Gateway (gemini-3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.8 Flash (LLM Gateway, gemini-3.8-flash)."
+      },
+      "tags": [
+        "llmgateway",
+        "gemini"
+      ],
+      "sortOrder": 599,
+      "modelId": "gemini-3.8-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models",
+          "https://ai.google.dev/gemini-api/docs/models/gemini-3.8-flash"
+        ],
+        "notes": "Max output per LLM Gateway GET /v1/models; the gateway reports no context_size, so the context length is the native Google AI Studio spec.",
+        "notesI18n": {
+          "ko": "최대 출력은 LLM Gateway의 GET /v1/models 기준. 게이트웨이가 context_size를 노출하지 않아 컨텍스트 길이는 Google AI Studio 원본 스펙을 따릅니다."
+        },
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "llmgateway:glm-52": {
       "id": "llmgateway:glm-52",
       "version": 1,
@@ -20298,6 +20754,67 @@
       ],
       "sortOrder": 543,
       "modelId": "google/gemini-3.7-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
+    "nanogpt:gemini-38-flash": {
+      "id": "nanogpt:gemini-38-flash",
+      "version": 1,
+      "updatedAt": 1788406394000,
+      "displayName": "Gemini 3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.8 Flash"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Gemini 3.8 Flash via NanoGPT (google/gemini-3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.8 Flash (NanoGPT, google/gemini-3.8-flash)."
+      },
+      "tags": [
+        "nanogpt",
+        "gemini"
+      ],
+      "sortOrder": 544,
+      "modelId": "google/gemini-3.8-flash",
       "endpoint": {
         "kind": "static",
         "url": "https://nano-gpt.com/api/v1/chat/completions"
@@ -30794,6 +31311,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "openrouter:gemini-38-flash": {
+      "id": "openrouter:gemini-38-flash",
+      "version": 1,
+      "updatedAt": 1788406394000,
+      "displayName": "Gemini 3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.8 Flash"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Gemini 3.8 Flash via OpenRouter (google/gemini-3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.8 Flash (OpenRouter, google/gemini-3.8-flash)."
+      },
+      "tags": [
+        "openrouter",
+        "gemini"
+      ],
+      "sortOrder": 547,
+      "modelId": "google/gemini-3.8-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "openrouter:gemma-4-26b": {
       "id": "openrouter:gemma-4-26b",
       "version": 1,
@@ -33123,6 +33697,63 @@
       "recommendedTokenizer": "gemma",
       "profileStatus": "current"
     },
+    "vercel:gemini-38-flash": {
+      "id": "vercel:gemini-38-flash",
+      "version": 1,
+      "updatedAt": 1788406394000,
+      "displayName": "Gemini 3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Gemini 3.8 Flash"
+      },
+      "providerBaseId": "vercel",
+      "description": "Gemini 3.8 Flash via Vercel AI Gateway (google/gemini-3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Gemini 3.8 Flash (Vercel AI Gateway, google/gemini-3.8-flash)."
+      },
+      "tags": [
+        "vercel",
+        "gemini"
+      ],
+      "sortOrder": 586,
+      "modelId": "google/gemini-3.8-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current"
+    },
     "vercel:gemma-4-26b": {
       "id": "vercel:gemma-4-26b",
       "version": 1,
@@ -35119,6 +35750,78 @@
         "maxOutputTokens": 65536
       }
     },
+    "vertex-gemini-native:gemini-38-flash": {
+      "id": "vertex-gemini-native:gemini-38-flash",
+      "version": 1,
+      "updatedAt": 1788406394000,
+      "displayName": "Vertex AI - Gemini 3.8 Flash",
+      "providerBaseId": "vertex-gemini-native",
+      "description": "Gemini 3.8 Flash on Vertex AI (native generateContent).",
+      "modelId": "gemini-3.8-flash",
+      "endpoint": {
+        "kind": "vertex-gemini"
+      },
+      "auth": {
+        "kind": "google-service-account",
+        "fields": [
+          "serviceAccountJson"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": [
+          {
+            "key": "presencePenalty",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "frequencyPenalty",
+            "widget": "slider",
+            "visibility": "hidden",
+            "group": "generation",
+            "order": 6
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json",
+        "cache"
+      ],
+      "sourceUrls": [
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+        "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+      ],
+      "tags": [
+        "vertex",
+        "google",
+        "gemini",
+        "reasoning",
+        "vision"
+      ],
+      "sortOrder": 842,
+      "displayNameI18n": {
+        "ko": "Vertex AI - Gemini 3.8 Flash"
+      },
+      "descriptionI18n": {
+        "ko": "Vertex AI의 Gemini 3.8 Flash (네이티브 generateContent)."
+      },
+      "recommendedTokenizer": "gemma",
+      "profileStatus": "current",
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "maxOutputTokens": 65536
+      }
+    },
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
       "version": 5,
@@ -35214,7 +35917,7 @@
       },
       "recommendedTokenizer": "gemma",
       "profileStatus": "current",
-      "updatedAt": 1786698494318
+      "updatedAt": 1788406474967
     },
     "wellspring:deepseek-v32-marp": {
       "id": "wellspring:deepseek-v32-marp",
@@ -35651,7 +36354,7 @@
     "square1": "4d580c4d93720b38f69da2fb7c1c1bbf01f506faf07dc024725e4af4860a9a16",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
     "vertex-gemini-native": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd",
-    "vertex-openai": "575d09b91b4a2bac15e243a14a4eb45120ce5ade8f590ea1137814757de09c43",
+    "vertex-openai": "46c3fca52d26e4386a1e7c9be1fcb9e735bfebcefd877c069fc37bdc6c6ec749",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
   "profileHashes": {
@@ -35691,6 +36394,7 @@
     "google:gemini-35-flash": "b76c5fca25f25e3a1bbff8d85b17778faee8fac5fc00795e00b52a54b1a740db",
     "google:gemini-36-flash": "fca237f5daa764d9a3f7d472b81c609e0b8a83a9a7c04fd32a1b80b485cddc8c",
     "google:gemini-37-flash": "f5134a189e7fb9f9392c9d3b40c0c4fa06f2793eef394983670f8e9deda8418b",
+    "google:gemini-38-flash": "b37350106724fc67937144bfa672651a1c901ac8015e74c1e54aafc204dae78c",
     "google:gemma-4-26b": "72bb15253ca691aecfe4e74e33b25a80b57ed0526062d1b8f6442c1942c3cc33",
     "google:gemma-4-31b": "2d6523a4e467d9900d6f1bb9da62bb9b2dbb75df7fa7effd59d28cf4cb29cd13",
     "lightning-ai:claude-fable-5": "ee09d68bb04c0a5e448f6c2b5f6589ef50b98ed706207b079a7d6482bcd78285",
@@ -35729,6 +36433,7 @@
     "llmgateway:gemini-35-flash": "3b5c04a99f6f81eb0f56cd37e83eb1ce616a1add2a5f4ced618b863ac36fc829",
     "llmgateway:gemini-36-flash": "74a482d8766e0b18e9f5c597cfc794281ac4eeaa42bbae9ded9b73e62dd4e808",
     "llmgateway:gemini-37-flash": "63620668e430f3a348cd391785a1a4166fde56debda4a3f9b93ce6b10a3c6120",
+    "llmgateway:gemini-38-flash": "e054d4991a957386846b50075acae78b2644e3cd665016c616cc904a7b626d26",
     "llmgateway:glm-52": "76439d28e78513fdb1f9f26fb0bbebfedec6cfa9d5e134fd71d409c1eb283db4",
     "llmgateway:gpt-55": "002471e49938830586116c7b2da9a8d0c52f03776a0c3590ff1505fb9741ad45",
     "llmgateway:gpt-56-luna": "8282c611eecf0781f004810c3c6f955f7b61a96de9d307c849bfad29671c04cb",
@@ -35745,6 +36450,7 @@
     "nanogpt:gemini-35-flash-lite": "034f79d4f27c5e999529d02c3078087c84038a387b1cacd9a6a16d9a521a6237",
     "nanogpt:gemini-36-flash": "fd36179e02423edc96fea034da2e69fe9671c6bcfa860a1bcf7eea1c291aa44d",
     "nanogpt:gemini-37-flash": "d2facbfda7eafe34c79d84b5ad6e5e038b6b8d88a5cc52f7bc53e014658735c5",
+    "nanogpt:gemini-38-flash": "5725a8a4c2f4f29bf42356464fa88c82c6bc38d4c97ebf9edea07d0949a71ea6",
     "nanogpt:gemma-4-31b": "bfed19636c85b0a4a3fde5ddeb25158fa2c9fb5b7ee5dbc55660e2ac663c7e2a",
     "nanogpt:glm-51": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb",
     "nanogpt:glm-52": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846",
@@ -35819,6 +36525,7 @@
     "openrouter:gemini-35-flash": "ddd10e2285944a458e7e91e2da25791ba5b14f98aa307644609e0bd054f0b22f",
     "openrouter:gemini-36-flash": "41a09b83575add772bd6a4bdcd292837ed1131a6eaa833247ffb889026ccd12b",
     "openrouter:gemini-37-flash": "33ab559db117c224da6117a1c5c5b59a0d5ebc9c1fdeb9dd28378e929ee6ab75",
+    "openrouter:gemini-38-flash": "69901902695c5693cac1633e2fb75915b24d75bffc32615a12e46b35d6996d91",
     "openrouter:gemma-4-26b": "782a24a45379c4b9a94e1e9d0043d41e550cc8297544da178c3aa24e0463ff92",
     "openrouter:gemma-4-31b": "189d5411dd94a5daf1eb3e4f59d11e579666bc22f087eba76bb92b405bcad59b",
     "openrouter:glm-51": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf",
@@ -35860,6 +36567,7 @@
     "vercel:gemini-35-flash": "ccd3c66336cf78283907b909855c57ab146f57a4fe43fa2574530a1c79c2b034",
     "vercel:gemini-36-flash": "f7b0a0c6eb4efe70869246039fa7229e9e5a0eed0363e3763778828c52a6014a",
     "vercel:gemini-37-flash": "7da32c7b8741b20d947f70b9cf7842e717a2127a32c733eeb0b18c0cb341cb82",
+    "vercel:gemini-38-flash": "014ab9168003c04a2b13a617d70bbb99ddc7f3362d439a48ee610fa48151eab3",
     "vercel:gemma-4-26b": "26b10496d9d3de7dc5b02a3e05e9c062fdbc18cc29cd97b98eb22eacb4cc844a",
     "vercel:gemma-4-31b": "beda0439bad645a0a7ddc2d9c3b8c258523050338d2375f5bd5ab44eb95065eb",
     "vercel:glm-51": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859",
@@ -35895,8 +36603,9 @@
     "vertex-gemini-native:gemini-35-flash": "f49c86b57de26725f6361874c334d2b652a3ae5c51db9bf435974a51913b8fda",
     "vertex-gemini-native:gemini-36-flash": "5ed7e26ae855bfa81e24bfc6501960139c0392f3984f75b1f2e970a9a8d311ce",
     "vertex-gemini-native:gemini-37-flash": "84fe6f66e16a18ae144605f834a6d9a6151950e1475a3eb542c4b57a63e81b93",
+    "vertex-gemini-native:gemini-38-flash": "87314f3b3fabe4f871f3cf56e36af2f36abaffed4fedd43d42e0f36b74cb4a03",
     "vertex-gemini-native:pro": "1ed1cb71d120cd587c561603e24b513184ec7c19fc507ff71b5f1d1a30bf206f",
-    "vertex-openai:standard": "3a59038ff2ca898c9287e7be3af2747fe69d7ba51084797752f4775651bbc61d",
+    "vertex-openai:standard": "e01111e50b74d3deeb649197e9f0ce932c5f9fe4dafdc311a8089ce7e5fcadd0",
     "wellspring:deepseek-v32-marp": "642af5c20e8d563d6c60fe275de6b8b82a1575a7e14957215a979e831695b821",
     "wellspring:deepseek-v4-flash": "7e73c7b794e3143c8ae0b8b221196dba81336483f0807a2489e49298f11f0ade",
     "wellspring:deepseek-v4-pro": "ebefb49df3d0d27ff8b1e5bbd7f56df5a3ae18b65378b616b2235206af342789",
