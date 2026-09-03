@@ -1,15 +1,15 @@
 {
   "id": "cerebras:zai-glm-47",
-  "version": 2,
-  "updatedAt": 1784964211000,
+  "version": 3,
+  "updatedAt": 1788408139000,
   "displayName": "Z.ai GLM 4.7",
   "displayNameI18n": {
     "ko": "Z.ai GLM 4.7"
   },
   "providerBaseId": "cerebras",
-  "description": "Z.ai GLM 4.7 via Cerebras Inference.",
+  "description": "Z.ai GLM 4.7 via Cerebras Inference. No longer served by Cerebras Inference (only gpt-oss-120b and gemma-4-31b remain).",
   "descriptionI18n": {
-    "ko": "Cerebras Inference의 Z.ai GLM 4.7."
+    "ko": "Cerebras Inference의 Z.ai GLM 4.7. Cerebras Inference에서 더 이상 제공하지 않습니다 (현재 gpt-oss-120b, gemma-4-31b만 제공)."
   },
   "tags": [
     "cerebras",
@@ -348,7 +348,7 @@
     "https://inference-docs.cerebras.ai/resources/glm-47-migration",
     "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
   ],
-  "profileStatus": "current",
+  "profileStatus": "deprecated",
   "statusReason": "Cerebras lists zai-glm-4.7 as a preview model (preview: true in GET /public/v1/models); availability and pricing may change.",
   "statusSourceUrls": [
     "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"

@@ -1,15 +1,15 @@
 {
   "id": "lightning-ai:nemotron-3-nano-omni",
-  "version": 1,
-  "updatedAt": 1784964865000,
+  "version": 2,
+  "updatedAt": 1788408139000,
   "displayName": "Nemotron 3 Nano Omni",
   "displayNameI18n": {
     "ko": "Nemotron 3 Nano Omni"
   },
   "providerBaseId": "lightning-ai",
-  "description": "Nemotron 3 Nano Omni 30B A3B (reasoning) via Lightning AI.",
+  "description": "Nemotron 3 Nano Omni 30B A3B (reasoning) via Lightning AI. No longer served by Lightning AI; use the Nemotron 3 Ultra profile instead.",
   "descriptionI18n": {
-    "ko": "Nemotron 3 Nano Omni 30B A3B (reasoning) (Lightning AI)."
+    "ko": "Nemotron 3 Nano Omni 30B A3B (reasoning) (Lightning AI). Lightning AI에서 더 이상 제공하지 않습니다. Nemotron 3 Ultra 프로파일을 사용하세요."
   },
   "tags": [
     "lightning-ai",
@@ -51,5 +51,5 @@
     ]
   },
   "recommendedTokenizer": "tik",
-  "profileStatus": "current"
+  "profileStatus": "deprecated"
 }

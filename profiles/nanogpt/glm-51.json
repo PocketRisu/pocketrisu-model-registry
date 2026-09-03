@@ -1,22 +1,22 @@
 {
   "id": "nanogpt:glm-51",
-  "version": 1,
-  "updatedAt": 1781103554581,
+  "version": 2,
+  "updatedAt": 1788408139000,
   "displayName": "GLM 5.1",
   "displayNameI18n": {
     "ko": "GLM 5.1"
   },
   "providerBaseId": "nanogpt",
-  "description": "GLM 5.1 via NanoGPT (zai-org/glm-5.1).",
+  "description": "GLM 5.1 via NanoGPT (z-ai/glm-5.1).",
   "descriptionI18n": {
-    "ko": "GLM 5.1 (NanoGPT, zai-org/glm-5.1)."
+    "ko": "GLM 5.1 (NanoGPT, z-ai/glm-5.1)."
   },
   "tags": [
     "nanogpt",
     "glm"
   ],
   "sortOrder": 525,
-  "modelId": "zai-org/glm-5.1",
+  "modelId": "z-ai/glm-5.1",
   "endpoint": {
     "kind": "static",
     "url": "https://nano-gpt.com/api/v1/chat/completions"

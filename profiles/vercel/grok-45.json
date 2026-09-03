@@ -1,22 +1,22 @@
 {
   "id": "vercel:grok-45",
-  "version": 1,
-  "updatedAt": 1784964727000,
+  "version": 2,
+  "updatedAt": 1788408139000,
   "displayName": "Grok 4.5",
   "displayNameI18n": {
     "ko": "Grok 4.5"
   },
   "providerBaseId": "vercel",
-  "description": "Grok 4.5 via Vercel AI Gateway (xai/grok-4.5).",
+  "description": "Grok 4.5 via Vercel AI Gateway (spacexai/grok-4.5).",
   "descriptionI18n": {
-    "ko": "Grok 4.5 (Vercel AI Gateway, xai/grok-4.5)."
+    "ko": "Grok 4.5 (Vercel AI Gateway, spacexai/grok-4.5)."
   },
   "tags": [
     "vercel",
     "grok"
   ],
   "sortOrder": 579,
-  "modelId": "xai/grok-4.5",
+  "modelId": "spacexai/grok-4.5",
   "endpoint": {
     "kind": "static",
     "url": "https://ai-gateway.vercel.sh/v1/chat/completions"

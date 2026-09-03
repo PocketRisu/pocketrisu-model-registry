@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "dd2cda79ca9cf8a4dd9c76e422d87f7bb46b3e3d18a97687f18a760eb6ea93bc",
+  "hash": "2dde1a29ddfd52ab4e4df9ba5c658586258920384f6232100a8ffc1ec62f6239",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -10495,16 +10495,16 @@
     },
     "cerebras:zai-glm-47": {
       "id": "cerebras:zai-glm-47",
-      "version": 2,
-      "updatedAt": 1784964211000,
+      "version": 3,
+      "updatedAt": 1788408139000,
       "displayName": "Z.ai GLM 4.7",
       "displayNameI18n": {
         "ko": "Z.ai GLM 4.7"
       },
       "providerBaseId": "cerebras",
-      "description": "Z.ai GLM 4.7 via Cerebras Inference.",
+      "description": "Z.ai GLM 4.7 via Cerebras Inference. No longer served by Cerebras Inference (only gpt-oss-120b and gemma-4-31b remain).",
       "descriptionI18n": {
-        "ko": "Cerebras Inference의 Z.ai GLM 4.7."
+        "ko": "Cerebras Inference의 Z.ai GLM 4.7. Cerebras Inference에서 더 이상 제공하지 않습니다 (현재 gpt-oss-120b, gemma-4-31b만 제공)."
       },
       "tags": [
         "cerebras",
@@ -10843,7 +10843,7 @@
         "https://inference-docs.cerebras.ai/resources/glm-47-migration",
         "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
       ],
-      "profileStatus": "current",
+      "profileStatus": "deprecated",
       "statusReason": "Cerebras lists zai-glm-4.7 as a preview model (preview: true in GET /public/v1/models); availability and pricing may change.",
       "statusSourceUrls": [
         "https://api.cerebras.ai/public/v1/models/zai-glm-4.7"
@@ -19069,16 +19069,16 @@
     },
     "lightning-ai:nemotron-3-nano-omni": {
       "id": "lightning-ai:nemotron-3-nano-omni",
-      "version": 1,
-      "updatedAt": 1784964865000,
+      "version": 2,
+      "updatedAt": 1788408139000,
       "displayName": "Nemotron 3 Nano Omni",
       "displayNameI18n": {
         "ko": "Nemotron 3 Nano Omni"
       },
       "providerBaseId": "lightning-ai",
-      "description": "Nemotron 3 Nano Omni 30B A3B (reasoning) via Lightning AI.",
+      "description": "Nemotron 3 Nano Omni 30B A3B (reasoning) via Lightning AI. No longer served by Lightning AI; use the Nemotron 3 Ultra profile instead.",
       "descriptionI18n": {
-        "ko": "Nemotron 3 Nano Omni 30B A3B (reasoning) (Lightning AI)."
+        "ko": "Nemotron 3 Nano Omni 30B A3B (reasoning) (Lightning AI). Lightning AI에서 더 이상 제공하지 않습니다. Nemotron 3 Ultra 프로파일을 사용하세요."
       },
       "tags": [
         "lightning-ai",
@@ -19120,7 +19120,7 @@
         ]
       },
       "recommendedTokenizer": "tik",
-      "profileStatus": "current"
+      "profileStatus": "deprecated"
     },
     "lightning-ai:nemotron-3-ultra": {
       "id": "lightning-ai:nemotron-3-ultra",
@@ -20920,23 +20920,23 @@
     },
     "nanogpt:glm-51": {
       "id": "nanogpt:glm-51",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1788408139000,
       "displayName": "GLM 5.1",
       "displayNameI18n": {
         "ko": "GLM 5.1"
       },
       "providerBaseId": "nanogpt",
-      "description": "GLM 5.1 via NanoGPT (zai-org/glm-5.1).",
+      "description": "GLM 5.1 via NanoGPT (z-ai/glm-5.1).",
       "descriptionI18n": {
-        "ko": "GLM 5.1 (NanoGPT, zai-org/glm-5.1)."
+        "ko": "GLM 5.1 (NanoGPT, z-ai/glm-5.1)."
       },
       "tags": [
         "nanogpt",
         "glm"
       ],
       "sortOrder": 525,
-      "modelId": "zai-org/glm-5.1",
+      "modelId": "z-ai/glm-5.1",
       "endpoint": {
         "kind": "static",
         "url": "https://nano-gpt.com/api/v1/chat/completions"
@@ -20979,23 +20979,23 @@
     },
     "nanogpt:glm-52": {
       "id": "nanogpt:glm-52",
-      "version": 1,
-      "updatedAt": 1784964727000,
+      "version": 2,
+      "updatedAt": 1788408139000,
       "displayName": "GLM 5.2",
       "displayNameI18n": {
         "ko": "GLM 5.2"
       },
       "providerBaseId": "nanogpt",
-      "description": "GLM 5.2 via NanoGPT (zai-org/glm-5.2).",
+      "description": "GLM 5.2 via NanoGPT (z-ai/glm-5.2).",
       "descriptionI18n": {
-        "ko": "GLM 5.2 (NanoGPT, zai-org/glm-5.2)."
+        "ko": "GLM 5.2 (NanoGPT, z-ai/glm-5.2)."
       },
       "tags": [
         "nanogpt",
         "glm"
       ],
       "sortOrder": 535,
-      "modelId": "zai-org/glm-5.2",
+      "modelId": "z-ai/glm-5.2",
       "endpoint": {
         "kind": "static",
         "url": "https://nano-gpt.com/api/v1/chat/completions"
@@ -34729,23 +34729,23 @@
     },
     "vercel:grok-45": {
       "id": "vercel:grok-45",
-      "version": 1,
-      "updatedAt": 1784964727000,
+      "version": 2,
+      "updatedAt": 1788408139000,
       "displayName": "Grok 4.5",
       "displayNameI18n": {
         "ko": "Grok 4.5"
       },
       "providerBaseId": "vercel",
-      "description": "Grok 4.5 via Vercel AI Gateway (xai/grok-4.5).",
+      "description": "Grok 4.5 via Vercel AI Gateway (spacexai/grok-4.5).",
       "descriptionI18n": {
-        "ko": "Grok 4.5 (Vercel AI Gateway, xai/grok-4.5)."
+        "ko": "Grok 4.5 (Vercel AI Gateway, spacexai/grok-4.5)."
       },
       "tags": [
         "vercel",
         "grok"
       ],
       "sortOrder": 579,
-      "modelId": "xai/grok-4.5",
+      "modelId": "spacexai/grok-4.5",
       "endpoint": {
         "kind": "static",
         "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
@@ -36378,7 +36378,7 @@
     "cerebras:gemma-4-31b": "fee66b5484f0e348bd3b2de8c446745edf6e6e100ba232b3d6143bfb009b1d31",
     "cerebras:gpt-oss-120b": "cfaccfda49d818b88fb5d214d216368ade477ac18a3cb29f720f969eac544db6",
     "cerebras:openai-compatible": "575cd7bee90126f82bac398bd0d62b57d865b6a73af7185287bf5aad429244ca",
-    "cerebras:zai-glm-47": "c767ddefb6de4f9297b9c8b76a9b814a7eea73c621ab470913860c9f7b735e55",
+    "cerebras:zai-glm-47": "ca44388e190a4bcc7fc4f789f2660d8ad95098f35f20f61c77614a870c396d4c",
     "deepinfra:openai-compatible": "73bc47c91611be1ada29339572ed1beb4bd4f05692b5230774cc0a0bd77fd394",
     "deepseek:v4-flash-thinking": "745827b3c4c2445ef2e6e89f228a7f33d34544de409b19fbeb5a85bb7af3cb82",
     "deepseek:v4-flash": "a0c7ebc1848a5add33ac6fc69f94d44e3ac103320c0dfb36a5340272d4d770a2",
@@ -36421,7 +36421,7 @@
     "lightning-ai:gpt-oss-120b": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3",
     "lightning-ai:gpt-oss-20b": "54247a7ddeaa32a13efc082efe1510d96bb5b48a92b771889b227481b08dbf08",
     "lightning-ai:kimi-k25": "6c4efdbd26d0dfb02b4aca20508392023feac5723021c3e6a61dc1629536397d",
-    "lightning-ai:nemotron-3-nano-omni": "842f866c144fe389d93b45635e6eb2d7e1c9c80f0fc6e434ced8c6f8435c2492",
+    "lightning-ai:nemotron-3-nano-omni": "4054062171689f0ddd811e4d257db49247567e9e8745a90519bef758eb4e9700",
     "lightning-ai:nemotron-3-ultra": "7570926d5311b8a0bacb2965dba5a56d07a5f8d56b28834ce7378e6f166aaf30",
     "lightning-ai:openai-compatible": "ef4c40fc726fd14c7ffbc1c2a3456c7ce96906dc9fed1c6fe8ae7286c5166d20",
     "llmgateway:claude-fable-5": "7868518b02891322cf0475a977146555e3b241e14ce9fee2cee3ca1f5e6beb19",
@@ -36452,8 +36452,8 @@
     "nanogpt:gemini-37-flash": "d2facbfda7eafe34c79d84b5ad6e5e038b6b8d88a5cc52f7bc53e014658735c5",
     "nanogpt:gemini-38-flash": "5725a8a4c2f4f29bf42356464fa88c82c6bc38d4c97ebf9edea07d0949a71ea6",
     "nanogpt:gemma-4-31b": "bfed19636c85b0a4a3fde5ddeb25158fa2c9fb5b7ee5dbc55660e2ac663c7e2a",
-    "nanogpt:glm-51": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb",
-    "nanogpt:glm-52": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846",
+    "nanogpt:glm-51": "3f2d1d24d7a84b19232f4ac1b37182006b9c4948fd6eb315672e5e7ad1fe238f",
+    "nanogpt:glm-52": "b0f4a94430929a2000938bd0c8bb9821e5cb9d7bec7bb80a2325a04980220b49",
     "nanogpt:gpt-56-luna": "2685a167f33198b6d5b75bf2b6b0a2f90234a6ab7fa60e2b92462b6be6f2e2dc",
     "nanogpt:gpt-56-sol": "e033d7a88a6bf4ef0b1a89e647a3f1d02338c5d13af600379390433962a2f344",
     "nanogpt:gpt-56-terra": "e4aed1500d89d4e26393d7eaaee5a25c99036b0f27f22b6046cb84b6c2b7d674",
@@ -36585,7 +36585,7 @@
     "vercel:gpt-56-luna": "8521a3a6af26b5950945d36df2eee203956a2b0039514cdcf49b217d968189da",
     "vercel:gpt-56-sol": "8aff47d3efa69d490c8d65f5e1366110a72b5fc2cb7d20f27360e05756a54682",
     "vercel:gpt-56-terra": "1c009a5fd9b9e4d14486ae09096c493b2cb018ec35822c5b2ed665e8de0fe195",
-    "vercel:grok-45": "9ca5aaf85bcedfa2896fee757310f26fe5445c6d7a5ff8eaafa70564cafc4350",
+    "vercel:grok-45": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:kimi-k3": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc",
     "vercel:minimax-m3": "44a2731faf35a94ddec6ad856b3b1077d2937915b5479e3737ca8e9e35f6b5b3",

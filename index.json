@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "dd2cda79ca9cf8a4dd9c76e422d87f7bb46b3e3d18a97687f18a760eb6ea93bc",
+  "hash": "2dde1a29ddfd52ab4e4df9ba5c658586258920384f6232100a8ffc1ec62f6239",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -217,7 +217,7 @@
     {
       "id": "cerebras:zai-glm-47",
       "url": "profiles/cerebras/zai-glm-47.json",
-      "hash": "c767ddefb6de4f9297b9c8b76a9b814a7eea73c621ab470913860c9f7b735e55"
+      "hash": "ca44388e190a4bcc7fc4f789f2660d8ad95098f35f20f61c77614a870c396d4c"
     },
     {
       "id": "deepinfra:openai-compatible",
@@ -432,7 +432,7 @@
     {
       "id": "lightning-ai:nemotron-3-nano-omni",
       "url": "profiles/lightning-ai/nemotron-3-nano-omni.json",
-      "hash": "842f866c144fe389d93b45635e6eb2d7e1c9c80f0fc6e434ced8c6f8435c2492"
+      "hash": "4054062171689f0ddd811e4d257db49247567e9e8745a90519bef758eb4e9700"
     },
     {
       "id": "lightning-ai:nemotron-3-ultra",
@@ -587,12 +587,12 @@
     {
       "id": "nanogpt:glm-51",
       "url": "profiles/nanogpt/glm-51.json",
-      "hash": "3e7957e60c76928c7771825e2a069cff70411f278425d0481a56634b010da5fb"
+      "hash": "3f2d1d24d7a84b19232f4ac1b37182006b9c4948fd6eb315672e5e7ad1fe238f"
     },
     {
       "id": "nanogpt:glm-52",
       "url": "profiles/nanogpt/glm-52.json",
-      "hash": "391e035643e4c0f04fef5e6b88b0a37d6398997ac9ca80376d54dd3ab3bee846"
+      "hash": "b0f4a94430929a2000938bd0c8bb9821e5cb9d7bec7bb80a2325a04980220b49"
     },
     {
       "id": "nanogpt:gpt-56-luna",
@@ -1252,7 +1252,7 @@
     {
       "id": "vercel:grok-45",
       "url": "profiles/vercel/grok-45.json",
-      "hash": "9ca5aaf85bcedfa2896fee757310f26fe5445c6d7a5ff8eaafa70564cafc4350"
+      "hash": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870"
     },
     {
       "id": "vercel:kimi-k26",
