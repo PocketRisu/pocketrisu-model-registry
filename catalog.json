@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "2dde1a29ddfd52ab4e4df9ba5c658586258920384f6232100a8ffc1ec62f6239",
+  "hash": "b3f61142074e2996a04dc1120a96cf15e1d3996129f3b630725c07abdc4c5dda",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -20140,6 +20140,67 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "llmgateway:gpt-6-astra": {
+      "id": "llmgateway:gpt-6-astra",
+      "version": 1,
+      "updatedAt": 1788701283677,
+      "displayName": "GPT-6 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6 Astra"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GPT-6 Astra via LLM Gateway (gpt-6-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6 Astra (LLM Gateway, gpt-6-astra)."
+      },
+      "tags": [
+        "llmgateway",
+        "openai"
+      ],
+      "sortOrder": 584,
+      "modelId": "gpt-6-astra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "llmgateway:grok-45": {
       "id": "llmgateway:grok-45",
       "version": 1,
@@ -21184,6 +21245,69 @@
       ],
       "sortOrder": 541,
       "modelId": "openai/gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:gpt-6-astra": {
+      "id": "nanogpt:gpt-6-astra",
+      "version": 1,
+      "updatedAt": 1788701283677,
+      "displayName": "GPT-6 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6 Astra"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GPT-6 Astra via NanoGPT (openai/gpt-6-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6 Astra (NanoGPT, openai/gpt-6-astra)."
+      },
+      "tags": [
+        "nanogpt",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 539,
+      "modelId": "openai/gpt-6-astra",
       "endpoint": {
         "kind": "static",
         "url": "https://nano-gpt.com/api/v1/chat/completions"
@@ -29936,6 +30060,420 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openai:gpt-6-astra": {
+      "id": "openai:gpt-6-astra",
+      "version": 1,
+      "displayName": "OpenAI GPT-6 Astra",
+      "displayNameI18n": {
+        "ko": "OpenAI GPT-6 Astra"
+      },
+      "providerBaseId": "openai",
+      "description": "GPT-6 Astra via OpenAI Chat Completions.",
+      "descriptionI18n": {
+        "ko": "GPT-6 Astra (OpenAI Chat Completions)."
+      },
+      "tags": [
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 94,
+      "modelId": "gpt-6-astra",
+      "updatedAt": 1788701283677,
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.openai.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "OpenAI model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "gpt-6-astra",
+              "label": "GPT-6 Astra"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "OpenAI 모델 ID."
+          }
+        },
+        {
+          "key": "max_completion_tokens",
+          "type": "integer",
+          "label": "Max Completion Tokens",
+          "min": 1,
+          "max": 128000,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_completion_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra high"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "description": "GPT-6 Astra always reasons; \"none\" is not accepted.",
+          "descriptionI18n": {
+            "ko": "GPT-6 Astra는 항상 추론합니다. \"none\"은 허용되지 않습니다."
+          }
+        },
+        {
+          "key": "verbosity",
+          "type": "string",
+          "label": "Verbosity",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "verbosity"
+          }
+        },
+        {
+          "key": "service_tier",
+          "type": "string",
+          "label": "Service Tier",
+          "enum": [
+            {
+              "value": "auto",
+              "label": "Auto"
+            },
+            {
+              "value": "default",
+              "label": "Default"
+            },
+            {
+              "value": "flex",
+              "label": "Flex"
+            },
+            {
+              "value": "priority",
+              "label": "Priority"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "service_tier"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "parallel_tool_calls",
+          "type": "boolean",
+          "label": "Parallel Tool Calls",
+          "default": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "parallel_tool_calls"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "boolean",
+          "label": "Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "logprobs"
+          }
+        },
+        {
+          "key": "top_logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 0,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_logprobs"
+          }
+        },
+        {
+          "key": "user",
+          "type": "string",
+          "label": "User",
+          "mapsTo": {
+            "target": "body",
+            "path": "user"
+          }
+        },
+        {
+          "key": "metadata",
+          "type": "json",
+          "label": "Metadata",
+          "mapsTo": {
+            "target": "body",
+            "path": "metadata"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          },
+          {
+            "id": "control",
+            "label": "Control",
+            "order": 6,
+            "labelI18n": {
+              "ko": "요청 제어"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "max_completion_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "verbosity",
+            "widget": "select",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 2
+          },
+          {
+            "key": "service_tier",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 1
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "parallel_tool_calls",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "logprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3
+          },
+          {
+            "key": "top_logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 4,
+            "showIf": {
+              "key": "logprobs",
+              "equals": true
+            }
+          },
+          {
+            "key": "user",
+            "widget": "text",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 2
+          },
+          {
+            "key": "metadata",
+            "widget": "json",
+            "visibility": "advanced",
+            "group": "control",
+            "order": 3
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://platform.openai.com/docs/models",
+        "https://developers.openai.com/api/docs/models/gpt-6-astra"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "maxOutputTokens": 128000,
+        "sourceUrls": [
+          "https://developers.openai.com/api/docs/models/gpt-6-astra"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openai:o3": {
       "id": "openai:o3",
       "version": 1,
@@ -32243,6 +32781,65 @@
       ],
       "sortOrder": 544,
       "modelId": "openai/gpt-5.6-terra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:gpt-6-astra": {
+      "id": "openrouter:gpt-6-astra",
+      "version": 1,
+      "updatedAt": 1788701283677,
+      "displayName": "GPT-6 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6 Astra"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GPT-6 Astra via OpenRouter (openai/gpt-6-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6 Astra (OpenRouter, openai/gpt-6-astra)."
+      },
+      "tags": [
+        "openrouter",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 542,
+      "modelId": "openai/gpt-6-astra",
       "endpoint": {
         "kind": "static",
         "url": "https://openrouter.ai/api/v1/chat/completions"
@@ -34727,6 +35324,65 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:gpt-6-astra": {
+      "id": "vercel:gpt-6-astra",
+      "version": 1,
+      "updatedAt": 1788701283677,
+      "displayName": "GPT-6 Astra",
+      "displayNameI18n": {
+        "ko": "GPT-6 Astra"
+      },
+      "providerBaseId": "vercel",
+      "description": "GPT-6 Astra via Vercel AI Gateway (openai/gpt-6-astra).",
+      "descriptionI18n": {
+        "ko": "GPT-6 Astra (Vercel AI Gateway, openai/gpt-6-astra)."
+      },
+      "tags": [
+        "vercel",
+        "openai",
+        "gpt",
+        "reasoning"
+      ],
+      "sortOrder": 581,
+      "modelId": "openai/gpt-6-astra",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1050000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:grok-45": {
       "id": "vercel:grok-45",
       "version": 2,
@@ -36439,6 +37095,7 @@
     "llmgateway:gpt-56-luna": "8282c611eecf0781f004810c3c6f955f7b61a96de9d307c849bfad29671c04cb",
     "llmgateway:gpt-56-sol": "65a19a2ca61cfac82a3d74850a817901231a384987522e108ac653edc2d6f9c4",
     "llmgateway:gpt-56-terra": "b503582587c9055c54e730aee209ee1ad42b61702020c06124759b8fac2cd5a3",
+    "llmgateway:gpt-6-astra": "f3183643b2e170f4fb32605f3acb03f38dfb1e462fbb4f177c25668bc2bbfe28",
     "llmgateway:grok-45": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d",
     "llmgateway:kimi-k3": "fc9a6970fb1969f15d809100957985ac71302648812cded7343df53b8e2ce372",
     "llmgateway:minimax-m3": "dcebb2f1b6957956b4de9f69628b7ad6e8863b47b28df6c1cb785a130abf8eae",
@@ -36457,6 +37114,7 @@
     "nanogpt:gpt-56-luna": "2685a167f33198b6d5b75bf2b6b0a2f90234a6ab7fa60e2b92462b6be6f2e2dc",
     "nanogpt:gpt-56-sol": "e033d7a88a6bf4ef0b1a89e647a3f1d02338c5d13af600379390433962a2f344",
     "nanogpt:gpt-56-terra": "e4aed1500d89d4e26393d7eaaee5a25c99036b0f27f22b6046cb84b6c2b7d674",
+    "nanogpt:gpt-6-astra": "db7c5beb7a8ad13650f2c1b788f6c565a58c09649a7ad09106ca61819eaa0f88",
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
     "nanogpt:grok-45": "75052304082513093d01f32650911cc9900abf7bd2438ff7fa303d08e9186d06",
     "nanogpt:kimi-k26": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314",
@@ -36506,6 +37164,7 @@
     "openai:gpt-56-luna": "9c1e4918e1b4d01976fd7df429101d01e7dbb322ba439da9f861e37bdee2654f",
     "openai:gpt-56-sol": "153dfd24805eb727143b29d38d0a4761a27d44107812de2cc2b3d128e3bb8b4d",
     "openai:gpt-56-terra": "54c0a1d63755a5937efdb6f706bec7099c217d95077b07a490a5ccfe682c930c",
+    "openai:gpt-6-astra": "c67c789bbd6db19b871da6a7e5cde48e9eb6a76210bdd8620bf82a9c97caaf18",
     "openai:o3": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d",
     "openai-compatible:custom-noauth": "7048ecedbb15d1f851a38077305a2a78093277e81eb8e829f13f9b5f3f7ac696",
     "openai-compatible:custom": "d834ef2a60831caef1659f939cc1c4aac4546cf341b125fc93795bcf8babd45b",
@@ -36542,6 +37201,7 @@
     "openrouter:gpt-56-luna": "3e9d6e43fa8b5e6b84f96799f75dd96cc36edc5637d683a9f5adc0fd42d89daf",
     "openrouter:gpt-56-sol": "d90639498eeaa98badff89eba446ef0dc52ed1b2262011dc0a39b0032a7dc35a",
     "openrouter:gpt-56-terra": "1b16fc9a271e37e2e4fbe30eaa5167206e72b60aa7a1774374e130d95ca42851",
+    "openrouter:gpt-6-astra": "ef89edc34e9d5ab2956f8645d5b796b141bc2a17d3145d38d202a018abdf6ea6",
     "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
     "openrouter:kimi-k3": "2939b082383e2b7add2f7862e903cd52abff9bcd0b84b6ff76d2d31dfd15de9b",
@@ -36585,6 +37245,7 @@
     "vercel:gpt-56-luna": "8521a3a6af26b5950945d36df2eee203956a2b0039514cdcf49b217d968189da",
     "vercel:gpt-56-sol": "8aff47d3efa69d490c8d65f5e1366110a72b5fc2cb7d20f27360e05756a54682",
     "vercel:gpt-56-terra": "1c009a5fd9b9e4d14486ae09096c493b2cb018ec35822c5b2ed665e8de0fe195",
+    "vercel:gpt-6-astra": "f9d80e379673b9c2ead4f389fc87173e1e7a1be8371430520e3633bd9bd7fa09",
     "vercel:grok-45": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:kimi-k3": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc",

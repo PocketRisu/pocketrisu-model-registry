@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "2dde1a29ddfd52ab4e4df9ba5c658586258920384f6232100a8ffc1ec62f6239",
+  "hash": "b3f61142074e2996a04dc1120a96cf15e1d3996129f3b630725c07abdc4c5dda",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -520,6 +520,11 @@
       "hash": "b503582587c9055c54e730aee209ee1ad42b61702020c06124759b8fac2cd5a3"
     },
     {
+      "id": "llmgateway:gpt-6-astra",
+      "url": "profiles/llmgateway/gpt-6-astra.json",
+      "hash": "f3183643b2e170f4fb32605f3acb03f38dfb1e462fbb4f177c25668bc2bbfe28"
+    },
+    {
       "id": "llmgateway:grok-45",
       "url": "profiles/llmgateway/grok-45.json",
       "hash": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d"
@@ -608,6 +613,11 @@
       "id": "nanogpt:gpt-56-terra",
       "url": "profiles/nanogpt/gpt-56-terra.json",
       "hash": "e4aed1500d89d4e26393d7eaaee5a25c99036b0f27f22b6046cb84b6c2b7d674"
+    },
+    {
+      "id": "nanogpt:gpt-6-astra",
+      "url": "profiles/nanogpt/gpt-6-astra.json",
+      "hash": "db7c5beb7a8ad13650f2c1b788f6c565a58c09649a7ad09106ca61819eaa0f88"
     },
     {
       "id": "nanogpt:gpt-oss-120b",
@@ -855,6 +865,11 @@
       "hash": "54c0a1d63755a5937efdb6f706bec7099c217d95077b07a490a5ccfe682c930c"
     },
     {
+      "id": "openai:gpt-6-astra",
+      "url": "profiles/openai/gpt-6-astra.json",
+      "hash": "c67c789bbd6db19b871da6a7e5cde48e9eb6a76210bdd8620bf82a9c97caaf18"
+    },
+    {
       "id": "openai:o3",
       "url": "profiles/openai/o3.json",
       "hash": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d"
@@ -1033,6 +1048,11 @@
       "id": "openrouter:gpt-56-terra",
       "url": "profiles/openrouter/gpt-56-terra.json",
       "hash": "1b16fc9a271e37e2e4fbe30eaa5167206e72b60aa7a1774374e130d95ca42851"
+    },
+    {
+      "id": "openrouter:gpt-6-astra",
+      "url": "profiles/openrouter/gpt-6-astra.json",
+      "hash": "ef89edc34e9d5ab2956f8645d5b796b141bc2a17d3145d38d202a018abdf6ea6"
     },
     {
       "id": "openrouter:grok-45",
@@ -1248,6 +1268,11 @@
       "id": "vercel:gpt-56-terra",
       "url": "profiles/vercel/gpt-56-terra.json",
       "hash": "1c009a5fd9b9e4d14486ae09096c493b2cb018ec35822c5b2ed665e8de0fe195"
+    },
+    {
+      "id": "vercel:gpt-6-astra",
+      "url": "profiles/vercel/gpt-6-astra.json",
+      "hash": "f9d80e379673b9c2ead4f389fc87173e1e7a1be8371430520e3633bd9bd7fa09"
     },
     {
       "id": "vercel:grok-45",
