@@ -1,0 +1,58 @@
+{
+  "id": "vercel:claude-fable-51",
+  "version": 1,
+  "updatedAt": 1790149202175,
+  "displayName": "Claude Fable 5.1",
+  "displayNameI18n": {
+    "ko": "Claude Fable 5.1"
+  },
+  "providerBaseId": "vercel",
+  "description": "Claude Fable 5.1 via Vercel AI Gateway (anthropic/claude-fable-5.1).",
+  "descriptionI18n": {
+    "ko": "Claude Fable 5.1 (Vercel AI Gateway, anthropic/claude-fable-5.1)."
+  },
+  "tags": [
+    "vercel",
+    "claude",
+    "fable"
+  ],
+  "sortOrder": 546,
+  "modelId": "anthropic/claude-fable-5.1",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 128000
+  },
+  "recommendedTokenizer": "claude",
+  "profileStatus": "current"
+}

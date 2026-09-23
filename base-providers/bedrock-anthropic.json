@@ -1,6 +1,6 @@
 {
   "id": "bedrock-anthropic",
-  "version": 1,
+  "version": 2,
   "displayName": "AWS Bedrock (Anthropic Messages)",
   "adapterKind": "anthropic-messages",
   "authKinds": [
@@ -53,6 +53,14 @@
       "description": "Bedrock model identifier (carries the anthropic. provider prefix).",
       "required": true,
       "enum": [
+        {
+          "value": "anthropic.claude-opus-5-5",
+          "label": "Claude Opus 5.5"
+        },
+        {
+          "value": "anthropic.claude-fable-5-1",
+          "label": "Claude Fable 5.1"
+        },
         {
           "value": "anthropic.claude-fable-5",
           "label": "Claude Fable 5"
