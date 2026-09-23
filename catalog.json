@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "f217331d53d207873120746a882112b4ce322029c0d613adebfb8dac08ad5a67",
+  "hash": "53d3157b127a50f8d79651538052fba39384429ba5167575bca7180fe23de863",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -11444,8 +11444,8 @@
     },
     "deepseek:v4-flash-thinking": {
       "id": "deepseek:v4-flash-thinking",
-      "version": 1,
-      "updatedAt": 1781103554581,
+      "version": 2,
+      "updatedAt": 1790150564289,
       "displayName": "DeepSeek V4 Flash (Thinking)",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash (Thinking)"
@@ -11785,12 +11785,12 @@
         ]
       },
       "recommendedTokenizer": "deepseek",
-      "profileStatus": "current"
+      "profileStatus": "outdated"
     },
     "deepseek:v4-flash": {
       "id": "deepseek:v4-flash",
-      "version": 1,
-      "updatedAt": 1780594300728,
+      "version": 2,
+      "updatedAt": 1790150564289,
       "displayName": "DeepSeek V4 Flash",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash"
@@ -12090,7 +12090,7 @@
         ]
       },
       "recommendedTokenizer": "deepseek",
-      "profileStatus": "current"
+      "profileStatus": "outdated"
     },
     "deepseek:v4-pro-thinking": {
       "id": "deepseek:v4-pro-thinking",
@@ -12735,6 +12735,660 @@
         "known": true,
         "contextWindowTokens": 1000000,
         "maxOutputTokens": 384000,
+        "sourceUrls": [
+          "https://api-docs.deepseek.com/quick_start/pricing"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "deepseek:v41-flash-thinking": {
+      "id": "deepseek:v41-flash-thinking",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "DeepSeek V4.1 Flash (Thinking)",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash (Thinking)"
+      },
+      "providerBaseId": "deepseek",
+      "description": "DeepSeek V4.1 Flash via the DeepSeek API (thinking mode).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (DeepSeek API, thinking 모드)."
+      },
+      "tags": [
+        "deepseek",
+        "v4.1",
+        "reasoning"
+      ],
+      "sortOrder": 398,
+      "modelId": "deepseek-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.deepseek.com/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {
+        "thinking": {
+          "type": "enabled"
+        }
+      },
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "DeepSeek model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "deepseek-flash",
+              "label": "DeepSeek V4.1 Flash"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "DeepSeek 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "max": 131072,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "DeepSeek thinking effort. minimal maps to low; medium/xhigh map to high; ultra maps to max.",
+          "enum": [
+            {
+              "label": "Low",
+              "value": "low"
+            },
+            {
+              "label": "High",
+              "value": "high"
+            },
+            {
+              "label": "Max",
+              "value": "max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "DeepSeek thinking 강도. minimal은 low로, medium/xhigh는 high로, ultra는 max로 매핑됩니다."
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "boolean",
+          "label": "Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "logprobs"
+          }
+        },
+        {
+          "key": "top_logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 0,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_logprobs"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "max_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "logprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "top_logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3,
+            "showIf": {
+              "key": "logprobs",
+              "equals": true
+            }
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api-docs.deepseek.com/quick_start/pricing",
+        "https://api-docs.deepseek.com/guides/thinking_mode",
+        "https://api-docs.deepseek.com/api/create-chat-completion"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "maxOutputTokens": 393216,
+        "sourceUrls": [
+          "https://api-docs.deepseek.com/quick_start/pricing"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "deepseek:v41-flash": {
+      "id": "deepseek:v41-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "DeepSeek V4.1 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash"
+      },
+      "providerBaseId": "deepseek",
+      "description": "DeepSeek V4.1 Flash via the DeepSeek API (non-thinking mode).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (DeepSeek API, non-thinking 모드)."
+      },
+      "tags": [
+        "deepseek",
+        "v4.1"
+      ],
+      "sortOrder": 399,
+      "modelId": "deepseek-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.deepseek.com/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {
+        "thinking": {
+          "type": "disabled"
+        }
+      },
+      "schema": [
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "DeepSeek model identifier.",
+          "required": true,
+          "enum": [
+            {
+              "value": "deepseek-flash",
+              "label": "DeepSeek V4.1 Flash"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "DeepSeek 모델 ID."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "max": 131072,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 8192
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "response_format",
+          "type": "string",
+          "label": "Response Format",
+          "enum": [
+            {
+              "value": "text",
+              "label": "Text"
+            },
+            {
+              "value": "json_object",
+              "label": "JSON object"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "response_format.type"
+          }
+        },
+        {
+          "key": "logprobs",
+          "type": "boolean",
+          "label": "Logprobs",
+          "default": false,
+          "mapsTo": {
+            "target": "body",
+            "path": "logprobs"
+          }
+        },
+        {
+          "key": "top_logprobs",
+          "type": "integer",
+          "label": "Top Logprobs",
+          "min": 0,
+          "max": 20,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_logprobs"
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "output",
+            "label": "Output",
+            "order": 5,
+            "labelI18n": {
+              "ko": "출력"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "max_tokens",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "response_format",
+            "widget": "select",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 1
+          },
+          {
+            "key": "logprobs",
+            "widget": "toggle",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 2
+          },
+          {
+            "key": "top_logprobs",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "output",
+            "order": 3,
+            "showIf": {
+              "key": "logprobs",
+              "equals": true
+            }
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api-docs.deepseek.com/quick_start/pricing",
+        "https://api-docs.deepseek.com/guides/thinking_mode",
+        "https://api-docs.deepseek.com/api/create-chat-completion"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "maxOutputTokens": 393216,
         "sourceUrls": [
           "https://api-docs.deepseek.com/quick_start/pricing"
         ]
@@ -20570,6 +21224,66 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "llmgateway:glm-53": {
+      "id": "llmgateway:glm-53",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "GLM 5.3 via LLM Gateway (glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (LLM Gateway, glm-5.3)."
+      },
+      "tags": [
+        "llmgateway",
+        "glm"
+      ],
+      "sortOrder": 574,
+      "modelId": "glm-5.3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "llmgateway:gpt-55": {
       "id": "llmgateway:gpt-55",
       "version": 1,
@@ -21058,6 +21772,67 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "llmgateway:grok-47": {
+      "id": "llmgateway:grok-47",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Grok 4.7",
+      "displayNameI18n": {
+        "ko": "Grok 4.7"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Grok 4.7 via LLM Gateway (grok-4-7).",
+      "descriptionI18n": {
+        "ko": "Grok 4.7 (LLM Gateway, grok-4-7)."
+      },
+      "tags": [
+        "llmgateway",
+        "grok"
+      ],
+      "sortOrder": 575,
+      "modelId": "grok-4-7",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "llmgateway:kimi-k3": {
       "id": "llmgateway:kimi-k3",
       "version": 1,
@@ -21248,6 +22023,66 @@
       ],
       "sortOrder": 596,
       "modelId": "qwen3.7-max",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.llmgateway.io/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://docs.llmgateway.io/",
+        "https://api.llmgateway.io/v1/models",
+        "https://github.com/theopenco/llmgateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://api.llmgateway.io/v1/models"
+        ],
+        "notes": "Context length per LLM Gateway GET /v1/models; the gateway does not expose a per-model max output token limit.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 LLM Gateway의 GET /v1/models 기준. 게이트웨이는 모델별 최대 출력 토큰 한도를 노출하지 않습니다."
+        }
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "llmgateway:qwen38-max": {
+      "id": "llmgateway:qwen38-max",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Max"
+      },
+      "providerBaseId": "llmgateway",
+      "description": "Qwen3.8 Max via LLM Gateway (qwen3.8-max).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Max (LLM Gateway, qwen3.8-max)."
+      },
+      "tags": [
+        "llmgateway",
+        "qwen"
+      ],
+      "sortOrder": 573,
+      "modelId": "qwen3.8-max",
       "endpoint": {
         "kind": "static",
         "url": "https://api.llmgateway.io/v1/chat/completions"
@@ -21590,6 +22425,66 @@
           "https://nano-gpt.com/api/v1/models"
         ],
         "maxOutputTokens": 384000
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "nanogpt:deepseek-v41-flash": {
+      "id": "nanogpt:deepseek-v41-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "DeepSeek V4.1 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "DeepSeek V4.1 Flash via NanoGPT (deepseek/deepseek-v4.1-flash).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (NanoGPT, deepseek/deepseek-v4.1-flash)."
+      },
+      "tags": [
+        "nanogpt",
+        "deepseek"
+      ],
+      "sortOrder": 517,
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 393216
       },
       "recommendedTokenizer": "deepseek",
       "profileStatus": "current"
@@ -22006,6 +22901,66 @@
       "limits": {
         "known": true,
         "contextWindowTokens": 1048576,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:glm-53": {
+      "id": "nanogpt:glm-53",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "GLM 5.3 via NanoGPT (z-ai/glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (NanoGPT, z-ai/glm-5.3)."
+      },
+      "tags": [
+        "nanogpt",
+        "glm"
+      ],
+      "sortOrder": 518,
+      "modelId": "z-ai/glm-5.3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1310720,
         "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
         "notesI18n": {
           "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
@@ -22515,6 +23470,67 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "nanogpt:grok-47": {
+      "id": "nanogpt:grok-47",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Grok 4.7",
+      "displayNameI18n": {
+        "ko": "Grok 4.7"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Grok 4.7 via NanoGPT (x-ai/grok-4.7).",
+      "descriptionI18n": {
+        "ko": "Grok 4.7 (NanoGPT, x-ai/grok-4.7)."
+      },
+      "tags": [
+        "nanogpt",
+        "grok"
+      ],
+      "sortOrder": 519,
+      "modelId": "x-ai/grok-4.7",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 450000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "nanogpt:kimi-k26": {
       "id": "nanogpt:kimi-k26",
       "version": 1,
@@ -22860,6 +23876,127 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "nanogpt:qwen38-flash": {
+      "id": "nanogpt:qwen38-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Flash"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Qwen3.8 Flash via NanoGPT (qwen/qwen3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Flash (NanoGPT, qwen/qwen3.8-flash)."
+      },
+      "tags": [
+        "nanogpt",
+        "qwen"
+      ],
+      "sortOrder": 515,
+      "modelId": "qwen/qwen3.8-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "nanogpt:qwen38-max": {
+      "id": "nanogpt:qwen38-max",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Max"
+      },
+      "providerBaseId": "nanogpt",
+      "description": "Qwen3.8 Max via NanoGPT (qwen/qwen3.8-max-0902).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Max (NanoGPT, qwen/qwen3.8-max-0902)."
+      },
+      "tags": [
+        "nanogpt",
+        "qwen"
+      ],
+      "sortOrder": 516,
+      "modelId": "qwen/qwen3.8-max-0902",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://nano-gpt.com/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://nano-gpt.com/api/v1/models",
+        "https://nano-gpt.com/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://nano-gpt.com/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "neuralwatt:gemma-4-31b": {
       "id": "neuralwatt:gemma-4-31b",
       "version": 1,
@@ -23001,6 +24138,65 @@
       ],
       "sortOrder": 541,
       "modelId": "glm-5.2",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://api.neuralwatt.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://api.neuralwatt.com/v1/models",
+        "https://portal.neuralwatt.com/models"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048560,
+        "notes": "Context length per NeuralWatt /v1/models; max_output_tokens reported null.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 NeuralWatt /v1/models 기준; max_output_tokens는 null로 보고됨."
+        },
+        "sourceUrls": [
+          "https://api.neuralwatt.com/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "neuralwatt:glm-53": {
+      "id": "neuralwatt:glm-53",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "GLM-5.3",
+      "displayNameI18n": {
+        "ko": "GLM-5.3"
+      },
+      "providerBaseId": "neuralwatt",
+      "description": "GLM-5.3 via NeuralWatt (glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM-5.3 (NeuralWatt, glm-5.3)."
+      },
+      "tags": [
+        "neuralwatt",
+        "glm"
+      ],
+      "sortOrder": 539,
+      "modelId": "glm-5.3",
       "endpoint": {
         "kind": "static",
         "url": "https://api.neuralwatt.com/v1/chat/completions"
@@ -23552,6 +24748,68 @@
       "recommendedTokenizer": "deepseek",
       "profileStatus": "current"
     },
+    "ollama-cloud:deepseek-v41-flash": {
+      "id": "ollama-cloud:deepseek-v41-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "DeepSeek V4.1 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "DeepSeek V4.1 Flash hosted on Ollama Cloud (deepseek-v4.1-flash:cloud).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (Ollama Cloud 호스팅, deepseek-v4.1-flash:cloud)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "deepseek"
+      ],
+      "sortOrder": 617,
+      "modelId": "deepseek-v4.1-flash:cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Native model spec; Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/search?c=cloud"
+        ],
+        "maxOutputTokens": 393216
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
     "ollama-cloud:gemini-3-flash": {
       "id": "ollama-cloud:gemini-3-flash",
       "version": 1,
@@ -23796,6 +25054,69 @@
         "sourceUrls": [
           "https://ollama.com/v1/models",
           "https://ollama.com/library/glm-5.2",
+          "https://ollama.com/search?c=cloud"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "ollama-cloud:glm-53": {
+      "id": "ollama-cloud:glm-53",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "ollama-cloud",
+      "description": "GLM 5.3 hosted on Ollama Cloud (glm-5.3:cloud).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (Ollama Cloud 호스팅, glm-5.3:cloud)."
+      },
+      "tags": [
+        "ollama",
+        "cloud",
+        "glm"
+      ],
+      "sortOrder": 618,
+      "modelId": "glm-5.3:cloud",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ollama.com/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ollama.com/v1/models",
+        "https://ollama.com/library/glm-5.3",
+        "https://docs.ollama.com/cloud"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "notes": "Native model spec; Ollama Cloud may cap context per deployment and does not expose per-model limits via /v1/models.",
+        "notesI18n": {
+          "ko": "모델 자체 스펙 기준. Ollama Cloud는 배포별로 컨텍스트를 제한할 수 있고 /v1/models로 모델별 한도를 노출하지 않습니다."
+        },
+        "sourceUrls": [
+          "https://ollama.com/v1/models",
+          "https://ollama.com/library/glm-5.3",
           "https://ollama.com/search?c=cloud"
         ]
       },
@@ -33440,6 +34761,62 @@
       "recommendedTokenizer": "deepseek",
       "profileStatus": "current"
     },
+    "openrouter:deepseek-v41-flash": {
+      "id": "openrouter:deepseek-v41-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "DeepSeek V4.1 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash"
+      },
+      "providerBaseId": "openrouter",
+      "description": "DeepSeek V4.1 Flash via OpenRouter (deepseek/deepseek-v4.1-flash).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (OpenRouter, deepseek/deepseek-v4.1-flash)."
+      },
+      "tags": [
+        "openrouter",
+        "deepseek"
+      ],
+      "sortOrder": 503,
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 393216
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
     "openrouter:gemini-3-flash": {
       "id": "openrouter:gemini-3-flash",
       "version": 1,
@@ -34112,6 +35489,62 @@
       "limits": {
         "known": true,
         "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:glm-53": {
+      "id": "openrouter:glm-53",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "openrouter",
+      "description": "GLM 5.3 via OpenRouter (z-ai/glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (OpenRouter, z-ai/glm-5.3)."
+      },
+      "tags": [
+        "openrouter",
+        "glm"
+      ],
+      "sortOrder": 504,
+      "modelId": "z-ai/glm-5.3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1310720,
         "sourceUrls": [
           "https://openrouter.ai/api/v1/models"
         ],
@@ -35042,6 +36475,63 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "openrouter:grok-47": {
+      "id": "openrouter:grok-47",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Grok 4.7",
+      "displayNameI18n": {
+        "ko": "Grok 4.7"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Grok 4.7 via OpenRouter (x-ai/grok-4.7).",
+      "descriptionI18n": {
+        "ko": "Grok 4.7 (OpenRouter, x-ai/grok-4.7)."
+      },
+      "tags": [
+        "openrouter",
+        "grok"
+      ],
+      "sortOrder": 505,
+      "modelId": "x-ai/grok-4.7",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 450000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "openrouter:kimi-k26": {
       "id": "openrouter:kimi-k26",
       "version": 1,
@@ -35368,6 +36858,119 @@
           "https://openrouter.ai/api/v1/models"
         ],
         "maxOutputTokens": 65536
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:qwen38-flash": {
+      "id": "openrouter:qwen38-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Flash"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Qwen3.8 Flash via OpenRouter (qwen/qwen3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Flash (OpenRouter, qwen/qwen3.8-flash)."
+      },
+      "tags": [
+        "openrouter",
+        "qwen"
+      ],
+      "sortOrder": 501,
+      "modelId": "qwen/qwen3.8-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "openrouter:qwen38-max": {
+      "id": "openrouter:qwen38-max",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Max"
+      },
+      "providerBaseId": "openrouter",
+      "description": "Qwen3.8 Max via OpenRouter (qwen/qwen3.8-max-0902).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Max (OpenRouter, qwen/qwen3.8-max-0902)."
+      },
+      "tags": [
+        "openrouter",
+        "qwen"
+      ],
+      "sortOrder": 502,
+      "modelId": "qwen/qwen3.8-max-0902",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://openrouter.ai/api/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://openrouter.ai/api/v1/models",
+        "https://openrouter.ai/docs"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://openrouter.ai/api/v1/models"
+        ],
+        "maxOutputTokens": 131072
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -36119,6 +37722,63 @@
       "recommendedTokenizer": "deepseek",
       "profileStatus": "current"
     },
+    "vercel:deepseek-v41-flash": {
+      "id": "vercel:deepseek-v41-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "DeepSeek V4.1 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash"
+      },
+      "providerBaseId": "vercel",
+      "description": "DeepSeek V4.1 Flash via Vercel AI Gateway (deepseek/deepseek-v4.1-flash).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (Vercel AI Gateway, deepseek/deepseek-v4.1-flash)."
+      },
+      "tags": [
+        "vercel",
+        "deepseek"
+      ],
+      "sortOrder": 543,
+      "modelId": "deepseek/deepseek-v4.1-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 32768
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
     "vercel:gemini-3-flash": {
       "id": "vercel:gemini-3-flash",
       "version": 1,
@@ -36797,6 +38457,62 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:glm-53": {
+      "id": "vercel:glm-53",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "vercel",
+      "description": "GLM 5.3 via Vercel AI Gateway (zai/glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (Vercel AI Gateway, zai/glm-5.3)."
+      },
+      "tags": [
+        "vercel",
+        "glm"
+      ],
+      "sortOrder": 544,
+      "modelId": "zai/glm-5.3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 1000000
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -37782,6 +39498,63 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "vercel:grok-47": {
+      "id": "vercel:grok-47",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Grok 4.7",
+      "displayNameI18n": {
+        "ko": "Grok 4.7"
+      },
+      "providerBaseId": "vercel",
+      "description": "Grok 4.7 via Vercel AI Gateway (spacexai/grok-4.7).",
+      "descriptionI18n": {
+        "ko": "Grok 4.7 (Vercel AI Gateway, spacexai/grok-4.7)."
+      },
+      "tags": [
+        "vercel",
+        "grok"
+      ],
+      "sortOrder": 545,
+      "modelId": "spacexai/grok-4.7",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 500000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "vercel:kimi-k26": {
       "id": "vercel:kimi-k26",
       "version": 1,
@@ -38108,6 +39881,119 @@
           "https://ai-gateway.vercel.sh/v1/models"
         ],
         "maxOutputTokens": 64000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:qwen38-flash": {
+      "id": "vercel:qwen38-flash",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Flash",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Flash"
+      },
+      "providerBaseId": "vercel",
+      "description": "Qwen3.8 Flash via Vercel AI Gateway (alibaba/qwen3.8-flash).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Flash (Vercel AI Gateway, alibaba/qwen3.8-flash)."
+      },
+      "tags": [
+        "vercel",
+        "qwen"
+      ],
+      "sortOrder": 541,
+      "modelId": "alibaba/qwen3.8-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "vision",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 991000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "vercel:qwen38-max": {
+      "id": "vercel:qwen38-max",
+      "version": 1,
+      "updatedAt": 1790150564289,
+      "displayName": "Qwen3.8 Max",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 Max"
+      },
+      "providerBaseId": "vercel",
+      "description": "Qwen3.8 Max via Vercel AI Gateway (alibaba/qwen3.8-max-0902).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 Max (Vercel AI Gateway, alibaba/qwen3.8-max-0902)."
+      },
+      "tags": [
+        "vercel",
+        "qwen"
+      ],
+      "sortOrder": 542,
+      "modelId": "alibaba/qwen3.8-max-0902",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools",
+        "json"
+      ],
+      "sourceUrls": [
+        "https://ai-gateway.vercel.sh/v1/models",
+        "https://vercel.com/docs/ai-gateway"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 991000,
+        "sourceUrls": [
+          "https://ai-gateway.vercel.sh/v1/models"
+        ],
+        "maxOutputTokens": 128000
       },
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
@@ -39380,10 +41266,12 @@
     "cerebras:openai-compatible": "575cd7bee90126f82bac398bd0d62b57d865b6a73af7185287bf5aad429244ca",
     "cerebras:zai-glm-47": "ca44388e190a4bcc7fc4f789f2660d8ad95098f35f20f61c77614a870c396d4c",
     "deepinfra:openai-compatible": "73bc47c91611be1ada29339572ed1beb4bd4f05692b5230774cc0a0bd77fd394",
-    "deepseek:v4-flash-thinking": "745827b3c4c2445ef2e6e89f228a7f33d34544de409b19fbeb5a85bb7af3cb82",
-    "deepseek:v4-flash": "a0c7ebc1848a5add33ac6fc69f94d44e3ac103320c0dfb36a5340272d4d770a2",
+    "deepseek:v4-flash-thinking": "2977f97f1e9f413e0e9844b2f193c5c1dbbea646a450a00d92b3969623b9166e",
+    "deepseek:v4-flash": "20771bd800d8f3fff803d0384f1ba6251802cb79991f7bce89fe3289814fe990",
     "deepseek:v4-pro-thinking": "dae0ba4d7633f572d7cb8e12e43227358a23b57ea14f97a367801ecf01f26022",
     "deepseek:v4-pro": "c4d3588abd6816c4cfe1e81560c0725fa01e7b15df5c0bfe008bd9516abbbe7f",
+    "deepseek:v41-flash-thinking": "ffc4f51a52668d6f433ce426fe398adff484909e8acd3903e7198f4cdc4758a9",
+    "deepseek:v41-flash": "b29ce90b4be9de53a797ce15f901befde1ad395269118728337f66e7371676fc",
     "google:gemini-25-flash-lite": "0adc067b305a6b137491bbb9659961a1f559643604c3b909120827dc3a731a03",
     "google:gemini-25-flash": "cbf9a339e531583c6263579f1f752444c98a3a0a01d0fe7d3821e24e143bdc3b",
     "google:gemini-25-pro": "aae71489341e77c7e0e8d5582659c533003031ca1a69d45edba571f5a3e13f45",
@@ -39437,6 +41325,7 @@
     "llmgateway:gemini-37-flash": "63620668e430f3a348cd391785a1a4166fde56debda4a3f9b93ce6b10a3c6120",
     "llmgateway:gemini-38-flash": "e054d4991a957386846b50075acae78b2644e3cd665016c616cc904a7b626d26",
     "llmgateway:glm-52": "76439d28e78513fdb1f9f26fb0bbebfedec6cfa9d5e134fd71d409c1eb283db4",
+    "llmgateway:glm-53": "b4a16e02974f10313ce0d6fb0b916a183db4c9b021d81048d78811d365148e40",
     "llmgateway:gpt-55": "002471e49938830586116c7b2da9a8d0c52f03776a0c3590ff1505fb9741ad45",
     "llmgateway:gpt-56-luna": "8282c611eecf0781f004810c3c6f955f7b61a96de9d307c849bfad29671c04cb",
     "llmgateway:gpt-56-sol": "65a19a2ca61cfac82a3d74850a817901231a384987522e108ac653edc2d6f9c4",
@@ -39445,15 +41334,18 @@
     "llmgateway:gpt-6-luna": "e1be650252ab4ea552df3e97235734722fe34ad737117eb2491bc5ddf3f3051d",
     "llmgateway:gpt-6-sol": "a70aa52a9b1d27ebbf7e391103ec49a4ec240704e6e2daea12093ada4352e043",
     "llmgateway:grok-45": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d",
+    "llmgateway:grok-47": "0d38940a591ed0ca6913c4f8942380b47bae33873ae4fdf9cc29f2a7c139f600",
     "llmgateway:kimi-k3": "fc9a6970fb1969f15d809100957985ac71302648812cded7343df53b8e2ce372",
     "llmgateway:minimax-m3": "dcebb2f1b6957956b4de9f69628b7ad6e8863b47b28df6c1cb785a130abf8eae",
     "llmgateway:openai-compatible": "95722e511ddb29657a2dee17868f7be7b0f3d896000946193c2bca5d0c65a82e",
     "llmgateway:qwen37-max": "dcd7ee2882f6ae428377766382aa7920f9d8b217c1f075dc22feb4a60417b42e",
+    "llmgateway:qwen38-max": "e0ded0ce0c3857b1c375ab034adb9dd9b86f3c755310cfe4ad4671b0c76d005e",
     "nanogpt:claude-fable-51": "f999a3889bf85f6aae894851c587cd5dbae3fa00d3a83ed5ac14a74b3c007b76",
     "nanogpt:claude-opus-55": "fe291b629cfeebeddb167aa1b8f1e575a8a8c0aeade26b1d8130ed1bf2023367",
     "nanogpt:claude-sonnet-5": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3",
     "nanogpt:deepseek-v4-flash": "362aaf28e8b73dac9c06753fa1bb0f74569ad50c2d8592801e37f54c7d3948be",
     "nanogpt:deepseek-v4-pro": "4a65d765792f354e79fe1b2a99fac4b492a870d37da14b53edbec800b3a0555e",
+    "nanogpt:deepseek-v41-flash": "f092e56982fd9b9d40fac51cab403860854bfb553c4fafda1bc32264c261787f",
     "nanogpt:gemini-35-flash-lite": "034f79d4f27c5e999529d02c3078087c84038a387b1cacd9a6a16d9a521a6237",
     "nanogpt:gemini-36-flash": "fd36179e02423edc96fea034da2e69fe9671c6bcfa860a1bcf7eea1c291aa44d",
     "nanogpt:gemini-37-flash": "d2facbfda7eafe34c79d84b5ad6e5e038b6b8d88a5cc52f7bc53e014658735c5",
@@ -39461,6 +41353,7 @@
     "nanogpt:gemma-4-31b": "bfed19636c85b0a4a3fde5ddeb25158fa2c9fb5b7ee5dbc55660e2ac663c7e2a",
     "nanogpt:glm-51": "3f2d1d24d7a84b19232f4ac1b37182006b9c4948fd6eb315672e5e7ad1fe238f",
     "nanogpt:glm-52": "b0f4a94430929a2000938bd0c8bb9821e5cb9d7bec7bb80a2325a04980220b49",
+    "nanogpt:glm-53": "d961d2f0f9804da61d4749d450ea30bacccdcf7e3c8a60f9e51f6bf145e3ad10",
     "nanogpt:gpt-56-luna": "2685a167f33198b6d5b75bf2b6b0a2f90234a6ab7fa60e2b92462b6be6f2e2dc",
     "nanogpt:gpt-56-sol": "e033d7a88a6bf4ef0b1a89e647a3f1d02338c5d13af600379390433962a2f344",
     "nanogpt:gpt-56-terra": "e4aed1500d89d4e26393d7eaaee5a25c99036b0f27f22b6046cb84b6c2b7d674",
@@ -39469,15 +41362,19 @@
     "nanogpt:gpt-6-sol": "697ceecc0a1230ae349f91268f62905c58b4c9fcb090304481a4bed3e3ebd126",
     "nanogpt:gpt-oss-120b": "a7987b92992d202bcb991e41a079d5ebfeb8cc26427ed729440e929c33806215",
     "nanogpt:grok-45": "75052304082513093d01f32650911cc9900abf7bd2438ff7fa303d08e9186d06",
+    "nanogpt:grok-47": "59a90fe91696c89ee03a6da0b548e0c992885a2a86b4499e04097c8b96694ccf",
     "nanogpt:kimi-k26": "819f59d33376de87d34f03686d286f5598c85a8ec4e44a9eb0a84118fd34b314",
     "nanogpt:kimi-k3": "31d166abd32c8fb20628a974c700ec639dea04f04220e30d4d50a3262353fe86",
     "nanogpt:minimax-m3": "82a57c2f138feaf51d1ebbcd9911c034951c15c236218f18d7af2f86b83a7915",
     "nanogpt:openai-compatible": "b5f441f1116067cd045c28549e9c22ea0baa952bb1ce288916f3743430a1de38",
     "nanogpt:qwen37-max": "2ddb56156b0771c708d97d9fe6a46e70bdeee43c3be4da889f9d77160f2fc8d3",
     "nanogpt:qwen37-plus": "a84d46bed5495dd6f8960228eef62264c3a487ffbb8d882ba343f59dc5089f10",
+    "nanogpt:qwen38-flash": "eeaef17ce0e9847206922bb31ed5b8ac176f717be7cbfb8e00600442fc5f55d6",
+    "nanogpt:qwen38-max": "ae47dc2ed34e620b6d0239622596d1d65af8371350a2a8990ebef7ddc8f3c8da",
     "neuralwatt:gemma-4-31b": "5c629e411773f3c5ccef947fda87ccecbf7c9a57e0f171354985abb37d4b0576",
     "neuralwatt:glm-51": "fe38d1f1e902852d610ad504143223e8d52b31d2f9ce137548f71138b9572f0d",
     "neuralwatt:glm-52": "af1997b666e6c76117b35b3fd1ef0f17bf4d134742ef144d93cfe9a4c3e4baab",
+    "neuralwatt:glm-53": "460750c55bb209e224e8e7d410e04a9f0b6adb683fa095748c153400825f89dd",
     "neuralwatt:kimi-k25": "be8a0a62f4278b54d7f5e0357592ce748394d1b4953250d7e427693f9c55a736",
     "neuralwatt:kimi-k26": "790bb599f12720589aaab81c56bf2da869ed39479d083768add8e6429bc8cfb3",
     "neuralwatt:kimi-k27-code": "6aec8f01f0c2f8c23b56e58d35bec0e4ea631e982a34b685b5420ae44daf80a9",
@@ -39487,10 +41384,12 @@
     "ollama:openai-compatible-local": "626020e05a68a54259f794002ab4672b4c2258f9bb934f7c3fd8e4ab3438983f",
     "ollama-cloud:deepseek-v4-flash": "c53c9d5957cab802ade4d7b03ef2e61c6ff46b4c9e1f339bb724b94fc6a6062a",
     "ollama-cloud:deepseek-v4-pro": "6ab15fddbd4caa57daf12e76203588142b141e54f297f66d18b58e7a9d39bf38",
+    "ollama-cloud:deepseek-v41-flash": "9502440f23fd38837cf7e102cf8c9e8e7a2c4528d316c317bd5c79faf32a2da6",
     "ollama-cloud:gemini-3-flash": "e3b9707f25fca7bc0a3b3d6e0a1150f0726dd017c1628d320defc8b82074a8e8",
     "ollama-cloud:gemma-4-31b": "bb87fbd92f48613e7c518c349eae08a4b6db8531c687fc3dd50a6b7cd68794bf",
     "ollama-cloud:glm-51": "7b3dd6fe5f131a29302e523c3e6ec608ba1fdc591ba0e2e20535453e19e1a98a",
     "ollama-cloud:glm-52": "fcce797ef4993782e24b6281e359acd62aa2832e50762e33e065688c591e048d",
+    "ollama-cloud:glm-53": "d3d704499157abcee8b46a7a241a61c0b442161cafed1947bec338b5549a4bed",
     "ollama-cloud:gpt-oss-120b": "6a58e05bf74d2d518ae070663199d16f94dc7c9a145020f6472139eb0b84f52a",
     "ollama-cloud:gpt-oss-20b": "4c5e874c8b1f0b8af72047b66acfd4a4f680201680761ce0d0b4bf090918b7ef",
     "ollama-cloud:kimi-k26": "1e6520ff339f371993d6b2c31941e77c78ccacf9098ae145b9a23779de6a968a",
@@ -39533,6 +41432,7 @@
     "openrouter:claude-sonnet-5": "b9b450ba52ddc6ed5632d7e7d9473c87f236515978dd9900de6432c1a27d4eed",
     "openrouter:deepseek-v4-flash": "c5d25fd09b0fb3c4bae9f50e5c7ec64e86c7a9c4218d9a5b1568a0da11000934",
     "openrouter:deepseek-v4-pro": "fdddb173e743fadae2c15711ba3c35534b8c3f851280bd4e32255f4c556adab1",
+    "openrouter:deepseek-v41-flash": "62663abe33b767f7bbb0ce371c23252c2034d75f7dd339579c815fdf73abab60",
     "openrouter:gemini-3-flash": "62eeb288987748300170d17474f7e709afacc85a2c2a34b9ff837f93a2046e07",
     "openrouter:gemini-31-flash-lite": "f4f72c1cead3db47c87e882d9f20e26ae0adf65a867f78c9fad346406b18f423",
     "openrouter:gemini-31-pro": "21aa979bb7f0e3c06cb99d055e3f1599652c2e23a0dbb062259568b0e78c9ac6",
@@ -39545,6 +41445,7 @@
     "openrouter:gemma-4-31b": "189d5411dd94a5daf1eb3e4f59d11e579666bc22f087eba76bb92b405bcad59b",
     "openrouter:glm-51": "ea2059292affa92758f12811fb8243250c0ee577887a50d0c9b5dbd8c8e355cf",
     "openrouter:glm-52": "806581f71e1369e77e9bc7f5e7e3b85aa6c732a6b4bf35a9e646b38c5a343943",
+    "openrouter:glm-53": "e6e7d625d1858fee14a021320cbdfd32a6e32215f967fbefbe77b8469b766efd",
     "openrouter:gpt-5-mini": "8ad2c720ddc768db9570be630cccd5b3603f62766160b77a1ae74bd97650bfa7",
     "openrouter:gpt-5-nano": "13d00ac52b00bfcdfd6cf656632a021bd81395efda0af91dc6ace01f361be30a",
     "openrouter:gpt-5": "8b2901a09271a95cf0c1ed04de85da924106826f2350dd1f13b842ec960e0375",
@@ -39561,12 +41462,15 @@
     "openrouter:gpt-6-luna": "be12451e80781f4d48ad4679b4894142d6e1062bf19d76f44947a7b0fc54e786",
     "openrouter:gpt-6-sol": "9f84cfa4716dfae93ee7a60b6c6414b08b4b7c664d4b3774acdee8943014fac7",
     "openrouter:grok-45": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540",
+    "openrouter:grok-47": "2493848623eb699e49116a39e0fdf12897d5735dd4a6524d63dcf8f1a4d665cf",
     "openrouter:kimi-k26": "118eae16a02938843faccc3c996e727c70f87d515d6fd1b0c3ec9fb2f1462324",
     "openrouter:kimi-k3": "2939b082383e2b7add2f7862e903cd52abff9bcd0b84b6ff76d2d31dfd15de9b",
     "openrouter:minimax-m3": "931328b2e02ea4683ad542df533d6707b37d66c3b620cd72bdaf50eb96d970fb",
     "openrouter:openai-compatible": "3c99e08637648252f92143d8ce8477e481ba29ad7ecee9f0bc48a9ce55375363",
     "openrouter:qwen37-max": "048b06fc5e04284cdc609bf88f8a60d276e86d1b8a87e203e0c691642350722b",
     "openrouter:qwen37-plus": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5",
+    "openrouter:qwen38-flash": "9067bdb7fbcdc9edcb9d7b56d9511dc0ada7fa664b82c2740148e80da528de11",
+    "openrouter:qwen38-max": "0671e432c1c554fe46f9d3306400545b0be5b18a49a4341aeb8156c9e7587b57",
     "square1:deepseek-v4-flash-0731": "ad87849fcf7510e3d37ac95f79fe628270db0d7b303b443905a77ead6836ddcb",
     "square1:glm-52": "018771dcb6e06718d6c66da47ab54d47c4bf365443a55e1b5899f2e6c7c1eec7",
     "vercel:claude-fable-5": "d1af4a46d381bc525199e2e1e5206df1b609ae0af6fa64bd1c87cb86eb683058",
@@ -39580,6 +41484,7 @@
     "vercel:claude-sonnet-5": "4d6e95f1fa91cb1c87ec901078e0fdbe12bf63f62f8cff8eb8d16ef60f0e0bc7",
     "vercel:deepseek-v4-flash": "80e766aea5e808d5263b52cca2daf2964165b1f646e8015037303e28c01f3c87",
     "vercel:deepseek-v4-pro": "1a4a785b24194353cdf537264c55340a0cf5c197b425c1959b24c02f31b3b13e",
+    "vercel:deepseek-v41-flash": "59b7f7549f607c98a91eea22f92b0549f207a45a827bc9e2d2a284e7a7f276c3",
     "vercel:gemini-3-flash": "4d40deb59800b670a48766b120a14af78ed2754ce8f230daedc8ab8ed21f48bd",
     "vercel:gemini-31-flash-lite": "95f3dc582a0c294872ffdbf88b823297dccfdc12b3fdc1096bd8e0196ed5d050",
     "vercel:gemini-31-pro": "dcb206eb0b0172661b209486ec417ee97bb42e1901a4447cd43cadcd75933d86",
@@ -39592,6 +41497,7 @@
     "vercel:gemma-4-31b": "beda0439bad645a0a7ddc2d9c3b8c258523050338d2375f5bd5ab44eb95065eb",
     "vercel:glm-51": "5f8e7ffd9c42778b7d2b634ca26d8b390d583f0a01173c302319a1ca86be9859",
     "vercel:glm-52": "7674eb94c8d00fb8db0df5462443387e858f7070810318c4b576b3802c5491c4",
+    "vercel:glm-53": "bb7f67df2a10a91a245b154f73ffff93e19b3c35ec9323586963f5a7c5b4f50d",
     "vercel:gpt-5-mini": "e8c014841c4fe99465be2fe57916623116d1503c04ed2ab29908551ab4d462ac",
     "vercel:gpt-5-nano": "4528010ff95c651ebcef774267a42ab3e9bee0eba71975b81641bd99d329b60f",
     "vercel:gpt-5": "6c03f29ed89e78a75cd64b3f0afab0a6db14ca3993fbeed2ef52af9140821e14",
@@ -39609,12 +41515,15 @@
     "vercel:gpt-6-luna": "dd0126c1da66b73fb82de9915ab77b9352b500db258fc9abdd844e063489be26",
     "vercel:gpt-6-sol": "2fb3b45c560e953756091f214c4a80dd820ba6652e4126298c9e08c4fd664e71",
     "vercel:grok-45": "f8eda538d3bbc03a98237c2b81b544e3beb96396f920279ebbdc57d411e71870",
+    "vercel:grok-47": "6b8e13cf9d9ce937b88f44934a44a8394352c8dab1ba56e4082fe538f53531f6",
     "vercel:kimi-k26": "6fa523568ccbf572e624d55cc4affbbd8213049b9562ca1cad44694f22c2faea",
     "vercel:kimi-k3": "ef4accf6656ef1f1dd433b13451f348446a2efbaa4384f7dc2a499532d4b90bc",
     "vercel:minimax-m3": "44a2731faf35a94ddec6ad856b3b1077d2937915b5479e3737ca8e9e35f6b5b3",
     "vercel:openai-compatible": "9d3840cf7aae4127b8d49602c70c664661ebc7343fa17492671c001b77a985cd",
     "vercel:qwen37-max": "7cb5bae51a325a77ff45b6ad817fed17f2dca8d9163472770d642db9c3c16879",
     "vercel:qwen37-plus": "84492c6ac4dcb865a3902eaa0a2eb0ca622859590a3d30dbe3fd796cdc425ea6",
+    "vercel:qwen38-flash": "8ba56a4aeec8855d701aad9ecf1d34bfcc06ab893c364e2664a9f1b50b9ca2fe",
+    "vercel:qwen38-max": "5ef782f010615f55dd65ab04280cabfe4116822f7a692524bb565aa926cb713a",
     "vertex-gemini-native:flash": "235b65f0236c77713cf0df35df3582fc0d301f40ed28e8ae6a416a7429da46e6",
     "vertex-gemini-native:gemini-25-flash-lite": "96ac62c58a6e6b693f32cfd7232f5897dd62f429fdbab8ab5885e63e62a3d80e",
     "vertex-gemini-native:gemini-25-flash": "b2a9cb56464cead22a13963cc9de886ddedb9f8765296930a735ffa95bc59a27",

@@ -1,0 +1,56 @@
+{
+  "id": "openrouter:qwen38-max",
+  "version": 1,
+  "updatedAt": 1790150564289,
+  "displayName": "Qwen3.8 Max",
+  "displayNameI18n": {
+    "ko": "Qwen3.8 Max"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Qwen3.8 Max via OpenRouter (qwen/qwen3.8-max-0902).",
+  "descriptionI18n": {
+    "ko": "Qwen3.8 Max (OpenRouter, qwen/qwen3.8-max-0902)."
+  },
+  "tags": [
+    "openrouter",
+    "qwen"
+  ],
+  "sortOrder": 502,
+  "modelId": "qwen/qwen3.8-max-0902",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 131072
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

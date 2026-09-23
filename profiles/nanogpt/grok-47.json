@@ -1,0 +1,61 @@
+{
+  "id": "nanogpt:grok-47",
+  "version": 1,
+  "updatedAt": 1790150564289,
+  "displayName": "Grok 4.7",
+  "displayNameI18n": {
+    "ko": "Grok 4.7"
+  },
+  "providerBaseId": "nanogpt",
+  "description": "Grok 4.7 via NanoGPT (x-ai/grok-4.7).",
+  "descriptionI18n": {
+    "ko": "Grok 4.7 (NanoGPT, x-ai/grok-4.7)."
+  },
+  "tags": [
+    "nanogpt",
+    "grok"
+  ],
+  "sortOrder": 519,
+  "modelId": "x-ai/grok-4.7",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://nano-gpt.com/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://nano-gpt.com/api/v1/models",
+    "https://nano-gpt.com/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 500000,
+    "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+    "notesI18n": {
+      "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+    },
+    "sourceUrls": [
+      "https://nano-gpt.com/api/v1/models"
+    ],
+    "maxOutputTokens": 450000
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

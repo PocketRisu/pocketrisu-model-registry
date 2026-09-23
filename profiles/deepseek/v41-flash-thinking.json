@@ -1,22 +1,23 @@
 {
-  "id": "deepseek:v4-flash",
-  "version": 2,
+  "id": "deepseek:v41-flash-thinking",
+  "version": 1,
   "updatedAt": 1790150564289,
-  "displayName": "DeepSeek V4 Flash",
+  "displayName": "DeepSeek V4.1 Flash (Thinking)",
   "displayNameI18n": {
-    "ko": "DeepSeek V4 Flash"
+    "ko": "DeepSeek V4.1 Flash (Thinking)"
   },
   "providerBaseId": "deepseek",
-  "description": "DeepSeek V4 Flash via the DeepSeek API (non-thinking mode).",
+  "description": "DeepSeek V4.1 Flash via the DeepSeek API (thinking mode).",
   "descriptionI18n": {
-    "ko": "DeepSeek V4 Flash (DeepSeek API, non-thinking 모드)."
+    "ko": "DeepSeek V4.1 Flash (DeepSeek API, thinking 모드)."
   },
   "tags": [
     "deepseek",
-    "v4"
+    "v4.1",
+    "reasoning"
   ],
-  "sortOrder": 403,
-  "modelId": "deepseek-v4-flash",
+  "sortOrder": 398,
+  "modelId": "deepseek-flash",
   "endpoint": {
     "kind": "static",
     "url": "https://api.deepseek.com/chat/completions"
@@ -29,7 +30,7 @@
   },
   "defaults": {
     "thinking": {
-      "type": "disabled"
+      "type": "enabled"
     }
   },
   "schema": [
@@ -41,8 +42,8 @@
       "required": true,
       "enum": [
         {
-          "value": "deepseek-v4-flash",
-          "label": "DeepSeek V4 Flash"
+          "value": "deepseek-flash",
+          "label": "DeepSeek V4.1 Flash"
         }
       ],
       "mapsTo": {
@@ -123,6 +124,33 @@
       }
     },
     {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "DeepSeek thinking effort. minimal maps to low; medium/xhigh map to high; ultra maps to max.",
+      "enum": [
+        {
+          "label": "Low",
+          "value": "low"
+        },
+        {
+          "label": "High",
+          "value": "high"
+        },
+        {
+          "label": "Max",
+          "value": "max"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      },
+      "descriptionI18n": {
+        "ko": "DeepSeek thinking 강도. minimal은 low로, medium/xhigh는 high로, ultra는 max로 매핑됩니다."
+      }
+    },
+    {
       "key": "response_format",
       "type": "string",
       "label": "Response Format",
@@ -187,6 +215,14 @@
         "order": 3,
         "labelI18n": {
           "ko": "생성"
+        }
+      },
+      {
+        "id": "reasoning",
+        "label": "Reasoning",
+        "order": 4,
+        "labelI18n": {
+          "ko": "추론"
         }
       },
       {
@@ -256,6 +292,13 @@
         "order": 6
       },
       {
+        "key": "reasoning_effort",
+        "widget": "combobox",
+        "visibility": "basic",
+        "group": "reasoning",
+        "order": 1
+      },
+      {
         "key": "response_format",
         "widget": "select",
         "visibility": "advanced",
@@ -284,6 +327,7 @@
   },
   "capabilities": [
     "streaming",
+    "reasoning",
     "tools",
     "json"
   ],
@@ -295,11 +339,11 @@
   "limits": {
     "known": true,
     "contextWindowTokens": 1000000,
-    "maxOutputTokens": 131072,
+    "maxOutputTokens": 393216,
     "sourceUrls": [
       "https://api-docs.deepseek.com/quick_start/pricing"
     ]
   },
   "recommendedTokenizer": "deepseek",
-  "profileStatus": "outdated"
+  "profileStatus": "current"
 }

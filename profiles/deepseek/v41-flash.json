@@ -1,22 +1,22 @@
 {
-  "id": "deepseek:v4-flash",
-  "version": 2,
+  "id": "deepseek:v41-flash",
+  "version": 1,
   "updatedAt": 1790150564289,
-  "displayName": "DeepSeek V4 Flash",
+  "displayName": "DeepSeek V4.1 Flash",
   "displayNameI18n": {
-    "ko": "DeepSeek V4 Flash"
+    "ko": "DeepSeek V4.1 Flash"
   },
   "providerBaseId": "deepseek",
-  "description": "DeepSeek V4 Flash via the DeepSeek API (non-thinking mode).",
+  "description": "DeepSeek V4.1 Flash via the DeepSeek API (non-thinking mode).",
   "descriptionI18n": {
-    "ko": "DeepSeek V4 Flash (DeepSeek API, non-thinking 모드)."
+    "ko": "DeepSeek V4.1 Flash (DeepSeek API, non-thinking 모드)."
   },
   "tags": [
     "deepseek",
-    "v4"
+    "v4.1"
   ],
-  "sortOrder": 403,
-  "modelId": "deepseek-v4-flash",
+  "sortOrder": 399,
+  "modelId": "deepseek-flash",
   "endpoint": {
     "kind": "static",
     "url": "https://api.deepseek.com/chat/completions"
@@ -41,8 +41,8 @@
       "required": true,
       "enum": [
         {
-          "value": "deepseek-v4-flash",
-          "label": "DeepSeek V4 Flash"
+          "value": "deepseek-flash",
+          "label": "DeepSeek V4.1 Flash"
         }
       ],
       "mapsTo": {
@@ -295,11 +295,11 @@
   "limits": {
     "known": true,
     "contextWindowTokens": 1000000,
-    "maxOutputTokens": 131072,
+    "maxOutputTokens": 393216,
     "sourceUrls": [
       "https://api-docs.deepseek.com/quick_start/pricing"
     ]
   },
   "recommendedTokenizer": "deepseek",
-  "profileStatus": "outdated"
+  "profileStatus": "current"
 }

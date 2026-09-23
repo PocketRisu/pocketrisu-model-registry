@@ -1,0 +1,60 @@
+{
+  "id": "nanogpt:glm-53",
+  "version": 1,
+  "updatedAt": 1790150564289,
+  "displayName": "GLM 5.3",
+  "displayNameI18n": {
+    "ko": "GLM 5.3"
+  },
+  "providerBaseId": "nanogpt",
+  "description": "GLM 5.3 via NanoGPT (z-ai/glm-5.3).",
+  "descriptionI18n": {
+    "ko": "GLM 5.3 (NanoGPT, z-ai/glm-5.3)."
+  },
+  "tags": [
+    "nanogpt",
+    "glm"
+  ],
+  "sortOrder": 518,
+  "modelId": "z-ai/glm-5.3",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://nano-gpt.com/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://nano-gpt.com/api/v1/models",
+    "https://nano-gpt.com/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1310720,
+    "notes": "Native model spec; NanoGPT does not expose per-model limits via /api/v1/models.",
+    "notesI18n": {
+      "ko": "모델 자체 스펙 기준. NanoGPT는 /api/v1/models로 모델별 한도를 노출하지 않습니다."
+    },
+    "sourceUrls": [
+      "https://nano-gpt.com/api/v1/models"
+    ],
+    "maxOutputTokens": 131072
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

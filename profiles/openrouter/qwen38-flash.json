@@ -1,0 +1,57 @@
+{
+  "id": "openrouter:qwen38-flash",
+  "version": 1,
+  "updatedAt": 1790150564289,
+  "displayName": "Qwen3.8 Flash",
+  "displayNameI18n": {
+    "ko": "Qwen3.8 Flash"
+  },
+  "providerBaseId": "openrouter",
+  "description": "Qwen3.8 Flash via OpenRouter (qwen/qwen3.8-flash).",
+  "descriptionI18n": {
+    "ko": "Qwen3.8 Flash (OpenRouter, qwen/qwen3.8-flash)."
+  },
+  "tags": [
+    "openrouter",
+    "qwen"
+  ],
+  "sortOrder": 501,
+  "modelId": "qwen/qwen3.8-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://openrouter.ai/api/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://openrouter.ai/api/v1/models",
+    "https://openrouter.ai/docs"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://openrouter.ai/api/v1/models"
+    ],
+    "maxOutputTokens": 131072
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
+}

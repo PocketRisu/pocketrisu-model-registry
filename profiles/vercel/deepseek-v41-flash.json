@@ -1,0 +1,57 @@
+{
+  "id": "vercel:deepseek-v41-flash",
+  "version": 1,
+  "updatedAt": 1790150564289,
+  "displayName": "DeepSeek V4.1 Flash",
+  "displayNameI18n": {
+    "ko": "DeepSeek V4.1 Flash"
+  },
+  "providerBaseId": "vercel",
+  "description": "DeepSeek V4.1 Flash via Vercel AI Gateway (deepseek/deepseek-v4.1-flash).",
+  "descriptionI18n": {
+    "ko": "DeepSeek V4.1 Flash (Vercel AI Gateway, deepseek/deepseek-v4.1-flash)."
+  },
+  "tags": [
+    "vercel",
+    "deepseek"
+  ],
+  "sortOrder": 543,
+  "modelId": "deepseek/deepseek-v4.1-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 32768
+  },
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
+}
