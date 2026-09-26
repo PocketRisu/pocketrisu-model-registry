@@ -79,45 +79,12 @@
       }
     },
     {
-      "key": "frequency_penalty",
-      "type": "number",
-      "label": "Frequency Penalty",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": {
-        "target": "body",
-        "path": "frequency_penalty"
-      }
-    },
-    {
-      "key": "presence_penalty",
-      "type": "number",
-      "label": "Presence Penalty",
-      "min": -2,
-      "max": 2,
-      "step": 0.01,
-      "mapsTo": {
-        "target": "body",
-        "path": "presence_penalty"
-      }
-    },
-    {
       "key": "stop",
       "type": "stringArray",
       "label": "Stop Sequences",
       "mapsTo": {
         "target": "body",
         "path": "stop"
-      }
-    },
-    {
-      "key": "seed",
-      "type": "integer",
-      "label": "Seed",
-      "mapsTo": {
-        "target": "body",
-        "path": "seed"
       }
     },
     {
@@ -224,32 +191,11 @@
         "order": 3
       },
       {
-        "key": "frequency_penalty",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 4
-      },
-      {
-        "key": "presence_penalty",
-        "widget": "slider",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 5
-      },
-      {
         "key": "stop",
         "widget": "string-array",
         "visibility": "advanced",
         "group": "generation",
         "order": 6
-      },
-      {
-        "key": "seed",
-        "widget": "number-input",
-        "visibility": "advanced",
-        "group": "generation",
-        "order": 7
       },
       {
         "key": "reasoning_effort",
@@ -264,14 +210,14 @@
     "streaming"
   ],
   "sourceUrls": [
-    "https://api.wellspring.encrypt.gay/v1/models",
-    "https://dash.square1.dev/"
+    "https://inference.square1.dev/v1/models",
+    "https://docs.square1.dev/"
   ],
   "limits": {
     "known": false,
     "sourceUrls": [
-      "https://api.wellspring.encrypt.gay/v1/models"
+      "https://inference.square1.dev/v1/models"
     ],
-    "notes": "Community-run arca.live API (dashboard at dash.square1.dev, gateway host api.wellspring.encrypt.gay). SQUARE1 enforces per-request input/output caps and per-model RPM exposed via /v1/models; per-profile limits below reflect those host-enforced caps, not native model context windows. Successor to the retired Wellspring service — accounts and keys were reissued (ws-... → sq-arca-...)."
+    "notes": "Community-run arca.live API (dashboard at dash.square1.dev, gateway host inference.square1.dev — moved from the legacy api.wellspring.encrypt.gay host). SQUARE1 enforces per-request input/output caps and per-model RPM exposed via /v1/models; per-profile limits below reflect those host-enforced caps, not native model context windows. The request contract is a strict OpenAI subset (temperature, max_tokens, top_p, stop, reasoning_effort, tools); frequency_penalty / presence_penalty / seed are silently ignored, so they are not offered. Successor to the retired Wellspring service — accounts and keys were reissued (ws-... → sq-arca-...; legacy ws- keys still accepted)."
   }
 }

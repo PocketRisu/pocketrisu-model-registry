@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "53d3157b127a50f8d79651538052fba39384429ba5167575bca7180fe23de863",
+  "hash": "a82efc677177adac8b083946213f0a43411615b262b630ece82300e95ea40197",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -90,7 +90,7 @@
     {
       "id": "square1",
       "url": "base-providers/square1.json",
-      "hash": "4d580c4d93720b38f69da2fb7c1c1bbf01f506faf07dc024725e4af4860a9a16"
+      "hash": "39217f4913a57df8a7df199d4eaf2f559ae150ad2b9b0e6b724a7d6e04694769"
     },
     {
       "id": "vercel",
@@ -1262,12 +1262,37 @@
     {
       "id": "square1:deepseek-v4-flash-0731",
       "url": "profiles/square1/deepseek-v4-flash-0731.json",
-      "hash": "ad87849fcf7510e3d37ac95f79fe628270db0d7b303b443905a77ead6836ddcb"
+      "hash": "dfb6ef11067bf194def812936146a7b756fbe535b1edb04ff7df1c83cc90ebb0"
+    },
+    {
+      "id": "square1:deepseek-v41-flash",
+      "url": "profiles/square1/deepseek-v41-flash.json",
+      "hash": "21d4e2d2c48c176ee1f035eaef6a792d68f20afb80df70745acf710a24cd792a"
+    },
+    {
+      "id": "square1:glm-52-code",
+      "url": "profiles/square1/glm-52-code.json",
+      "hash": "93a63c9a6cd8ef2f537b4aca079660d6e78b7dea12c854ef3a37b1f4c3f7f586"
     },
     {
       "id": "square1:glm-52",
       "url": "profiles/square1/glm-52.json",
-      "hash": "018771dcb6e06718d6c66da47ab54d47c4bf365443a55e1b5899f2e6c7c1eec7"
+      "hash": "e257ee23eba6c3db817446f5b0125ede98f2112cc9c081977018dba23c1549b9"
+    },
+    {
+      "id": "square1:glm-53-flash",
+      "url": "profiles/square1/glm-53-flash.json",
+      "hash": "2cd1ad1d6358bbbb293d88684400c6d8ea0cd041e22d4eec1a32d068c3c31290"
+    },
+    {
+      "id": "square1:glm-53",
+      "url": "profiles/square1/glm-53.json",
+      "hash": "481e4db1d4cb307307831c535a6031620c6fff367ddac90adc04bd4d7cfa306d"
+    },
+    {
+      "id": "square1:qwen38-27b",
+      "url": "profiles/square1/qwen38-27b.json",
+      "hash": "a5ae54431a97953904ceeaa6bb3b754315e9601709980330565950ad93019267"
     },
     {
       "id": "vercel:claude-fable-5",

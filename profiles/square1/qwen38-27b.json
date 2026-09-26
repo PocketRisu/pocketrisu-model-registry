@@ -1,22 +1,22 @@
 {
-  "id": "square1:deepseek-v4-flash-0731",
+  "id": "square1:qwen38-27b",
   "version": 1,
   "updatedAt": 1790432504487,
-  "displayName": "DeepSeek V4 Flash 0731",
+  "displayName": "Qwen3.8 27B",
   "displayNameI18n": {
-    "ko": "DeepSeek V4 Flash 0731"
+    "ko": "Qwen3.8 27B"
   },
   "providerBaseId": "square1",
-  "description": "DeepSeek V4 Flash 0731 via SQUARE1 (deepseek-v4-flash-0731).",
+  "description": "Qwen3.8 27B via SQUARE1 (qwen3.8-27b).",
   "descriptionI18n": {
-    "ko": "DeepSeek V4 Flash 0731 (SQUARE1 챈섭, deepseek-v4-flash-0731)."
+    "ko": "Qwen3.8 27B (SQUARE1 챈섭, qwen3.8-27b)."
   },
   "tags": [
     "square1",
-    "deepseek"
+    "qwen"
   ],
-  "sortOrder": 606,
-  "modelId": "deepseek-v4-flash-0731",
+  "sortOrder": 613,
+  "modelId": "qwen3.8-27b",
   "endpoint": {
     "kind": "static",
     "url": "https://inference.square1.dev/v1/chat/completions"
@@ -36,8 +36,7 @@
   "capabilities": [
     "streaming",
     "reasoning",
-    "tools",
-    "json"
+    "tools"
   ],
   "sourceUrls": [
     "https://inference.square1.dev/v1/models",
@@ -45,7 +44,7 @@
   ],
   "limits": {
     "known": true,
-    "contextWindowTokens": 61440,
+    "contextWindowTokens": 250000,
     "maxOutputTokens": 16384,
     "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
     "notesI18n": {
@@ -55,7 +54,6 @@
       "https://inference.square1.dev/v1/models"
     ]
   },
-  "recommendedTokenizer": "deepseek",
-  "profileStatus": "deprecated",
-  "statusReason": "Disabled on SQUARE1 (absent from /v1/models, listed as disabled on the public fleet page); superseded by DeepSeek V4.1 Flash."
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current"
 }

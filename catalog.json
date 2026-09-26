@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "53d3157b127a50f8d79651538052fba39384429ba5167575bca7180fe23de863",
+  "hash": "a82efc677177adac8b083946213f0a43411615b262b630ece82300e95ea40197",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -4142,45 +4142,12 @@
           }
         },
         {
-          "key": "frequency_penalty",
-          "type": "number",
-          "label": "Frequency Penalty",
-          "min": -2,
-          "max": 2,
-          "step": 0.01,
-          "mapsTo": {
-            "target": "body",
-            "path": "frequency_penalty"
-          }
-        },
-        {
-          "key": "presence_penalty",
-          "type": "number",
-          "label": "Presence Penalty",
-          "min": -2,
-          "max": 2,
-          "step": 0.01,
-          "mapsTo": {
-            "target": "body",
-            "path": "presence_penalty"
-          }
-        },
-        {
           "key": "stop",
           "type": "stringArray",
           "label": "Stop Sequences",
           "mapsTo": {
             "target": "body",
             "path": "stop"
-          }
-        },
-        {
-          "key": "seed",
-          "type": "integer",
-          "label": "Seed",
-          "mapsTo": {
-            "target": "body",
-            "path": "seed"
           }
         },
         {
@@ -4287,32 +4254,11 @@
             "order": 3
           },
           {
-            "key": "frequency_penalty",
-            "widget": "slider",
-            "visibility": "advanced",
-            "group": "generation",
-            "order": 4
-          },
-          {
-            "key": "presence_penalty",
-            "widget": "slider",
-            "visibility": "advanced",
-            "group": "generation",
-            "order": 5
-          },
-          {
             "key": "stop",
             "widget": "string-array",
             "visibility": "advanced",
             "group": "generation",
             "order": 6
-          },
-          {
-            "key": "seed",
-            "widget": "number-input",
-            "visibility": "advanced",
-            "group": "generation",
-            "order": 7
           },
           {
             "key": "reasoning_effort",
@@ -4327,15 +4273,15 @@
         "streaming"
       ],
       "sourceUrls": [
-        "https://api.wellspring.encrypt.gay/v1/models",
-        "https://dash.square1.dev/"
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
       ],
       "limits": {
         "known": false,
         "sourceUrls": [
-          "https://api.wellspring.encrypt.gay/v1/models"
+          "https://inference.square1.dev/v1/models"
         ],
-        "notes": "Community-run arca.live API (dashboard at dash.square1.dev, gateway host api.wellspring.encrypt.gay). SQUARE1 enforces per-request input/output caps and per-model RPM exposed via /v1/models; per-profile limits below reflect those host-enforced caps, not native model context windows. Successor to the retired Wellspring service — accounts and keys were reissued (ws-... → sq-arca-...)."
+        "notes": "Community-run arca.live API (dashboard at dash.square1.dev, gateway host inference.square1.dev — moved from the legacy api.wellspring.encrypt.gay host). SQUARE1 enforces per-request input/output caps and per-model RPM exposed via /v1/models; per-profile limits below reflect those host-enforced caps, not native model context windows. The request contract is a strict OpenAI subset (temperature, max_tokens, top_p, stop, reasoning_effort, tools); frequency_penalty / presence_penalty / seed are silently ignored, so they are not offered. Successor to the retired Wellspring service — accounts and keys were reissued (ws-... → sq-arca-...; legacy ws- keys still accepted)."
       }
     },
     "vercel": {
@@ -36978,7 +36924,7 @@
     "square1:deepseek-v4-flash-0731": {
       "id": "square1:deepseek-v4-flash-0731",
       "version": 1,
-      "updatedAt": 1787895282968,
+      "updatedAt": 1790432504487,
       "displayName": "DeepSeek V4 Flash 0731",
       "displayNameI18n": {
         "ko": "DeepSeek V4 Flash 0731"
@@ -36996,7 +36942,7 @@
       "modelId": "deepseek-v4-flash-0731",
       "endpoint": {
         "kind": "static",
-        "url": "https://api.wellspring.encrypt.gay/v1/chat/completions"
+        "url": "https://inference.square1.dev/v1/chat/completions"
       },
       "auth": {
         "kind": "bearer",
@@ -37017,8 +36963,8 @@
         "json"
       ],
       "sourceUrls": [
-        "https://api.wellspring.encrypt.gay/v1/models",
-        "https://dash.square1.dev/"
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
       ],
       "limits": {
         "known": true,
@@ -37029,16 +36975,135 @@
           "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
         },
         "sourceUrls": [
-          "https://api.wellspring.encrypt.gay/v1/models"
+          "https://inference.square1.dev/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "deprecated",
+      "statusReason": "Disabled on SQUARE1 (absent from /v1/models, listed as disabled on the public fleet page); superseded by DeepSeek V4.1 Flash."
+    },
+    "square1:deepseek-v41-flash": {
+      "id": "square1:deepseek-v41-flash",
+      "version": 1,
+      "updatedAt": 1790432504487,
+      "displayName": "DeepSeek V4.1 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4.1 Flash"
+      },
+      "providerBaseId": "square1",
+      "description": "DeepSeek V4.1 Flash via SQUARE1 (deepseek-v4.1-flash).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4.1 Flash (SQUARE1 챈섭, deepseek-v4.1-flash)."
+      },
+      "tags": [
+        "square1",
+        "deepseek"
+      ],
+      "sortOrder": 611,
+      "modelId": "deepseek-v4.1-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://inference.square1.dev/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1000000,
+        "maxOutputTokens": 131072,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+        },
+        "sourceUrls": [
+          "https://inference.square1.dev/v1/models"
         ]
       },
       "recommendedTokenizer": "deepseek",
       "profileStatus": "current"
     },
+    "square1:glm-52-code": {
+      "id": "square1:glm-52-code",
+      "version": 1,
+      "updatedAt": 1790432504487,
+      "displayName": "GLM 5.2 Code",
+      "displayNameI18n": {
+        "ko": "GLM 5.2 Code"
+      },
+      "providerBaseId": "square1",
+      "description": "GLM 5.2 Code via SQUARE1 (glm-5.2-code).",
+      "descriptionI18n": {
+        "ko": "GLM 5.2 Code (SQUARE1 챈섭, glm-5.2-code)."
+      },
+      "tags": [
+        "square1",
+        "zai"
+      ],
+      "sortOrder": 612,
+      "modelId": "glm-5.2-code",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://inference.square1.dev/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 350000,
+        "maxOutputTokens": 32768,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 20 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 20 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+        },
+        "sourceUrls": [
+          "https://inference.square1.dev/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
     "square1:glm-52": {
       "id": "square1:glm-52",
       "version": 1,
-      "updatedAt": 1787895282968,
+      "updatedAt": 1790432504487,
       "displayName": "GLM 5.2",
       "displayNameI18n": {
         "ko": "GLM 5.2"
@@ -37056,7 +37121,7 @@
       "modelId": "glm-5.2",
       "endpoint": {
         "kind": "static",
-        "url": "https://api.wellspring.encrypt.gay/v1/chat/completions"
+        "url": "https://inference.square1.dev/v1/chat/completions"
       },
       "auth": {
         "kind": "bearer",
@@ -37075,19 +37140,196 @@
         "reasoning"
       ],
       "sourceUrls": [
-        "https://api.wellspring.encrypt.gay/v1/models",
-        "https://dash.square1.dev/"
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
       ],
       "limits": {
         "known": true,
-        "contextWindowTokens": 49152,
+        "contextWindowTokens": 300000,
         "maxOutputTokens": 32768,
-        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 5 RPM. /v1/models reports supports_tools false; response_format json_object is accepted but not enforced (model still fences the JSON), so tools and json are not declared.",
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 5 RPM. /v1/models reports supports_tools false, so tools is not declared. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
         "notesI18n": {
-          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 5 RPM. /v1/models가 supports_tools를 false로 보고하며, response_format json_object는 통과하지만 강제되지 않아(코드펜스로 감싸 출력) tools·json 능력은 선언하지 않았습니다."
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 5 RPM. /v1/models가 supports_tools를 false로 보고하므로 tools 능력은 선언하지 않았습니다. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
         },
         "sourceUrls": [
-          "https://api.wellspring.encrypt.gay/v1/models"
+          "https://inference.square1.dev/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "square1:glm-53-flash": {
+      "id": "square1:glm-53-flash",
+      "version": 1,
+      "updatedAt": 1790432504487,
+      "displayName": "GLM 5.3 Flash",
+      "displayNameI18n": {
+        "ko": "GLM 5.3 Flash"
+      },
+      "providerBaseId": "square1",
+      "description": "GLM 5.3 Flash via SQUARE1 (glm-5.3-flash).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 Flash (SQUARE1 챈섭, glm-5.3-flash)."
+      },
+      "tags": [
+        "square1",
+        "zai"
+      ],
+      "sortOrder": 609,
+      "modelId": "glm-5.3-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://inference.square1.dev/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 500000,
+        "maxOutputTokens": 32768,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+        },
+        "sourceUrls": [
+          "https://inference.square1.dev/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "square1:glm-53": {
+      "id": "square1:glm-53",
+      "version": 1,
+      "updatedAt": 1790432504487,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "square1",
+      "description": "GLM 5.3 via SQUARE1 (glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (SQUARE1 챈섭, glm-5.3)."
+      },
+      "tags": [
+        "square1",
+        "zai"
+      ],
+      "sortOrder": 608,
+      "modelId": "glm-5.3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://inference.square1.dev/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 800000,
+        "maxOutputTokens": 32768,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+        },
+        "sourceUrls": [
+          "https://inference.square1.dev/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "square1:qwen38-27b": {
+      "id": "square1:qwen38-27b",
+      "version": 1,
+      "updatedAt": 1790432504487,
+      "displayName": "Qwen3.8 27B",
+      "displayNameI18n": {
+        "ko": "Qwen3.8 27B"
+      },
+      "providerBaseId": "square1",
+      "description": "Qwen3.8 27B via SQUARE1 (qwen3.8-27b).",
+      "descriptionI18n": {
+        "ko": "Qwen3.8 27B (SQUARE1 챈섭, qwen3.8-27b)."
+      },
+      "tags": [
+        "square1",
+        "qwen"
+      ],
+      "sortOrder": 613,
+      "modelId": "qwen3.8-27b",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://inference.square1.dev/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://inference.square1.dev/v1/models",
+        "https://docs.square1.dev/"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 250000,
+        "maxOutputTokens": 16384,
+        "notes": "SQUARE1 host-enforced per-request caps (max_input_tokens / max_output_tokens from /v1/models), not the native model context window. Per-user rate limit 10 RPM. Session and weekly quota percentages are returned in the response 'wellspring' envelope and via GET /v1/usage.",
+        "notesI18n": {
+          "ko": "SQUARE1(챈섭) 호스트가 거는 요청당 캡(/v1/models의 입력·출력 한도)이며 네이티브 모델 윈도우가 아닙니다. 유저별 분당 한도 10 RPM. 세션·주간 할당량은 응답의 wellspring 필드와 GET /v1/usage로 확인할 수 있습니다."
+        },
+        "sourceUrls": [
+          "https://inference.square1.dev/v1/models"
         ]
       },
       "recommendedTokenizer": "tik",
@@ -41235,7 +41477,7 @@
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
     "openai": "0cd11fe2ed4e8e0a7446d8f8c111f6eb12568b44b59f6a3a4d766800ecdd3958",
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
-    "square1": "4d580c4d93720b38f69da2fb7c1c1bbf01f506faf07dc024725e4af4860a9a16",
+    "square1": "39217f4913a57df8a7df199d4eaf2f559ae150ad2b9b0e6b724a7d6e04694769",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
     "vertex-gemini-native": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd",
     "vertex-openai": "46c3fca52d26e4386a1e7c9be1fcb9e735bfebcefd877c069fc37bdc6c6ec749",
@@ -41471,8 +41713,13 @@
     "openrouter:qwen37-plus": "57eea1363a8dc2a249a237d18f74bd69ff32d46b886203431fc4b74abfcba7d5",
     "openrouter:qwen38-flash": "9067bdb7fbcdc9edcb9d7b56d9511dc0ada7fa664b82c2740148e80da528de11",
     "openrouter:qwen38-max": "0671e432c1c554fe46f9d3306400545b0be5b18a49a4341aeb8156c9e7587b57",
-    "square1:deepseek-v4-flash-0731": "ad87849fcf7510e3d37ac95f79fe628270db0d7b303b443905a77ead6836ddcb",
-    "square1:glm-52": "018771dcb6e06718d6c66da47ab54d47c4bf365443a55e1b5899f2e6c7c1eec7",
+    "square1:deepseek-v4-flash-0731": "dfb6ef11067bf194def812936146a7b756fbe535b1edb04ff7df1c83cc90ebb0",
+    "square1:deepseek-v41-flash": "21d4e2d2c48c176ee1f035eaef6a792d68f20afb80df70745acf710a24cd792a",
+    "square1:glm-52-code": "93a63c9a6cd8ef2f537b4aca079660d6e78b7dea12c854ef3a37b1f4c3f7f586",
+    "square1:glm-52": "e257ee23eba6c3db817446f5b0125ede98f2112cc9c081977018dba23c1549b9",
+    "square1:glm-53-flash": "2cd1ad1d6358bbbb293d88684400c6d8ea0cd041e22d4eec1a32d068c3c31290",
+    "square1:glm-53": "481e4db1d4cb307307831c535a6031620c6fff367ddac90adc04bd4d7cfa306d",
+    "square1:qwen38-27b": "a5ae54431a97953904ceeaa6bb3b754315e9601709980330565950ad93019267",
     "vercel:claude-fable-5": "d1af4a46d381bc525199e2e1e5206df1b609ae0af6fa64bd1c87cb86eb683058",
     "vercel:claude-fable-51": "41feaf769f67fe6e113ea0d6f0dc8563e09908488f9894ec302e92bab4fc532b",
     "vercel:claude-opus-46": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8",
