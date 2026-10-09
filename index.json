@@ -1,11 +1,11 @@
 {
   "schemaVersion": 4,
-  "hash": "a82efc677177adac8b083946213f0a43411615b262b630ece82300e95ea40197",
+  "hash": "b07d2aaf845d883d8a08856ea3b7e908524f5fa28b2393f35e9e0050f5864fc0",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
       "url": "base-providers/anthropic-compatible.json",
-      "hash": "99888f6640f201879d20864a7eaa34ff379b2f269c3f614a88cdf48503f2c1f0"
+      "hash": "06ddb3bf9243cd5307d71e0053cd7275d499481c4ed4af8225c62d489f166191"
     },
     {
       "id": "anthropic",
@@ -15,7 +15,7 @@
     {
       "id": "bedrock-anthropic",
       "url": "base-providers/bedrock-anthropic.json",
-      "hash": "4a67c1bd7e67f150a6b53bc5e3003a47cdd68c589d2be2905a46f649dd9cd5a6"
+      "hash": "22d0cec5c0f0d38d2adb436ab91298062b980fa867bdcfcacbdb11ed1df161f7"
     },
     {
       "id": "bedrock",
@@ -130,6 +130,11 @@
       "hash": "235d37e91f1b7ae6cad183946a013d27ef9843d035560ff2f996d21bb0593d65"
     },
     {
+      "id": "anthropic:haiku-55",
+      "url": "profiles/anthropic/haiku-55.json",
+      "hash": "29128f3e828d0bcdd56ad323216bfd40deb81f49897c8b80c70301cd3d14afae"
+    },
+    {
       "id": "anthropic:opus-4",
       "url": "profiles/anthropic/opus-4.json",
       "hash": "82feacbf39d74714820155752987153371f99d6318621a1896440699e4bf329d"
@@ -190,14 +195,19 @@
       "hash": "afccde0f027967581c45b2d138922f8d8bd46e756dee0e9f07ff10ab2d6c6843"
     },
     {
+      "id": "anthropic:sonnet-55",
+      "url": "profiles/anthropic/sonnet-55.json",
+      "hash": "2d790f0cf6ee96629076a12ba6a5cce2cb808063829b291812a225c42404f980"
+    },
+    {
       "id": "anthropic-compatible:custom-noauth",
       "url": "profiles/anthropic-compatible/custom-noauth.json",
-      "hash": "442d5e18cab8b7a3fabf4388f482fbb44fa08d2b690ab5dc72fa66ae1a260e1f"
+      "hash": "b93269e1509d175cad1ef8e30132be67a92b1679440157dcba43ba52b0d6dadb"
     },
     {
       "id": "anthropic-compatible:custom",
       "url": "profiles/anthropic-compatible/custom.json",
-      "hash": "3d5981a2e25bd9102c03e9c6d4fa2a90c672817b0eb80c08f50aeac0d17a01f9"
+      "hash": "950ff16e02fd39ac38d1a7636452fe67d36d261193e6f8e1123cc0e962c6ecf7"
     },
     {
       "id": "bedrock:openai-compatible",
@@ -207,7 +217,7 @@
     {
       "id": "bedrock-anthropic:custom",
       "url": "profiles/bedrock-anthropic/custom.json",
-      "hash": "4ead32fe5d02f287dd73ffdc096fbb85259e03fb184ebf4f19fc1451e213a010"
+      "hash": "ef25ec3740f6192ff3df710307c9dd182aa71e44fbf8a7210e6d1f0415ef14fd"
     },
     {
       "id": "cerebras:gemma-4-31b",
@@ -435,6 +445,11 @@
       "hash": "d1f2790d91a65bb15aea2111a8f600ec752fb16170baf826ca4ab508e4c49a9d"
     },
     {
+      "id": "lightning-ai:gpt-61-sol",
+      "url": "profiles/lightning-ai/gpt-61-sol.json",
+      "hash": "60555b0784ef012b5745476adf407edd669119e61a09d7e77de071584b5f566b"
+    },
+    {
       "id": "lightning-ai:gpt-oss-120b",
       "url": "profiles/lightning-ai/gpt-oss-120b.json",
       "hash": "e3fb4dc4cde6c8244e89c587de00bbe2a82080f6ce9eef31651498118545c9a3"
@@ -475,6 +490,11 @@
       "hash": "9331fb866933ece0e6eb427f0c0145e25bbea99b715da8b787d39843c16bb5dd"
     },
     {
+      "id": "llmgateway:claude-haiku-55",
+      "url": "profiles/llmgateway/claude-haiku-55.json",
+      "hash": "53e9204cac3fc610ab5adb58908f2629dd1c96789bf7a38d8ebcbb814442f6fc"
+    },
+    {
       "id": "llmgateway:claude-opus-48",
       "url": "profiles/llmgateway/claude-opus-48.json",
       "hash": "8e6b426849d9557d5a6fb4203a83ea7266dc7434a1de422ee663781a1842fc3d"
@@ -493,6 +513,11 @@
       "id": "llmgateway:claude-sonnet-5",
       "url": "profiles/llmgateway/claude-sonnet-5.json",
       "hash": "5908b6f92b07dc0874092a843d65c390a284f162e9f5387917f7d58907cc76a4"
+    },
+    {
+      "id": "llmgateway:claude-sonnet-55",
+      "url": "profiles/llmgateway/claude-sonnet-55.json",
+      "hash": "f14517a066e90bc85b1221c6649191a5c5fe2fb26fde75f20edc89e5bbe3c612"
     },
     {
       "id": "llmgateway:deepseek-v4-pro",
@@ -570,6 +595,11 @@
       "hash": "a70aa52a9b1d27ebbf7e391103ec49a4ec240704e6e2daea12093ada4352e043"
     },
     {
+      "id": "llmgateway:gpt-61-sol",
+      "url": "profiles/llmgateway/gpt-61-sol.json",
+      "hash": "20fef0ded16d46edfdbffb2d5806b17146574c08222ed18b1ac623ec8467966d"
+    },
+    {
       "id": "llmgateway:grok-45",
       "url": "profiles/llmgateway/grok-45.json",
       "hash": "8bc539e8e4b022eb5374b61c94273ffce956e9f21440c65f27a74517cfa19c5d"
@@ -610,6 +640,11 @@
       "hash": "f999a3889bf85f6aae894851c587cd5dbae3fa00d3a83ed5ac14a74b3c007b76"
     },
     {
+      "id": "nanogpt:claude-haiku-55",
+      "url": "profiles/nanogpt/claude-haiku-55.json",
+      "hash": "810bec427fe518a4796da75ad9e8967d7962dd851b359d49d763d1c74b2dddd6"
+    },
+    {
       "id": "nanogpt:claude-opus-55",
       "url": "profiles/nanogpt/claude-opus-55.json",
       "hash": "fe291b629cfeebeddb167aa1b8f1e575a8a8c0aeade26b1d8130ed1bf2023367"
@@ -618,6 +653,11 @@
       "id": "nanogpt:claude-sonnet-5",
       "url": "profiles/nanogpt/claude-sonnet-5.json",
       "hash": "4b440d0b2a40a7018dcd474cab4f9de8c3fa79396e373f8eacab34e352ae50e3"
+    },
+    {
+      "id": "nanogpt:claude-sonnet-55",
+      "url": "profiles/nanogpt/claude-sonnet-55.json",
+      "hash": "c38dd0ea97c6b7a6d18d7a08bf80a7cf783196bb8b11235785b0632f1706a871"
     },
     {
       "id": "nanogpt:deepseek-v4-flash",
@@ -703,6 +743,11 @@
       "id": "nanogpt:gpt-6-sol",
       "url": "profiles/nanogpt/gpt-6-sol.json",
       "hash": "697ceecc0a1230ae349f91268f62905c58b4c9fcb090304481a4bed3e3ebd126"
+    },
+    {
+      "id": "nanogpt:gpt-61-sol",
+      "url": "profiles/nanogpt/gpt-61-sol.json",
+      "hash": "496c3fb2b68b8d6b1aa5dee84a8ad2ddb6678ed35f6bb6d40db49355c2e89638"
     },
     {
       "id": "nanogpt:gpt-oss-120b",
@@ -995,6 +1040,11 @@
       "hash": "d0a22a9ac34f057c243aca4e67f566ab3d3333d9af68111e9f0283d12034da99"
     },
     {
+      "id": "openai:gpt-61-sol",
+      "url": "profiles/openai/gpt-61-sol.json",
+      "hash": "875a3c5dcdd6b035bb11c74faef5184e6dc49244272a99f4215c3f02f1e8f90c"
+    },
+    {
       "id": "openai:o3",
       "url": "profiles/openai/o3.json",
       "hash": "aaf0b92926093390ece8c9ee05c0641bd043986464fb4d47c83f586b8b469f5d"
@@ -1018,6 +1068,11 @@
       "id": "openrouter:claude-fable-51",
       "url": "profiles/openrouter/claude-fable-51.json",
       "hash": "b8debf74c0d9c32417150ee3a64e4138aea3810863c655736d3492bb861efd3e"
+    },
+    {
+      "id": "openrouter:claude-haiku-55",
+      "url": "profiles/openrouter/claude-haiku-55.json",
+      "hash": "60f10de527df976bb39b432e5570d25a463e8a047196f021cf94275bcba6baf0"
     },
     {
       "id": "openrouter:claude-opus-46",
@@ -1053,6 +1108,11 @@
       "id": "openrouter:claude-sonnet-5",
       "url": "profiles/openrouter/claude-sonnet-5.json",
       "hash": "b9b450ba52ddc6ed5632d7e7d9473c87f236515978dd9900de6432c1a27d4eed"
+    },
+    {
+      "id": "openrouter:claude-sonnet-55",
+      "url": "profiles/openrouter/claude-sonnet-55.json",
+      "hash": "03b22e5ded17cfbcfc08a2df519c6b11a823a6d7549afcf3f71a32f5e1b176f0"
     },
     {
       "id": "openrouter:deepseek-v4-flash",
@@ -1210,6 +1270,11 @@
       "hash": "9f84cfa4716dfae93ee7a60b6c6414b08b4b7c664d4b3774acdee8943014fac7"
     },
     {
+      "id": "openrouter:gpt-61-sol",
+      "url": "profiles/openrouter/gpt-61-sol.json",
+      "hash": "25722670ee3b2a3bf8d2e91cef1d00d88b486beff86b20431c82023098376749"
+    },
+    {
       "id": "openrouter:grok-45",
       "url": "profiles/openrouter/grok-45.json",
       "hash": "d57698af3e65d391f2dd3d8664732c675906075af2453dcacd6f2d9196c1b540"
@@ -1305,6 +1370,11 @@
       "hash": "41feaf769f67fe6e113ea0d6f0dc8563e09908488f9894ec302e92bab4fc532b"
     },
     {
+      "id": "vercel:claude-haiku-55",
+      "url": "profiles/vercel/claude-haiku-55.json",
+      "hash": "4c73a081f5a1d56f2b03bec65262258459db93eb7dbff9b75f5afb380275c240"
+    },
+    {
       "id": "vercel:claude-opus-46",
       "url": "profiles/vercel/claude-opus-46.json",
       "hash": "5c7e9219f95e292b37d119a24bf9c917d4eae675462c86ec7a74850d5718b0f8"
@@ -1338,6 +1408,11 @@
       "id": "vercel:claude-sonnet-5",
       "url": "profiles/vercel/claude-sonnet-5.json",
       "hash": "4d6e95f1fa91cb1c87ec901078e0fdbe12bf63f62f8cff8eb8d16ef60f0e0bc7"
+    },
+    {
+      "id": "vercel:claude-sonnet-55",
+      "url": "profiles/vercel/claude-sonnet-55.json",
+      "hash": "65ac8dc8b393cba586a3a1d9d4d58737f485226949480fbfc8fdfdef39f75185"
     },
     {
       "id": "vercel:deepseek-v4-flash",
@@ -1498,6 +1573,11 @@
       "id": "vercel:gpt-6-sol",
       "url": "profiles/vercel/gpt-6-sol.json",
       "hash": "2fb3b45c560e953756091f214c4a80dd820ba6652e4126298c9e08c4fd664e71"
+    },
+    {
+      "id": "vercel:gpt-61-sol",
+      "url": "profiles/vercel/gpt-61-sol.json",
+      "hash": "520d1fb896605f73da24a2b91379ce117ea2a3437858e73241cce7449976f024"
     },
     {
       "id": "vercel:grok-45",

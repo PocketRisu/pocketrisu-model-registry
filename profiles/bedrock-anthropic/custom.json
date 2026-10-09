@@ -1,7 +1,7 @@
 {
   "id": "bedrock-anthropic:custom",
   "version": 1,
-  "updatedAt": 1790149230252,
+  "updatedAt": 1791538953035,
   "displayName": "AWS Bedrock (Anthropic Messages)",
   "displayNameI18n": {
     "ko": "AWS Bedrock (Anthropic Messages)"
