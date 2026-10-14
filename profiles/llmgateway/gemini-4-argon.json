@@ -1,0 +1,63 @@
+{
+  "id": "llmgateway:gemini-4-argon",
+  "version": 1,
+  "updatedAt": 1791965031276,
+  "displayName": "Gemini 4 Argon",
+  "displayNameI18n": {
+    "ko": "Gemini 4 Argon"
+  },
+  "providerBaseId": "llmgateway",
+  "description": "Gemini 4 Argon via LLM Gateway (gemini-4-argon).",
+  "descriptionI18n": {
+    "ko": "Gemini 4 Argon (LLM Gateway, gemini-4-argon)."
+  },
+  "tags": [
+    "llmgateway",
+    "gemini"
+  ],
+  "sortOrder": 600,
+  "modelId": "gemini-4-argon",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://api.llmgateway.io/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://docs.llmgateway.io/",
+    "https://api.llmgateway.io/v1/models",
+    "https://github.com/theopenco/llmgateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "sourceUrls": [
+      "https://api.llmgateway.io/v1/models",
+      "https://ai.google.dev/gemini-api/docs/models/gemini-4-argon"
+    ],
+    "notes": "Max output per LLM Gateway GET /v1/models; the gateway reports no context_size, so the context length is the native Google AI Studio spec.",
+    "notesI18n": {
+      "ko": "최대 출력은 LLM Gateway의 GET /v1/models 기준. 게이트웨이가 context_size를 노출하지 않아 컨텍스트 길이는 Google AI Studio 원본 스펙을 따릅니다."
+    },
+    "maxOutputTokens": 65536
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}

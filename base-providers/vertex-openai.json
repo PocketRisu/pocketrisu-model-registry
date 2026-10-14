@@ -1,6 +1,6 @@
 {
   "id": "vertex-openai",
-  "version": 8,
+  "version": 9,
   "displayName": "Vertex AI (OpenAI-compatible)",
   "adapterKind": "openai-compatible",
   "authKinds": [
@@ -65,6 +65,10 @@
       "description": "Vertex OpenAI-compatible model id.",
       "required": true,
       "enum": [
+        {
+          "value": "google/gemini-4-argon",
+          "label": "Gemini 4 Argon"
+        },
         {
           "value": "google/gemini-3.8-flash",
           "label": "Gemini 3.8 Flash"

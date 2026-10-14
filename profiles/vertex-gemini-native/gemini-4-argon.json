@@ -1,0 +1,106 @@
+{
+  "id": "vertex-gemini-native:gemini-4-argon",
+  "version": 1,
+  "updatedAt": 1791965031276,
+  "displayName": "Vertex AI - Gemini 4 Argon",
+  "providerBaseId": "vertex-gemini-native",
+  "description": "Gemini 4 Argon on Vertex AI (native generateContent).",
+  "modelId": "gemini-4-argon",
+  "endpoint": {
+    "kind": "vertex-gemini"
+  },
+  "auth": {
+    "kind": "google-service-account",
+    "fields": [
+      "serviceAccountJson"
+    ]
+  },
+  "defaults": {},
+  "schema": [
+    {
+      "key": "maxOutputTokens",
+      "type": "integer",
+      "label": "Max Output Tokens",
+      "min": 1,
+      "max": 65536,
+      "default": 32768,
+      "mapsTo": {
+        "target": "body",
+        "path": "generationConfig.maxOutputTokens"
+      }
+    }
+  ],
+  "uiSchema": {
+    "groups": [],
+    "fields": [
+      {
+        "key": "temperature",
+        "widget": "slider",
+        "visibility": "hidden",
+        "group": "generation",
+        "order": 1
+      },
+      {
+        "key": "topP",
+        "widget": "slider",
+        "visibility": "hidden",
+        "group": "generation",
+        "order": 3
+      },
+      {
+        "key": "topK",
+        "widget": "number-input",
+        "visibility": "hidden",
+        "group": "generation",
+        "order": 4
+      },
+      {
+        "key": "presencePenalty",
+        "widget": "slider",
+        "visibility": "hidden",
+        "group": "generation",
+        "order": 5
+      },
+      {
+        "key": "frequencyPenalty",
+        "widget": "slider",
+        "visibility": "hidden",
+        "group": "generation",
+        "order": 6
+      }
+    ]
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json",
+    "cache"
+  ],
+  "sourceUrls": [
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/model-reference/inference",
+    "https://docs.cloud.google.com/vertex-ai/generative-ai/docs/reference/rest/v1/projects.locations.publishers.models/streamGenerateContent"
+  ],
+  "tags": [
+    "vertex",
+    "google",
+    "gemini",
+    "reasoning",
+    "vision"
+  ],
+  "sortOrder": 843,
+  "displayNameI18n": {
+    "ko": "Vertex AI - Gemini 4 Argon"
+  },
+  "descriptionI18n": {
+    "ko": "Vertex AI의 Gemini 4 Argon (네이티브 generateContent)."
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current",
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "maxOutputTokens": 65536
+  }
+}

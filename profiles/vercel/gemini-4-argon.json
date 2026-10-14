@@ -1,0 +1,57 @@
+{
+  "id": "vercel:gemini-4-argon",
+  "version": 1,
+  "updatedAt": 1791965031276,
+  "displayName": "Gemini 4 Argon",
+  "displayNameI18n": {
+    "ko": "Gemini 4 Argon"
+  },
+  "providerBaseId": "vercel",
+  "description": "Gemini 4 Argon via Vercel AI Gateway (google/gemini-4-argon).",
+  "descriptionI18n": {
+    "ko": "Gemini 4 Argon (Vercel AI Gateway, google/gemini-4-argon)."
+  },
+  "tags": [
+    "vercel",
+    "gemini"
+  ],
+  "sortOrder": 589,
+  "modelId": "google/gemini-4-argon",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://ai-gateway.vercel.sh/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "vision",
+    "tools",
+    "json"
+  ],
+  "sourceUrls": [
+    "https://ai-gateway.vercel.sh/v1/models",
+    "https://vercel.com/docs/ai-gateway"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1000000,
+    "sourceUrls": [
+      "https://ai-gateway.vercel.sh/v1/models"
+    ],
+    "maxOutputTokens": 65536
+  },
+  "recommendedTokenizer": "gemma",
+  "profileStatus": "current"
+}
