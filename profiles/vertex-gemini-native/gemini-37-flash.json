@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:gemini-37-flash",
   "version": 1,
-  "updatedAt": 1786685377000,
+  "updatedAt": 1792097280381,
   "displayName": "Vertex AI - Gemini 3.7 Flash",
   "providerBaseId": "vertex-gemini-native",
   "description": "Gemini 3.7 Flash on Vertex AI (native generateContent).",

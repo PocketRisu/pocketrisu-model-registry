@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:gemini-35-flash",
   "version": 2,
-  "updatedAt": 1786685377000,
+  "updatedAt": 1792097280381,
   "displayName": "Vertex AI - Gemini 3.5 Flash",
   "providerBaseId": "vertex-gemini-native",
   "description": "Vertex AI native Gemini 3.5 Flash via streamGenerateContent. Requires PocketRisu 1.8.0+.",

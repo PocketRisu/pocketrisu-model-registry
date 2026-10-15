@@ -1,7 +1,7 @@
 {
   "id": "vertex-gemini-native:gemini-4-argon",
   "version": 1,
-  "updatedAt": 1791965031276,
+  "updatedAt": 1792097280381,
   "displayName": "Vertex AI - Gemini 4 Argon",
   "providerBaseId": "vertex-gemini-native",
   "description": "Gemini 4 Argon on Vertex AI (native generateContent).",
