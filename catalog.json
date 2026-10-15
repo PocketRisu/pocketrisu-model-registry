@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "633ba4182f6965ef655fcdbbdaaecf2f74bae7815c8755ac474c347d87c8c34f",
+  "hash": "5dc47b02cdef1c3ffc07a425cafa6a1c7b846f857943b6d8d15a3a8d45c50202",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -4612,7 +4612,7 @@
     },
     "vertex-gemini-native": {
       "id": "vertex-gemini-native",
-      "version": 7,
+      "version": 8,
       "displayName": "Vertex AI (Gemini Native)",
       "adapterKind": "google-gemini",
       "authKinds": [
@@ -4693,6 +4693,26 @@
           "description": "Gemini model id used on the Vertex URL path (publishers/google/models/{id}). Use the bare Gemini id without the 'google/' prefix. Leave blank to use the profile's model.",
           "required": false,
           "enum": [
+            {
+              "value": "gemini-4-argon",
+              "label": "Gemini 4 Argon"
+            },
+            {
+              "value": "gemini-3.8-flash",
+              "label": "Gemini 3.8 Flash"
+            },
+            {
+              "value": "gemini-3.7-flash",
+              "label": "Gemini 3.7 Flash"
+            },
+            {
+              "value": "gemini-3.6-flash",
+              "label": "Gemini 3.6 Flash"
+            },
+            {
+              "value": "gemini-3.5-flash-lite",
+              "label": "Gemini 3.5 Flash-Lite"
+            },
             {
               "value": "gemini-3.5-flash",
               "label": "Gemini 3.5 Flash"
@@ -42560,7 +42580,7 @@
     "vertex-gemini-native:flash": {
       "id": "vertex-gemini-native:flash",
       "version": 5,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent.",
@@ -42612,7 +42632,7 @@
     "vertex-gemini-native:gemini-25-flash-lite": {
       "id": "vertex-gemini-native:gemini-25-flash-lite",
       "version": 1,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 2.5 Flash-Lite",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 2.5 Flash-Lite via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -42663,7 +42683,7 @@
     "vertex-gemini-native:gemini-25-flash": {
       "id": "vertex-gemini-native:gemini-25-flash",
       "version": 1,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 2.5 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 2.5 Flash via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -42714,7 +42734,7 @@
     "vertex-gemini-native:gemini-25-pro": {
       "id": "vertex-gemini-native:gemini-25-pro",
       "version": 1,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 2.5 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 2.5 Pro via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -42765,7 +42785,7 @@
     "vertex-gemini-native:gemini-3-flash": {
       "id": "vertex-gemini-native:gemini-3-flash",
       "version": 1,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3 Flash via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -42815,7 +42835,7 @@
     "vertex-gemini-native:gemini-31-flash-lite": {
       "id": "vertex-gemini-native:gemini-31-flash-lite",
       "version": 1,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.1 Flash-Lite",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Flash-Lite via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -42865,7 +42885,7 @@
     "vertex-gemini-native:gemini-31-pro": {
       "id": "vertex-gemini-native:gemini-31-pro",
       "version": 1,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -42915,7 +42935,7 @@
     "vertex-gemini-native:gemini-35-flash-lite": {
       "id": "vertex-gemini-native:gemini-35-flash-lite",
       "version": 2,
-      "updatedAt": 1786685377000,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.5 Flash-Lite",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 3.5 Flash-Lite on Vertex AI (native generateContent).",
@@ -42987,7 +43007,7 @@
     "vertex-gemini-native:gemini-35-flash": {
       "id": "vertex-gemini-native:gemini-35-flash",
       "version": 2,
-      "updatedAt": 1786685377000,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.5 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.5 Flash via streamGenerateContent. Requires PocketRisu 1.8.0+.",
@@ -43052,7 +43072,7 @@
     "vertex-gemini-native:gemini-36-flash": {
       "id": "vertex-gemini-native:gemini-36-flash",
       "version": 2,
-      "updatedAt": 1786685377000,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.6 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 3.6 Flash on Vertex AI (native generateContent).",
@@ -43124,7 +43144,7 @@
     "vertex-gemini-native:gemini-37-flash": {
       "id": "vertex-gemini-native:gemini-37-flash",
       "version": 1,
-      "updatedAt": 1786685377000,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.7 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 3.7 Flash on Vertex AI (native generateContent).",
@@ -43196,7 +43216,7 @@
     "vertex-gemini-native:gemini-38-flash": {
       "id": "vertex-gemini-native:gemini-38-flash",
       "version": 1,
-      "updatedAt": 1788406394000,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.8 Flash",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 3.8 Flash on Vertex AI (native generateContent).",
@@ -43268,7 +43288,7 @@
     "vertex-gemini-native:gemini-4-argon": {
       "id": "vertex-gemini-native:gemini-4-argon",
       "version": 1,
-      "updatedAt": 1791965031276,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 4 Argon",
       "providerBaseId": "vertex-gemini-native",
       "description": "Gemini 4 Argon on Vertex AI (native generateContent).",
@@ -43374,7 +43394,7 @@
     "vertex-gemini-native:pro": {
       "id": "vertex-gemini-native:pro",
       "version": 5,
-      "updatedAt": 1781399379992,
+      "updatedAt": 1792097280381,
       "displayName": "Vertex AI - Gemini 3.1 Pro",
       "providerBaseId": "vertex-gemini-native",
       "description": "Vertex AI native Gemini 3.1 Pro via streamGenerateContent.",
@@ -43902,7 +43922,7 @@
     "openrouter": "0a8c76687cd9e98ecddbb059f2ef180f164749e35be3e7933bd78e6085a32f65",
     "square1": "39217f4913a57df8a7df199d4eaf2f559ae150ad2b9b0e6b724a7d6e04694769",
     "vercel": "4d161a9c2e925afda9448feef6d69fcb700dfb54b3ea5a71707f55fcc7cae91a",
-    "vertex-gemini-native": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd",
+    "vertex-gemini-native": "4586c506ce5018ef9249356f726eb79ae68bc1e0eb5197604b9dd7a8b1e417a1",
     "vertex-openai": "f33a40404db66f4f5f2e98ce27bffddccb4a71271d029600f8415204fcaf8241",
     "wellspring": "5587ece284930f761cd40627e8d1d21b3e1850c0a8065111fa9814df626b4dfc"
   },
@@ -44215,20 +44235,20 @@
     "vercel:qwen37-plus": "84492c6ac4dcb865a3902eaa0a2eb0ca622859590a3d30dbe3fd796cdc425ea6",
     "vercel:qwen38-flash": "8ba56a4aeec8855d701aad9ecf1d34bfcc06ab893c364e2664a9f1b50b9ca2fe",
     "vercel:qwen38-max": "5ef782f010615f55dd65ab04280cabfe4116822f7a692524bb565aa926cb713a",
-    "vertex-gemini-native:flash": "235b65f0236c77713cf0df35df3582fc0d301f40ed28e8ae6a416a7429da46e6",
-    "vertex-gemini-native:gemini-25-flash-lite": "96ac62c58a6e6b693f32cfd7232f5897dd62f429fdbab8ab5885e63e62a3d80e",
-    "vertex-gemini-native:gemini-25-flash": "b2a9cb56464cead22a13963cc9de886ddedb9f8765296930a735ffa95bc59a27",
-    "vertex-gemini-native:gemini-25-pro": "5f42059f3bab736d9b83de78a31a036d5077ee72df03e07a477ceeec6e582ef0",
-    "vertex-gemini-native:gemini-3-flash": "d899991a0cd756ec15a2081097f6c77992ddddc335d39878d82b567b3706985f",
-    "vertex-gemini-native:gemini-31-flash-lite": "13fb52e0146b6586b283ec91a457f0bb9d98587467c1646b96e0f5d6651586d3",
-    "vertex-gemini-native:gemini-31-pro": "aaf4739adf8ed03d8202c22ce7f1325a6405e417964bc43117b9e0355d8840e1",
-    "vertex-gemini-native:gemini-35-flash-lite": "9345638172aee2bd43af732c975cf7f69958b9b3c35fe3c8419bbd0ab43c0c47",
-    "vertex-gemini-native:gemini-35-flash": "f49c86b57de26725f6361874c334d2b652a3ae5c51db9bf435974a51913b8fda",
-    "vertex-gemini-native:gemini-36-flash": "5ed7e26ae855bfa81e24bfc6501960139c0392f3984f75b1f2e970a9a8d311ce",
-    "vertex-gemini-native:gemini-37-flash": "84fe6f66e16a18ae144605f834a6d9a6151950e1475a3eb542c4b57a63e81b93",
-    "vertex-gemini-native:gemini-38-flash": "87314f3b3fabe4f871f3cf56e36af2f36abaffed4fedd43d42e0f36b74cb4a03",
-    "vertex-gemini-native:gemini-4-argon": "0b8e986f70204f7a369e18542c577de89998711ab7864765a6e2cb9e30f83bd2",
-    "vertex-gemini-native:pro": "1ed1cb71d120cd587c561603e24b513184ec7c19fc507ff71b5f1d1a30bf206f",
+    "vertex-gemini-native:flash": "e5f30460017cf48b51edbc50dd635de0f5dfa74ed9b16810eba4f2d3a9a84667",
+    "vertex-gemini-native:gemini-25-flash-lite": "ca08af9699bd1e41e7a5866bdd57abc0bd7f27312b263f675c975cdee93898b3",
+    "vertex-gemini-native:gemini-25-flash": "d256ffbd1678b224495e241fd170d3935bc93db3f1e3fca64f38e52cbac14049",
+    "vertex-gemini-native:gemini-25-pro": "f33cad7b000712c26a342408c626bffab799ba006288ad216d5b256315b76f7d",
+    "vertex-gemini-native:gemini-3-flash": "8c8c2beb14ccaa174cbd5ee8bb083f35f98254f0be1c624711847154b203fdfe",
+    "vertex-gemini-native:gemini-31-flash-lite": "d5acb20f9afc7290b115cf18b4036db559d66f581dbe42fa3cd151cc95cb0113",
+    "vertex-gemini-native:gemini-31-pro": "97a9807da553d6581f50e584b471fedb312977762c1ef454be9b74e422c6403a",
+    "vertex-gemini-native:gemini-35-flash-lite": "f4a1996f79784d5029683d797548ec5ef87fc8f1cd206c1bbc3209499077d5ae",
+    "vertex-gemini-native:gemini-35-flash": "83fbae8b7e3f02a829095c1d26a3ef14f4830f4ee5c10301cde82acaaf989f1e",
+    "vertex-gemini-native:gemini-36-flash": "26cc79550b91a1ca8445e91e47306d103f678d2db4447a714c9c493a79bc7f80",
+    "vertex-gemini-native:gemini-37-flash": "b3e0c2bf10d3db5ee519336ffb8449f72fd92f48988fcc95c23270a2dc112f83",
+    "vertex-gemini-native:gemini-38-flash": "69c3f830196c64e23bb01baea1ae99aea1bd3ffd2026895d0c476a089e617328",
+    "vertex-gemini-native:gemini-4-argon": "1d849b49273279167ac1c4683ec98d279250bb8ab72495b18e6667e8d2d509e5",
+    "vertex-gemini-native:pro": "1cdc97b06f2c2f6307ee54c6551846f703c6236a877eb9232e5573e6e99d1d4f",
     "vertex-openai:standard": "00e98265b1f926c034666680b46d97ae016bed4484b4c9ae80918e08546976dd",
     "wellspring:deepseek-v32-marp": "642af5c20e8d563d6c60fe275de6b8b82a1575a7e14957215a979e831695b821",
     "wellspring:deepseek-v4-flash": "7e73c7b794e3143c8ae0b8b221196dba81336483f0807a2489e49298f11f0ade",

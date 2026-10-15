@@ -1,6 +1,6 @@
 {
   "id": "vertex-gemini-native",
-  "version": 7,
+  "version": 8,
   "displayName": "Vertex AI (Gemini Native)",
   "adapterKind": "google-gemini",
   "authKinds": [
@@ -81,6 +81,11 @@
       "description": "Gemini model id used on the Vertex URL path (publishers/google/models/{id}). Use the bare Gemini id without the 'google/' prefix. Leave blank to use the profile's model.",
       "required": false,
       "enum": [
+        { "value": "gemini-4-argon", "label": "Gemini 4 Argon" },
+        { "value": "gemini-3.8-flash", "label": "Gemini 3.8 Flash" },
+        { "value": "gemini-3.7-flash", "label": "Gemini 3.7 Flash" },
+        { "value": "gemini-3.6-flash", "label": "Gemini 3.6 Flash" },
+        { "value": "gemini-3.5-flash-lite", "label": "Gemini 3.5 Flash-Lite" },
         { "value": "gemini-3.5-flash", "label": "Gemini 3.5 Flash" },
         { "value": "gemini-3.1-pro-preview", "label": "Gemini 3.1 Pro" },
         { "value": "gemini-3.1-flash-lite", "label": "Gemini 3.1 Flash-Lite" },

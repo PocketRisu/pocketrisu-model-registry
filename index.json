@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "633ba4182f6965ef655fcdbbdaaecf2f74bae7815c8755ac474c347d87c8c34f",
+  "hash": "5dc47b02cdef1c3ffc07a425cafa6a1c7b846f857943b6d8d15a3a8d45c50202",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -100,7 +100,7 @@
     {
       "id": "vertex-gemini-native",
       "url": "base-providers/vertex-gemini-native.json",
-      "hash": "e3f6c57cb4d8093323cf241b5ec1d5e1fe97eabaf06300eae5c4576d64b054bd"
+      "hash": "4586c506ce5018ef9249356f726eb79ae68bc1e0eb5197604b9dd7a8b1e417a1"
     },
     {
       "id": "vertex-openai",
@@ -1657,72 +1657,72 @@
     {
       "id": "vertex-gemini-native:flash",
       "url": "profiles/vertex-gemini-native/flash.json",
-      "hash": "235b65f0236c77713cf0df35df3582fc0d301f40ed28e8ae6a416a7429da46e6"
+      "hash": "e5f30460017cf48b51edbc50dd635de0f5dfa74ed9b16810eba4f2d3a9a84667"
     },
     {
       "id": "vertex-gemini-native:gemini-25-flash-lite",
       "url": "profiles/vertex-gemini-native/gemini-25-flash-lite.json",
-      "hash": "96ac62c58a6e6b693f32cfd7232f5897dd62f429fdbab8ab5885e63e62a3d80e"
+      "hash": "ca08af9699bd1e41e7a5866bdd57abc0bd7f27312b263f675c975cdee93898b3"
     },
     {
       "id": "vertex-gemini-native:gemini-25-flash",
       "url": "profiles/vertex-gemini-native/gemini-25-flash.json",
-      "hash": "b2a9cb56464cead22a13963cc9de886ddedb9f8765296930a735ffa95bc59a27"
+      "hash": "d256ffbd1678b224495e241fd170d3935bc93db3f1e3fca64f38e52cbac14049"
     },
     {
       "id": "vertex-gemini-native:gemini-25-pro",
       "url": "profiles/vertex-gemini-native/gemini-25-pro.json",
-      "hash": "5f42059f3bab736d9b83de78a31a036d5077ee72df03e07a477ceeec6e582ef0"
+      "hash": "f33cad7b000712c26a342408c626bffab799ba006288ad216d5b256315b76f7d"
     },
     {
       "id": "vertex-gemini-native:gemini-3-flash",
       "url": "profiles/vertex-gemini-native/gemini-3-flash.json",
-      "hash": "d899991a0cd756ec15a2081097f6c77992ddddc335d39878d82b567b3706985f"
+      "hash": "8c8c2beb14ccaa174cbd5ee8bb083f35f98254f0be1c624711847154b203fdfe"
     },
     {
       "id": "vertex-gemini-native:gemini-31-flash-lite",
       "url": "profiles/vertex-gemini-native/gemini-31-flash-lite.json",
-      "hash": "13fb52e0146b6586b283ec91a457f0bb9d98587467c1646b96e0f5d6651586d3"
+      "hash": "d5acb20f9afc7290b115cf18b4036db559d66f581dbe42fa3cd151cc95cb0113"
     },
     {
       "id": "vertex-gemini-native:gemini-31-pro",
       "url": "profiles/vertex-gemini-native/gemini-31-pro.json",
-      "hash": "aaf4739adf8ed03d8202c22ce7f1325a6405e417964bc43117b9e0355d8840e1"
+      "hash": "97a9807da553d6581f50e584b471fedb312977762c1ef454be9b74e422c6403a"
     },
     {
       "id": "vertex-gemini-native:gemini-35-flash-lite",
       "url": "profiles/vertex-gemini-native/gemini-35-flash-lite.json",
-      "hash": "9345638172aee2bd43af732c975cf7f69958b9b3c35fe3c8419bbd0ab43c0c47"
+      "hash": "f4a1996f79784d5029683d797548ec5ef87fc8f1cd206c1bbc3209499077d5ae"
     },
     {
       "id": "vertex-gemini-native:gemini-35-flash",
       "url": "profiles/vertex-gemini-native/gemini-35-flash.json",
-      "hash": "f49c86b57de26725f6361874c334d2b652a3ae5c51db9bf435974a51913b8fda"
+      "hash": "83fbae8b7e3f02a829095c1d26a3ef14f4830f4ee5c10301cde82acaaf989f1e"
     },
     {
       "id": "vertex-gemini-native:gemini-36-flash",
       "url": "profiles/vertex-gemini-native/gemini-36-flash.json",
-      "hash": "5ed7e26ae855bfa81e24bfc6501960139c0392f3984f75b1f2e970a9a8d311ce"
+      "hash": "26cc79550b91a1ca8445e91e47306d103f678d2db4447a714c9c493a79bc7f80"
     },
     {
       "id": "vertex-gemini-native:gemini-37-flash",
       "url": "profiles/vertex-gemini-native/gemini-37-flash.json",
-      "hash": "84fe6f66e16a18ae144605f834a6d9a6151950e1475a3eb542c4b57a63e81b93"
+      "hash": "b3e0c2bf10d3db5ee519336ffb8449f72fd92f48988fcc95c23270a2dc112f83"
     },
     {
       "id": "vertex-gemini-native:gemini-38-flash",
       "url": "profiles/vertex-gemini-native/gemini-38-flash.json",
-      "hash": "87314f3b3fabe4f871f3cf56e36af2f36abaffed4fedd43d42e0f36b74cb4a03"
+      "hash": "69c3f830196c64e23bb01baea1ae99aea1bd3ffd2026895d0c476a089e617328"
     },
     {
       "id": "vertex-gemini-native:gemini-4-argon",
       "url": "profiles/vertex-gemini-native/gemini-4-argon.json",
-      "hash": "0b8e986f70204f7a369e18542c577de89998711ab7864765a6e2cb9e30f83bd2"
+      "hash": "1d849b49273279167ac1c4683ec98d279250bb8ab72495b18e6667e8d2d509e5"
     },
     {
       "id": "vertex-gemini-native:pro",
       "url": "profiles/vertex-gemini-native/pro.json",
-      "hash": "1ed1cb71d120cd587c561603e24b513184ec7c19fc507ff71b5f1d1a30bf206f"
+      "hash": "1cdc97b06f2c2f6307ee54c6551846f703c6236a877eb9232e5573e6e99d1d4f"
     },
     {
       "id": "vertex-openai:standard",
