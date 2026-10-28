@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "2aacc50e95cfd20c44bd7073de3ad83940b2e0f2d59cc2ea1eda641ca31a52cf",
+  "hash": "7084dca01414168412637a6e5bdd1cc25bdff69b0a7f0e62d09d7ce09ade346e",
   "baseProviders": {
     "anthropic-compatible": {
       "id": "anthropic-compatible",
@@ -2480,6 +2480,295 @@
           "https://api.neuralwatt.com/v1/models"
         ],
         "notes": "Model-dependent provider. NeuralWatt's /v1/models exposes per-model context length but reports max_output_tokens as null, so PocketRisu uses a number input for Max Tokens instead of a fixed-limit slider."
+      }
+    },
+    "obscurify": {
+      "id": "obscurify",
+      "version": 1,
+      "displayName": "Obscurify.ai",
+      "adapterKind": "openai-compatible",
+      "authKinds": [
+        "bearer"
+      ],
+      "endpointKinds": [
+        "static"
+      ],
+      "defaultHeaders": {
+        "Content-Type": "application/json"
+      },
+      "defaultBody": {},
+      "requestSchema": [
+        {
+          "key": "apiKey",
+          "type": "string",
+          "label": "API Key",
+          "description": "Obscurify.ai API key (sk-obs1_...), shown at obscurify.ai/account.",
+          "required": true,
+          "secret": true,
+          "mapsTo": {
+            "target": "auth",
+            "path": "apiKey"
+          },
+          "descriptionI18n": {
+            "ko": "Obscurify.ai API 키 (sk-obs1_...). obscurify.ai/account에서 확인."
+          }
+        },
+        {
+          "key": "modelId",
+          "type": "string",
+          "label": "Model ID",
+          "description": "Model identifier accepted by Obscurify.ai (see obscurify.ai/v1/models).",
+          "required": true,
+          "mapsTo": {
+            "target": "body",
+            "path": "model"
+          },
+          "descriptionI18n": {
+            "ko": "Obscurify.ai가 허용하는 모델 ID (obscurify.ai/v1/models 참고)."
+          }
+        },
+        {
+          "key": "temperature",
+          "type": "number",
+          "label": "Temperature",
+          "min": 0,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "temperature"
+          }
+        },
+        {
+          "key": "max_tokens",
+          "type": "integer",
+          "label": "Max Tokens",
+          "min": 1,
+          "mapsTo": {
+            "target": "body",
+            "path": "max_tokens"
+          },
+          "default": 4096
+        },
+        {
+          "key": "top_p",
+          "type": "number",
+          "label": "Top P",
+          "min": 0,
+          "max": 1,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "top_p"
+          }
+        },
+        {
+          "key": "frequency_penalty",
+          "type": "number",
+          "label": "Frequency Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "frequency_penalty"
+          }
+        },
+        {
+          "key": "presence_penalty",
+          "type": "number",
+          "label": "Presence Penalty",
+          "min": -2,
+          "max": 2,
+          "step": 0.01,
+          "mapsTo": {
+            "target": "body",
+            "path": "presence_penalty"
+          }
+        },
+        {
+          "key": "stop",
+          "type": "stringArray",
+          "label": "Stop Sequences",
+          "mapsTo": {
+            "target": "body",
+            "path": "stop"
+          }
+        },
+        {
+          "key": "seed",
+          "type": "integer",
+          "label": "Seed",
+          "mapsTo": {
+            "target": "body",
+            "path": "seed"
+          }
+        },
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth for thinking models. Accepted values depend on the model; 'none' disables thinking where supported.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "minimal",
+              "label": "Minimal"
+            },
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "medium",
+              "label": "Medium"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론(사고) 강도. 허용 값은 모델마다 다름 (지원 모델에서 none은 비활성)."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [
+          {
+            "id": "credentials",
+            "label": "Credentials",
+            "order": 1,
+            "labelI18n": {
+              "ko": "인증 정보"
+            }
+          },
+          {
+            "id": "model",
+            "label": "Model",
+            "order": 2,
+            "labelI18n": {
+              "ko": "모델"
+            }
+          },
+          {
+            "id": "generation",
+            "label": "Generation",
+            "order": 3,
+            "labelI18n": {
+              "ko": "생성"
+            }
+          },
+          {
+            "id": "reasoning",
+            "label": "Reasoning",
+            "order": 4,
+            "labelI18n": {
+              "ko": "추론"
+            }
+          }
+        ],
+        "fields": [
+          {
+            "key": "apiKey",
+            "widget": "secret",
+            "visibility": "basic",
+            "group": "credentials",
+            "order": 1
+          },
+          {
+            "key": "modelId",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "model",
+            "order": 1
+          },
+          {
+            "key": "temperature",
+            "widget": "slider",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 1
+          },
+          {
+            "key": "max_tokens",
+            "widget": "number-input",
+            "visibility": "basic",
+            "group": "generation",
+            "order": 2
+          },
+          {
+            "key": "top_p",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 3
+          },
+          {
+            "key": "frequency_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 4
+          },
+          {
+            "key": "presence_penalty",
+            "widget": "slider",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 5
+          },
+          {
+            "key": "stop",
+            "widget": "string-array",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 6
+          },
+          {
+            "key": "seed",
+            "widget": "number-input",
+            "visibility": "advanced",
+            "group": "generation",
+            "order": 7
+          },
+          {
+            "key": "reasoning_effort",
+            "widget": "combobox",
+            "visibility": "basic",
+            "group": "reasoning",
+            "order": 1
+          }
+        ]
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://obscurify.ai/api-docs",
+        "https://obscurify.ai/v1/models"
+      ],
+      "limits": {
+        "known": false,
+        "sourceUrls": [
+          "https://obscurify.ai/v1/models"
+        ],
+        "notes": "Model-dependent provider. Context length varies by model (listed per model at /v1/models); max output is not published, so PocketRisu uses a number input instead of a fixed-limit slider."
       }
     },
     "ollama-cloud": {
@@ -26282,6 +26571,224 @@
       "recommendedTokenizer": "tik",
       "profileStatus": "current"
     },
+    "obscurify:deepseek-v4-flash": {
+      "id": "obscurify:deepseek-v4-flash",
+      "version": 1,
+      "updatedAt": 1793197781033,
+      "displayName": "DeepSeek V4 Flash",
+      "displayNameI18n": {
+        "ko": "DeepSeek V4 Flash"
+      },
+      "providerBaseId": "obscurify",
+      "description": "DeepSeek V4 Flash via Obscurify.ai (deepseek/deepseek-v4-flash).",
+      "descriptionI18n": {
+        "ko": "DeepSeek V4 Flash (Obscurify.ai, deepseek/deepseek-v4-flash)."
+      },
+      "tags": [
+        "obscurify",
+        "deepseek"
+      ],
+      "sortOrder": 851,
+      "modelId": "deepseek/deepseek-v4-flash",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://obscurify.ai/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. Accepted values for this model: none, high, xhigh.",
+          "enum": [
+            {
+              "value": "none",
+              "label": "None"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "xhigh",
+              "label": "Extra High"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론 강도. 이 모델의 허용 값: none, high, xhigh."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://obscurify.ai/v1/models",
+        "https://obscurify.ai/model_cards"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Context window from obscurify.ai/v1/models (context_length). Max output is not published, so Max Tokens stays a number input.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 obscurify.ai/v1/models(context_length) 기준. 최대 출력은 공개되지 않아 Max Tokens는 숫자 입력으로 유지됩니다."
+        },
+        "sourceUrls": [
+          "https://obscurify.ai/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "deepseek",
+      "profileStatus": "current"
+    },
+    "obscurify:glm-53": {
+      "id": "obscurify:glm-53",
+      "version": 1,
+      "updatedAt": 1793197781033,
+      "displayName": "GLM 5.3",
+      "displayNameI18n": {
+        "ko": "GLM 5.3"
+      },
+      "providerBaseId": "obscurify",
+      "description": "GLM 5.3 via Obscurify.ai (z-ai/glm-5.3).",
+      "descriptionI18n": {
+        "ko": "GLM 5.3 (Obscurify.ai, z-ai/glm-5.3)."
+      },
+      "tags": [
+        "obscurify",
+        "glm"
+      ],
+      "sortOrder": 852,
+      "modelId": "z-ai/glm-5.3",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://obscurify.ai/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [
+        {
+          "key": "reasoning_effort",
+          "type": "string",
+          "label": "Reasoning Effort",
+          "description": "Reasoning depth. Accepted values for this model: low, high, max.",
+          "enum": [
+            {
+              "value": "low",
+              "label": "Low"
+            },
+            {
+              "value": "high",
+              "label": "High"
+            },
+            {
+              "value": "max",
+              "label": "Max"
+            }
+          ],
+          "mapsTo": {
+            "target": "body",
+            "path": "reasoning_effort"
+          },
+          "descriptionI18n": {
+            "ko": "추론 강도. 이 모델의 허용 값: low, high, max."
+          }
+        }
+      ],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming",
+        "reasoning",
+        "tools"
+      ],
+      "sourceUrls": [
+        "https://obscurify.ai/v1/models",
+        "https://obscurify.ai/model_cards"
+      ],
+      "limits": {
+        "known": true,
+        "contextWindowTokens": 1048576,
+        "notes": "Context window from obscurify.ai/v1/models (context_length). Max output is not published, so Max Tokens stays a number input.",
+        "notesI18n": {
+          "ko": "컨텍스트 길이는 obscurify.ai/v1/models(context_length) 기준. 최대 출력은 공개되지 않아 Max Tokens는 숫자 입력으로 유지됩니다."
+        },
+        "sourceUrls": [
+          "https://obscurify.ai/v1/models"
+        ]
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current"
+    },
+    "obscurify:openai-compatible": {
+      "id": "obscurify:openai-compatible",
+      "version": 1,
+      "displayName": "Obscurify.ai",
+      "providerBaseId": "obscurify",
+      "description": "Obscurify.ai privacy-focused gateway via OpenAI-compatible API. Enter any model ID listed at obscurify.ai/v1/models.",
+      "modelId": "",
+      "endpoint": {
+        "kind": "static",
+        "url": "https://obscurify.ai/v1/chat/completions"
+      },
+      "auth": {
+        "kind": "bearer",
+        "fields": [
+          "apiKey"
+        ]
+      },
+      "defaults": {},
+      "schema": [],
+      "uiSchema": {
+        "groups": [],
+        "fields": []
+      },
+      "capabilities": [
+        "streaming"
+      ],
+      "sourceUrls": [
+        "https://obscurify.ai/v1/models",
+        "https://obscurify.ai/api-docs"
+      ],
+      "tags": [
+        "obscurify",
+        "aggregator",
+        "openai-compatible"
+      ],
+      "sortOrder": 850,
+      "displayNameI18n": {
+        "ko": "Obscurify.ai"
+      },
+      "recommendedTokenizer": "tik",
+      "profileStatus": "current",
+      "updatedAt": 1793197781033,
+      "descriptionI18n": {
+        "ko": "Obscurify.ai 프라이버시 중심 게이트웨이 (OpenAI 호환 API). obscurify.ai/v1/models의 모델 ID를 입력하세요."
+      }
+    },
     "ollama:openai-compatible-local": {
       "id": "ollama:openai-compatible-local",
       "version": 1,
@@ -44202,6 +44709,7 @@
     "llmgateway": "6134edb79a18fe89715e146710ea182eed6168c295c6f04fad3a0fc1cf21eca6",
     "nanogpt": "6b98399abd6e081460fed6b80cd71734ae57ce07480b6446186c7e04a19fcab2",
     "neuralwatt": "97201fc832fde4ca694c1c86730ffc0bd14c24446fd2dbd344f6949f07af298b",
+    "obscurify": "fa32b755a487fb0ec43b3f42a728b55365b23bf031a6f4fda6901042ff16a10e",
     "ollama-cloud": "77e72d0d4387400f33f99f581e1a46963e5f597770d6c10e1db1abc6b254aa7d",
     "ollama": "14085c333a094845a29d74adf4b9cabece1b3278156e9bb3150f63cc3d1b1080",
     "openai-compatible": "f84a5303b07585f2b9b188f7e9686000b8d1e8c4c3336e38dd6d16222177332c",
@@ -44365,6 +44873,9 @@
     "neuralwatt:openai-compatible": "54f4863da2cb63d76cd1ea3a646c38e4e2e3970d475dc2498d92ef6a92eafd93",
     "neuralwatt:qwen35-397b": "cad358c5ac4a5d5492b2ec3aa3b5e388fed6b42cd4faf9e7a174ee8718e9be9d",
     "neuralwatt:qwen36-35b": "14359a100860889882bca101e578b8f91e29cb961b9165f9879f9074b3363a34",
+    "obscurify:deepseek-v4-flash": "78dea52b31187dda6ec1d1b492332daef64844dadbb346f625e4a0d781f53dd0",
+    "obscurify:glm-53": "30df5871c90b4ea29f3ce3bcdb5776cea70b128eaba62083112c2e5daea75679",
+    "obscurify:openai-compatible": "c64b24fde0a7a90bf45984db808853d7d9211a86f7f20640b8f8b35b2dae007a",
     "ollama:openai-compatible-local": "626020e05a68a54259f794002ab4672b4c2258f9bb934f7c3fd8e4ab3438983f",
     "ollama-cloud:deepseek-v4-flash": "c53c9d5957cab802ade4d7b03ef2e61c6ff46b4c9e1f339bb724b94fc6a6062a",
     "ollama-cloud:deepseek-v4-pro": "6ab15fddbd4caa57daf12e76203588142b141e54f297f66d18b58e7a9d39bf38",

@@ -1,6 +1,6 @@
 {
   "schemaVersion": 4,
-  "hash": "2aacc50e95cfd20c44bd7073de3ad83940b2e0f2d59cc2ea1eda641ca31a52cf",
+  "hash": "7084dca01414168412637a6e5bdd1cc25bdff69b0a7f0e62d09d7ce09ade346e",
   "baseProviders": [
     {
       "id": "anthropic-compatible",
@@ -61,6 +61,11 @@
       "id": "neuralwatt",
       "url": "base-providers/neuralwatt.json",
       "hash": "97201fc832fde4ca694c1c86730ffc0bd14c24446fd2dbd344f6949f07af298b"
+    },
+    {
+      "id": "obscurify",
+      "url": "base-providers/obscurify.json",
+      "hash": "fa32b755a487fb0ec43b3f42a728b55365b23bf031a6f4fda6901042ff16a10e"
     },
     {
       "id": "ollama-cloud",
@@ -868,6 +873,21 @@
       "id": "neuralwatt:qwen36-35b",
       "url": "profiles/neuralwatt/qwen36-35b.json",
       "hash": "14359a100860889882bca101e578b8f91e29cb961b9165f9879f9074b3363a34"
+    },
+    {
+      "id": "obscurify:deepseek-v4-flash",
+      "url": "profiles/obscurify/deepseek-v4-flash.json",
+      "hash": "78dea52b31187dda6ec1d1b492332daef64844dadbb346f625e4a0d781f53dd0"
+    },
+    {
+      "id": "obscurify:glm-53",
+      "url": "profiles/obscurify/glm-53.json",
+      "hash": "30df5871c90b4ea29f3ce3bcdb5776cea70b128eaba62083112c2e5daea75679"
+    },
+    {
+      "id": "obscurify:openai-compatible",
+      "url": "profiles/obscurify/openai-compatible.json",
+      "hash": "c64b24fde0a7a90bf45984db808853d7d9211a86f7f20640b8f8b35b2dae007a"
     },
     {
       "id": "ollama:openai-compatible-local",

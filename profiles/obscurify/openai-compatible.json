@@ -1,0 +1,46 @@
+{
+  "id": "obscurify:openai-compatible",
+  "version": 1,
+  "displayName": "Obscurify.ai",
+  "providerBaseId": "obscurify",
+  "description": "Obscurify.ai privacy-focused gateway via OpenAI-compatible API. Enter any model ID listed at obscurify.ai/v1/models.",
+  "modelId": "",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://obscurify.ai/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming"
+  ],
+  "sourceUrls": [
+    "https://obscurify.ai/v1/models",
+    "https://obscurify.ai/api-docs"
+  ],
+  "tags": [
+    "obscurify",
+    "aggregator",
+    "openai-compatible"
+  ],
+  "sortOrder": 850,
+  "displayNameI18n": {
+    "ko": "Obscurify.ai"
+  },
+  "recommendedTokenizer": "tik",
+  "profileStatus": "current",
+  "updatedAt": 1793197781033,
+  "descriptionI18n": {
+    "ko": "Obscurify.ai 프라이버시 중심 게이트웨이 (OpenAI 호환 API). obscurify.ai/v1/models의 모델 ID를 입력하세요."
+  }
+}

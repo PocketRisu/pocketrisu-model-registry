@@ -1,0 +1,86 @@
+{
+  "id": "obscurify:deepseek-v4-flash",
+  "version": 1,
+  "updatedAt": 1793197781033,
+  "displayName": "DeepSeek V4 Flash",
+  "displayNameI18n": {
+    "ko": "DeepSeek V4 Flash"
+  },
+  "providerBaseId": "obscurify",
+  "description": "DeepSeek V4 Flash via Obscurify.ai (deepseek/deepseek-v4-flash).",
+  "descriptionI18n": {
+    "ko": "DeepSeek V4 Flash (Obscurify.ai, deepseek/deepseek-v4-flash)."
+  },
+  "tags": [
+    "obscurify",
+    "deepseek"
+  ],
+  "sortOrder": 851,
+  "modelId": "deepseek/deepseek-v4-flash",
+  "endpoint": {
+    "kind": "static",
+    "url": "https://obscurify.ai/v1/chat/completions"
+  },
+  "auth": {
+    "kind": "bearer",
+    "fields": [
+      "apiKey"
+    ]
+  },
+  "defaults": {},
+  "schema": [
+    {
+      "key": "reasoning_effort",
+      "type": "string",
+      "label": "Reasoning Effort",
+      "description": "Reasoning depth. Accepted values for this model: none, high, xhigh.",
+      "enum": [
+        {
+          "value": "none",
+          "label": "None"
+        },
+        {
+          "value": "high",
+          "label": "High"
+        },
+        {
+          "value": "xhigh",
+          "label": "Extra High"
+        }
+      ],
+      "mapsTo": {
+        "target": "body",
+        "path": "reasoning_effort"
+      },
+      "descriptionI18n": {
+        "ko": "추론 강도. 이 모델의 허용 값: none, high, xhigh."
+      }
+    }
+  ],
+  "uiSchema": {
+    "groups": [],
+    "fields": []
+  },
+  "capabilities": [
+    "streaming",
+    "reasoning",
+    "tools"
+  ],
+  "sourceUrls": [
+    "https://obscurify.ai/v1/models",
+    "https://obscurify.ai/model_cards"
+  ],
+  "limits": {
+    "known": true,
+    "contextWindowTokens": 1048576,
+    "notes": "Context window from obscurify.ai/v1/models (context_length). Max output is not published, so Max Tokens stays a number input.",
+    "notesI18n": {
+      "ko": "컨텍스트 길이는 obscurify.ai/v1/models(context_length) 기준. 최대 출력은 공개되지 않아 Max Tokens는 숫자 입력으로 유지됩니다."
+    },
+    "sourceUrls": [
+      "https://obscurify.ai/v1/models"
+    ]
+  },
+  "recommendedTokenizer": "deepseek",
+  "profileStatus": "current"
+}
